@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>H5新特性——pageVisibility</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/plugins/pluginAll.css" rel="stylesheet" /><!--加载所有插件的css-->
+</head>
+<body>
+    <script src="../lib/jQuery/jquery-1.11.3.js"></script>
+    <script>
+        $(function(){
+            /**
+         * H5新特性——pageVisibility
+         * EventUtil.addHandler(document, "webkitvisibilitychange", handleVisibilityChange);
+         */
+            var callBack=function(){
+                alert("切换页面");
+            };
+        //    document.addEventListener("webkitvisibilitychange",callBack,false);
+           $(document).on("webkitvisibilitychange",function(){
+            alert("切换页面");
+           });
+        });
+    </script>
+</body>
+</html>

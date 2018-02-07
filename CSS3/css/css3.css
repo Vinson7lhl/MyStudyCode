@@ -1,0 +1,166 @@
+
+/*-----------------------------------------------------------------------------------------
+ z-index:在ie67不兼容的问题
+------------------------------------------------------------------------------------------*/
+.outer1{
+	position:relative;
+	width:200px;
+	height:200px;
+	background-color: #000000;
+	/*增加相同的层级，让outer1和2相同，从而规避ie67默认按照上下文层级来显示的问题*/
+	z-index: 1;
+}
+.inner1{
+	position:absolute;
+	width:100px;
+	height:100px;
+	background-color: #0000FF;
+	z-index: 1000;
+	bottom:50%;
+}
+.outer2{
+	position:relative;
+	width:200px;
+	height:200px;
+	background-color: #006400;
+	z-index: 2;
+}
+.inner2{
+	position:absolute;
+	width:100px;
+	height:100px;
+	background-color: #006CFF;
+	z-index: 99;
+	top:0px;
+}
+/*-----------------------------------------------------------------------------------------
+ flex弹性盒子：非常适合h5
+------------------------------------------------------------------------------------------*/
+.flex_test{
+	display: flex;
+	width:100%;
+	height:100px;
+}
+.flexContent{
+	display: block;
+	/*flex是一个复合属性：flex-grow:1(如果不写默认为1);flex-shrink:1(如果不写默认为1);flex-basis:默认为0%，如果写auto则按照本模块的宽度*/
+	flex:1;
+	height:100px;
+	
+}
+.flexContent:nth-child(1){
+	color:#ffffff;
+	background-color: #000000
+}
+.flexContent:nth-child(2){
+	background-color: #4081d6
+}
+.flexContent:nth-child(3){
+	background-color: #4e4e4e
+}
+.flexContent:nth-child(4){
+	background-color: #4081d6
+}
+/*-----------------------------------------------------------------------------------------
+	transform-style：flat | preserve-3d
+	flat：指定子元素位于此元素所在平面内
+	preserve-3d：指定子元素定位在三维空间内
+------------------------------------------------------------------------------------------*/
+.cube {
+    position: relative;
+    font-size: 80px;
+    width: 2em;
+    margin: 1.5em auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-30deg) rotateY(30deg);
+    transform: rotateX(-30deg) rotateY(30deg);
+}
+.cube > div {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background: rgba(0, 0, 0, .1);
+    border: 1px solid #999;
+    color: white;
+    text-align: center;
+    line-height: 2em;
+}
+.front {
+    -webkit-transform: translateZ(1em);
+    transform: translateZ(1em);
+}
+.top {
+    -webkit-transform: rotateX(90deg) translateZ(1em);
+    transform: rotateX(90deg) translateZ(1em);
+}
+.right {
+    -webkit-transform: rotateY(90deg) translateZ(1em);
+    transform: rotateY(90deg) translateZ(1em);
+}
+.left {
+    -webkit-transform: rotateY(-90deg) translateZ(1em);
+    transform: rotateY(-90deg) translateZ(1em);
+}
+.bottom {
+    -webkit-transform: rotateX(-90deg) translateZ(1em);
+    transform: rotateX(-90deg) translateZ(1em);
+}
+.back {
+    -webkit-transform: rotateY(-180deg) translateZ(1em);
+    transform: rotateY(-180deg) translateZ(1em);
+}
+
+
+.tabType{
+	display: inline-table;
+}
+
+/*
+	margin测试
+*/
+.marginContainer{
+	width:200px;
+	height:100px;
+	overflow: hidden;
+	background-color: #0000FF;
+}
+.marginContent{
+	width:50px;
+	height:50px;
+	background-color: #006CFF;
+	margin-bottom:-10%;
+}
+.marginContent2{
+	width:50px;
+	height:50px;
+	background-color: #222222;
+}
+
+/*-----------------------------------------------------------------------------------------
+	opacity和RGBA透明问题
+------------------------------------------------------------------------------------------*/
+.opClass{
+	width:100px;
+	height:100px;
+	/* background-color: #000000;  */
+	/* opacity:0.5;*/
+	/* background: rgba(0, 0, 0, 0.5) */
+	/* filter:alpha(opacity=50); */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#7f000000,endColorstr=#7f000000)";  
+}
+.opContent{
+	width:50px;
+	height:50px;
+	background-color: #ffffff; 
+	/* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#ff000000,endColorstr=#ff000000)"; Filter for IE8     */
+	/* filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#256000000, endColorstr=#256000000); Filter for older IEs */
+}
+/*-----------------------------------------------------------------------------------------
+	行高
+------------------------------------------------------------------------------------------*/
+.height_demo{
+	height:20%;
+	width:100px;
+	border:1px solid #000000;
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1.顶层API</title>
+	<meta charset="utf-8">
+	<!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <style type="text/css">
+	.h1Style{
+		color: red;
+	}
+    </style>
+</head>
+<body>
+<script type="text/jsx">
+//1.React.createClass(Objsct) 创建一个组件类,使用render方法，返回组件dom节点 
+	/*
+	var MyComponent = React.createClass({  
+        render: function() {
+            return (<h1>Hello World</h1>);
+        }
+    });
+    React.render(<MyComponent />, document.querySelector("body"));
+	*/
+
+//2.React.createElement("标签元素","元素相关属性","元素内容或其他组件",...);
+	/*
+	var linl = React.createElement(
+			"a",
+			{className:"aStyle",href:"https://www.hao123.com/"},
+			"go react"
+	);
+	var MyComponent = React.createElement(
+            "h1",											  //定义标签
+            {className : "h1Style",id:"React","data-index":1},
+            //定义属性className：定义元素样式，id：定义元素id，data-index：自定义属性
+            "Hello, React!",                                   //元素内容
+			linl											   //嵌套其他组件
+    );
+    React.render(MyComponent,document.querySelector("body"));   
+	*/
+
+//3.React.createFactory("接收组件或原生dom对象");返回一个方法
+	/*
+	//创建子组件
+	var Component = React.createClass({
+    	render: function() {
+      		return (<h1>Hello, React!</h1>);
+    	}
+  	});
+  	var h1 = React.createFactory(Component),//转换jsx，返回设置该元素的方法
+  		reactH1 =  h1();//转换成reactElement 元素.通过jsx创建的元素，无法添加元素属性
+	//创建子组件
+  	var a = React.createFactory('a'),
+  		ReactElementA = a({id:"link",href:"https://www.hao123.com/"},"go react");
+	
+	//创建父组件	
+    var div = React.createFactory('div'),//转换元素名，返回设置该元素的方法
+    	ReactElementDiv = div({className:"h1Style"},reactH1,ReactElementA);
+
+  	React.render(
+    	ReactElementDiv, document.body
+  	);
+	*/
+
+//4.React.render(1.4以下才有) 或 ReactDOM.render(1.4以上才有);  返回当前主键的this对象
+	/*
+	var MyComponent = React.createClass({  
+        render: function() {
+        	console.log(this.props.index);//获取组件上的属性
+            return (<h1 className="h1Style">Hello World</h1>);
+        }
+    });
+    var h1 = React.render(<MyComponent index="1"/>, document.querySelector("body"),function(){
+    	console.log("组件渲染完成");
+    });
+	console.log(h1.props.index);//h1就是组件内的this
+	*/
+
+//5.React.unmountComponentAtNode();
+//如果在 container 内没有组件挂载，这个函数将什么都不做。
+//如果组件成功移除，则返回 true；如果没有组件被移除，则返回 false.
+	/*
+	var MyComponent = React.createClass({  
+        render: function() {
+            return (<h1 className="h1Style">Hello World</h1>);
+        }
+    });
+    React.render(<MyComponent/>, document.querySelector("body"));
+	setTimeout(function(){
+		var isUnmount = React.unmountComponentAtNode(document.body);//移除组件
+		console.log(isUnmount);  //打印出true
+	}, 1000);
+	*/
+	
+//6.React.renderToString(react组件);
+//获取react组件返回的html内容
+	/*
+	var Component = React.createClass({
+		render: function() {
+			return this.props.a==1 ? <p>123</p> : null
+		}
+	});
+	var com = <Component a="1" />,
+		comHTML = React.renderToString(com);//获取组件编译后生成的html
+	console.log(comHTML);//<p data-reactid=".0" data-react-checksum="-2122315716">123</p>	
+	
+	//ps:把react的程序写在服务端，在服务端解析成元素html代码，通过 res.write(HTMLString) 同步输出到页面
+	//可以获得更快的页面加载速度，并且有利于搜索引擎抓取页面，方便做 SEO
+	*/
+
+//7.React.renderToStaticMarkup(react组件);
+//类似 React.renderToString ，但只生成纯粹的HTML标记字符串，不会包含类似 data-reactid 
+//之类的React属性，从而节省字节数：
+	/*	
+	var Component = React.createClass({
+		render: function() {
+			return this.props.a==1 ? <p>123</p> : null
+		}
+	});
+	var com = <Component a="1" />,
+		comHTML = React.renderToStaticMarkup(com);//获取单纯的元素标签及内容
+	console.log(comHTML);//<p>123</p>
+	*/
+
+//8.React.isValidElement();判断对象是否是一个 ReactElement。
+	/*
+	var Component = React.createClass({
+		render: function() {
+			return (<h1>hello world</h1>);
+		}
+	});
+	var com = <Component/>,
+		boo = React.isValidElement(com);
+	console.log(boo); //true : 是react组件。false不是react组件
+	*/
+
+//9.React.DOM
+//eact.DOM 运用 React.createElement 为 DOM 组件提供了方便的包装。该方式仅在未使用 JSX 的时候适用。例如，React.DOM.div(null, 'Hello World!')。
+	/*
+	var h1 = React.DOM.h1({className:"h1Style"}, 'Hello ',React.DOM.span(null, <em>WORLD!</em>));
+ 	React.render(h1, document.querySelector("body"));
+	*/
+
+//10.React.PropTypes;
+//用于react传入参数的数据类型校验,如果数据不复核校验规则，react侧不会渲染
+//更多校验看  http://reactjs.cn/react/docs/reusable-components.html
+	/*
+	var Component = React.createClass({
+		//在组件里通过propTypes这个对象内校验
+	 	propTypes : {
+	    	a : React.PropTypes.number.isRequired, //必须传入一个名为“a”、类型为number的props
+	    	callback : React.PropTypes.func   //如果传入了名为“callback”的props，其类型必须是函数
+	  	},
+	  	render : function() {
+	    	return this.props.a==1 ? <h1 onClick={this.props.callback}>123</h1> : null
+	  	}
+	});
+	var cb = function(){
+	  	alert('click!')
+	};
+	React.render(
+	  <Component a="1" callback={cb} />, document.body
+	);
+	*/
+
+
+//11.React.initializeTouchEvents(true);  在1.4无效还保存
+	/*
+	React.initializeTouchEvents(true);
+	var Component = React.createClass({
+	    render : function() {
+	    	return <p onTouchStart={this.props.callback}>hello world</p>
+	    }
+	});
+	var cb = function(e){
+	      alert('touch!'+e)
+	};
+	React.render(
+	      <Component callback={cb} />, document.body
+	);
+	*/
+
+
+
+//12.React.Children
+//React.Children.map(数组,回调);
+	/*
+	var Component = React.createClass({
+		render : function(){
+			var liArray = this.props.children;//获取组件内嵌套的子元素，返回嵌套元素的数组
+
+			var lis = React.Children.map(liArray , function(child, index){
+				return (index !== 0) && child; 
+			});
+
+			//其实在ul里是可以通过 {liArray} 解析获取组件的子元素的。这个例子组要用来简介React.Children.map();在遍历的时候，可以做一些过滤操作。
+			return (
+				<ul>
+					{lis}
+				</ul>
+			);
+		}
+	});
+	React.render(
+	  (
+		<Component>
+		  <li>0</li>
+		  <li>1</li>
+		  <li>2</li>
+		</Component>
+	  ), document.body
+	);
+	*/
+	
+
+//13.React.Children.forEach(数组,回调);
+	/*
+	var Hello = React.createClass({
+      	render: function() {
+      		var liArray = this.props.children;//获取组件内嵌套的子元素，返回嵌套元素的数组
+
+        	React.Children.forEach(liArray , function(child){//遍历子组件
+          		console.log(child.props);//获取除了key属性以外的所有属性
+          		console.log(child.key);	 //获取key属性
+        	});
+        	return (<div>Hello {this.props.name}</div>);//获取组件上定义的属性
+      	}
+    });
+    React.render(<Hello name="World">
+				  <li key="blah1" myProp="test1" id="id1"/>
+				  <li key="blah2" myProp="test2" id="id2"/>
+				  <li key="blah3" myProp="test3" id="id3"/>
+				</Hello>, document.body);
+	*/	
+
+
+//14.React.Children.count(数组,回调);
+//返回 children 当中的组件总数，和传递给 map 或者 forEach 的回调函数的调用次数一致。
+	
+	/*
+	var Component = React.createClass({
+      render : function() {
+      	var liArray = this.props.children;//获取组件内嵌套的子元素，返回嵌套元素的数组
+        var nums = React.Children.count( liArray );//返回数组长度
+        return (<ul>
+              		<li>一共有{nums}个子元素</li> 
+	              	{liArray}
+	            </ul>)
+      }
+    });
+    React.render(
+		(
+			<Component>
+			  <li>0</li>
+			  <li>1</li>
+			  <li>2</li>
+			</Component>
+		), document.body
+    )
+	*/
+
+//15.React.Children.only(数组);
+//返回组件元素仅有的一个子元素，或子组件。如果有多个会报错。
+	/*
+	var Hello = React.createClass({
+      	render: function() {
+      		//返回组件元素仅有的一个子元素，或子组件。如果有多个会报错。
+			console.log( React.Children.only( this.props.children ) );
+        	return (<div>Hello { this.props.children}</div>);
+      	}
+    });
+    React.render(
+				<Hello name="World">
+				    <span>World</span>
+				</Hello>
+				, document.body);
+	*/
+
+
+</script>
+</body>
+</html>

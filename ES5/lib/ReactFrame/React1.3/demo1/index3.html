@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>虚拟dom,实现数据单向绑定</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <style>
+        #content{
+            color: red;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="content"></div>
+
+<!--使用jsx语法糖实现-->
+<script  type="text/jsx">
+    //获取初始时间
+    var t0 = new Date().getTime();
+
+    //16ms定时器
+    setInterval(function(){
+        //获取当前时间，计算已运行时长
+        var  t = new Date().getTime();
+        var  delta = t - t0;//得到时间差
+
+        //渲染到真实DOM
+        React.render(
+                <h1>{delta}</h1>,//定义组件模板。使用 {} + 变量量名读取数据
+                document.querySelector("#content")//要渲染到哪个地方
+        );
+    },16);
+</script>
+
+<!--使用虚拟dom实现-->
+<!--
+<script>
+    //获取初始时间
+    var t0 = new Date().getTime();
+
+    //16ms定时器
+    setInterval(function(){
+        //获取当前时间，计算已运行时长
+        var  t = new Date().getTime();
+        var  delta = t - t0;//得到时间差
+
+        //在虚拟DOM上创建元素
+        var el = React.createElement("p",null,delta);//把数据同步到视图
+
+        //渲染到真实DOM
+        React.render(el,document.querySelector("#content"));
+    },16);
+</script>
+-->
+</body>
+</html>

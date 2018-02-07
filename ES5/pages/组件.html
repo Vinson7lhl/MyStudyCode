@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>插件模块all</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/plugins/pluginAll.css" rel="stylesheet" /><!--加载所有插件的css-->
+    <style>
+        /*滚动模块*/
+        #outer{
+            width:200px;
+            overflow:hidden;
+            float:left;
+            white-space:nowrap;
+        }
+        #cppyInner{
+            float:left;
+        }
+        #copyInner ul li{
+            display: inline-block;
+        }
+        #inner{
+            float:left;
+        }
+        #inner ul li{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <div id="plugin01">
+        <ul>
+            <li>费德勒Num01</li>
+            <li>纳达尔Num02</li>
+            <li>德约科维奇Num03</li>
+            <li>穆雷Num04</li>
+            <li>玛利亚-莎拉波娃Num05</li>
+        </ul>
+    </div>
+
+
+    <div id="outer">
+        <div id="inner">
+            <ul>
+                <li>1111111111111111111111</li>
+                <li>2222222222222222222222</li>
+                <li>3333333333333333333333</li>
+            </ul>
+        </div>
+        <div id="copyInner"></div>
+    </div>
+
+
+    <script src="../lib/jQuery/jquery-1.11.3.js"></script>
+    <script src="../js/plugins/pluginAll.js"></script>
+</body>
+</html>

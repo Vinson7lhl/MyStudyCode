@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React 属性和状态详解</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <style>
+        #content{
+            color: red;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="content"></div>
+
+<!--使用jsx语法糖实现-->
+<script  type="text/jsx">
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        //设置组件状态
+        getInitialState : function(){
+            return { state : true};
+        },
+        //设置组件的默认属性
+        getDefaultProps: function () {
+            return {name: "Tom"};//当在使用组件的时候，在组件上设置了name属性，测设置的name属性会覆盖组件里默认定义的属性
+        },
+        render : function(){
+            return <h1>{this.props.name}</h1>;
+        }
+    });
+    var data="zhangshan";
+    var showNanem=function(){
+        return "王五";
+    };
+    var props = {
+        name:"zhangshan",
+        age:18
+    };
+    /*React.render(
+            //<EzSwitchComp name="zhangshan"></EzSwitchComp>,//1.通过属性名=属性值  的方式设置组件的属性。优先级高于设置通过getDefaultProps方法返回的属性
+            //<EzSwitchComp name={ data }></EzSwitchComp>,//2.通过表达式，给定义的属性名，设置属性值
+            //<EzSwitchComp name={ "Tom" }></EzSwitchComp>,//3.可以是一个求值表达式
+            //<EzSwitchComp name={[1,2,3]}></EzSwitchComp>,//4.可以是一个数组
+            //<EzSwitchComp name={data === "zhangshan" ? "zhangshan" : "lishi"}></EzSwitchComp>,//5.可以是表达式
+            //<EzSwitchComp name={ showNanem() }></EzSwitchComp>,//6.可以调用方法的返回值
+            //<EzSwitchComp { ...props }></EzSwitchComp>,//7.可以是对象的展开
+            document.querySelector("#content")
+    )*/
+    //8.使用渲染方法返回的组件实例，调用setProps方法设置属性。不建议使用
+    var instance = React.render(<EzSwitchComp></EzSwitchComp>,document.querySelector("#content"));
+    instance.setProps(props);
+</script>
+</body>
+</html>

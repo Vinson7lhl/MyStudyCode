@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Mixin</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <!--3.导入react-with-addons.js-->
+    <script src="../react-0.13.0/build/react-with-addons.js"></script>
+</head>
+<body>
+    <!--不适用Mixin实现双向绑定-->
+    <!--
+    <script type="text/jsx">
+        var BindingExample = React.createClass({
+            getInitialState: function() {
+                //定义初始化表单值得状态
+                return {
+                    text: '',
+                    content:''
+                }
+            },
+            //表单值发生改变的时候，调用该方法实现给初始化表单状态赋值
+            handleChange: function(name , event) {
+                //this.setState({text: event.target.value})//赋值语法
+                //因为要赋值的键是动态传过来的，所以就用了js中的对象[]这这种语法
+                var obj = {};
+                    obj[name] = event.target.value;//给传过来的键赋值
+                this.setState(obj);//赋值完毕，并设置更新状态
+            },
+            render: function() {
+                return  <div>
+                            <h1>实现双向绑定</h1>
+                            <input type="text" placeholder="请输入内容" onChange={this.handleChange.bind(this, 'text')} />
+                            <p>{this.state.text}</p>
+                            <br/>
+                            <input type="text" placeholder="请输入内容" onChange={this.handleChange.bind(this, 'content')} />
+                            <p>{this.state.content}</p>
+                        </div>
+            }
+        })
+        React.render(<BindingExample></BindingExample>, document.body);
+    </script>
+    -->
+
+
+    <!--使用Mixin实现双向绑定-->
+    <!--
+    <script type="text/jsx">
+        var BindingMixin = {
+            handleChange : function(key){
+                //var that = this;//this指向当前当前组件，也可以使用bind方法修改返回方法内this指向当前的组件
+                var newState = {};
+                return function (event){
+                        newState[key] = event.target.value;
+                    this.setState(newState);
+                }.bind(this);
+            }
+        };
+        var BindingExample = React.createClass({
+            mixins:[BindingMixin],
+            getInitialState: function() {
+                //定义初始化表单值得状态
+                return {
+                    text: '',
+                    content:'',
+                    age:''
+                }
+            },
+            render: function() {
+                //就实现了添加无数的表单，并可以为一个对象赋值功能。真的好赞啊
+                return  <div>
+                            <h1>实现双向绑定</h1>
+                            <input type="text" placeholder="请输入内容" onChange={this.handleChange('text')} />
+                            <p>{this.state.text}</p>
+                            <br/>
+                            <input type="text" placeholder="请输入内容" onChange={this.handleChange('content')} />
+                            <p>{this.state.content}</p>
+                            <br/>
+                            <input type="text" placeholder="请输入内容" onChange={this.handleChange('age')} />
+                            <p>{this.state.age}</p>
+                        </div>
+                //this.handleChange('text') 调用该方法，就相当调用BindingMixin > handleChange方法
+            }
+        });
+        React.render(<BindingExample></BindingExample>, document.body);
+    </script>
+    -->
+
+
+
+
+    <!--使用React提供的 Mixin-->
+    <script type="text/jsx">
+        var BindingExample = React.createClass({
+            mixins:[React.addons.LinkedStateMixin],
+            getInitialState: function() {
+                //定义初始化表单值得状态
+                return {
+                    text: '',
+                    content:'',
+                    age:''
+                }
+            },
+            render: function() {
+                return  <div>
+                            <h1>实现双向绑定</h1>
+                            <input type="text" placeholder="请输入内容" valueLink={this.linkState('text')} />
+                            <p>{this.state.text}</p>
+                            <br/>
+                            <input type="text" placeholder="请输入内容" valueLink={this.linkState('content')} />
+                            <p>{this.state.content}</p>
+                            <br/>
+                            <input type="text" placeholder="请输入内容" valueLink={this.linkState('age')} />
+                            <p>{this.state.age}</p>
+                        </div>
+                //valueLink={this.linkState('text')}  使用React提供的方法来给初始化状态赋值
+            }
+        });
+        React.render(<BindingExample></BindingExample>, document.body);
+    </script>
+</body>
+</html>

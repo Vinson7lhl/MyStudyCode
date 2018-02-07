@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>表单详解</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        //使用defaultValue属性并把值写死形式叫：不可控组件
+        /*
+        var MyForm = React.createClass({
+             render: function () {
+                 return <input type="text" defaultValue="Hello World!" />;
+             }
+         });
+         */
+
+
+        //这样通过在组件上定义标记，在获取值得形式，不可控组件，把好多东西都写死了
+        var MyForm = React.createClass({ 
+            submitHandler: function (event) {
+                event.preventDefault();
+                //通过查找dom节点，获取表单的值
+                //this.refs.helloTo:在当前组件上查找helloTo引用 dom节点，在获取value
+                var helloTo = React.findDOMNode(this.refs.helloTo).value; 
+                alert(helloTo);
+            },
+            render: function () {
+                return <form onSubmit={this.submitHandler}> 
+                            <input ref="helloTo" type="text" defaultValue="Hello World!" />
+                            <br />
+                            <button type="submit">Speak</button>
+                        </form>;
+            } 
+        });
+        //这样写虽然获取了表单的值，但是不够优雅。好多地方都是写死的
+        React.render(<MyForm></MyForm>, document.body);
+    </script>
+</body>
+</html>

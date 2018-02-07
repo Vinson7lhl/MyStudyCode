@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>表单详解</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        //子组件
+        var Radio = React.createClass({ 
+            getInitialState: function () {
+                //定义子组件的初始化状态，为子组件的defaultValue值，也就是子组件的默认属性值
+                return {
+                    value: this.props.defaultValue//子组件的默认属性值  defaultValue="B"
+                }; 
+            },
+            //当单选框发生改变所触发的函数
+            handleChange: function (event) {
+                this.setState({
+                    value: event.target.value//把当前选择的值赋值给状态得value属性
+                }); 
+            },
+            render: function () {
+                var children = {};
+                var value = this.props.value || this.state.value;
+                //如果当前组件的属性没有value值，就把当前组件的状态value值，赋值给value变量。在往上看，当前组件的状态value值，就是组件的默认属性defaultValue的值
+
+                //this.props.children:就是获取组件内包裹的东西，返回一个数组
+                //使用React提供的React.Children.forEach遍历数组，得到每个孩子
+                React.Children.forEach(this.props.children, function (child, i) {//child：为每个孩子。i：孩子的索引
+                    var label = <label> 
+                                    <input type="radio" name={this.props.name} value={child.props.value} checked={child.props.value == value} onChange={this.handleChange} />
+                                    {child.props.children}
+                                    <br/>
+                                </label>;
+
+                    //this.props.name：就是获取<Radio ref="radio" name="my_radio" defaultValue="B">中定义的name值
+                    //child.props.value：就是获取 <option value="A">First Option</option>  中定义的value值
+                    //checked={child.props.value == value}：在遍历的判断每个孩子的value值是否等于定义的默认属性值，等于返回true，不等于返回false。
+
+                    //child.props.children:获取每个孩子内包裹的东西，这里包裹的是文本值
+                    children['label' + i] = label; //把遍历的每个label，保存到children这个对象中
+
+                }.bind(this));//这里修改遍历函数this的指向
+
+                return <span>{children}</span>;//把保存lable放到span中，然后一起渲染出来
+            }
+        });
+        //父组件
+        var MyForm = React.createClass({
+            //在父组件中，触发了submit事件
+            submitHandler: function (event) { 
+                event.preventDefault(); 
+                alert(this.refs.radio.state.value);//通过子组件上定义的组件引用，得到子组件，在获取子组件的状态value属性值
+            },
+            render: function () {
+                return  <form onSubmit={this.submitHandler}>
+
+                            <Radio ref="radio" name="my_radio" defaultValue="B">
+                                <option value="A">First Option</option>
+                                <option value="B">Second Option</option>
+                                <option value="C">Third Option</option>
+                            </Radio>
+
+                            <button type="submit">Speak</button>
+                        </form>;
+                /*
+                <option value="A">First Option</option>
+                <option value="B">Second Option</option>
+                <option value="C">Third Option</option>
+                为Radio组件的孩子，在组件中可以通过  this.props.children  获取，返回是一个孩子的数组，可以使用React提供的
+                React.Children.forEach遍历数组，得到每个孩子
+                */
+            }
+        });
+        React.render(<MyForm></MyForm>, document.body);
+    </script>
+</body>
+</html>

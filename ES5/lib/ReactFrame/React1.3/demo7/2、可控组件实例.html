@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>表单详解</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        var MyForm = React.createClass({
+            //定义初始化状态表单参数
+            getInitialState: function () {
+                return {
+                    helloTo: "Hello World!"
+                }; 
+            },
+            //每次表单发生改变，所调用的处理函数。重新设置表单的值。
+            handleChange: function (event) { 
+                this.setState({
+                    helloTo: event.target.value
+                });
+            },
+            //点击submit按钮触发事件的处理函数，获取状态值，如果状态值发生改变，就会同步到这里，这是由React实现的
+            submitHandler: function (event) {
+                event.preventDefault();
+                alert(this.state.helloTo); 
+            },
+            render: function () {
+                //通过访问状态值，设置表单参数。监听表单改变事件，每次表单的值发送改变，就调用对应处理方法
+                return <form onSubmit={this.submitHandler}>
+                            <input type="text" value={this.state.helloTo} onChange={this.handleChange} />
+                            <br />
+                            <button type="submit">Speak</button>
+                        </form>;
+                } 
+            });
+        React.render(<MyForm></MyForm>, document.body);
+    </script>
+</body>
+</html>

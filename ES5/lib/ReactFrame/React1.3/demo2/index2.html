@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+
+    <!--组件样式-->
+    <style>
+        @font-face {
+            font-family:"LED";
+            src:url("font/LED.eot?") format("eot"),
+            url("font/LED.woff") format("woff"),
+            url("font/LED.ttf") format("truetype"),
+            url("font/LED.svg#LED") format("svg");
+            font-weight:normal;
+            font-style:normal;
+        }
+        .ez-digi-clock{
+            font-family : LED;
+            font-size : 40px;
+            background : #70d355;
+            width: 300px;
+            height:60px;
+            line-height : 60px;
+            text-align : right;
+            padding : 10px;
+            letter-spacing : 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="content"></div>
+<!--
+Mounting/组件挂载相关:
+    componentWillMount
+    componentDidMount
+Updating/组件更新相关:
+    componentWillReceiveProps
+    shouldComponentUpdate
+    componentWillUpdate
+    componentDidUpdate
+Unmounting/组件移除相关:
+    componentWillUnmount
+-->
+<script type="text/jsx">
+    //获取并格式化当前时间
+    var _getTime =  function(){
+        var _=['00','01','02','03','04','05','06','07','08','09'],  //补零
+                d = new Date(),
+                h = d.getHours(),
+                m = d.getMinutes(),
+                s = d.getSeconds();
+
+        return [_[h]||h ,_[m]||m ,_[s]||s].join(":");
+    };
+
+    //组件定义
+    var EzDigiClockComp = React.createClass({
+        //设置状态变量初始值
+        getInitialState : function(){
+            console.log("设置初始化状态数据");
+            return {
+                time : _getTime()
+            };
+        },
+        //初次渲染后React执行此方法
+        componentDidMount : function(){
+            console.log("组件渲染后被调用");
+            //设置定时器
+            this.timer = setInterval(function(){
+                this.setState({time:_getTime()});//修改初始化数据
+            }.bind(this),1000);//使用bind方法修改this指针
+        },
+        //即将从DOM树移除时执行此方法
+        componentWillMount : function(){
+            console.log("组件渲染时被调用");
+            //删除定时器
+            clearInterval(this.timer);
+        },
+        componentWillReceiveProps : function(nextProps){
+            console.log("组件实例即将设置新属性时被调用");
+        },
+        shouldComponentUpdate : function(nextProps, nextState){
+            console.log("组件实例即将重新渲染时被调用");
+        },
+        componentWillUpdate:function(nextProps, nextState){
+            console.log("组件实例即将重新渲染时被调用");
+        },
+        componentDidUpdate:function(prevProps, prevState){
+            console.log("组件实例重新渲染后被调用");
+        },
+        componentWillUnmount:function(){
+            console.log("组件实例即将从DOM树移除时被调用");
+        },
+        render : function(){
+            return 	<div className="ez-digi-clock">
+                {this.state.time}
+            </div>;
+        }
+    });
+    //渲染
+    React.render(
+            <EzDigiClockComp />,
+            document.querySelector("#content"));
+
+</script>
+</body>
+</html>

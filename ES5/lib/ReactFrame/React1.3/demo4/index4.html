@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性和状态对比</title>
+    <!--
+    状态：既不和父组件相关，也不和子组件相关。只和组件本身相关。组件在运行时需要修改的数据就是状态
+    -->
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        //子组件
+        var Content = React.createClass({
+            render : function(){
+                return <p>hello</p>;
+            }
+        });
+        //父组件
+        var Comment = React.createClass({
+            getInitialState:function(){
+              return {
+                  names : ["Tim","John","Hank"],
+                  selsecName : ''
+              }
+            },
+            //每次修改下拉列表的值，修改状态里定义的变量
+            handleSelect:function(event){
+                this.setState({selsecName : event.target.value});//获取修改后的select值，并修改状态
+            },
+            render : function(){
+                var names = this.state.names;//获取初始化状态数据
+                var optionArray = [];
+                for(name in names){//便利数组
+                    optionArray.push(<option value={name}>{ names[name] }</option>);//拼接option到数组
+                }
+                console.log(optionArray);
+                return <div>
+                            <select onChange={this.handleSelect}>
+                                {optionArray}
+                            </select>
+                            <Content></Content>
+                        </div>;
+            }
+        });
+        React.render(<Comment></Comment>,document.body);
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello, World</title>
+    <script src="../react-0.13.0/build/jquery.min.js"></script>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        //主要学习父组件修改了子组件的状态参数，触发了子组件运行中的函数
+        $(document).ready(
+            function() {
+                var style = {
+                    color: "red",
+                    border: "1px #000 solid",
+                };
+
+                //定义子组件
+                var HelloWorld = React.createClass({
+                    //父组件修改属性触发，可以 修改新属性，修改状态。修改之前触发。newProps:为修改后新的默认属性
+                    componentWillReceiveProps: function (newProps) {
+                        console.log("componentWillReceiveProps 1");
+                        console.log(newProps);//是一个对象
+                    },
+                    //英文意思：组件是否可以更新，返回布尔值，返回false会 阻止 render 方法调用更新，后面的三个函数都不会执行
+                    shouldComponentUpdate: function () {
+                        console.log("shouldComponentUpdate 2");
+                        return true;
+                    },
+                    //和初始化函数差不多，但  不能修改状态和属性
+                    componentWillUpdate: function () {
+                        console.log("componentWillUpdate 3");
+                    },
+                    //只能访问this.props:访问属性和this.state:访问状态，只是一个顶层组件，不允许修改修改状态和DOM输出
+                    //render方法的返回值只能是一个组件的dom
+                    render: function () { //第一次刷新页面调用
+                        console.log("render 4");
+                        return <p>Hello, {this.props.name ? this.props.name : "World"}</p>;
+                        //this.props.name  用来获取组件的默认属性，默认属性有getDefaultProps方法返回的值,
+                        // 和 <HelloWorld name="zhangshan"></HelloWorld>  组件上定义的属性属性值
+                    },
+                    //和初始化的状态相同， 可以修改dom
+                    componentDidUpdate: function() {
+                        $(React.findDOMNode(this)).append("surprise!");
+                    }
+                });
+
+
+                //定义父组件
+                var HelloUniverse = React.createClass({
+                    //设置初始化状态
+                    getInitialState: function () {
+                        return {name: ''};
+                    },
+                    //该方法实现每次修改表单的值，就设置初始化返回的状态
+                    handleChange: function (event) {
+                        console.log(event.target.value);//获取表单每次修改的值
+                        this.setState({name: event.target.value});//设置初始化返回的状态，然后会自动调用render函数
+                    },
+                    render: function () {
+                        return <div>
+                                    <HelloWorld name={this.state.name}></HelloWorld>
+                                    <br/>
+                                    <input type="text" onChange={this.handleChange} />
+                                </div>
+                        //<HelloWorld name={this.state.name}></HelloWorld>  把修改后的状态赋值给子组件的默认属性name
+                    }
+                });
+                React.render(<div style={style}><HelloUniverse></HelloUniverse></div>, document.body);
+            }
+        );
+    </script>
+</body>
+</html>

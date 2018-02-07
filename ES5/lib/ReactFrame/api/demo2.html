@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2.组件 API</title>
+	<meta charset="utf-8">
+	<!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+	<script src="../react-0.13.0/build/jquery.min.js"></script>
+    <style type="text/css">
+	.h1Style{
+		color: red;
+	}
+	.h2Style{
+		color: #ccc;
+	}
+    </style>
+</head>
+<body>
+
+<script type="text/jsx">
+//ReactComponent  react组件
+//1.setState(object nextState[, function callback])
+
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        getInitialState : function(){
+            return {
+				class : "h1Style",
+				id:"h1"
+			};
+        },
+        Click : function(){
+			//1.设置状态值。并同步到视图            
+			this.setState({class : "h2Style"},function(){
+				console.log(this.state);//Object {class: "h2Style", id: "h1"}
+			}.bind(this));
+			
+			
+			//2.替换状态值，但是会删除之前所有已存在的 state 键
+			/*
+			this.replaceState({class : "h2Style"},function(){
+				console.log(this.state);//Object {class: "h2Style"}
+			}.bind(this));
+			*/
+			
+			//3.不是特别明白该方法在什么场景下使用。该方法会自动执行
+			/*
+			this.forceUpdate(function(){
+				console.log("组件渲染完成调用");
+			});
+			*/
+			
+			//4.把当前组件转换成原生dom
+			/*
+			var dom = React.findDOMNode(this);//把当前组件转换成原生dom
+			console.log(dom);
+			*/
+			
+			
+        },
+        render : function(){
+            return (
+                <div>
+					<h1 className={this.state.class} onClick={this.Click}>{this.state.class}</h1>
+                </div>
+            );
+        }
+    });
+    React.render(<EzSwitchComp/>,document.body);
+</script>
+
+
+<!--
+<script  type="text/jsx">
+	//5.this.isMounted();判断组件是否渲染完毕
+	var UserGist = React.createClass({ 
+		getInitialState: function() {
+			return {
+				username:'',
+				lastGistUrl:''
+			};
+		},
+		componentDidMount: function() {
+			$.get(this.props.source, function(result) {//ajax获取数据
+				var lastGist = result[0];
+				if(this.isMounted()) {//判断组件是否渲染完毕
+					this.setState({//设置数据
+						username:lastGist.owner.login,
+						lastGistUrl:lastGist.html_url
+					});
+				}
+				
+			}.bind(this));
+		},
+		render: function() {
+			return (
+				<div>
+					{this.state.username}'s last gist is 
+					<a href={this.state.lastGistUrl}>here</a>.
+				</div>
+			);
+		}
+	});
+
+	React.render(
+		<UserGist source="https://api.github.com/users/octocat/gists"/>,
+		document.body
+	);
+</script>
+-->
+
+<!--
+<script type = "text/jsx">
+	//6. React.setProps(props);
+	var i=1;
+    var EzSwitchComp = React.createClass({
+        //设置组件的默认属性
+        getDefaultProps: function () {
+            return {name: "Tom",id:0};//当在使用组件的时候，在组件上设置了name属性，测设置的name属性会覆盖组件里默认定义的属性
+        },
+        render : function(){
+			console.log(i++);
+			console.log(this.props);//第一次打印:Object {name: "Tom", id: 0}。  第二次打印:Object {name: "zhangshan", id: 0, age: 18}。第二次打印合并了第一次的值
+            return (<h1>{this.props.name}</h1>);
+        }
+    });
+    var props = {
+        name:"zhangshan",
+        age:18
+    };
+    var instance = React.render(<EzSwitchComp></EzSwitchComp>,document.body);
+	//使用返回的组件，调用setProps(object)方法渲染组件，会使组件渲染两次.在第二次渲染组件的时候，会合并默认存在的属性
+	setTimeout(function(){
+		instance.setProps(props,function(){
+			console.log("第二次渲染完成");
+		});
+	},1000);
+</script>
+-->
+
+<!--
+<script type = "text/jsx">
+	//7. React.replaceProps(props);
+	var i=1;
+    var EzSwitchComp = React.createClass({
+        //设置组件的默认属性
+        getDefaultProps: function () {
+            return {name: "Tom",id:0};//当在使用组件的时候，在组件上设置了name属性，测设置的name属性会覆盖组件里默认定义的属性
+        },
+        render : function(){
+			console.log(i++);
+			console.log(this.props);//第一次打印:Object {name: "Tom", id: 0}   第二次打印:Object {name: "zhangshan", age: 18}。第二次打印没有合并第一次的值
+            return (<h1>{this.props.name}</h1>);
+        }
+    });
+    var props = {
+        name:"zhangshan",
+        age:18
+    };
+    var instance = React.render(<EzSwitchComp></EzSwitchComp>,document.body);
+	//使用返回的组件，调用replaceProps(object)方法渲染组件，会使组件渲染两次.在第二次渲染组件的时候，不会合并默认存在的属性
+	setTimeout(function(){
+		instance.replaceProps(props);
+	},1000);
+</script>
+-->
+</body>
+</html>

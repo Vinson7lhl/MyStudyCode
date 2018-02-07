@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>表单详解</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        var MyForm = React.createClass({
+            //定义表单初始化默认值
+            getInitialState: function () {
+                return {
+                    username: "张三",
+                    gender: "woman",
+                    fruits:"orange",
+                    checked: true
+                }; 
+            },
+            //用户名发生改变时调用
+            handleUsernameChange: function (event) { 
+                this.setState({
+                    username: event.target.value
+                });
+            },
+            //选择性别调用
+            handleGenderChange: function (event) { 
+                this.setState({
+                    gender: event.target.value
+                });
+            },
+            //单选框获取值
+            handleRadioChange:function(event){
+                console.log(event.target.value);
+                this.setState({
+                    fruits: event.target.value
+                });
+            },
+            //选择用户名调用
+            handleCheckboxChange: function (event) { 
+                this.setState({
+                    checked: event.target.checked//复选框是通过event.target.checked来获取值得，比较特殊
+                });
+            },
+            //提交表单时调用
+            submitHandler: function (event) {
+                event.preventDefault();
+                console.log(this.state);
+            },
+            render: function () {
+                return <form onSubmit={this.submitHandler}>
+                            <table>
+                                <tr>
+                                    <td><label htmlFor="username">请输入用户名:</label></td>
+                                    <td><input id="username" type="text" value={this.state.username} onChange={this.handleUsernameChange} /></td>
+                                </tr>
+                                <tr>
+                                    <td>性别:</td>
+                                    <td>
+                                        <select value={this.state.gender} onChange={this.handleGenderChange}>
+                                            <option value="man">男</option>
+                                            <option value="woman">女</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>爱好:</td>
+
+                                    <td>
+                                        <input type="radio" id="apple" name="fruits" value="apple" checked={ this.state.fruits == "apple" } onChange={this.handleRadioChange}/>
+                                        <label htmlFor="apple">苹果</label>&nbsp;
+
+                                        <input type="radio" id="banana" name="fruits" value="banana" checked={ this.state.fruits == "banana" } onChange={this.handleRadioChange}/>
+                                        <label htmlFor="banana">香蕉</label>&nbsp;
+
+                                        <input type="radio" id="orange" name="fruits" value="orange" checked={ this.state.fruits == "orange" } onChange={this.handleRadioChange}/>
+                                        <label htmlFor="orange">橘子</label>&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label htmlFor="checkbox">同意用户协议</label></td>
+                                    <td><input id="checkbox" type="checkbox" value="agree" checked={this.state.checked} onChange={this.handleCheckboxChange} /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button type="submit">注册</button></td>
+                                </tr>
+                            </table>
+                        </form>;
+                //value={this.state.gender}  在select上通过value属性值设置，设置select默认选中的值
+                } 
+            });
+        React.render(<MyForm></MyForm>, document.body);
+    </script>
+</body>
+</html>

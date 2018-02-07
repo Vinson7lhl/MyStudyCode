@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>状态的含义和用法</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+
+</head>
+<body>
+<div id="content"></div>
+
+<script type="text/jsx">
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        //设置初始状态
+        getInitialState : function(){
+            return {name : ""};
+        },
+        //修改状态属性同步到视图
+        handleChange : function(event){
+            this.setState({name : event.target.value});//使用setState方法设置初始化返回的数据
+        },
+        render : function(){
+            return <div>
+                        <p>{this.state.name}</p>
+                        <input type="text" onChange={this.handleChange}/>
+                    </div>;
+        }
+    });
+    //渲染
+    React.render(
+            <EzSwitchComp/>,
+            document.querySelector("#content"));
+</script>
+
+</body>
+</html>

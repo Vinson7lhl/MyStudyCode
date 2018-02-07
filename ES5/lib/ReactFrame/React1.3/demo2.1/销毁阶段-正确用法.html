@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello, World</title>
+    <script src="../react-0.13.0/build/jquery.min.js"></script>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        var style = {
+            color: "red",
+            border: "1px #000 solid",
+        };
+
+        //定义子组件
+        var HelloWorld = React.createClass({
+            render: function () { 
+                console.log("render 4");
+                return <p>Hello, {this.props.name ? this.props.name : "World"}</p>;
+            },
+            //在删除组件之前进行的清理操作，比如计时器和事件监听器
+            componentWillUnmount: function() {
+                console.log("组件被删除了!");
+            }
+        });
+
+        //定义父组件
+        var HelloUniverse = React.createClass({
+            getInitialState: function () {
+                return {name: ''};
+            },
+            handleChange: function (event) {                
+                if (event.target.value == "123") {
+                    var element = document.body;//要删除的组件，必须是装载时用得节点。一个独立的dom元素
+                    //删除body内的组件
+                    React.unmountComponentAtNode(element);
+                    return;//使用return 跳过setState方法，后面的函数都不执行了
+                }
+                this.setState({name: event.target.value});
+            },
+            render: function () {
+                return <div>
+                            <HelloWorld name={this.state.name}></HelloWorld>
+                            <br/>
+                            <input type="text" onChange={this.handleChange} />
+                        </div>
+            }
+        });
+        React.render(<div style={style}><HelloUniverse></HelloUniverse></div>, document.body);
+    </script>
+</body>
+</html>

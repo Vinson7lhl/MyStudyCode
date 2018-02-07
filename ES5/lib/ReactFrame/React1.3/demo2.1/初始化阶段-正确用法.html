@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello, World</title>
+    <script src="../react-0.13.0/build/jquery.min.js"></script>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        $(document).ready(
+            function() {
+                var count = 0;
+                var style = {
+                    color: "red",
+                    border: "1px #000 solid",
+                };
+                //定义组件
+                var HelloWorld = React.createClass({
+                    //组件的第一个实例被初始化的时候才会调用getDefaultProps。react会把返回的结果保存起来，后面的实例默认属性都是这一个共享的结果
+                    //方法只调用一次，实例之间共享引用
+                    //处理的是属性
+                    getDefaultProps: function () {
+                        console.log("getDefaultProps, 1");
+                        return {name: "Tom"};//返回引用类型的数据
+                    },
+                    //初始化每个实例特有的状态，每次创建组件都会调用一次
+                    //处理的是状态
+                    getInitialState: function () {
+                        console.log("getInitialState, 2");
+                        return {myCount: count++,//count的值每次都不一样
+                            ready: false};//必须返回对象或者null
+                    },
+                    //render方法之前最后一次修改状态的机会，每次创建组件都会调用一次
+                    componentWillMount: function () {
+                        console.log("componentWillMount, 3");
+                        this.setState({ready: true});
+                    },
+                    //只能访问this.props:访问属性和this.state:访问状态，只是一个顶层组件，不允许修改修改状态和DOM输出
+                    //render方法的返回值只能是一个组件的dom
+                    render: function () {
+                        console.log("render, 4");
+                        return <p ref="childp">
+                                    Hello,
+                                    {this.props.name ? this.props.name : "World"}<br/>
+                                    {"" + this.state.ready}
+                                    {this.state.myCount}
+                                </p>;
+                    },
+                    //该方法会在render函数正在的把组件的dom元素渲染到页面，用户可以看见触发，可以修改dom结构
+                    componentDidMount: function () {
+                        console.log("componentDidMount, 5");
+                        $(React.findDOMNode(this)).append("surprise!");//修改操作dom结构
+                        //React.findDOMNode(this)  this指向实例的本身，React.findDOMNode方法把实例转换成dom节点，也就是render方法返回的dom元素
+                    }
+                });
+
+                //我们可以看见，我们的组件，被渲染了两次
+                React.render(
+                        <div style={style}>
+                            <HelloWorld></HelloWorld>
+                            <br/>
+                            <HelloWorld></HelloWorld>
+                        </div>
+                        , document.body);
+            }
+        );
+    </script>
+</body>
+</html>

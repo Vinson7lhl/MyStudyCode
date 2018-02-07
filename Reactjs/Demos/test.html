@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+  </head>
+  <body>
+    <!--demo01-->
+    <div id="example1"></div>
+    <!--demo02-->
+    <div id="example2"></div>
+    <!--demo01-->
+    <div id="example3"></div>
+    <!--demo01-->
+    <div id="example4"></div>
+    <!--demo01-->
+    <div id="example5"></div>
+    <!--demo01-->
+    <div id="example6"></div>
+    <!--demo01-->
+    <div id="example7"></div>
+    <!--demo01-->
+    <div id="example8"></div>
+    <!--demo01-->
+    <div id="example9"></div>
+    <!--demo01-->
+    <div id="example10"></div>
+    <!--demo01-->
+    <div id="example11"></div>
+    <!--demo01-->
+    <div id="example12"></div>
+    <!--demo01-->
+    <div id="example13"></div>
+    <!--demo01-->
+    <div id="example14"></div>
+    <!--
+      此处必须写type="text/babel"，因为script标签中的代码是JSX语法，不是标准的JavaScript语法，所以，必须加上此标签
+      JSX语法说到底就是在html中混着JavaScript
+      render：着色的意思
+    -->
+
+<!--/////////////////////////////////////////////////demo1////////////////////////////////////////////////////////-->
+    <script type="text/babel">
+      /*
+            绘制语法：ReactDOM.render(唯一顶级节点的html,插入位置);
+
+            如果插入的html代码是：
+              <span>哈哈哈</span>
+              <span>呵呵呵</span>
+            则会报错；
+            也就是说，只有一个顶级父节点！如下，证明确实只能嵌套
+        */
+      ReactDOM.render(
+        <span>这是demo1</span>,
+        document.getElementById("example1")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo2////////////////////////////////////////////////////////-->
+    <script type="text/babel">
+      /*
+        遍历数组
+        此处用的是数组的原生map，返回一个新的数组，所以一下代码其实是在<div></div>中插入了一个数组
+      */
+      var name=["李宏磊1","李宏磊2","李宏磊3"];
+      ReactDOM.render(
+        <div>
+          {
+            name.map(function(value){
+              return <p>遍历名字：{value}</p>;
+            })
+          }
+        </div>,
+        document.getElementById("example2")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo3////////////////////////////////////////////////////////-->
+    <script type="text/babel">
+    /*
+      直接输出数组，相当于遍历了，和上面的例子很像
+    */
+      var htmlArray=[<span>span1</span>,<span>span2</span>,<span>span3</span>];
+      ReactDOM.render(
+        <div>{htmlArray}</div>,
+        document.getElementById("example3")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo4////////////////////////////////////////////////////////-->
+    <script type="text/babel">
+      var myName={name:"李宏磊"};
+      /*创建组件HelloWorld，首字母必须大写，this.props."组件特姓" 会访问组件的特性*/
+
+      var HelloWorld=React.createClass({
+        render:function(){
+          return <div>hell world,这是第一个组件模块，作者是：{this.props.writer}</div>
+        }
+      });
+      ReactDOM.render(
+        <HelloWorld writer={myName.name}/>,
+        document.getElementById("example4")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo5////////////////////////////////////////////////////////-->
+    <script type="text/babel">
+
+      /*创建组件，主要是遍历了虚拟组件中的子节点，并将子节点插入到真实的dom节点中*/
+
+      var ULElement=React.createClass({
+        render:function(){
+          return (
+            <ul>
+              {
+                React.Children.map(this.props.children,function(child_node){
+                  return <li>{child_node}</li>;
+                })
+              }
+            </ul>
+          )
+        }
+      });
+      ReactDOM.render(
+        <ULElement>
+          <span>li-1</span>
+          <span>li-2</span>
+          <span>li-3</span>
+        </ULElement>,
+        document.getElementById("example5")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo6////////////////////////////////////////////////////////-->
+    <script type="text/babel">
+
+      /*主要是通过组件的propTypes判断组件某个属性的 ---验证机制*/
+      /*
+        写成数值型会有警告：var myData=111;
+        Warning: Failed propType: Invalid prop `myDataString` of type `number` supplied to `ValidateProps`, expected `string`.
+        optionalArray: React.PropTypes.array,
+        optionalBool: React.PropTypes.bool,
+        optionalFunc: React.PropTypes.func,
+        optionalNumber: React.PropTypes.number,
+        optionalObject: React.PropTypes.object,
+        optionalString: React.PropTypes.string,
+      */
+
+      var myData="111";
+      var ValidateProps=React.createClass({
+        propTypes:{
+          myDataString:React.PropTypes.string.isRequired
+        },
+        render:function(){
+          return <p>验证组件的特性——{myData}</p>
+        }
+      });
+      ReactDOM.render(
+        <ValidateProps myDataString={myData}/>,
+        document.getElementById("example6")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo7///////////////////////////////////////////////////////-->
+    <script type="text/babel">
+
+        /*对真正的节点进行控制，即组件中的return的内容*/
+
+        var RealElement=React.createClass({
+          render:function(){
+            return (
+                      <div className="rel_Ele">
+                        <input type="text" ref="myTextInput" />
+                        <input type="button" value="Focus the text input" onClick={this.handleClick} />
+                      </div>
+                    );
+          },
+          handleClick:function(){
+            this.refs.myTextInput.focus();
+          }
+        });
+        ReactDOM.render(
+          <RealElement/>,
+          document.getElementById("example7")
+        );
+    </script>
+
+<!--/////////////////////////////////////////////////demo8///////////////////////////////////////////////////////-->   
+    <script type="text/babel">
+      /*初始化——状态机this.state.状态变量*/
+
+      var StateElement=React.createClass({
+        /*初始化变量的函数（此函数是固定，非自定义的）*/
+        getInitialState:function(){
+          return {liked:false};
+        },
+        changeClick:function(){
+          this.setState({liked:!this.state.liked});
+        },
+        render:function(){
+          var text=this.state.liked?"喜欢":"不喜欢";
+          /*或者：return <p onClick={this.changeClick}>我“{this.state.liked?"喜欢":"不喜欢"}”这本书！</p>;*/
+          return <p onClick={this.changeClick}>我“{text}”这本书！</p>;
+        }
+      });
+      ReactDOM.render(
+        <StateElement/>,
+        document.getElementById("example8")
+      );
+    </script>
+
+<!--/////////////////////////////////////////////////demo9///////////////////////////////////////////////////////--> 
+    <script type="text/babel">
+      /*
+        初始化——状态机this.state.状态变量
+        和上一个不同之处很明显在于这次是监听<input>标签，仅仅通过{value值}就可以动态进行及时渲染
+        如果是以前写过的：微博限制字符个数，动态修改——一定是在绑定的change事件里面写“动态修改某个dom”并渲染
+        而这次在react中只要写{input_value}的地方就会动态修改
+      */
+
+      var InputValueElement=React.createClass({
+        getInitialState:function(){
+          return {input_value:"初始化值"};
+        },
+        getInputValue:function(event){
+          this.setState({input_value:event.target.value});
+        },
+        render:function(){
+          return (
+                <div className="inputValue">
+                  <input type="text" value={this.state.input_value} onChange={this.getInputValue}/>
+                  <p>动态渲染获取input的value值：{this.state.input_value}</p>
+                </div>              
+          );
+        }
+      });
+      ReactDOM.render(
+        <InputValueElement/>,
+        document.getElementById("example9")
+      );
+    </script>
+<!--/////////////////////////////////////////////////demo10///////////////////////////////////////////////////////--> 
+    <script type="text/babel">
+      /*
+        状态机：3个状态：Mounting-插入组件；Updating-重新被渲染；Unmounting：移除组件
+        每个状态有都有两种处理函数：前-后（除了最后的移除，只有前）
+
+        --componentWillMount:function(){}                                       ---即将进行渲染
+        --componentDidMount:function(){}                                        ---渲染完毕后
+
+        --componentWillUpdate(object nextProps, object nextState)               ---即将重新渲染
+        --componentDidUpdate(object prevProps, object prevState)                ---重新渲染完毕渲染
+
+        --componentWillUnmount:function(){}
+    */
+
+
+
+
+      var StateCheck=React.createClass({
+
+        componentWillMount:function(){
+          console.log("即将进行render渲染");
+        },
+        componentDidMount:function(){
+          console.log("已经完成渲染");
+          console.log("真实的DOM为："+this.refs.thisRef.innerText);
+        },
+        componentWillUpdate:function(){
+          console.log("即将重新渲染");
+        },
+        componentDidUpdate:function(){
+          console.log("重新渲染完毕");
+          /*console.log("正式的DOM为："+this.getDOMNode());*/
+        },
+        componentWillUnmount:function(){
+          console.log("组件即将被销毁");
+        },
+        getDefaultProps:function(){
+          return {classValue:"类属性-公用"};
+        },
+        getInitialState:function(){
+          return {stateValue:"旧数据"}
+        },
+        changeState:function(){
+          this.setState({stateValue:"新数据"});
+        },
+        render:function(){
+          return (  
+                    <div>
+                      <p onClick={this.changeState}>这里是渲染模块：{this.state.stateValue};</p>
+                      <p ref="thisRef">类属性classValue：{this.props.classValue}</p>
+                    </div>          
+                  );
+        }
+      });
+      ReactDOM.render(
+        <StateCheck/>,
+        document.getElementById("example10")
+      );
+    </script>
+<!--/////////////////////////////////////////////////demo11///////////////////////////////////////////////////////--> 
+<script type="text/babel">
+  var OutterCom=React.createClass({
+    render:function(){
+      return (
+      <div>
+          <InnerCom1/>   
+          <InnerCom2/> 
+      </div>
+      )
+    }
+  });
+  var InnerCom1=React.createClass({
+    render:function(){
+      return <div id="inner_com1" className="innerCom">这是子组件1</div>
+    }
+  });
+  var InnerCom2=React.createClass({
+    render:function(){
+      return <div id="inner_com2" className="innerCom">这是子组件2</div>
+    }
+  });
+  ReactDOM.render(
+    <OutterCom/>,
+    document.getElementById("example11")
+  );
+</script>
+  </body>
+</html>

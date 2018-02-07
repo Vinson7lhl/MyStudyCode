@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>ReactRouter</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+
+    <script src="../react-0.13.0/build/react-with-addons.min.js"></script>
+    <script src="../react-0.13.0/build/ReactRouter.min.js"></script>
+	<!--  @import "compass/css3"; -->
+    <style>
+		body {
+			font-family: 'Open Sans', sans-sarif;
+			padding: 25px;
+			text-align: center;
+		}
+		.container {
+			text-align: center;
+			vertical-align: middle;
+			background-color:#ccc;
+		}
+		.animation-container {
+			display: inline-block;
+		}
+		.item {
+			background-color: #fff;
+			width: 400px;
+			text-align: center;
+			padding: 10px 5px;
+			margin-top: 10px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		.example-enter {
+			opacity: 0;
+			transform:   translate(-250px,0);
+			transform: translate3d(-250px,0,0);
+		}
+		.example-enter.example-enter-active {
+			opacity: 1;
+			transform:   translate(0,0);
+			transform: translate3d(0,0,0);
+			transition-property: transform, opacity;
+			transition-duration: 300ms;
+			transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+		}
+		.example-leave {
+			opacity: 1;
+			transform:   translate(0,0,0);
+			transform: translate3d(0,0,0);
+			transition-property: transform, opacity;
+			transition-duration: 300ms;
+			transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+		}
+		.example-leave.example-leave-active {
+			opacity: 0;
+			transform:   translate(250px,0);
+			transform: translate3d(250px,0,0);
+		}
+    </style>
+</head>
+<body>
+
+<script type="text/jsx">
+//导入react动画
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+console.log(ReactCSSTransitionGroup);
+var items = ['Click', 'The', 'Rows', 'To', 'Transition', 'Them', 'Out'];
+
+var Container = React.createClass({
+	//初始化状态数据
+	getInitialState: function() {
+		return {
+			items: items
+		}
+	},
+	
+	render: function() {
+		// component="div":用什么标签来分成。主要用来装使用动画的元素
+		return (
+			<div className="container">
+				<ReactCSSTransitionGroup transitionName="example" component="div" className="animation-container">
+					{this.getItems()}
+				</ReactCSSTransitionGroup>
+			</div>
+		);
+	},
+	//遍历数组
+	getItems: function() {
+		return this.state.items.map(function(item, i) {//把数值每个元素，作为内容。索引值作为遍历元素的key
+			return (
+				<div key={i} onClick={this.removeItem.bind(this, i)} className="item">
+					{item}
+				</div>
+			);	
+		}.bind(this));	
+	},
+	//删除数组
+	removeItem: function(i) {
+		var newItems = this.state.items;
+		newItems.splice(i, 1);//删除指定索引的数组
+		this.setState({//重新设置
+			items: newItems
+		})
+	}
+});
+React.render(<Container/>, document.body);
+</script>
+</body>
+</html>

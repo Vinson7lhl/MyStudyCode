@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>父子关系通信</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        //子组件 表单提交
+        var SubmitForm = React.createClass({
+            render:function(){
+                return <input type="submit" value="提交" onClick={this.props.handleClick}/>;
+            }
+        });
+
+        //子组件   GenderSelect:性别选择
+        var GenderSelect = React.createClass({
+            render: function() {
+                //给select绑定Change事件，调用的是子组件上属性的属性值上绑定的方法。属性值又是父元素上定义的方法
+                return  <select onChange={this.props.handleSelect}>
+                            <option value="0">男</option>
+                            <option value="1">女</option>
+                        </select>
+            }
+        })
+        //父组组件   SignupForm:注册表单
+        var SignupForm = React.createClass({
+            //设置初始化状态
+            getInitialState: function() {
+                //设置3个对应表单的值
+                return {
+                    name: '',
+                    password: '',
+                    gender: ''
+                }
+            },
+            //父组件表单元素要调用的方法
+            handleChange: function(name, event) {//name参数的默认赋值就变成了"name"
+                var newState = {}
+                newState[name] = event.target.value
+                this.setState(newState)
+            },
+            //子组件表单元素要调用的方法
+            handleSelect: function(event) {
+                this.setState({gender: event.target.value})
+            },
+            //表单提交调用的方法
+            handleClick : function(event){
+                event.preventDefault();//阻止submit提交表单跳转
+                //表单校验
+                var sign = true;
+                //校验
+                if(this.state.name === ""){
+                    alert("请输入用户名");
+                    sign = false;
+                }
+                if(this.state.password === ""){
+                    alert("请输入密码");
+                    sign = false;
+                }
+                if(this.state.gender === ""){
+                    alert("请选择性别");
+                    sign = false;
+                }
+                //都校验成功
+                if(sign){
+                    alert("校验成功，可以提交");
+                    console.log(this.state);
+                }
+            },
+            render: function() {
+                //console.log(this.state)
+                return  <form>
+                            <input type="text" placeholder="请输入用户名" onChange={this.handleChange.bind(this, 'name')} />
+                            <br/>
+                            <input type="password" placeholder="请输入密码" onChange={this.handleChange.bind(this, 'password')} />
+                            <br/>
+                            <GenderSelect handleSelect={this.handleSelect}></GenderSelect>
+                            <br/>
+                            <SubmitForm handleClick={this.handleClick}></SubmitForm>
+                        </form>;
+                /*
+                 this.handleChange.bind();方法接收多个值。第一个值是修改调用函数内部this的指向。并自动传入event，event就是第二个参数
+                this.handleChange.bind(this, 'name'):给handleChange函数添加默认的参数，所接收的name参数值，就默认设置"name"值
+                this.handleChange.bind(this, 'password'):所接收的name参数值，就默认设置"password"值
+                这里有点不好理解：就是通过name属性，动态的改变要设置状态的值
+                */
+
+                /*
+                <GenderSelect handleSelect={this.handleSelect}></GenderSelect>
+                代码意思：把父组件上的handleSelect方法以子组件的默认属性的方式赋值给子组件。这样在组件里，就可以使用父组件的方法了。就实现了子父组件通信
+                */
+            }
+        })
+        React.render(<SignupForm></SignupForm>, document.body);
+    </script>
+</body>
+</html>

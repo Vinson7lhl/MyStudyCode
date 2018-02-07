@@ -1,0 +1,44 @@
+*{margin:0;padding:0;}
+body{font-size:14px;font-family:"Microsoft YaHei";}
+ul,li{list-style:none;}
+
+#tab{position:relative;}/*这里定义relative为的是后面的选项卡内容的absolute的定位，否则内容将会跑到左上角*/
+#tab .tabList ul li{
+	float:left;
+	background:#fefefe;
+	background:-moz-linear-gradient(top, #fefefe, #ededed);	
+	background:-o-linear-gradient(left top,left bottom, from(#fefefe), to(#ededed));
+	background:-webkit-gradient(linear,left top,left bottom, from(#fefefe), to(#ededed));
+	border:1px solid #ccc;
+	padding:5px 0;
+	width:100px;
+	text-align:center;
+	margin-left:-1px;
+	position:relative;
+	cursor:pointer;
+}
+#tab .tabCon{
+	position:absolute;
+	left:-1px;
+	top:30px;
+	border:1px solid #ccc;
+	border-top:none;
+	width:403px;
+	height:100px;
+}
+#tab .tabCon div{
+	padding:10px;
+	position:absolute;/*这里增加absolute为的是内容能够叠加在一起，否则会在同一行*/
+	/*这里有两种写法，意义是一样的，但是filter：alpha是为了IE浏览器，标准是opacity*/
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+/*选项卡和对应的内容被选中时的样式*/
+#tab .tabList li.cur{
+	border-bottom:none;
+	background:#fff;
+}
+#tab .tabCon div.cur{
+	opacity:1;
+	filter:alpha(opacity=100);
+}

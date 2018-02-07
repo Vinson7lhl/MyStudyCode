@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/jsx">
+    var Ezxx = React.createClass({
+        render : function(){
+            return  (
+                <p>world</p>
+            )             
+        }
+    });
+
+    //组件定义
+    var EzLogig = React.createClass({
+        getInitialState : function(){
+          return {
+              title : "hello"
+          }
+        },
+        render : function(){
+            //循环组件输出
+            var array = [];
+            for(var i=0;i<10;i++){
+                array.push(<Ezxx key={i}/>);
+            }
+
+            return 	(
+                <div>
+                    <h1>{this.state.title}</h1>
+                    {{ array }}
+                </div>
+            )             
+        }
+    });
+    //渲染
+    var reactObj = React.render(<EzLogig/>,document.querySelector("#content"));
+    console.log(reactObj);//返回组件对象
+    reactObj.setState({title:"123"})
+</script>
+</body>
+</html>

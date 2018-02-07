@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>5.事件系统</title>
+	<meta charset="utf-8">
+	<!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+	<script src="../react-0.13.0/build/jquery.min.js"></script>
+	<style>
+		.highlight {
+			width:1000px;
+			position: relative;
+			margin-bottom: 14px;
+			border: none;
+			border-radius: 0;
+			overflow: auto;
+		}
+		.highlight pre {
+			padding: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			background-color: transparent;
+			border: 0;
+		}
+		.highlight pre code {
+			display: block;
+			background: none;
+			padding: 0;
+			font-size:18px;
+		}
+		.highlight pre code {
+			color: #637c84;
+		}
+		.highlight:after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			padding: 3px 7px;
+			font-size: 12px;
+			font-weight: bold;
+			color: #c2c0bc;
+			background-color: #f1ede4;
+			content: "Code";
+		}
+	</style>
+</head>
+<body>
+<h1>虚拟事件对象</h1>
+<div class="highlight">
+	<pre>
+		<code class="language-text" data-lang="text">
+			boolean bubbles
+			boolean cancelable
+			DOMEventTarget currentTarget
+			boolean defaultPrevented
+			number eventPhase
+			boolean isTrusted
+			DOMEvent nativeEvent
+			void preventDefault()
+			void stopPropagation()
+			DOMEventTarget target
+			number timeStamp
+			string type
+		</code>
+	</pre>
+</div>
+<div id="box1"></div>
+<script type="text/jsx">
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        onClick : function(e){   
+			//手动调用 e.stopPropagation() 或者 e.preventDefault()。
+			e.stopPropagation();//阻止事件冒泡
+			e.preventDefault();//阻止默认行为
+			console.log(e.bubbles);//是否冒泡  true，返回布尔值
+			console.log(e.cancelable);//是否可取消，返回布尔值
+			console.log(e.currentTarget);//获取当前点击对象的原生dom对象，返回 原生的dom对象
+			console.log(e.defaultPrevented);//是否阻止了默认行为，返回布尔值
+			console.log(e.eventPhase);//事件阶段，返回数值类型
+			console.log(e.isTrusted);//测量，返回布尔值
+			console.log(e.nativeEvent);//返回原生dom事件对象，包括了很多的事件信息
+			console.log(e.target);//获取当前点击对象的原生dom对象，返回 原生的dom对象
+			console.log(e.timeStamp);//返回事件的时间戳,数值类型
+			console.log(e.type);//获取事件的类型，返回字符串
+		},	
+        render : function(){
+            return (
+                <div>
+					<a onClick={this.onClick}  href="https://www.baidu.com/">去百度</a>
+                </div>
+            );
+        }
+    });
+    React.render(<EzSwitchComp/>,document.getElementById("box1"));
+</script>
+
+
+<h1>支持的事件</h1>
+<div class="highlight">
+	<pre>
+		<code class="language-text" data-lang="text">
+			React 标准化了事件对象，因此在不同的浏览器中都会有相同的属性。
+
+			如下的事件处理器在事件冒泡阶段触发。要在捕获阶段触发某个事件处理器，
+			在事件名字后面追加 Capture 字符串；例如，使用 onClickCapture 而不是 
+			onClick 来在捕获阶段处理点击事件。
+		</code>
+	</pre>
+</div>
+
+
+
+<h1>剪贴板事件。复制，剪切，粘贴</h1>
+<div class="highlight">
+	<pre>
+		<code class="language-text" data-lang="text">
+			事件名：
+				onCopy onCut onPaste
+			属性：
+				DOMDataTransfer clipboardData
+		</code>
+	</pre>
+</div>
+<div id="box2"></div>
+<script type="text/jsx">
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        Copy : function(e){ 
+			console.log(e.DOMDataTransfer);	//属性不被支持
+			console.log(e.clipboardData);//剪贴板数据			
+			console.log("复制");
+		},	
+		Cut : function(e){
+			console.log("剪切");
+		},
+		Paste : function(e){
+			console.log("粘贴");
+		},
+        render : function(){
+            return (
+                <div>
+					<a onCopy={this.Copy} onCut={this.Cut} href="javascript:void(0);">复制我</a><br/>
+					<input type="text" onPaste={this.Paste}/>
+                </div>
+            );
+        }
+    });
+    React.render(<EzSwitchComp/>,document.getElementById("box2"));
+</script>
+
+
+
+
+</body>
+</html>

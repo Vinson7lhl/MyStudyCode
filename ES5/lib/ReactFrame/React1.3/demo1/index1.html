@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <style>
+        .h1Style{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+<!--
+<script>
+    var e = React.createElement(
+            "h1",//定义标签
+            {className : "h1Style",id:"React","data-index":1},//定义属性
+            "Hello, React!"//便签内容
+    );
+    React.render(
+            e,//标签元素
+            document.getElementById('example')//要渲染到哪个地方
+    );
+</script>
+-->
+
+
+<script type="text/jsx">
+    //把html标签渲染到标签中
+    React.render(
+            <h1 className="h1Style" id="React" data-index="1">Hello, world!</h1>,//定义组件模板
+            document.getElementById('example')//要渲染到哪个地方
+    );
+
+    /*
+    React.initializeTouchEvents(true);
+    var Component = React.createClass({
+        render : function() {
+            return <p onTouchStart={this.props.callback}>hello world</p>
+        }
+    });
+    var cb = function(e){
+          alert('touch!'+e)
+    };
+    React.render(
+          <Component callback={cb} />, document.body
+    );
+    */
+</script>
+
+</body>
+</html>

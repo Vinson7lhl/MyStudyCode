@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css代码段</title>
+    <link href="css/css_block.css" rel="stylesheet"/>
+</head>
+<body>
+<!--	
+	text-indent：缩进[都支持]，若想下沉
+-->
+	<div class="model">
+		<p class="modelTitle">text-indent：文本缩进，首字符下沉</p>
+		<p id="model1">这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本这里是文本，将在此处换行</p>
+	</div>
+	
+<!--	
+	text-transform：大小写[都支持]none/capitalize每个单词首字母大写/uppercase全部大写/lowercase全部小写
+-->
+	<div class="model">
+		<p class="modelTitle">text-transform：大小写</p>
+		<p id="model2">this is a demo;首字母大写</p>
+		<p id="model3">this is a demo;全部大写</p>
+		<p id="model4">this is a demo;全部小写</p>
+	</div>	
+
+<!--
+	::selection：修改选中状态：IE9+，chrome，Opera，Safari支持；如果是FF支持::-moz-selection
+-->
+	<div class="model">
+		<p class="modelTitle">::selection 更改选中文本的样式</p>
+		<p id="model5">选中我哈哈哈哈！</p>
+	</div>	
+
+<!--
+	text-shadow：修改选中状态：IE9-不支持；[左右，上下，模糊半径，颜色]，右-下为正值
+-->
+	<div class="model">
+		<p class="modelTitle">::text-shadow：x y r color：x:横坐标-正值-偏右；y：纵坐标-正值-偏下；r：模糊半径，越大越不清楚IE9-不支持</p>
+		<p id="model6">选文本阴影</p>
+	</div>
+	<script type="text/javascript" src="lib/jQuery/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/css_block.js"></script>
+</body>
+</html>

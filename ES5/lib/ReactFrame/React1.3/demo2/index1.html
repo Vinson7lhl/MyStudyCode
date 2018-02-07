@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="content"></div>
+
+<script type="text/jsx">
+    //定义子组件
+    var EzTitle = React.createClass({
+        render : function(){
+            return <h2>点击开关</h2>;
+        }
+    });
+
+
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        //设置初始状态
+        getInitialState : function(){//设置初始化状态，返回一个对象
+            return {on : false};
+        },
+		componentDidMount: function() {
+			var dom = React.findDOMNode(this);
+			console.log(dom);
+		},
+        //处理点击事件，切换状态，每次点击修改on属性值.当数据发生改变，会自动调用render方法。在把修改后的数据同步到视图
+        onClick : function(){
+            //读取并重设状态，这将触发重新渲染
+            this.setState({on : !this.state.on});//使用setState方法设置初始化返回的数据
+        },
+
+        render : function(){//该方法会在每次数据发生改变后自动调用。也就是执行脏检查。会自动渲染到视图
+            //根据状态设置样式，
+            var img = this.state.on ? "img/switch-on.png" :  "img/switch-off.png";
+            console.log(this.state.on +"------"+ img);
+            //返回元素
+            return (
+                <div>
+                    <img src = {img} style={{width:"150px"}} onClick={this.onClick}/>
+                    <EzTitle/>
+                </div>
+            );
+        }
+        //
+    });
+    //渲染
+    React.render(
+            <EzSwitchComp/>,
+            document.querySelector("#content"));
+</script>
+
+
+
+
+
+<!--实现组件点击5次后，就不能切换了，提示组件坏了-->
+<!--
+<script type="text/jsx">
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        //设置初始状态
+        getInitialState : function(){//设置初始化状态，返回一个对象
+            return {on : false,index:0};
+        },
+
+        //处理点击事件，切换状态，每次点击修改on属性值.当数据发生改变，会自动调用render方法。在把修改后的数据同步到视图
+        onClick : function(){
+
+            if(this.state.index++<5){
+                //读取并重设状态，这将触发重新渲染
+                this.setState({on : !this.state.on});//使用setState方法设置初始化返回的数据
+            }else{
+                alert("组件坏了");
+            }
+        },
+
+        render : function(){//该方法会在每次数据发生改变后自动调用。也就是执行脏检查。会自动渲染到视图
+            //根据状态设置样式，
+            var img = this.state.on ? "img/switch-on.png" :  "img/switch-off.png";
+            console.log(this.state.on +"-&#45;&#45;"+ img);
+            //返回元素
+            return <img src = {img} style={{width:"150px"}} onClick={this.onClick}/>;
+        }
+    });
+    //渲染
+    React.render(
+            <EzSwitchComp/>,
+            document.querySelector("#content"));
+</script>
+-->
+</body>
+</html>

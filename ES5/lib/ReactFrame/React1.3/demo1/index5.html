@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用JSX</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <!--组件样式-->
+    <style>
+        .ez-led{
+            font-size : 45px;
+            background : #70d355;
+            width: 300px;
+            height:60px;
+            line-height : 60px;
+        }
+    </style>
+</head>
+<body>
+<!--定义容器-->
+<div id="content">
+    <button onclick="transform();">模拟JSX自动处理过程</button>
+</div>
+
+<!--为避免自动转化，声明脚本类型为JSX2-->
+<script type="text/jsx2" id="demo">
+//1.1定义React组件
+var EzLedComp = React.createClass({
+    //每个React组件都应该事先render()方法
+    render : function(){
+        var e =
+            //JSX-->
+            <div>
+                <div className="ez-led">Hello, React!</div>
+                <div className="ez-led">2015-04-15</div>
+            </div>;
+            //<--JSX
+        return e;
+    }
+});
+
+//2.渲染组件
+React.render(
+        <EzLedComp/> , //JSX
+        document.querySelector("#content"));
+
+</script>
+
+
+<!--模板转换-->
+<script type="text/javascript">
+    //模拟JSX语法转换
+    var transform = function(){
+        var el = document.querySelector("#demo"),//获取jsx模板script标签id
+        //1.将原始JSX代码转换为JS代码
+        jsxt = JSXTransformer.transform(el.text);//通过JSXTransformer库提供的transform方法，把jsx模板
+        console.log(jsxt.code);
+        var headEl = document.querySelector("head"), //获取head标签
+        scriptEl = document.createElement("script");//创建script标签
+
+        //2.设置新的script元素的内容为转换后的代码
+        scriptEl.text = jsxt.code;//把jsx转换后的代码赋值到script标签内
+        scriptEl.type = "text/javascript";//设置script代码类型
+
+        //3.将新的script元素追加到文档head元素
+        headEl.appendChild(scriptEl);
+    };
+</script>
+</body>
+</html>

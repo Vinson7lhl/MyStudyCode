@@ -1,0 +1,163 @@
+/*--------------------------------------public-css------------------------------------*/
+body{font: 12px/1.5 tahoma,arial,宋体; _background-attachment:fixed; _background-image:url(about:blank); color:#7A7A7A;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,span{ padding:0;margin:0; vertical-align:baseline;}
+button, input, select, textarea { font-size: 100%;}
+table {border-collapse: collapse; border-spacing: 0; }
+fieldset,img {border: 0;}
+button{cursor:pointer;}
+abbr, article, aside, bb, datagrid, datalist, details, dialog, eventsource, figure, figcaption, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time{display:block;padding: 0;margin: 0;}
+address,caption,cite,code,dfn,em,strong,th,var { font-weight: normal; font-style: normal; }
+code, kbd, pre, samp {font-family: courier new,courier,monospace;}
+a { text-decoration: none;}
+a:hover {text-decoration: underline;}
+a{color:#7A7A7A;-webkit-transition:color 0.3s ease-in-out;-moz-transition:color 0.3s ease-in-out;}
+a:hover{color:#f85d4f;}
+sup { vertical-align: text-top;}
+sub {vertical-align: text-bottom;}
+legend {color: #000000;}
+ol,ul { list-style: none;}
+i{font-style:normal;}
+caption,th { text-align: left;}
+h1,h2,h3,h4,h5,h6 { font-size: 100%;}
+q:before,q:after { content:'';}
+abbr,acronym { border: 0;}
+.dxlBlock{display:block;}
+#dxlBackgroundDiv{background:#FFFFFF;}
+input{outline:none;}
+#mo{width:100px;height:100px;background-color: #232323}
+/*响应式布局*/
+@media screen and (max-width:800px) {
+    #mo{background-color:#5cb85c}
+}
+/*滚动条的测试*/
+#scroll_part{width:500px;height: 20px;background-color:#b3d4fc;overflow: hidden;white-space:nowrap;/*white-space:nowrap规定段落中的文本不进行换行，除非遇见<br>*/}
+#scroll_part2{height: 20px;overflow: hidden;margin-top:40px;}
+#inner_text2{display:block;}
+#inner_text2 a{display:block;}
+
+#copy_text2{display:block;}
+#copy_text2 a{display:block;}
+/*--------------------------------------特效模块-----------------------------------*/
+/*js原生横向连续文本滚动*/
+.d1{
+    margin:10px auto;
+    width:200px;
+    background-color:#CCCCCC;
+    height:20px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.d2{
+    margin:0px auto;
+    /*background-color:#FF9933;*/
+}
+#test{width:100px;overflow:hidden;}
+
+/*弹出的遮罩层*/
+.box{position:fixed;width:600px;left:50%;height:auto;z-index:100;background-color:#fff;border:1px #ddd solid;padding:1px;opacity:0;}
+.box h2{height:25px;font-size:14px;background-color:#aaa;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.box h2 a{position:absolute;right:5px;font-size:12px;color:#fff;}
+.box .list{padding:10px;}
+.box .list li{height:24px;line-height:24px;}
+.box .list li span{margin:0 5px 0 0;font-size:12px;font-weight:400;color:#ddd;}
+.showbtn {font:bold 24px '宋体';}
+#bg{
+    background-color:#000000;
+    position:absolute;
+    z-index:99;
+    left:0;
+    top:0;/*如果不加，则会相对其它position:relative进行定位，无法全屏*/
+    display:none;
+    width:100%;/*height:100%;这里不可以用他来定义高度，结果只能是铺满当前屏幕大小*/
+    opacity:0;
+    filter: alpha(opacity=50)/*兼容所有ie，因为ie不支持opacity*/
+}
+
+/*单选按钮，<li>*/
+#radio:after{content:"";clear:both;display: block}
+#radio li{display: block;float:left;margin-left:5px;outline:1px solid #ffffff;vertical-align:middle;line-height:30px;transition: all 0.2s;}
+#radio li a{padding:0px 15px;text-align: center}
+#radio li:hover{outline:1px solid #b92c28}
+#radio li.selected{outline:1px solid #b92c28}
+
+/*相对定位的问题*/
+#re{display:block;width:500px;height:100px;position:relative;left:50%;top:0px;margin-left:-250px;background-color: #66512c;}
+#ab{display:block;width:100px;height:50px;position:absolute;left:10px;top:10px;background-color: #ffff00;}
+#ab1{display:block;width:100px;height:50px;position:absolute;left:15px;top:15px;background-color: #FFFFFF;}
+
+/*模块绝对居中*/
+#middle_model
+{
+    /*
+    1.很明显，下面的方式必须知道模块的大小，否则
+    position: absolute; left: 50%; top: 50%;
+    margin-top: -250px;   高度的一半
+    margin-left: -250px;    宽度的一半
+    2.缺点：兼容性差
+     position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);    50%为自身尺寸的一半
+    */
+    width:100px;
+    height:100px;
+    background-color: #b3d4fc;
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    margin:auto;    /* 有了这个就自动上下，左右据中了 */
+}
+
+
+
+/*
+#tab和p1p2p3其实是纵向排列，一个挨着一个的，因为#tab是相对定位，其他三个是绝对定位同时，向上（相对于#tab）分别移动1/2/3身位，
+当执行：transform:translate3d(0px,-100%,0px);并不是#tab相对于内部的p123动了，而是整体相对于屏幕进行了移动，-100即#tab以及其子内容向上移动
+一个身位（即p1显示了出来）
+*/
+
+
+/*---------------------------------------svg--------------------------------*/
+#circle1
+{
+    fill:#ffffff;
+    stroke-width:2px;
+    stroke:#000000;
+}
+/*div的相对位置*/
+.positionXY{
+    float:left;
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    border:1px solid #000000;
+    background-image: url('../images/headList.jpg');
+    background-position: 0px 0px;
+}
+/*---------------------------------------H5新特性——计时器：requestAnimationFrame--------------------------------*/
+.requestAnimationFrame{
+    width:100px;
+    height:100px;
+    border:1px solid #000000;
+    margin-left:0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

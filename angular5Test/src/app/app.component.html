@@ -1,0 +1,28 @@
+<!--The whole content below can be removed with the new code.-->
+<div>
+  根组件title：{{title}};
+  <!--第二个组件-->
+  <app-hello-world></app-hello-world>
+  <!--第四个组件：name数组-->
+  <app-user-list></app-user-list>
+
+  <!--Hero-->
+  <!-- <app-heros></app-heros> -->
+  <a routerLink="/heros">显示英雄列表</a>
+  <a [routerLink]="['/heros', 5]" >显示英雄列表:id=5</a>
+
+  <p [myHighlight]="hight_light_color">自定义指令</p>
+  
+  <!--导航容器-->
+  <div>-------------------这里是导航后的显示内容------------------</div>
+  <router-outlet></router-outlet>
+</div>
+
+<mat-icon>home</mat-icon>
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+

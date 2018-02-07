@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+    <!--组件样式-->
+    <style>
+        .ez-led{
+            width: 500px;
+            min-height:100px;
+            background-color: #2a6496;
+            color: red;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<!--定义容器-->
+<div id="content"></div>
+
+<!--例子1：创建第一个组件-->
+<!--
+<script>
+    //1.定义React组件
+    var EzLedComp = React.createClass({
+        //1.1每个React组件都应该事先render()方法
+        render : function(){
+            var e = React.createElement(
+                    "div",
+                    {className : "ez-led"},
+                    "Hello, React!"
+            );
+            //2.2 render()方法应该返回一个React元素
+            return e;
+        }
+    });
+    //2.创建React元素
+    var el = React.createElement(EzLedComp);
+    //3.渲染
+    React.render(el,document.querySelector("#content"));
+</script>
+-->
+
+
+
+
+<!--例子2：创建一个两排字的组件-->
+<!--
+<script>
+    //1.定义React组件
+    var EzLedComp = React.createClass({
+        //1.1每个React组件都应该事先render()方法
+        render : function(){
+            var e = React.createElement(
+                    "ul",
+                    {className : "ez-led"},
+                    React.createElement("li",null,"Hello, React!"),
+                    React.createElement("li",null,"Hello, 2016!")
+            );
+            //2.2 render()方法应该返回一个React元素
+            return e;
+        }
+    });
+    //2.创建React元素
+    var el = React.createElement(EzLedComp);
+    //3.渲染
+    React.render(el,document.querySelector("#content"));
+</script>
+-->
+
+
+
+<!--例子3:使用jsx语法实现3排字-->
+<script type="text/jsx">
+    //1.定义React组件
+    var EzLedComp = React.createClass({
+        show:function(){
+            alert("你点了我以下");
+        },
+        //1.1每个React组件都应该事先render()方法
+        render : function(){
+            var e =
+                //JSX-->
+                    <div onClick={this.show}>
+                        <div className="ez-led">Hello, React!</div>
+                        <div className="ez-led">2015-04-15</div>
+                        <div className="ez-led">2.28</div>
+                    </div>;
+                //<--JSX
+            //2.2 render()方法应该返回一个React元素
+            return e;
+        }
+    });
+    //2.创建React元素
+    var el = React.createElement(EzLedComp);
+    //3.渲染
+    React.render(el,document.querySelector("#content"));
+</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+html{margin:0px;padding :0px;}
+body{margin:0px;padding :0px;}
+.Transform{
+    width:800px;
+    height:800px;
+    border:1px solid #b92c28;
+    margin: 0px auto;
+}
+/*transform的功能就是“变形”，如果要在一个transform上有多个变化：transform:translate(10px,10px) scale(2,2) rotate(30deg)*/
+#transform_translate {
+    width:100px;
+    height:100px;
+    background-color: #444444;
+    color:#ffffff;
+    /*transform:translate就是线性的XY的移动，transform:translateZ(50px);经过测试：translate的3d，以及Z轴的变化不可用，2d，XY轴都可用*/
+    -webikit-transform:translate(30px,30px);
+    transform:translate(30px,30px);/*如果这里是百分比值：意义是自身宽/高的多少倍，100%是移动一个身位，200%是两个身位等等*/
+    /*注意：如果在上一个div下面又来一个同样的div变换，会发现，后面那个并不是以前面那个div动过后的位置为参考的，
+    而是以前面那个未动之前原始位置为参考的，即动过div的动画相当于：分身,对后面的动画没有影响*/
+    /*transform:translate(50px,0px);*/
+}
+.Trans3d{
+    perspective:200px;
+}
+#transform_translate2 {
+    width:100px;
+    height:100px;
+    background-color: #000000;
+    color:#ffffff;
+    -webikit-transform:translateZ(100px);
+    transform:translateZ(100px);
+    transform-origin: center center;
+}
+#transform_translate3D {
+    width:100px;
+    height:100px;
+    background-color: #444444;
+    color:#ffffff;
+    transition:all 0.5s;
+    /*transform:translate就是线性的XY的移动，transform:translateZ(50px);经过测试：translate的3d，以及Z轴的变化不可用，2d，XY轴都可用*/
+    -webikit-transform:translate3d(30px,30px,0px);
+    transform:translate3d(30px,30px,0px);/*如果这里是百分比值：意义是自身宽/高的多少倍，100%是移动一个身位，200%是两个身位等等*/
+}
+
+#transform_scale{
+    width:50px;
+    height:50px;
+    background-color: #444444;
+    margin-top: 100px;/*这里依旧是以第一个“没有动”div为参考的，而不是动之后的，可以理解成动过的div的原始位置并没有变化*/
+    color:#ffffff;
+    /*scale(X,Y)主要是对对象进行放大缩小，如果没有设置Y，则Y按照X操作*/
+    transform:scale(1.5,1.5);
+}
+#transform_rotate{
+    /*rotateX(angle),rotateY(angle),rotateZ(angle),rotate(angle)都可用，其实最后两个效果是一样的，都是沿着Z轴旋转*/
+    width:50px;
+    height:50px;
+    background-color: #444444;
+    margin-top: 100px;/*这里依旧是以第一个“没有动”div为参考的，而不是动之后的，可以理解成动过的div的原始位置并没有变化*/
+    color:#ffffff;
+    transform:rotate(45deg);
+    transform-origin:10px 20px 0px;/*定义变换的基点位置，默认是中心位置，XYZ三个值可选*/
+}
+#jiantou img{
+    margin-top: 100px;
+    transform:rotate(-90deg);
+    /*此处如果有多个属性发生不同的变化，可以写成：
+      transiton:css1 time 变化速度,css2 time 变化速度……;
+      而变化速度有如下几个定好的值：
+      ease:慢-快-慢；
+    */
+    transition:all 0.3s;
+}
+#jiantou img:hover{
+    transform:rotate(90deg);
+
+}
+/*Animation动画第一步：定义一个关键帧动画模块*/
+@-webkit-keyframes dong {
+    from{
+        background-color:#449d44;
+    }
+    to{
+        background-color: #000000;
+    }
+ }
+
+@keyframes dong {
+    from{
+        background-color:#449d44;
+    }
+    to{
+        background-color: #000000;
+    }
+}
+/*Animation动画第二步：将动画绑定到任意div
+另外一种方式：之前的是绑定死的（所有的动画前提是已经存在的css属性，然后通过某种手段比如hover改变某个属性从而产生动画），
+Animation则是可以将原来div中没有的css属性附加在这个div上。可以将关键帧绑定到一个随意的.className(但是这个类在页面中是没有的)
+然后将.className动态（通过jQuery）增加到某个div上即可发生动画
+*/
+.X{animation:dong 2s infinite;}
+#animate{
+    width:100px;
+    height:100px;
+    background-color:#449d44;
+    /* transition:all 2s; */
+}
+#animate:hover
+{
+    -webkit-animation: dong 2s infinite alternate both;
+    animation: dong 2s infinite alternate both;/*动画dong绑定*/
+}
+.changeColor
+{
+    -webkit-animation: dong 2s alternate both;
+    animation: dong 2s  alternate both;/*动画dong绑定*/
+}
+/*---------------------------3d测试---------------------------*/
+#threeD{overflow: hidden;background-color: #077886;}
+.stage {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin: 15px;
+    position: relative;
+    /*persective属性值决定了：用户和这个3d变化的距离：值越小（离得越近），3d效果越明显，值越大（离得越远）其3d变化越不明显*/
+    /* -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    -o-perspective: 1200px; */
+    perspective: 800px;
+}
+.container {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    /*如果把底下的代码去掉会发现，旋转后的图片依旧会在透明图片的前面（也就是在其上面）若是加上，旋转后就有一部分在其后面
+    可以这样理解，perserve-3d(需要加在动画层的父类级别上)时保留了3d的正常思维感受，就是说旋转的图片应该有一部分藏在透明图片的后面，虽然旋转的图片index=2
+   */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.container img {
+    position: absolute;
+    margin-left: -35px;
+    margin-top: -50px;
+}
+/*.container img:nth-child(1){
+    z-index: 1;
+    opacity: .6;
+   /!* display: none;*!/
+}*/
+/*从上图的效果可以看出，当z轴值越大时，元素也离观看者更近，从视觉上元素就变得更大；反之其值越小时，元素也离观看者更远，从视觉上元素就变得更小。*/
+/*.s1 img:nth-child(2){
+    z-index: 2;
+    -webkit-transform: translate3d(30px,30px,200px);
+    -moz-transform: translate3d(30px,30px,200px);
+    -ms-transform: translate3d(30px,30px,200px);
+    -o-transform: translate3d(30px,30px,200px);
+    transform: translate3d(30px,30px,200px);
+    transition:all 0.5s;
+}
+.s1 img:nth-child(2):hover{
+    z-index: 2;
+    -webkit-transform: translate3d(30px,30px,0px);
+    -moz-transform: translate3d(30px,30px,0px);
+    -ms-transform: translate3d(30px,30px,0px);
+    -o-transform: translate3d(30px,30px,0px);
+    transform: translate3d(30px,30px,0px);
+}
+.s2 img:nth-child(2){
+    z-index: 2;
+    -webkit-transform: translate3d(30px,30px,-200px);
+    -moz-transform: translate3d(30px,30px,-200px);
+    -ms-transform: translate3d(30px,30px,-200px);
+    -o-transform: translate3d(30px,30px,-200px);
+    transform: translate3d(30px,30px,-200px);
+}*/
+
+/*图片向屏幕内倾倒*/
+.s1 img:nth-child(1){
+    z-index: 2;
+    -webkit-transform: scaleZ(5) rotateX(0deg);
+    -moz-transform: scaleZ(5) rotateX(0deg);
+    -ms-transform: scaleZ(5) rotateX(0deg);
+    -o-transform: scaleZ(5) rotateX(0deg);
+    transform: scaleZ(5) rotateX(0deg);
+    transition:all 0.5s;
+}
+.s1 img:nth-child(1):hover{
+    z-index: 2;
+    -webkit-transform: scaleZ(5) rotateX(360deg);
+    -moz-transform: scaleZ(5) rotateX(360deg);
+    -ms-transform: scaleZ(5) rotateX(360deg);
+    -o-transform: scaleZ(5) rotateX(360deg);
+    transform: scaleZ(5) rotateX(360deg);
+}
+.s2 img:nth-child(1){
+    z-index: 2;
+    -webkit-transform: scaleZ(2) rotateX(0deg);/*经过测试：如果去掉scaleZ那么，就没有明显的Z轴的“深度”3D感觉，*/
+    -moz-transform: scaleZ(2) rotateX(0deg);
+    -ms-transform: scaleZ(2) rotateX(0deg);
+    -o-transform: scaleZ(2) rotateX(0deg);
+    transform: scaleZ(2) rotateX(0deg);
+    transition:all 0.5s;
+    transform-origin: center bottom;
+}
+.s2 img:nth-child(1):hover{
+    z-index: 2;
+    -webkit-transform: scaleZ(2) rotateX(15deg);
+    -moz-transform: scaleZ(2) rotateX(15deg);
+    -ms-transform: scaleZ(2) rotateX(15deg);
+    -o-transform: scaleZ(2) rotateX(15deg);
+    transform: scaleZ(2) rotateX(60deg);
+
+}
+

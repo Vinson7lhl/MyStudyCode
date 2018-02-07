@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2.组件 API</title>
+	<meta charset="utf-8">
+	<!--1.react库-->
+    <script src="../react/react.min.js"></script>
+    <script src="../react/react-dom.min.js"></script>
+    <script src="../react/react-dom-server.min.js"></script>
+    <script src="../react/react-with-addons.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react/JSXTransformer.js"></script>
+    <style type="text/css">
+	.h1Style{
+		color: red;
+	}
+	.h2Style{
+		color: #ccc;
+	}
+    </style>
+</head>
+<body>
+<script type="text/jsx">
+//ReactComponent  react组件
+//1.setState(object nextState[, function callback])
+
+    //组件定义
+    var EzSwitchComp = React.createClass({
+        getInitialState : function(){
+            return {
+				class : "h1Style",
+				id:"h1"
+			};
+        },
+        onClick : function(){
+			//设置状态值。并同步到视图
+            
+			this.setState({class : "h2Style"},function(){
+				console.log(this.state);//Object {class: "h2Style", id: "h1"}
+			}.bind(this));
+			
+			
+			//替换状态值，但是会删除之前所有已存在的 state 键
+			/*
+			this.replaceState({class : "h2Style"},function(){
+				console.log(this.state);//Object {class: "h2Style"}
+			}.bind(this));
+			*/
+			var dom = React.findDOMNode(this);
+			console.log(dom);
+        },
+		componentDidMount: function() {
+			
+		},
+        render : function(){
+            return (
+                <div>
+					<h1 className={this.state.class} onClick={this.onClick}>{this.state.class}</h1>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(<EzSwitchComp/>,document.body);
+
+
+
+</script>
+</body>
+</html>

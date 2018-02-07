@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件和状态的关联</title>
+    <!--1.react库-->
+    <script src="../react-0.13.0/build/react.min.js"></script>
+    <!--2.解析jsx语法-->
+    <script src="../react-0.13.0/build/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var HelloWorld = React.createClass({
+        getInitialState: function () {
+            return {
+                x: 0,
+                y: 0
+            }
+        },
+        //2.调用该方法
+        handleMouseMove: function (event) {
+            //设置初始化状态值
+            this.setState({//通过this.setState()方法把事件和状态关联
+                x: event.clientX,
+                y: event.clientY
+            });
+        },
+        render: function () {
+                    //1.在div区域绑定鼠标移动事件
+            return <div onMouseMove={this.handleMouseMove} style={{
+                            height: '1000px',
+                            width : '700px',
+                            backgroundColor : 'gray'
+                        }}>
+                        {this.state.x + ', ' + this.state.y}
+                   </div>;
+                    //3.这里把鼠标时时移动的值，显示出来
+        }
+    });
+    React.render(<HelloWorld></HelloWorld>, document.body);
+</script>
+</body>
+</html>
