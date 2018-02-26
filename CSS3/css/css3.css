@@ -36,17 +36,17 @@
 /*-----------------------------------------------------------------------------------------
  flex弹性盒子：非常适合h5
 ------------------------------------------------------------------------------------------*/
-.flex_test{
+.flex_test1{
 	display: flex;
-	width:100%;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+	width:200px;
 	height:100px;
 }
 .flexContent{
-	display: block;
-	/*flex是一个复合属性：flex-grow:1(如果不写默认为1);flex-shrink:1(如果不写默认为1);flex-basis:默认为0%，如果写auto则按照本模块的宽度*/
-	flex:1;
-	height:100px;
-	
+	height:20px;
+	width:30px;
 }
 .flexContent:nth-child(1){
 	color:#ffffff;
