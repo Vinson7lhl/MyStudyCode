@@ -8,8 +8,8 @@
 	</head>
 	<body>
 		<!--
-			template标签浏览器不会渲染出来，但可以通过js进行实例化；其样式默认是display：none；里面的如img，等url都不会发送请求
-			一般用来处理隐藏的数据
+			template标签浏览器不会渲染出来，但可以通过js进行实例化；其样式默认是display：none；里面的如img，
+			等url都不会发送请求，一般用来处理隐藏的数据
 			如果要获取内部节点利用content属性而不是childNodes：templateDOM_obj.content.querySelector(/All)('')
 			但是无法使用getElement等方法
 		-->
@@ -17,6 +17,27 @@
 			<span>这是template标签</span>
 			<span>这是子标签</span>
 		</template>
+		<!--a超链接样式-->
+		<a class='aStyle' target="_blank" href="http://baidu.com">链接一</a>
+		<a class='aStyle2' target="_blank" href="http://hao123.com">链接二</a>
+		<!--
+			选择器：+，“相邻”选择器
+			选择器：～，“兄弟”选择器
+		-->
+		<div class='plusMark'>
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+			<span>s1</span>
+			<p>p4</p>
+		</div>
+		<div class='neighborMark'>
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+			<span>s1</span>
+			<p>p4</p>
+		</div>
 		<!--demo展示了z-index在ie67中的问题-->
 		<div class="outer1">
 			<div class="inner1"></div>
