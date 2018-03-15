@@ -4,33 +4,58 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CSS3测试新特性</title>
-
 	<link href="css/css3.css" rel="stylesheet" />
 </head>
+<!--
+	启动：     browser-sync start --server --files "**/*.css, **/*.html"
+-->
 
 <body>
 	<!--
-			template标签浏览器不会渲染出来，但可以通过js进行实例化；其样式默认是display：none；里面的如img，等url都不会发送请求
-			一般用来处理隐藏的数据
-			如果要获取内部节点利用content属性而不是childNodes：templateDOM_obj.content.querySelector(/All)('')
-			但是无法使用getElement等方法
-		-->
+		1、template标签浏览器不会渲染出来，但可以通过js进行实例化；即可以拿到其内容内容，其样式默认是display：none；
+		里面的如img，等url都不会发送请求一般用来处理隐藏的数据
+		2、如果要获取内部节点利用content属性而不是childNodes：templateDOM_obj.content.querySelector(/All)('')
+		但是无法使用getElement等方法
+		用处：隐藏数据
+		属性：content，返回一个包含子内容的dom节点，再进行查询
+	-->
 	<template id='temp'>
 		<span>这是template标签</span>
 		<span>这是子标签</span>
 	</template>
+	<div id='template_container'>
+		template的内容将在这里：
+	</div>
+	<script>
+		// demo for <template>
+		var temp_dom=document.getElementById('temp');
+		var spans_dom = temp_dom.content.querySelectorAll('span');
+		spans_dom[0].textContent = 'sp1';
+		spans_dom[1].textContent = 'sp2';
+		var container = document.getElementById('template_container');
+		var copy_spans_dom=document.importNode(temp_dom.content, true)
+		container.appendChild(copy_spans_dom);
+	</script>
+
+
 
 	<!--a超链接样式-->
 	<a class='aStyle' target="_blank" href="http://baidu.com">超链接的样式love hate</a>
 	<a class='aStyle2' target="_blank" href="http://hao123.com">jjj hate</a>
 
-	<!--demo展示了z-index在ie67中的问题-->
+
+
+
+	<!--demo展示了z-index在ie 6 7中的问题-->
 	<div class="outer1">
 		<div class="inner1"></div>
 	</div>
 	<div class="outer2">
 		<div class="inner2"></div>
 	</div>
+
+
+
 
 	<!--
 		兄弟选择 + ~ ，准确的说是“弟弟选择器”，
@@ -46,6 +71,9 @@
 		<p id="selected">p3</p>
 	</div>
 
+
+
+	
 	<!--flex弹性盒子-->
 	<div class="flex_test">
 		<span class="flexContent">f1</span>
