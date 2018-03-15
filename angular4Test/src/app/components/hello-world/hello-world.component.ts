@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { UserModel } from '../../models/user-model.model';
 import { AuthService } from "../../service/auth.service";
 
@@ -8,7 +8,8 @@ import 'rxjs/add/operator/toPromise';
   selector: 'app-hello-world',
   templateUrl: './hello-world.component.html',
   styleUrls: ['./hello-world.component.css'],
-  host: { class: 'lhl' }
+  host: { class: 'lhl' },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HelloWorldComponent implements OnInit {
   /**
@@ -21,8 +22,10 @@ export class HelloWorldComponent implements OnInit {
   thisName:string;
   thsiPower:string;
 
+  counter: number = 0;
 
-  constructor(private auth_service: AuthService) {
+
+  constructor(private auth_service: AuthService,private cdRef: ChangeDetectorRef) {
     //初始化users，——所以不能在这里写this.users.push();因为users还未初始化
     this.users = [];
     //初始化styleNames
@@ -32,6 +35,10 @@ export class HelloWorldComponent implements OnInit {
       class3: false 
     };
     this.powers=["超人","蝙蝠侠","钢铁侠"];
+    setInterval(() => {
+      this.counter++;
+      this.cdRef.markForCheck();
+  }, 1000);
   }
 
   ngOnInit() {
