@@ -1,3 +1,4 @@
+/* @import 'public.css'; */
 /*-----------------------------------------------------------------------------------------
  z-index:在ie67不兼容的问题
 ------------------------------------------------------------------------------------------*/
@@ -72,17 +73,18 @@ a:hover{
 	display: flex;
 	flex-direction:row;
 	flex-wrap:wrap;
-	justify-content:center;
+	justify-content: space-around;
 	width:200px;
 	height:100px;
 }
 .flexContent{
 	display: block;
+	width:60px;
 /*
 	flex是一个复合属性：flex-grow:1(如果不写默认为1);flex-shrink:1(如果不写默认为1);flex-basis:默认为0%，
 	如果写auto则按照本模块的宽度
 */
-	flex:1;
+	/* flex:1; */
 	height:100px;
 }
 .flexContent:nth-child(1){

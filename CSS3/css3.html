@@ -75,7 +75,27 @@
 
 	
 	<!--flex弹性盒子-->
-	<div class="flex_test">
+	<!--
+		容器包含如下属性：
+		1、flex-direction：决定主轴的方向，包含四个值，依次是。一旦决定主轴，另外一个就是交叉轴
+			横轴（默认）| 横轴（右->左）| 竖轴 | 竖轴（下->上） 
+			row（默认） | row-reverse | column | column-reverse;
+		2、flex-wrap:如果内容超过容器是否换行
+			不换行(默认) | 换行 | 换行-反向
+			nowrap(默认) | wrap | wrap-reverse
+		3、flex-flow：以上两个属性的合成，默认为 row nowrap
+		
+
+		4、justify-content：决定子模块的对齐方式
+		左对齐 | 右对齐 | 中心对齐 | 两端对齐(子模块之间距离一致) | 周边对齐（子模块两侧距离一致）
+		flex-start | flex-end | center | space-between | space-around;
+        align-items
+		align-content
+		--------------------------------
+		5、子模块flex
+		flex：扩展 收缩 基准
+	-->
+	<div class="flex_test1">
 		<span class="flexContent">f1</span>
 		<span class="flexContent">f2</span>
 		<span class="flexContent">f3</span>
