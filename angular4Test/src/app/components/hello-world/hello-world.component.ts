@@ -1,4 +1,4 @@
-import { Component, OnInit ,ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { UserModel } from '../../models/user-model.model';
 import { AuthService } from "../../service/auth.service";
 
@@ -17,37 +17,42 @@ export class HelloWorldComponent implements OnInit {
    */
   users: UserModel[];
   styleNames;
-  powers:string[];
-  thisTel:string;
-  thisName:string;
-  thsiPower:string;
-
+  powers: string[];
+  thisTel: string;
+  thisName: string;
+  thsiPower: string;
   counter: number = 0;
+  objTest:object;
 
 
-  constructor(private auth_service: AuthService,private cdRef: ChangeDetectorRef) {
-    //初始化users，——所以不能在这里写this.users.push();因为users还未初始化
-    this.users = [];
-    //初始化styleNames
-    this.styleNames = { 
-      class1: true, 
-      class2: true, 
-      class3: false 
-    };
-    this.powers=["超人","蝙蝠侠","钢铁侠"];
-    setInterval(() => {
-      this.counter++;
-      this.cdRef.markForCheck();
-  }, 1000);
+  constructor(private auth_service: AuthService, private cdRef: ChangeDetectorRef) {
+    console.log("构造器初始化");
   }
 
   ngOnInit() {
-    console.log("hello-world组件ngOnInit");
+    console.log("ngOnInit初始化");
+    setTimeout(()=>{
+      this.objTest={name:'张飞'};
+    },3000);
+    //初始化users，——所以不能在这里写this.users.push();因为users还未初始化
+    this.users=[
+      {userName:'lhl',userTel:123},
+      {userName:'dds',userTel:133}];
+    //初始化styleNames
+    this.styleNames = {
+      class1: true,
+      class2: true,
+      class3: false
+    };
+    this.powers = ["超人", "蝙蝠侠", "钢铁侠"];
+    setInterval(() => {
+      this.counter++;
+      this.cdRef.markForCheck();
+    }, 1000);
   }
 
   addUser(nameDom, telDom) {
     this.users.push(new UserModel(nameDom.value, parseInt(telDom.value)));
-    console.log(this.users[0].userName);
   }
 
   onSubmit(data: any) {
@@ -63,12 +68,12 @@ export class HelloWorldComponent implements OnInit {
     this.auth_service.loginOut();
   };
 
-  keyupEvent(domObj:any,eventObj:any){
+  keyupEvent(domObj: any, eventObj: any) {
     console.log(domObj);
     console.log(eventObj);
-  }    
+  }
 
-  submitForm(){
+  submitForm() {
     console.log("数据已经被提交了");
   }
 
