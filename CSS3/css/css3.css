@@ -70,37 +70,42 @@ a:hover{
  flex弹性盒子：非常适合h5
 ------------------------------------------------------------------------------------------*/
 .flex_test1{
-	display: flex;
+	display: inline-flex;
 	flex-direction:row;
 	flex-wrap:wrap;
 	width:400px;
 	height:100px;
+	background-color: #873991;
+	justify-content: space-evenly;
 }
 .flexContent{
-	width:33.333333%;
 	display: flex;
-	justify-content: center;
 /*
 	flex是一个复合属性：flex-grow:1(如果不写默认为1);flex-shrink:1(如果不写默认为1);flex-basis:默认为0%，
 	如果写auto则按照本模块的宽度
 */
 	/* flex:1; */
-	height:100px;
+	height:20px;
 }
 .flexContent:nth-child(1){
+	width:90px;
 	color:#ffffff;
 	background-color: #000000
 }
 .flexContent:nth-child(2){
+	width:100px;
 	background-color: #4081d6
 }
 .flexContent:nth-child(3){
+	width:50px;
 	background-color: #4e4e4e
 }
 .flexContent:nth-child(4){
+	width:70px;
 	background-color: #4081d6
 }
 .flexContent:nth-child(5){
+	width:120px;
 	background-color: #4e4e4e
 }
 .realContent{
