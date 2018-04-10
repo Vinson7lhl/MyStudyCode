@@ -76,7 +76,7 @@ a:hover{
 	width:400px;
 	height:100px;
 	background-color: #873991;
-	justify-content: space-evenly;
+	justify-content:space-evenly;
 }
 .flexContent{
 	display: flex;
