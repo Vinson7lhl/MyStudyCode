@@ -42,3 +42,5 @@
 <a [routerLink]="['/protected']">跳转到保护模块</a>
 <div class="loginButton" *ngIf="!auth_service.isLogin()" (click)="login('lhl','111')">请登录</div>
 <div class="loginedTips" *ngIf="auth_service.isLogin()" (click)="loginOut()">退出</div>
+
+<button id='showObData' (click)='observableGetData()'>Subscribe</button>
