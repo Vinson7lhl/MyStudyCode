@@ -27,8 +27,8 @@ export class HelloWorldComponent implements OnInit {
   /**
    * Observable 对象
    */
-  observable_obj: Observable;
-  observable_obj2: Observable;
+  observable_obj: Observable<any>;
+  observable_obj2: Observable<any>;
 
 
   constructor(
@@ -65,10 +65,8 @@ export class HelloWorldComponent implements OnInit {
   observervableInit() {
     this.observable_obj = new Observable(observer => {
       console.log('-订阅在执行-');
-      observer.next({ nameArray: ['东邪', '西毒', '南帝', '北丐'});
+      observer.next({ nameArray: ['东邪', '西毒', '南帝', '北丐'] });
     });
-
-    this.observable_obj2 = Observable.from(['a1', 'a2', 'a3']);
   }
 
   observableGetData() {
