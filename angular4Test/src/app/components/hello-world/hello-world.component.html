@@ -43,4 +43,5 @@
 <div class="loginButton" *ngIf="!auth_service.isLogin()" (click)="login('lhl','111')">请登录</div>
 <div class="loginedTips" *ngIf="auth_service.isLogin()" (click)="loginOut()">退出</div>
 
-<button id='showObData' (click)='observableGetData()'>Subscribe</button>
+<button id='showObData' (click)='subjectSetData("str1")'>subject-Subscribe</button>
+<button id='showObData' (click)='subjectSetData("str2")'>subject-Subscribe</button>

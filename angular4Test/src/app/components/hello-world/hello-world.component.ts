@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { UserModel } from '../../models/user-model.model';
 import { AuthService } from '../../service/auth.service';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -28,7 +29,7 @@ export class HelloWorldComponent implements OnInit {
    * Observable 对象
    */
   observable_obj: Observable<any>;
-  observable_obj2: Observable<any>;
+  subject_obj: Subject<any>;
 
 
   constructor(
@@ -58,23 +59,41 @@ export class HelloWorldComponent implements OnInit {
     /**
      * init Observable obj
      */
-    this.observervableInit();
+    this.observervableInit('str1');
+    this.observableGetData();
     console.log('ngOnInit初始化完毕');
+    /**
+     * init subject
+     */
+    this.subject_obj = new Subject();
+    this.subjectSetData('initData');
+    this.subjectGetData();
   }
 
-  observervableInit() {
+  observervableInit(str: string) {
     this.observable_obj = new Observable(observer => {
-      console.log('-订阅在执行-');
-      observer.next({ nameArray: ['东邪', '西毒', '南帝', '北丐'] });
+      observer.next(str);
     });
   }
 
   observableGetData() {
     this.observable_obj.subscribe(res => {
       console.log('订阅回调在执行');
-      console.log(res.nameArray.toString());
+      console.log(res);
     });
   }
+
+  subjectSetData(str: string) {
+    console.log('subject 设置数据');
+    this.subject_obj.next(str);
+  }
+  subjectGetData() {
+    console.log('subject 获取数据');
+    this.subject_obj.subscribe(res => {
+      console.log('subject获取数据为：' + res);
+    });
+  }
+
 
   addUser(nameDom, telDom: any) {
     this.users.push(new UserModel(nameDom.value, parseInt(telDom.value)));
