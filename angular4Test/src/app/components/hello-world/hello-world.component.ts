@@ -62,12 +62,6 @@ export class HelloWorldComponent implements OnInit {
     this.observervableInit('str1');
     this.observableGetData();
     console.log('ngOnInit初始化完毕');
-    /**
-     * init subject
-     */
-    this.subject_obj = new Subject();
-    this.subjectSetData('initData');
-    this.subjectGetData();
   }
 
   observervableInit(str: string) {
@@ -82,18 +76,6 @@ export class HelloWorldComponent implements OnInit {
       console.log(res);
     });
   }
-
-  subjectSetData(str: string) {
-    console.log('subject 设置数据');
-    this.subject_obj.next(str);
-  }
-  subjectGetData() {
-    console.log('subject 获取数据');
-    this.subject_obj.subscribe(res => {
-      console.log('subject获取数据为：' + res);
-    });
-  }
-
 
   addUser(nameDom, telDom: any) {
     this.users.push(new UserModel(nameDom.value, parseInt(telDom.value)));
