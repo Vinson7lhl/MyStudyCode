@@ -1,6 +1,16 @@
+'use strict';
 /**
  * Created by lihonglei_yf on 2015/6/10.
  */
+
+ /**
+  * 实际来说这里并没有进行检查重复键值
+  */
+var wrongObj={
+    'name':'lhl',
+    age:20,
+    'name':'jj'
+}
 $(function()
 {
     var a={};

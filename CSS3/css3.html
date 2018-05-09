@@ -28,12 +28,12 @@
 	</div>
 	<script>
 		// demo for <template>
-		var temp_dom=document.getElementById('temp');
+		var temp_dom = document.getElementById('temp');
 		var spans_dom = temp_dom.content.querySelectorAll('span');
 		spans_dom[0].textContent = 'sp1';
 		spans_dom[1].textContent = 'sp2';
 		var container = document.getElementById('template_container');
-		var copy_spans_dom=document.importNode(temp_dom.content, true)
+		var copy_spans_dom = document.importNode(temp_dom.content, true)
 		container.appendChild(copy_spans_dom);
 	</script>
 
@@ -73,7 +73,7 @@
 
 
 
-	
+
 	<!--flex弹性盒子-->
 	<!--
 		容器包含如下属性：
@@ -105,11 +105,13 @@
 		flex		是grow shrink basis的简写，默认为 0 1 auto
 	-->
 	<div class="flex_test1">
-		<div class="flexContent">f1</div>
-		<div class="flexContent">f2</div>
-		<div class="flexContent">f3</div>
-		<div class="flexContent">f4</div>
-		<div class="flexContent">f5</div>
+		<span class='outer'>
+			<div class="flexContent">f1</div>
+			<div class="flexContent">f2</div>
+			<div class="flexContent">f3</div>
+			<div class="flexContent">f4</div>
+			<div class="flexContent">f5</div>
+		</span>
 	</div>
 	<span>333</span>
 
