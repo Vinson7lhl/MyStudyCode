@@ -74,6 +74,26 @@ $(function() {
         console.log("获取的点击数据："+data);
     });
 
+    // 测试Error
+    $('.errorTrigger').on('click',function(){
+        try{
+            // 某些可能发生错误的代码
+            /**
+             * …………
+             * 然后抛出错误
+             */
+            throw {errorMessage:'类型错误',errorCode:500};
+        }
+        catch(errorObj){
+            console.log(errorObj);
+            console.log('发生错误：'+errorObj.errorMessage+',错误代码：'+errorObj.errorCode);
+        }
+        finally{
+            console.log('总是执行的代码');
+        }
+        
+    });
+
 
 
     //头像跟着鼠标旋转
