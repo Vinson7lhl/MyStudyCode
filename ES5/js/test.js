@@ -81,6 +81,8 @@ $(function() {
             /**
              * …………
              * 然后抛出错误
+             * throw new Error('some_message');抛出标准错误，标准错误只能通过err.message获取
+             * throw anyData;抛出自定义错误
              */
             throw {errorMessage:'类型错误',errorCode:500};
         }
