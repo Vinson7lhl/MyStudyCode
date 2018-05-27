@@ -9,6 +9,8 @@
 </template>
 
 <style lang="scss">
+//  公共样式文件
+$base_color:red;
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,5 +27,10 @@
       color: #42b983;
     }
   }
+}
+.baseClass{
+  font-weight: bold;
+  font-size:20px;
+  color:$base_color;
 }
 </style>
