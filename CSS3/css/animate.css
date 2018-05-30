@@ -1,5 +1,9 @@
 html{margin:0px;padding :0px;}
 body{margin:0px;padding :0px;}
+.testLength{
+    width:120vw;
+    height:1vh;
+}
 .Transform{
     width:800px;
     height:800px;
@@ -13,11 +17,16 @@ body{margin:0px;padding :0px;}
     background-color: #444444;
     color:#ffffff;
     /*transform:translate就是线性的XY的移动，transform:translateZ(50px);经过测试：translate的3d，以及Z轴的变化不可用，2d，XY轴都可用*/
-    -webikit-transform:translate(30px,30px);
-    transform:translate(30px,30px);/*如果这里是百分比值：意义是自身宽/高的多少倍，100%是移动一个身位，200%是两个身位等等*/
+    
+    transition:all 0.5s;
+    /*如果这里是百分比值：意义是自身宽/高的多少倍，100%是移动一个身位，200%是两个身位等等*/
     /*注意：如果在上一个div下面又来一个同样的div变换，会发现，后面那个并不是以前面那个div动过后的位置为参考的，
     而是以前面那个未动之前原始位置为参考的，即动过div的动画相当于：分身,对后面的动画没有影响*/
     /*transform:translate(50px,0px);*/
+}
+.transformTranslate{
+    -webikit-transform:translate(30px,30px);
+    transform:translate(30px,30px);
 }
 .Trans3d{
     perspective:200px;
@@ -78,19 +87,19 @@ body{margin:0px;padding :0px;}
 /*Animation动画第一步：定义一个关键帧动画模块*/
 @-webkit-keyframes dong {
     from{
-        background-color:#449d44;
+        transform:translateX(0px);
     }
     to{
-        background-color: #000000;
+        transform:translateX(50px);
     }
  }
 
 @keyframes dong {
     from{
-        background-color:#449d44;
+        transform:translateX(0px);
     }
     to{
-        background-color: #000000;
+        transform:translateX(50px);
     }
 }
 /*Animation动画第二步：将动画绑定到任意div
@@ -98,17 +107,12 @@ body{margin:0px;padding :0px;}
 Animation则是可以将原来div中没有的css属性附加在这个div上。可以将关键帧绑定到一个随意的.className(但是这个类在页面中是没有的)
 然后将.className动态（通过jQuery）增加到某个div上即可发生动画
 */
-.X{animation:dong 2s infinite;}
+.X{animation:dong 2s forwards;}
 #animate{
     width:100px;
     height:100px;
-    background-color:#449d44;
     /* transition:all 2s; */
-}
-#animate:hover
-{
-    -webkit-animation: dong 2s infinite alternate both;
-    animation: dong 2s infinite alternate both;/*动画dong绑定*/
+    /* animation:dong 2s forwards; */
 }
 .changeColor
 {
