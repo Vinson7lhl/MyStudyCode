@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { Hello } from './components/hello_world/hello_world';
+import { Hello ,FunCom } from './components/hello_world/hello_world';
 
 class App extends Component {
   render() {
@@ -16,6 +16,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Hello></Hello>
+        <FunCom date='1989-09-01'></FunCom>
       </div>
     );
   }
