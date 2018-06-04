@@ -26,6 +26,14 @@ function UserList(props) {
     return liDoms;
 }
 
+function InputChildren(props){
+    return (
+        <div>
+            <input id='ref_child_input' ref={props.inputRef}/>
+        </div>
+    );
+}
+
 class Hello extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +46,8 @@ class Hello extends Component {
             gender: '男',
             swim: false,
             running: false,
-            tennis: false
+            tennis: false,
+            buttonDisabled:true,
         };
         this.userArray = ['张三', '李四'];
         this.sendFatherData={father:'App'};
@@ -49,6 +58,7 @@ class Hello extends Component {
 
     componentDidMount() {
         console.log('生命周期：componentDidMount，组件被输出渲染后运行，异步请求');
+        console.log(`父组件引用子dom，id为：${this.child_input_dom.id}`);
     }
 
     componentWillUnmount() {
@@ -130,8 +140,12 @@ class Hello extends Component {
                         <input type='checkbox' value='running' checked={this.state.running} onChange={this.checkboxChange} />跑步
                         <input type='checkbox' value='tennis' checked={this.state.tennis} onChange={this.checkboxChange} />网球
                     </div>
-                    <button onClick={this.fakeClick}>sendFatherData</button>
+                    <button disabled={this.state.buttonDisabled} onClick={this.fakeClick}>sendFatherData</button>
                 </div>
+                <p>ref 子组件</p>
+                <InputChildren inputRef={dom=>{
+                    this.child_input_dom=dom;
+                }}/>
             </div>
         );
     }
