@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './hello_world.css';
 
 /**
  * 
@@ -112,7 +113,7 @@ class Hello extends Component {
     render() {
         return (
             <div className="DiyHello">
-                <div>姓名：{this.state.name}</div>
+                <div className='userName'>姓名：{this.state.name}</div>
                 <div>年龄{this.state.age}</div>
                 <div>地理位置：{this.state.location}</div>
                 <div>日期：{this.state.date.toLocaleTimeString()}</div>
