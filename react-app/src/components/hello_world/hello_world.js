@@ -53,8 +53,10 @@ class Hello extends Component {
         this.userArray = ['张三', '李四'];
         this.sendFatherData={father:'App'};
         // 这个绑定this不是必须的，如下写法
-        //this.changeName=this.changeName.bind(this);
+        // this.changeName=this.changeName.bind(this);
         console.log('Hello构造器');
+        // post发送的数据
+        this.postData={name:'图灵',age:27};
     }
 
     componentDidMount() {
@@ -106,8 +108,27 @@ class Hello extends Component {
                 newObj={};
         this.setState({[checkboxName]:ischecked});
     }
+
     fakeClick=(e)=>{
         this.props.diyClick(this.sendFatherData,e)
+    }
+
+    mockAjax=()=>{
+        fetch('./mock',{
+            method:'post',
+            body:JSON.stringify(this.postData),
+            headers:{
+                'Content-Type': 'application/json'
+              }
+        })
+        .then(res=>{
+            console.log(res);
+            console.log(typeof res);
+        })
+        .catch(err=>{
+            console.log('错误');
+            console.log(err);
+        });
     }
 
     render() {
@@ -142,6 +163,7 @@ class Hello extends Component {
                         <input type='checkbox' value='tennis' checked={this.state.tennis} onChange={this.checkboxChange} />网球
                     </div>
                     <button disabled={this.state.buttonDisabled} onClick={this.fakeClick}>sendFatherData</button>
+                    <button onClick={this.mockAjax}>Fetch发送请求</button>
                 </div>
                 <p>ref 子组件</p>
                 <InputChildren inputRef={dom=>{
