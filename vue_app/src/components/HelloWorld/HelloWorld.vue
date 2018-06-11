@@ -51,6 +51,9 @@ export default {
       return this.input_text+'-新数据';
     },
   },
+  components:{
+    
+  },
   /**
    * 生命周期钩子:created，注意不要用箭头函数！否则this无法绑定在vue实例上
    */
