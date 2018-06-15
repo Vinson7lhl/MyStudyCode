@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './hello_world.css';
+import './hello_world.css';
 
 /**
  * 
