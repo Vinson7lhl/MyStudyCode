@@ -18,7 +18,7 @@ export default {
     msg: String
   },
   /**
-   * 状态
+   * 状态，必须是函数，然后返回状态，而不可以直接返回状态
    */
   data: function(){
     return {
