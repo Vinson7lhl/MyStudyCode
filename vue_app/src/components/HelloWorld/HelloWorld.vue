@@ -11,11 +11,11 @@
 
 <script>
 export default {
-  // 组件名
+  // 组件名，其实不写这个属性也可以
   name: "HelloWorld",
   // 组件上的属性
   props: {
-    msg: String
+    'dataMsg': String
   },
   /**
    * 状态，必须是函数，然后返回状态，而不可以直接返回状态
@@ -30,6 +30,17 @@ export default {
           name:'洪七公',
           age:78
         },
+        gender:'male',
+        age_level:'young',
+        students:[
+        {
+          name:'张三',
+          age:12
+        },
+        {
+          name:'李四',
+          age:12
+        }],
       }
   },
   /**
@@ -41,7 +52,7 @@ export default {
     },
     changeDemo:function(){
       this.demo.name='老顽童';
-    }
+    },
   },
   /**
    * 重新定义数据，computed的本质就是angular的管道

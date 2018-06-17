@@ -1,5 +1,5 @@
 <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ dataMsg }}</h1>
     <div class='baseClass'>李宏磊</div>
     <input type="text" v-model='input_text'>双向绑定
     <p>input输出：{{input_text}}</p>
@@ -8,4 +8,24 @@
     <div>新数据computed后1：{{newMessageByComputed}}</div>
     <div v-bind:class='{class1:activeClass1,class2:activeClass2}'>新数据通过方法后2：{{newMessageByMethod('呵呵')}}</div>
     <div>demo数据：name:{{demo.name}},age:{{demo.age}} <button @click='changeDemo'>修改demo数据</button></div>
+    <div class='formRadio'>
+        男：<input name='form_radio' type="radio" value='male' v-model='gender'>
+        女：<input name='form_radio' type="radio" value='female' v-model='gender'>
+        选中：{{gender}}
+    </div>
+    <div class='formRadio'>
+        青年：<input name='form_age' type="radio" value='young' v-model='age_level'>
+        老年：<input name='form_age' type="radio" value='old' v-model='age_level'>
+        选中：{{age_level}}
+    </div>
+    <div>
+        <ul>
+            <li v-for='(per,index) in students'>
+                学生姓名：{{per.name}};
+                写生年龄：{{per.age}}；
+                学号：{{index+1}}
+            </li>
+        </ul>
+    </div>
+    <button @click='$emit("emit-father","sonDataLHL1","sonDataLHL2",$event)'>触发父级</button>
 </div>
