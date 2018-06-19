@@ -113,6 +113,9 @@ class Hello extends Component {
         this.props.diyClick(this.sendFatherData,e)
     }
 
+    /**
+     * Ajax-fetch 请求测试
+     */
     mockAjax=()=>{
         fetch('./mock',{
             method:'post',
