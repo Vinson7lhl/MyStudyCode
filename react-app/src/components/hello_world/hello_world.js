@@ -3,7 +3,7 @@ import './hello_world.css';
 
 /**
  * 
- * @param  props :string,禁止修改props，以下为纯函数
+ * @param  props :string,禁止修改props，以下为纯函数组件
  */
 function IsLogin(props) {
     if (props.isWelcome) {
@@ -11,7 +11,7 @@ function IsLogin(props) {
     }
     return <Notwelcome />;
 }
-
+//  纯函数组件
 function Welcome() {
     return <span>欢迎小李子</span>;
 }
