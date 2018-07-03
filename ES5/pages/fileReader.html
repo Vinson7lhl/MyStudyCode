@@ -40,6 +40,7 @@
             var resultFile = document.getElementById("fileDemo").files[0];
             if (resultFile) {
                 var reader = new FileReader();
+                // reader.readAsText(resultFile,'gb2312'); 解决中文乱码
                 reader.readAsText(resultFile,'utf-8');
                 reader.onload = function (e) {
                     var urlData = this.result;
