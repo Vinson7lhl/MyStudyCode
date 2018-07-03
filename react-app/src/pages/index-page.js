@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Route} from 'react-router'
 
 import { Hello, IsLogin } from '../components/hello_world/hello_world';
-
+import ForgetPage from './forget-page';
 
 class IndexPage extends Component {
     render() {
@@ -9,7 +10,8 @@ class IndexPage extends Component {
         <React.Fragment>
             <Hello diyClick={this.getDataFromChild}></Hello>
             <IsLogin isWelcome={true} />
-            <div>获取参数：{this.props.match.params.id}</div>
+            {/* <div>获取参数：{this.props.match.params.id}</div> */}
+            <Route path={`${this.props.match.url}/:userId`} component={ForgetPage}/>
         </React.Fragment>
         );
     }

@@ -27,10 +27,10 @@ function UserList(props) {
     return liDoms;
 }
 
-function InputChildren(props){
+function InputChildren(props) {
     return (
         <div>
-            <input id='ref_child_input' ref={props.inputRef}/>
+            <input id='ref_child_input' ref={props.inputRef} />
         </div>
     );
 }
@@ -48,15 +48,15 @@ class Hello extends Component {
             swim: false,
             running: false,
             tennis: false,
-            buttonDisabled:true,
+            buttonDisabled: true,
         };
         this.userArray = ['张三', '李四'];
-        this.sendFatherData={father:'App'};
+        this.sendFatherData = { father: 'App' };
         // 这个绑定this不是必须的，如下写法
         // this.changeName=this.changeName.bind(this);
         console.log('Hello构造器');
         // post发送的数据
-        this.postData={name:'图灵',age:27};
+        this.postData = { name: '图灵', age: 27 };
     }
 
     componentDidMount() {
@@ -101,37 +101,37 @@ class Hello extends Component {
         this.setState({ gender: e.target.value });
     }
 
-    checkboxChange=e=>{
+    checkboxChange = e => {
         console.log('选中');
-        const checkboxName=e.target.value,
-                ischecked=e.target.checked,
-                newObj={};
-        this.setState({[checkboxName]:ischecked});
+        const checkboxName = e.target.value,
+            ischecked = e.target.checked,
+            newObj = {};
+        this.setState({ [checkboxName]: ischecked });
     }
 
-    fakeClick=(e)=>{
-        this.props.diyClick(this.sendFatherData,e)
+    fakeClick = (e) => {
+        this.props.diyClick(this.sendFatherData, e)
     }
 
     /**
      * Ajax-fetch 请求测试
      */
-    mockAjax=()=>{
-        fetch('./mock',{
-            method:'post',
-            body:JSON.stringify(this.postData),
-            headers:{
+    mockAjax = () => {
+        fetch('./mock', {
+            method: 'post',
+            body: JSON.stringify(this.postData),
+            headers: {
                 'Content-Type': 'application/json'
-              }
+            }
         })
-        .then(res=>{
-            console.log(res);
-            console.log(typeof res);
-        })
-        .catch(err=>{
-            console.log('错误');
-            console.log(err);
-        });
+            .then(res => {
+                console.log(res);
+                console.log(typeof res);
+            })
+            .catch(err => {
+                console.log('错误');
+                console.log(err);
+            });
     }
 
     render() {
@@ -143,7 +143,7 @@ class Hello extends Component {
                 <div>日期：{this.state.date.toLocaleTimeString()}</div>
                 <div>籍贯：{this.state.selectedValue}</div>
                 {/* <button onClick={this.changeName.bind(this, '洪七公')}>修改name值</button> */}
-                <button onClick={e=>{this.changeName('洪七公',e)}}>修改name值</button>
+                <button onClick={e => { this.changeName('洪七公', e) }}>修改name值</button>
                 <ul>
                     <UserList users={this.userArray}></UserList>
                 </ul>
@@ -169,9 +169,9 @@ class Hello extends Component {
                     <button onClick={this.mockAjax}>Fetch发送请求</button>
                 </div>
                 <p>ref 子组件</p>
-                <InputChildren inputRef={dom=>{
-                    this.child_input_dom=dom;
-                }}/>
+                <InputChildren inputRef={dom => {
+                    this.child_input_dom = dom;
+                }} />
             </div>
         );
     }
