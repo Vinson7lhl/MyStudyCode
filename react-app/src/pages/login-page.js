@@ -1,6 +1,4 @@
 import React ,{ Component } from 'react';
-import { Route} from 'react-router'
-import ForgetPage from './forget-page';
 
 class LoginPage extends Component{
     render(){

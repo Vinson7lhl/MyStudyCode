@@ -104,8 +104,7 @@ class Hello extends Component {
     checkboxChange = e => {
         console.log('选中');
         const checkboxName = e.target.value,
-            ischecked = e.target.checked,
-            newObj = {};
+            ischecked = e.target.checked;
         this.setState({ [checkboxName]: ischecked });
     }
 
