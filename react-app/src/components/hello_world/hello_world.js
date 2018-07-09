@@ -57,6 +57,9 @@ class Hello extends Component {
         console.log('Hello构造器');
         // post发送的数据
         this.postData = { name: '图灵', age: 27 };
+        // 获取新的Red Dom(16.3+版本支持的新API,所以底下的代码会报错)
+        // this.newRefDom=React.createRef();
+        // console.log('新的refDom的ID：'+this.newRefDom.id);
     }
 
     componentDidMount() {
@@ -166,6 +169,7 @@ class Hello extends Component {
                     </div>
                     <button disabled={this.state.buttonDisabled} onClick={this.fakeClick}>sendFatherData</button>
                     <button onClick={this.mockAjax}>Fetch发送请求</button>
+                    {/* <div ref={this.newRefDom} id="new_ref_dom">新的ref函数获取DOM</div> */}
                 </div>
                 <p>ref 子组件</p>
                 <InputChildren inputRef={dom => {
