@@ -21,7 +21,7 @@ export default {
     'dataMsg': String
   },
   /**
-   * 状态，必须是函数，然后返回状态，而不可以直接返回状态
+   * 状态，必须是函数，然后返回状态，而不可以直接映射json对象
    */
   data: function(){
     return {
