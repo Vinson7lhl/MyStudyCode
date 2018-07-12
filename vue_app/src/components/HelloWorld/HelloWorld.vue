@@ -10,6 +10,9 @@
 
 
 <script>
+/**
+ * export default 好处就是导入时可其任意的名字：语法源自es6
+ */
 export default {
   // 组件名，其实不写这个属性也可以
   name: "HelloWorld",
