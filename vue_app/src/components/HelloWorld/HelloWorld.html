@@ -1,5 +1,9 @@
 <div class="hello">
     <h1>{{ dataMsg }}</h1>
+    <h1>来自Vuex的store的count值：{{from_store_count}}</h1>
+    <button @click='add'>增加+1</button>
+    <button @click='minus'>减少-1</button>
+
     <div class='baseClass'>李宏磊</div>
     <input type="text" v-model='input_text'>双向绑定
     <p>input输出：{{input_text}}</p>

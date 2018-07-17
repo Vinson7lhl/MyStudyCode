@@ -10,6 +10,7 @@
 
 
 <script>
+import { mapState } from 'vuex'
 /**
  * export default 好处就是导入时可其任意的名字：语法源自es6
  */
@@ -56,6 +57,12 @@ export default {
     changeDemo:function(){
       this.demo.name='老顽童';
     },
+    add(){
+      console.log('增加');
+    },
+    minus(){
+      console.log('减少');
+    }
   },
   /**
    * 重新定义数据，computed的本质就是angular的管道
@@ -64,6 +71,9 @@ export default {
     newMessageByComputed:function(){
       return this.input_text+'-新数据';
     },
+    from_store_count(){
+      return this.$store.state.count;
+    }
   },
   components:{
     
