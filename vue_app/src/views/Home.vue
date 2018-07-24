@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img src="../assets/logo.png">
-    <hello-world @emit-father='fatherEmit' data-msg="HelloWorld组件msg属性值"/>
+    <hello-world @emit-father='fatherEmit' dataMsg="Father-Tmplate"/>
   </div>
 </template>
 
