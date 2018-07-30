@@ -6,6 +6,9 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
+/**
+ * 这里注入store就可以在所有的组建中用this.$store去调用
+ */
 new Vue({
   router,
   store,

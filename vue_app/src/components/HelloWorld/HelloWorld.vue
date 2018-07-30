@@ -72,6 +72,7 @@ export default {
       return this.input_text+'-新数据';
     },
     from_store_count(){
+      // 通过$store来获取Vuex的Store 对象
       return this.$store.state.count;
     }
   },
