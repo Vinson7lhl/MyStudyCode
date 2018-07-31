@@ -5,13 +5,16 @@ import { Hello, IsLogin } from '../components/hello_world/hello_world';
 class IndexPage extends Component {
     render() {
         return (
-        <React.Fragment>
-            <Hello diyClick={this.getDataFromChild}></Hello>
-            <IsLogin isWelcome={true} />
-            {/* <div>获取参数：{this.props.match.params.id}</div> */}
-            {/* <Route path={`${this.props.match.url}/:userId`} component={ForgetPage}/> */}
-        </React.Fragment>
+            <React.Fragment>
+                <Hello diyClick={this.getDataFromChild}></Hello>
+                <IsLogin isWelcome={true} />
+                {/* <div>获取参数：{this.props.match.params.id}</div> */}
+                {/* <Route path={`${this.props.match.url}/:userId`} component={ForgetPage}/> */}
+            </React.Fragment>
         );
+    }
+    getDataFromChild = (data, e) => {
+        console.log(`来自子组件的数据：${data}`);
     }
 }
 

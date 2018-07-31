@@ -51,7 +51,7 @@ class Hello extends Component {
             buttonDisabled: true,
         };
         this.userArray = ['张三', '李四'];
-        this.sendFatherData = { father: 'App' };
+        this.sendFatherData = { father: '来自子组件数据' };
         // 这个绑定this不是必须的，如下写法
         // this.changeName=this.changeName.bind(this);
         console.log('Hello构造器');
