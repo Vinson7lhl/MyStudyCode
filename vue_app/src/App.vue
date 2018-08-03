@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <div v-if='isShowPopUp' class='popUp'>这里是弹窗</div>
     <!--一级路由输出位置-->
     <transition name="fade"
       v-on:before-enter="beforeEnter"
@@ -27,6 +28,18 @@
 import Vue from "vue";
 export default {
   name: "rootApp",
+  mounted(){
+    console.log('加载完毕');
+    this.$on('test',data=>{
+      console.log('广播得到的数据');
+      console.log(data);
+    });
+  },
+  data(){
+    return {
+      isShowPopUp:false
+    }
+  },
   methods: {
     /**
      * 动画生命周期，打印结果
@@ -74,6 +87,9 @@ export default {
 
 
 <style lang="scss">
+// .popUp{
+//   display: none;
+// }
 //  公共样式文件
 $base_color: red;
 #app {

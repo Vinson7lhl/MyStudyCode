@@ -62,6 +62,10 @@ export default {
     },
     minus(){
       console.log('减少');
+    },
+    triggerBo(){
+      console.log('广播');
+      this.$emit('test','广播受到');
     }
   },
   /**
