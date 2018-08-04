@@ -59,9 +59,11 @@ export default {
     },
     add(){
       console.log('增加');
+      this.$store.commit('add','这里是add的载入数据');
     },
     minus(){
       console.log('减少');
+      this.$store.commit('minus','这里是minus的载入数据');
     },
     triggerBo(){
       console.log('广播');
@@ -75,10 +77,25 @@ export default {
     newMessageByComputed:function(){
       return this.input_text+'-新数据';
     },
+    /**
+     * from the Vuex 'store',来自Vuex中的状态一般会放在computed中，因为state和上面的data（本质也是state）是响应式的
+     */
+    // 第一种写法：只有一个状态
     from_store_count(){
-      // 通过$store来获取Vuex的Store 对象
+      // 通过this.$store来获取Vuex的Store 对象
       return this.$store.state.count;
-    }
+    },
+    // 第二种通过Vuex的mapState函数处理多个state
+    ...mapState({
+      // 箭头函数
+      'state_1':state=>state.state1,
+      // 直接传递状态字符串
+      'state_2':'state2',
+      // 如果要使用this就必须用一般函数，如第一种写法
+      state_3(state){
+        return this.demo.name+'-连接另一个字符串-'+state.state3;
+      }
+    }),
   },
   components:{
     
