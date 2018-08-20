@@ -11,10 +11,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { X } from '../../../public/lib/lhl.js'
-/**
- * export default 好处就是导入时可其任意的名字：语法源自es6
- */
+// import { X } from '../../../public/lib/lhl.js'
 export default {
   // 组件名，其实不写这个属性也可以
   name: "HelloWorld",
@@ -116,7 +113,6 @@ export default {
     console.log('生命周期钩子：beforeMount');
   },
   mounted() {
-    X();
   },
 };
 </script>
