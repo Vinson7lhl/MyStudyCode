@@ -1,3 +1,6 @@
+/**
+ * 此文件已经无效，router用4.0+的版本后，路由也算是组件的一部分
+ */
 import React from 'react';
 import { Route} from 'react-router';
 import { BrowserRouter  } from 'react-router-dom';

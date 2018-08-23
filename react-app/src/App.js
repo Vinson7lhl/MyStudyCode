@@ -25,6 +25,7 @@ class App extends Component {
 
   /**
    * 注意：router内部只有一个根节点
+   * 在路由4+的版本中，路由不再单独剥离，而是注入组建中，当做组建的一部分-如下
    */
   render() {
     return (
@@ -35,6 +36,9 @@ class App extends Component {
             <li><Link to="/index">index</Link></li>
             <li><Link to='/list'>list</Link></li>
           </ul>
+          {/* 
+              路由的输出模块
+           */}
           <Route exact path='/' component={LoginPage} />
           <Route path='/index' component={IndexPage} />
           <Route path='/forgetPassword' component={ForgetPassword} />
