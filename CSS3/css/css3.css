@@ -109,23 +109,28 @@ a:hover{
 .flexContent:nth-child(1){
 	/* width:90px; */
 	color:#ffffff;
-	background-color: #000000
+	background-color: #000000;
+	width:50px;
 }
 .flexContent:nth-child(2){
 	/* width:100px; */
-	background-color: #4081d6
+	background-color: #4081d6;
+	width:20px;
 }
 .flexContent:nth-child(3){
 	/* width:50px; */
-	background-color: #4e4e4e
+	background-color: #4e4e4e;
+	width:33px;
 }
 .flexContent:nth-child(4){
 	/* width:70px; */
-	background-color: #4081d6
+	background-color: #4081d6;
+	width:70px;
 }
 .flexContent:nth-child(5){
 	/* width:120px; */
-	background-color: #4e4e4e
+	background-color: #4e4e4e;
+	flex:1;
 }
 .realContent{
 	display: block;
