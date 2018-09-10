@@ -80,6 +80,7 @@ class Hello extends Component {
     }
      */
     changeName(newName, e) {
+        e.preventDefault();
         // 必须在函数中显式写阻止事件
         this.setState({ name: newName });
     }
@@ -145,7 +146,7 @@ class Hello extends Component {
                 <div>日期：{this.state.date.toLocaleTimeString()}</div>
                 <div>籍贯：{this.state.selectedValue}</div>
                 {/* <button onClick={this.changeName.bind(this, '洪七公')}>修改name值</button> */}
-                <button onClick={e => { this.changeName('洪七公', e) }}>修改name值</button>
+                <button onClick={this.changeName.bind(this,'洪七公')}>修改name值</button>
                 <ul>
                     <UserList users={this.userArray}></UserList>
                 </ul>
