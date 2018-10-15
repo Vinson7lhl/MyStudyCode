@@ -329,7 +329,7 @@ a:hover{
 /*-----------------------------------------------------------------------------------------
 	滚动条（针对webkit）
 ------------------------------------------------------------------------------------------*/
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
 	width:8px;
 	height:8px;
 	background:#f5f5f5;
@@ -338,7 +338,7 @@ a:hover{
 ::-webkit-scrollbar-thumb{
 	background-color:#cccccc;
 	border-radius:4px;
-}
+} */
 
 .lineTwo{
 	width:50px;
@@ -354,15 +354,15 @@ a:hover{
 ------------------------------------------------------------------------------------------*/
 body{
 	 /*三角箭头的颜色*/
-	 scrollbar-arrow-color: #f00;
+	 /* scrollbar-arrow-color: #f00; */
 	 /*滚动条滑块按钮的颜色*/
-	 scrollbar-face-color: #ff0;
+	 /* scrollbar-face-color: #ff0; */
 	 /*滚动条整体颜色*/
-	 scrollbar-highlight-color: #333;
+	 /* scrollbar-highlight-color: #333; */
 	 /*滚动条阴影*/
-	 scrollbar-shadow-color: #ccc;
+	 /* scrollbar-shadow-color: #ccc; */
 	 /*滚动条轨道颜色*/
-	 scrollbar-track-color: #666;
+	 /* scrollbar-track-color: #666; */
 }
 
 .ieTest{
@@ -385,4 +385,9 @@ body{
 	flex:1;
 	-ms-flex: 1;
 	background-color: #008DFF;
+}
+
+.content_2{
+	height:auto;
+	max-height: 100px;
 }

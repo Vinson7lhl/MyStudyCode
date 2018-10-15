@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>CSS3测试新特性</title>
 	<link href="css/css3.css" rel="stylesheet" />
+	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" />
 </head>
 <!--
 	启动：     browser-sync start --server --files "**/*.css, **/*.html, **/*.js"
@@ -28,13 +29,13 @@
 	</div>
 	<script>
 		// demo for <template>
-		var temp_dom = document.getElementById('temp');
-		var spans_dom = temp_dom.content.querySelectorAll('span');
-		spans_dom[0].textContent = 'sp1';
-		spans_dom[1].textContent = 'sp2';
-		var container = document.getElementById('template_container');
-		var copy_spans_dom = document.importNode(temp_dom.content, true)
-		container.appendChild(copy_spans_dom);
+		// var temp_dom = document.getElementById('temp');
+		// var spans_dom = temp_dom.content.querySelectorAll('span');
+		// spans_dom[0].textContent = 'sp1';
+		// spans_dom[1].textContent = 'sp2';
+		// var container = document.getElementById('template_container');
+		// var copy_spans_dom = document.importNode(temp_dom.content, true)
+		// container.appendChild(copy_spans_dom);
 	</script>
 
 
@@ -220,7 +221,21 @@
 	<!--media查询-->
 	<div class='mediaQuery'></div>
 
+	<!--测试滚动插件-->
+	<div class='content_2'>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+	</div>
+
 	<script type="text/javascript" src="lib/jQuery/jquery-2.1.4.js"></script>
+	<script src="lib/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="js/css3.js"></script>
 </body>
 

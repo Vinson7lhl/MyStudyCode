@@ -1,0 +1,4 @@
+1、路由配置
+2、http请求
+3、公共组件（tips，模态框，loading……）
+4、公共css（less）、img、js库（非模块化）、js（模块化）、iconfont
