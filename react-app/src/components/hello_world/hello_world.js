@@ -49,6 +49,7 @@ class Hello extends Component {
             running: false,
             tennis: false,
             buttonDisabled: true,
+            domIsShow:false
         };
         this.userArray = ['张三', '李四'];
         this.sendFatherData = { father: '来自子组件数据' };
@@ -176,6 +177,10 @@ class Hello extends Component {
                 <InputChildren inputRef={dom => {
                     this.child_input_dom = dom;
                 }} />
+                dom显示测试
+                {
+                    this.state.domIsShow ? <div>显示dom</div>  : <div>不显示dom</div>
+                }
             </div>
         );
     }
