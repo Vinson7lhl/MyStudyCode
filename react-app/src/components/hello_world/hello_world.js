@@ -64,12 +64,26 @@ class Hello extends Component {
     }
 
     componentDidMount() {
-        console.log('生命周期：componentDidMount，组件被输出渲染后运行，异步请求');
+        console.log('钩子-componentDidMount')
         console.log(`父组件引用子dom，id为：${this.child_input_dom.id}`);
     }
 
     componentWillUnmount() {
-        console.log('生命周期：componentWillUnmount');
+        console.log('钩子-componentWillMount')
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log('钩子-componentWillReceiveProps')
+        console.log(nextProps)
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('钩子-shouldComponentUpdate')
+        return true
+    }
+    componentWillUpdate(nextProps, nextState) {
+        console.log('钩子-componentWillUpdate')
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log('钩子-componentDidUpdate')
     }
 
     /**
@@ -141,6 +155,7 @@ class Hello extends Component {
     render() {
         return (
             <div className="DiyHello">
+                <div>来自父级的数据：{this.props.initData.father_name}</div>
                 <div className='userName'>姓名：{this.state.name}</div>
                 <div>年龄{this.state.age}</div>
                 <div>地理位置：{this.state.location}</div>
