@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3测试新特性</title>
+	<style>
+		.model{
+			width:500px;
+			height:500px;
+			position: relative;
+			overflow: hidden;
+		}
+		.box {
+			width:150px;
+			height:150px;
+			float:left;
+		}
+		.box1{
+			border-right:1px solid #000000;
+			border-bottom:1px solid #000000;
+			margin-right:100px;
+			margin-bottom:100px;
+		}
+		.box2{
+			border-left:1px solid #000000;
+			border-bottom:1px solid #000000;
+			margin-bottom:100px;
+		}
+		.box3{
+			border-top:1px solid #000000;
+			border-right:1px solid #000000;
+			margin-right:100px;
+		}
+		.box4{
+			border-left:1px solid #000000;
+			border-top:1px solid #000000;
+		}
+		.light{
+			width:30px;
+			height:30px;
+			line-height: 30px;
+			text-align: center;
+			background-color: red;
+			border-radius: 50%;
+			position:absolute;
+			z-index: 1;
+		}
+		#up{
+			top:100px;
+			left:160px;
+		}
+		#down{
+			top:270px;
+			right:260px;
+		}
+		#left{
+			top:210px;
+			left:100px;
+		}
+		#right{
+			top:160px;
+			right:200px;
+		}
+		.go{
+			background-color: green;
+		}
+		.lightNum{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class='model'>
+		<div class='box box1'></div>
+		<div class='box box2'></div>
+		<div class='box box3'></div>
+		<div class='box box4'></div>
+		<div id='up' class='light light1'></div>
+		<div id='down' class='light light1'></div>
+		<div id='left' class='light light2'></div>
+		<div id='right' class='light light2'></div>
+	</div>
+	<script type="text/javascript">
+		var is_up_down = true;
+		var total_num = 30;
+		var up=document.getElementById('up');
+		var down=document.getElementById('down');
+		var left=document.getElementById('left');
+		var right=document.getElementById('right');
+		var numDom = document.getElementsByClassName('light')
+		up.setAttribute("class","light light1 go");
+		down.setAttribute("class","light light1 go");
+
+		setInterval(count,1000)
+		function count(){
+			total_num = total_num - 1;
+			console.log(total_num)
+			if (total_num === 0) {
+				total_num = 30;
+				if (is_up_down) {
+				up.setAttribute("class","light light1");
+				down.setAttribute("class","light light1");
+				left.setAttribute("class","light light2 go");
+				right.setAttribute("class","light light2 go");
+				is_up_down = false
+				} else {
+					up.setAttribute("class","light light1 go");
+					down.setAttribute("class","light light1 go");
+					left.setAttribute("class","light light2");
+					right.setAttribute("class","light light2");
+					is_up_down = true
+				}
+			}
+			if (total_num <= 10) {
+				for (var i=0;i<4;i++){
+					numDom[i].textContent = total_num
+				}
+			} else {
+				for (var i=0;i<4;i++){
+					numDom[i].textContent = ''
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
