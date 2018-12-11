@@ -9,8 +9,8 @@ module.exports = {
   entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-  publicPath: '/',
-  filename: '[name].js',
-  chunkFilename: '[id].[hash].js'
+    publicPath: '/',
+    filename: '[name].js',
+    chunkFilename: '[id].[hash].js'
   }
 };
