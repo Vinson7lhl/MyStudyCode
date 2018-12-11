@@ -4,7 +4,7 @@ import { Route, Link, BrowserRouter as Router, } from 'react-router-dom';
 import LoginPage from './pages/login-page';
 import IndexPage from './pages/index-page';
 import ForgetPassword from './pages/forget-page';
-import ListPage  from './pages/list-page';
+import ListPage from './pages/list-page';
 import DetailPage from './pages/detail-page';
 
 import './App.css';
