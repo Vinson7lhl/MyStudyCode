@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import MyContext from '../pages/context_values'
 
 import { Hello, IsLogin } from '../components/hello_world/hello_world';
 import * as indexAction from '../action/index.action'
@@ -18,6 +19,8 @@ class IndexPage extends Component {
     }
     componentDidMount() {
         console.log(this.props)
+        let value = this.context.contextValue;
+        console.log('上下文值：' + value)
     }
     changeReduxNum (new_num) {
         this.props.getNewNum(new_num)
@@ -39,6 +42,11 @@ class IndexPage extends Component {
         console.log(`来自子组件的数据：${data}`);
     }
 }
+/**
+ * 获取上下文值
+ * @param {} state 
+ */
+IndexPage.contextType = MyContext;
 
 /**
  * 
