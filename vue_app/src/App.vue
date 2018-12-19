@@ -21,23 +21,19 @@
     </transition>
   </div>
 </template>
-
-
-
 <script lang="ts">
-import Vue from "vue";
 export default {
-  name: "rootApp",
-  mounted(){
-    console.log('加载完毕');
-    this.$on('test',data=>{
-      console.log('广播得到的数据');
-      console.log(data);
-    });
+  name: 'rootApp',
+  mounted () {
+    console.log('加载完毕')
+    this.$on('test', data => {
+      console.log('广播得到的数据')
+      console.log(data)
+    })
   },
-  data(){
+  data () {
     return {
-      isShowPopUp:false
+      isShowPopUp: false
     }
   },
   methods: {
@@ -50,42 +46,38 @@ export default {
         enter App.vue:38
         after-enter
      */
-    beforeEnter() {
-      console.log("before-enter");
+    beforeEnter () {
+      console.log('before-enter')
     },
-    enter() {
-      console.log("enter");
+    enter () {
+      console.log('enter')
     },
-    afterEnter() {
-      console.log("after-enter");
+    afterEnter () {
+      console.log('after-enter')
     },
-    enterCancelled: function(el) {
-      console.log("after-cancel");
+    enterCancelled (el) {
+      console.log('after-cancel')
     },
-    beforeLeave: function(el) {
-      console.log("before-leave");
+    beforeLeave (el) {
+      console.log('before-leave')
     },
     // 此回调函数是可选项的设置
     // 与 CSS 结合时使用
-    leave: function(el, done) {
+    leave (el, done) {
       // ...
-      console.log('leave');
-      done();
+      console.log('leave')
+      done()
     },
-    afterLeave: function(el) {
-      console.log("after-leave");
+    afterLeave (el) {
+      console.log('after-leave')
     },
     // leaveCancelled 只用于 v-show 中
-    leaveCancelled: function(el) {
-      console.log("leave-cancel");
+    leaveCancelled (el) {
+      console.log('leave-cancel')
     }
   }
-};
+}
 </script>
-
-
-
-
 <style lang="scss">
 // .popUp{
 //   display: none;
