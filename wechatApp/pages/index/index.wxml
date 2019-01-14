@@ -9,5 +9,6 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+    俺是李宏磊——为自己带……
   </view>
 </view>
