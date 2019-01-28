@@ -23,10 +23,12 @@ module.exports = {
             "error",
             "windows"
         ],
+        // 引号：单引号
         "quotes": [
             "error",
             "single"
         ],
+        // 分号：不需要
         "semi": [
             "error",
             "never"
