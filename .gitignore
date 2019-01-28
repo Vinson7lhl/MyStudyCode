@@ -1,4 +1,4 @@
 
 *.map
 */node_modules
-nextJs/.next
+nextJs/.next/*

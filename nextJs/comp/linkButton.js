@@ -3,6 +3,4 @@ const LinkButton = () => (
         组件链接
     </div>
 )
-
-
 export default LinkButton;
