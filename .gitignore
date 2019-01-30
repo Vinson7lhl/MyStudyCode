@@ -1,4 +1,5 @@
 
 *.map
-*/node_modules
+**/node_modules/**
 nextJs/.next/*
+webpackTest/node_modules/.bin/webpack
