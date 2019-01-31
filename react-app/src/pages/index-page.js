@@ -17,10 +17,15 @@ class IndexPage extends Component {
     changeProps() {
         this.setState({ init_data: { father_name: '改变啦！！！' } })
     }
+    
     componentDidMount() {
-        console.log(this.props)
-        let value = this.context.contextValue;
-        console.log('上下文值：' + value)
+        console.log(this.props);
+        // let value = this.context.contextValue;
+        // console.log('上下文值：' + value)
+    }
+    componentWillUnmount() {
+    }
+    componentWillReceiveProps() {
     }
     changeReduxNum (new_num) {
         this.props.getNewNum(new_num)

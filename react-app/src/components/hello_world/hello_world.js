@@ -55,22 +55,36 @@ class Hello extends Component {
         this.sendFatherData = { father: '来自子组件数据' };
         // 这个绑定this不是必须的，如下写法
         // this.changeName=this.changeName.bind(this);
-        console.log('Hello构造器');
+        console.log('构造器');
         // post发送的数据
         this.postData = { name: '图灵', age: 27 };
         // 获取新的Red Dom(16.3+版本支持的新API,所以底下的代码会报错)
         // this.newRefDom=React.createRef();
         // console.log('新的refDom的ID：'+this.newRefDom.id);
     }
-
+    /**
+     * 实例化——第一次被创建时
+     */
+    getDefaultProps() {
+        console.log('钩子-getDefaultProps')
+    }
+    getInitialState() {
+        console.log('钩子-getInitialState')
+    }
+    componentWillMount() {
+        console.log('钩子-componentWillMount')
+    }
+    //  render：渲染
     componentDidMount() {
         console.log('钩子-componentDidMount')
         console.log(`父组件引用子dom，id为：${this.child_input_dom.id}`);
     }
 
-    componentWillUnmount() {
-        console.log('钩子-componentWillMount')
-    }
+
+    /**
+     * 存在期——创建后的各种交互，比如state的修改
+     */
+    // 一般情况下次函数是由于父组件的修改值后传递给子组件时触发
     componentWillReceiveProps(nextProps) {
         console.log('钩子-componentWillReceiveProps')
         console.log(nextProps)
@@ -82,9 +96,14 @@ class Hello extends Component {
     componentWillUpdate(nextProps, nextState) {
         console.log('钩子-componentWillUpdate')
     }
+    // render：渲染
     componentDidUpdate(prevProps, prevState) {
         console.log('钩子-componentDidUpdate')
     }
+
+    /**
+     * 销毁期——
+     */
 
     /**
      * 如果删除绑定this的语法，可写成如下方式（仅限在react脚手架app中，因为这里默认是开启的。）
