@@ -28,9 +28,9 @@ export default class Index extends Component {
         <Header />
         <p>Hello Next.js</p>
         跳转
-        <PostLink id='index1' title='你好 Next.js'></PostLink>
-        <PostLink id='index2' title='Learn Next.js is awesome'></PostLink>
-        <PostLink id='index3' title='Deploy apps with Zeit'></PostLink>
+        <PostLink id='index1' title='链接1——你好 Next.js'></PostLink>
+        <PostLink id='index2' title='链接1——Learn Next.js is awesome'></PostLink>
+        <PostLink id='index3' title='链接1——Deploy apps with Zeit'></PostLink>
         <Link href='./about'>
           <LinkButton onClick=''></LinkButton>
         </Link>
