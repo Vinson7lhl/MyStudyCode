@@ -6,7 +6,9 @@
 var path = require('path');
 console.log(__dirname);
 module.exports = {
+  // 入口
   entry: './app/index.js',
+  // 出口
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
