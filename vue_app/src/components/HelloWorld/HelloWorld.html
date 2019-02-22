@@ -12,7 +12,7 @@
     <input type="text" v-model='input_text'>双向绑定
     <p>input输出：{{input_text}}</p>
     <div>这里是HTML片段，但是输出字符串：{{html_text}}</div>
-    <div id='renderHTML'>这里是HTML片段，但是渲染为html：<div v-html='html_text'></div></div>
+    <div id='renderHTML'>这里是HTML片段，但是渲染为html：<div class='htmlTag' v-html='html_text'></div></div>
     <div>新数据computed后1：{{newMessageByComputed}}</div>
     <div v-bind:class='{class1:activeClass1,class2:activeClass2}'>新数据通过方法后2：{{newMessageByMethod('呵呵')}}</div>
     <div>demo数据：name:{{demo.name}},age:{{demo.age}} <button @click='changeDemo'>修改demo数据</button></div>
