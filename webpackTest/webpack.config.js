@@ -6,8 +6,17 @@
 var path = require('path');
 console.log(__dirname);
 module.exports = {
-  // 入口
+  // 入口(单个入口写法)，但不推荐此写法
   entry: './app/index.js',
+  /**
+   * 
+   * 入口(多个入口写法)，推荐此写法
+    entry: ['入口1','入口2'],
+    entry: {
+      app: './src/app.js',
+      vendors: './src/vendors.js'
+    },
+   */
   // 出口
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -15,6 +24,7 @@ module.exports = {
     filename: 'app/index.js',
     chunkFilename: 'bundle.js'
   },
+  // loader配置
   module:{
     rules:[
       {
@@ -28,5 +38,7 @@ module.exports = {
         },
       }
     ]
-  }
+  },
+  // plugin配置
+  plugin: []
 };
