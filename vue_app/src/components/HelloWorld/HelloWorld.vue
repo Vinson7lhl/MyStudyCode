@@ -57,6 +57,12 @@ export default {
     triggerBo () {
       console.log('广播')
       this.$emit('test', '广播受到')
+    },
+    // 修改数组：变异，非变异
+    changeArray () {
+      // this.students[0] = {name:'李宏磊',age:30};  直接修改某个索引的数据是无法改变view的！
+      // this.students = [{name:'李宏磊',age:30},{name:'李宏磊2',age:32}]; 可以改变
+      this.students[0].age = 30; // 可以改变
     }
   },
   /**

@@ -27,10 +27,11 @@
         选中：{{age_level}}
     </div>
     <div>
+        <button @click='changeArray'>修改名字</button>
         <ul>
-            <li v-for='(per,index) in students'>
+            <li v-for='(per,index) in students' :key='index'>
                 学生姓名：{{per.name}};
-                写生年龄：{{per.age}}；
+                学生年龄：{{per.age}}；
                 学号：{{index+1}}
             </li>
         </ul>
