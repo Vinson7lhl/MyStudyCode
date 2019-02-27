@@ -1,4 +1,12 @@
 <template>
+  <!--
+    1、路由（参数）
+    2、异步请求封装
+    3、状态存储
+    4、公共组件封装
+    5、公共样式
+    6、第三方UI导入
+  -->
   <section class="container">
     <div>
       <logo />
@@ -21,6 +29,10 @@
         >GitHub</a>
       </div>
     </div>
+    <ul>
+      <li><nuxt-link to="/about">关于我们</nuxt-link></li>
+      <li><nuxt-link to="/productList">产品列表</nuxt-link></li>
+    </ul>
   </section>
 </template>
 
