@@ -5,7 +5,7 @@
     3、状态存储
     4、公共组件封装
     5、公共样式
-    6、第三方UI导入
+    6、第三方UI导入、iconfont
   -->
   <section class="container">
     <div>
