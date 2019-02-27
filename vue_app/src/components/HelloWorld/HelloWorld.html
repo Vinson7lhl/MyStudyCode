@@ -16,6 +16,7 @@
     <div>新数据computed后1：{{newMessageByComputed}}</div>
     <div v-bind:class='{class1:activeClass1,class2:activeClass2}'>新数据通过方法后2：{{newMessageByMethod('呵呵')}}</div>
     <div>demo数据：name:{{demo.name}},age:{{demo.age}} <button @click='changeDemo'>修改demo数据</button></div>
+    <!--单选框：Radio Test-->
     <div class='formRadio'>
         男：<input name='form_radio' type="radio" value='male' v-model='gender'>
         女：<input name='form_radio' type="radio" value='female' v-model='gender'>
@@ -26,6 +27,36 @@
         老年：<input name='form_age' type="radio" value='old' v-model='age_level'>
         选中：{{age_level}}
     </div>
+    <!--复选框：checkbox Test-->
+    <div class='checkboxForm'>
+        史蒂夫.乔布斯 <input type="checkbox" value='sj' v-model='tecSuperStar'/>
+        拉里.埃里森 <input type="checkbox" value='la' v-model='tecSuperStar'/>
+        选中的名字：{{tecSuperStar}}
+    </div>
+    <!--下拉框：single-select-option Test-->
+    <div class='selectOptionForm'>
+        <select name="selectForm" id="selectForm" v-model='phoneName'>
+            <option  disabled value=''>请选择</option>
+            <option value='iPhone6s'>iPhone 6s</option>
+            <option value='iPhone7'>iPhone 7</option>
+            <option value='iPhone8'>iPhone 8</option>
+            <option value='iPhoneX'>iPhone X</option>
+            <option value='iPhoneXs'>iPhone Xs</option>
+        </select>
+        选择的手机名：{{phoneName}}
+    </div>
+    <!--下拉框：multiple-select-option Test-->
+    <div class='selectOptionForm'>
+            <select multiple name="selectForm" id="selectForm" v-model='somePhoneName'>
+                <option  disabled value=''>请选择</option>
+                <option value='iPhone6s'>iPhone 6s</option>
+                <option value='iPhone7'>iPhone 7</option>
+                <option value='iPhone8'>iPhone 8</option>
+                <option value='iPhoneX'>iPhone X</option>
+                <option value='iPhoneXs'>iPhone Xs</option>
+            </select>
+            选择多个的手机名：{{somePhoneName}}
+        </div>
     <div>
         <button @click='changeArray'>修改名字</button>
         <ul>

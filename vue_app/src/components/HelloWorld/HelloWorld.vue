@@ -33,7 +33,11 @@ export default {
         {
           name: '李四',
           age: 12
-        }]
+        }
+      ],
+      tecSuperStar: [],
+      phoneName: '',
+      somePhoneName: []
     }
   },
   /**
@@ -62,7 +66,7 @@ export default {
     changeArray () {
       // this.students[0] = {name:'李宏磊',age:30};  直接修改某个索引的数据是无法改变view的！
       // this.students = [{name:'李宏磊',age:30},{name:'李宏磊2',age:32}]; 可以改变
-      this.students[0].age = 30; // 可以改变
+      this.students[0].age = 30 // 可以改变
     }
   },
   /**
