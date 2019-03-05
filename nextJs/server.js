@@ -12,9 +12,10 @@ app.prepare()
    * 映射到用户自定义的文件路径
    */
   server.get('/p/:id', (req, res) => {
-    const actualPage = '/post'
-    console.log(req.param)
-    const queryParams = { title: req.params.id } 
+    console.log('拿到的id：'+req.params.id)
+    const actualPage = '/post';
+    // const queryParams = { title: req.params.id }
+    const queryParams = { id: req.params.id } 
     app.render(req, res, actualPage, queryParams)
   })
   server.get('*', (req, res) => {

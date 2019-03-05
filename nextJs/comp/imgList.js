@@ -28,7 +28,6 @@ export default class ImgList extends Component {
     render() {
         return (
             <div>
-                <link href="./imgList.css" rel="stylesheet" />
                 <div>从server端拿回的数据</div>
                 <div className='imgContainer'>
                     <ul>
