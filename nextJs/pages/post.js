@@ -23,7 +23,7 @@ export default class Page extends Component {
   constructor(props) {
     super(props)
   }
-  
+
   componentDidMount() {
   }
 
