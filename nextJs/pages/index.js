@@ -1,17 +1,17 @@
 
 import React, { Component } from 'react'
+// 导入api模拟数据
+import fetch from 'isomorphic-unfetch'
 
 import Header from '../comp/header'
 import LinkButton from '../comp/linkButton'
 import Link from 'next/link'
-import ImgList from '../comp/imgList'
 
 
 
 /**
  * 
  * @param {as 相当于路由映射} props 
- * 但问题是一旦刷新，会报出404的错误，这是因为服务端渲染时以 as 后面的路径进行查找静态文件，但实际是不存在的。
  */
 const PostLink = (props) => (
   <div>
@@ -22,23 +22,30 @@ const PostLink = (props) => (
 )
 export default class Index extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       list_data: []
     }
   }
 
   componentDidMount() {
-    this.getDataList();
+    // this.getMovieList();
   }
 
-  async getDataList () {
+  async getMovieList() {
     const res_data = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-    console.log(res_data);
     const data = await res_data.json();
-    this.setState({list_data:data})
-    console.log('返回的数据为：');
-    console.log(data);
+    this.setState({ list_data: data })
+    console.log(data)
+  }
+
+  static async getInitialProps(context) {
+    const res_data = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+    const data = await res_data.json();
+    // this.setState({ list_data: data })
+    // 此处不会打印在客户端，而是底下的控制台中
+    console.log(data)
+    return {movie_list:data}
   }
 
   render() {
@@ -53,7 +60,19 @@ export default class Index extends Component {
         <Link href='./about'>
           <LinkButton onClick=''></LinkButton>
         </Link>
-        <ImgList />
+        {/* 电影列表 */}
+        <div className='movieList'>
+          <ul>
+            {
+              this.props.movie_list.map(item => <li key={item.show.id}>
+                <Link as={`/p/${item.show.id}`} href={`/post?id=${item.show.id}`}>
+                  <a>{item.show.name}</a>
+                </Link>
+              </li>
+              )
+            }
+          </ul>
+        </div>
       </div>
     )
   }

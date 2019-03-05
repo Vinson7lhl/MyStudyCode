@@ -7,7 +7,7 @@
       "publicPath": "static/chunks/0.js"
     }
   ],
-  "./imgList.scss": [
+  "../comp/imgList.scss": [
     {
       "id": "./comp/imgList.scss",
       "name": "./comp/imgList.scss",
@@ -17,7 +17,7 @@
   ],
   "undefined": [
     {
-      "id": 4,
+      "id": 5,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
