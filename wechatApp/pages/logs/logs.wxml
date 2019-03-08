@@ -1,5 +1,9 @@
 <!--logs.wxml-->
 <view class="container log-list">
+  <button bindtap='fixData'>改变title</button>
+  <view class="">
+    {{log_data}}
+  </view>
   <block wx:for="{{logs}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block>
