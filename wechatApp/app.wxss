@@ -1,4 +1,5 @@
 /**app.wxss**/
+/*最外层-公共的css*/
 .container {
   height: 100%;
   display: flex;
