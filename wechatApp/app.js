@@ -1,6 +1,8 @@
 //app.js
 App({
-  onLaunch: function () {
+  // 小程序初始化完时（只触发一次）
+  onLaunch(options) {
+    console.log('/*---app.js_onLaunch---*/')
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -8,7 +10,7 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
+      success(res) {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -33,6 +35,21 @@ App({
       }
     })
   },
+  // 打开小程序时触发
+  onShow(options) {
+    console.log('/*---app.js_onShow---*/');
+  },
+  // 当点击右上角-或者回到Home主界面的隐藏时触发
+  onHide()  {
+    console.log('/*---app.js_onHide---*/');
+  },
+  onError(msg) {
+    console.log('/*---app.js_onError---*/');
+  },
+  onPageNotFound() {
+    console.log('/*---app.js_onPageNotFound---*/');
+  },
+  /*---app.js_onShow---*/
   globalData: {
     userInfo: null
   }

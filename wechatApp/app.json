@@ -1,12 +1,43 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "iChat",
-    "navigationBarTextStyle":"black"
-  }
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#4e4e4e",
+    "navigationBarTitleText": "老七的小程序",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#4e4e4e",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/nav1.png",
+        "selectedIconPath": "img/nav1.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志",
+        "iconPath": "img/nav2.png",
+        "selectedIconPath": "img/nav2.png"
+      }
+    ],
+    "color": "#4e4e4e",
+    "selectedColor": "#000000",
+    "backgroundColor": "#cccccc",
+    "borderStyle": "black",
+    "position:": "bottom",
+    "custom": false
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "downloadDile": 10000
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList":[""]
 }

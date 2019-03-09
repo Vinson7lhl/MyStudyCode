@@ -8,8 +8,15 @@ const header_style = {
 }
 
 const Header = () => (
-  <div style={header_style}>
+  <div className='testStyle' style={header_style}>
     -----------------------这里是公共头部-----------------------
+    <style jsx>{
+      `
+      .testStyle{
+        color:red;
+      }
+    `
+    }</style>
     </div>
 )
 
