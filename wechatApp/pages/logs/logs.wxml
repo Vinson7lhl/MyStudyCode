@@ -1,6 +1,7 @@
 <!--logs.wxml-->
 <view class="container log-list">
   <button bindtap='fixData'>改变title</button>
+  <button bindtap='goToList'>进入产品列表</button>
   <view class="">
     {{log_data}}
   </view>

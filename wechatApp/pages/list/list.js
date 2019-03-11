@@ -4,33 +4,26 @@ const util = require('../../utils/util.js')
 Page({
   // 初始元数据
   data: {
-    logs: ['log1','log2','log3'],
-    log_data:'日志数据'
   },
   /**
    * ----------------------------------------------------钩子函数列表---------------------------------------------------------------
    */
   onLoad: function () {
-    console.log('page/logs：onLoad，页面加载完，会且只会第一次进入此页面触发一次，再次进入（包括后退进入）不会触发，')
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
-      })
-    })
+    console.log('page/list：onLoad，页面加载完，会且只会第一次进入此页面触发一次，再次进入不会触发')
   },
   // 此钩子函数适合放异步请求，每次进入此页面都要冲洗初始化一次
   onShow: function () {
-    console.log('page/logs：onShow,页面显示完，每次从后台切回此页面，或者再次进入此页面都会触发一次');
+    console.log('page/list：onShow,页面显示完，每次从后台切回此页面，或者再次进入此页面都会触发一次');
     console.log('当前的路径是：'+this.route)
   },
   onReady: function () {
-    console.log('page/logs：onReady,页面渲染完');
+    console.log('page/list：onReady,页面渲染完');
   },
   onHide: function () {
-    console.log('page/logs：onHide,页面隐藏，切换到后台触发一次');
+    console.log('page/list：onHide,页面隐藏，切换到后台触发一次');
   },
   onUnload: function () {
-    console.log('page/logs：onHide,页面卸载');
+    console.log('page/list：onHide,页面卸载');
   },
   /**
    * ----------------------------------------------------事件触发列表---------------------------------------------------------------
@@ -53,17 +46,7 @@ Page({
   /**
    * ----------------------------------------------------自定义事件---------------------------------------------------------------
    */
-  fixData () {
-    this.setData({log_data:'日志数据2'});
-  },
-  goToList () {
-    wx.navigateTo({
-      url: '/pages/list/list',
-      success: (result)=>{
-        
-      },
-      fail: ()=>{},
-      complete: ()=>{}
-    });
+  goBack () {
+    wx.navigateBack();
   }
 })
