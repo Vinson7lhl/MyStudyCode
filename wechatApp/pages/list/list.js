@@ -9,18 +9,18 @@ Page({
    * ----------------------------------------------------钩子函数列表---------------------------------------------------------------
    */
   onLoad: function () {
-    console.log('page/list：onLoad，页面加载完，会且只会第一次进入此页面触发一次，再次进入不会触发')
+    console.log('page/list：onLoad，页面加载完，通过路由进入此页面每次都会触发一次，')
   },
   // 此钩子函数适合放异步请求，每次进入此页面都要冲洗初始化一次
   onShow: function () {
-    console.log('page/list：onShow,页面显示完，每次从后台切回此页面，或者再次进入此页面都会触发一次');
+    console.log('page/list：onShow,页面显示完，通过路由进入此页面每次都会触发一次/每次从后台切回此页面');
     console.log('当前的路径是：'+this.route)
   },
   onReady: function () {
     console.log('page/list：onReady,页面渲染完');
   },
   onHide: function () {
-    console.log('page/list：onHide,页面隐藏，切换到后台触发一次');
+    console.log('page/list：onHide,页面隐藏/切换到后台触发一次');
   },
   onUnload: function () {
     console.log('page/list：onHide,页面卸载');
@@ -47,6 +47,17 @@ Page({
    * ----------------------------------------------------自定义事件---------------------------------------------------------------
    */
   goBack () {
-    wx.navigateBack();
+    // wx.navigateBack();
+    // 特别对tabBar跳转时的处理，若用 navigateTo 则会跳转失败
+    wx.switchTab({
+      url: '/pages/logs/logs',
+      success: (result)=>{
+        console.log('跳转成功')
+      },
+      fail: ()=>{
+        console.log('跳转失败')
+      },
+      complete: ()=>{}
+    });
   }
 })

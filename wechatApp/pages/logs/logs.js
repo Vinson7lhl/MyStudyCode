@@ -11,7 +11,7 @@ Page({
    * ----------------------------------------------------钩子函数列表---------------------------------------------------------------
    */
   onLoad: function () {
-    console.log('page/logs：onLoad，页面加载完，会且只会第一次进入此页面触发一次，再次进入（包括后退进入）不会触发，')
+    console.log('page/logs：onLoad，页面加载完，由于此页面是tab级别的页面，所以会且只会第一次进入此页面触发一次，再次进入（包括后退进入）不会触发，')
     this.setData({
       logs: (wx.getStorageSync('logs') || []).map(log => {
         return util.formatTime(new Date(log))
