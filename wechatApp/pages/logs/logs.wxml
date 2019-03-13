@@ -1,5 +1,7 @@
 <!--logs.wxml-->
 <view class="container log-list">
+  全局num：{{global_num}}
+  <button bindtap='addGlobalNum'>增加全局Num值</button>
   <button bindtap='fixData'>改变title</button>
   <button bindtap='goToList'>进入产品列表</button>
   <view class="">

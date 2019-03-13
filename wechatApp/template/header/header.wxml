@@ -1,0 +1,6 @@
+<!--header.wxml-->
+<template name='publicHeader'>
+  <view class='publicHeader'>
+    <text>页面标题"{{header_name}}"</text>
+  </view>
+</template>

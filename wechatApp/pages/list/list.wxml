@@ -1,4 +1,7 @@
 <!--logs.wxml-->
+<import src='../../template/header/header.wxml'/>
+
 <view class="container log-list">
+  <template is='publicHeader' data="{{...public_header}}"></template>
   <button bindtap='goBack'>后退到上级</button>
 </view>

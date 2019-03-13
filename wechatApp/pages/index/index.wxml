@@ -10,6 +10,5 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
     俺是李宏磊——为自己带盐
-     <navigator url='../test/test'>点击跳转</navigator> 
   </view>
 </view>

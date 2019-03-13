@@ -51,6 +51,7 @@ App({
   },
   /*---app.js_onShow---*/
   globalData: {
-    userInfo: null
+    userInfo: null,
+    globalNum:0
   }
 })
