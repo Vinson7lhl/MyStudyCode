@@ -3,4 +3,7 @@
   <view class='publicHeader'>
     <text>页面标题"{{header_name}}"</text>
   </view>
+  <view class='publicHeader2'>
+    <text>另一个尺寸</text>
+  </view>
 </template>

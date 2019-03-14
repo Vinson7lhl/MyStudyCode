@@ -5,3 +5,10 @@
   text-align: center;
   font-size: 18px;
 }
+.publicHeader2{
+  width:100%;
+  line-height: 18rpx;
+  color:#4e4e4e;
+  text-align: center;
+  font-size: 18rpx;
+}
