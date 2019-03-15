@@ -4,4 +4,8 @@
 <view class="container log-list">
   <template is='publicHeader' data="{{...public_header}}"></template>
   <button bindtap='goBack'>后退到上级</button>
+  <view class="" hover-class="none" hover-stop-propagation="false">
+    这里是组件
+    <cp-product-block></cp-product-block>
+  </view>
 </view>
