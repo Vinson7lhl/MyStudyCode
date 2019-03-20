@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    root数据：{{rootData}}
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -25,7 +26,7 @@
 export default {
   name: 'rootApp',
   mounted () {
-    console.log('加载完毕')
+    console.log('/------------app-加载完毕-------------/')
     this.$on('test', data => {
       console.log('广播得到的数据')
       console.log(data)
@@ -33,7 +34,8 @@ export default {
   },
   data () {
     return {
-      isShowPopUp: false
+      isShowPopUp: false,
+      rootData: 'root-data-洪七公'
     }
   },
   methods: {

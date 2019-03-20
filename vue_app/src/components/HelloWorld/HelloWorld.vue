@@ -37,7 +37,8 @@ export default {
       ],
       tecSuperStar: [],
       phoneName: '',
-      somePhoneName: []
+      somePhoneName: [],
+      rootDataName: ''
     }
   },
   /**
@@ -67,6 +68,11 @@ export default {
       // this.students[0] = {name:'李宏磊',age:30};  直接修改某个索引的数据是无法改变view的！
       // this.students = [{name:'李宏磊',age:30},{name:'李宏磊2',age:32}]; 可以改变
       this.students[0].age = 30 // 可以改变
+    },
+    // 获取root组件数据
+    getRootData () {
+      console.log(this.$root)
+      this.rootDataName = this.$root.rootData
     }
   },
   /**
@@ -108,11 +114,14 @@ export default {
   created () {
     console.log('生命周期钩子：created')
     console.log('周期函数中调用input_text:' + this.input_text)
+    console.log('子组件访问Home页面数据：', this.$parent.homeData)
   },
   beforeMount () {
     console.log('生命周期钩子：beforeMount')
   },
   mounted () {
+    console.log('/------------HelloWord-加载完毕-------------/')
+    console.log('子组件访问根组件数据：', this.$root.isShowPopUp)
   }
 }
 </script>

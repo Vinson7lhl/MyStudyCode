@@ -18,9 +18,18 @@ export default {
       console.log(data3.target)
     }
   },
+  data () {
+    return {
+      homeData: 'Home页面数据'
+    }
+  },
   components: {
     'hello-world': HelloWorld
     // 或者只写HelloWorld也可以相当于-HelloWorld:HelloWorld
+  },
+  mounted () {
+    console.log('/------------Home-加载完毕-------------/')
+    console.log('子组件访问Home页面数据：', this.$parent.homeData)
   }
 }
 </script>
