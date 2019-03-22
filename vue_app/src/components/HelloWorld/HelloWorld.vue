@@ -61,7 +61,7 @@ export default {
     },
     triggerBo () {
       console.log('广播')
-      this.$emit('test', '广播受到')
+      this.$emit('test', '广播收到')
     },
     // 修改数组：变异，非变异
     changeArray () {
@@ -73,6 +73,10 @@ export default {
     getRootData () {
       console.log(this.$root)
       this.rootDataName = this.$root.rootData
+    },
+    // 触发子组件中的获取焦点事件
+    beFocused () {
+      this.$refs.focusInput.focus()
     }
   },
   /**

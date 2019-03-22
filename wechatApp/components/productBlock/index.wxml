@@ -1,5 +1,5 @@
 <view class="inner">
-  <view wx:for='{{innerText}}'  class="perBlock" hover-class="none" hover-stop-propagation="false">
+  <view wx:key="{{index}}" wx:for='{{innerText}}'  class="perBlock" hover-class="none" hover-stop-propagation="false">
       {{item.name}}
   </view>
 </view>

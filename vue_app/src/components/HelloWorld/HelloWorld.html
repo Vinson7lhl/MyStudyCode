@@ -9,7 +9,7 @@
     <span>状态值state3:{{state_3}}<br/></span>
 
     <div class='baseClass'>李宏磊</div>
-    <input type="text" v-model='input_text'>双向绑定
+    <input ref='focusInput' type="text" v-model='input_text'>双向绑定
     <p>input输出：{{input_text}}</p>
     <div>这里是HTML片段，但是输出字符串：{{html_text}}</div>
     <div id='renderHTML'>这里是HTML片段，但是渲染为html：<div class='htmlTag' v-html='html_text'></div></div>

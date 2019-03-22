@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <img src="../assets/logo.png">
-    <hello-world @emit-father="fatherEmit" data-msg="Father-Tmplate"/>
+    <button @click='triggerSonFocus'>点击触发子组件input的Focus</button>
+    <hello-world ref='childComponent' @emit-father="fatherEmit" data-msg="Father-Tmplate"/>
   </div>
 </template>
 
@@ -16,6 +17,9 @@ export default {
       console.log('来自子组建的数据1：' + data1)
       console.log('来自子组建的数据2：' + data2)
       console.log(data3.target)
+    },
+    triggerSonFocus () {
+      this.$refs.childComponent.beFocused()
     }
   },
   data () {
