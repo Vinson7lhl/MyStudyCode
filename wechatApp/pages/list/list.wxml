@@ -1,12 +1,26 @@
 <!--logs.wxml-->
+
+<!--导入template：header-->
 <import src='../../template/header/header.wxml'/>
 
 <view class="container log-list">
   <template is='publicHeader' data="{{...public_header}}"></template>
-  <button bindtap='goBack'>后退到上级</button>
+  <button id='back_button' bindtap='goBack'>后退到上级</button>
   <view>
     这里是组件
     <!--组件中要用class选择器，不可以用id，标签，属性选择器-->
-    <cp-product-block innerText='{{innerText}}'></cp-product-block>
+    <!--
+      使用组件三步
+      1、在组件的json文件中配置
+      {
+          "component": true
+      }
+      2、在要使用的页面中的json文件中配置
+      "usingComponents": {
+        "cp-product-block": "../../components/productBlock/index"
+      }
+      3、在page中插入自定义的标签即可使用
+    -->
+    <cp-product-block bind:fatherEvent="onFatherEvent" innerText='{{innerText}}'></cp-product-block>
   </view>
 </view>

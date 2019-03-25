@@ -56,7 +56,9 @@ Page({
   /**
    * ----------------------------------------------------自定义事件---------------------------------------------------------------
    */
-  goBack () {
+  goBack (event) {
+    console.log('event')
+    console.log(event)
     // wx.navigateBack();
     // 特别对tabBar跳转时的处理，若用 navigateTo 则会跳转失败
     wx.switchTab({
@@ -69,5 +71,9 @@ Page({
       },
       complete: ()=>{}
     });
+  },
+  onFatherEvent (event) {
+    console.log('子 ===> 父,数据为event.detail')
+    console.log(event.detail.forFather)
   }
 })
