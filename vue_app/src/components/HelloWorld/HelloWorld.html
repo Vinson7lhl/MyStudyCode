@@ -72,4 +72,7 @@
     <!--根组件全局数据-->
     <button @click='getRootData'>获取root数据</button>
     <div>{{rootDataName}}</div>
+    <div>切换选项卡:is指令</div>
+    <button @click='switchTab("tab1-comp")'>tab1</button> -- <button @click='switchTab("tab2-comp")'>tab2</button>
+    <div :is='current_tab_name'></div>
 </div>
