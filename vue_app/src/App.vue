@@ -6,7 +6,7 @@
       <router-link to="/about">About</router-link>
     </div>
     <div v-if='isShowPopUp' class='popUp'>这里是弹窗</div>
-    <!--一级路由输出位置-->
+    <!--一级路由动画切换配置-->
     <transition name="fade"
       v-on:before-enter="beforeEnter"
       v-on:enter="enter"
@@ -18,6 +18,7 @@
       v-on:after-leave="afterLeave"
       v-on:leave-cancelled="leaveCancelled"
       >
+      <!--路由的输出-->
       <router-view/>
     </transition>
   </div>
