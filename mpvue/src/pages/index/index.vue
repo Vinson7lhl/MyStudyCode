@@ -39,7 +39,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
+      motto: '从page传递到组件中的值-咩哈哈',
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png'
