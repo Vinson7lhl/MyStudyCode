@@ -65,9 +65,15 @@ export default {
       // throw {message: 'custom test'}
     }
   },
-
   created () {
     // let app = getApp()
+    console.log('Vue钩子函数：tab-index-created')
+  },
+  mounted () {
+    console.log('Vue钩子函数：tab-index-mounted')
+  },
+  onShow () {
+    console.log('wx钩子函数：tab-index-onShow')
   }
 }
 </script>

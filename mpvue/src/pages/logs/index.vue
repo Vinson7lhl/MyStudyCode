@@ -44,6 +44,13 @@ export default {
       logs = mpvue.getStorageSync('logs') || []
     }
     this.logs = logs.map(log => formatTime(new Date(log)))
+    console.log('Vue钩子函数：tab-logs-created')
+  },
+  mounted () {
+    console.log('Vue钩子函数：tab-logs-mounted')
+  },
+  onShow () {
+    console.log('wx钩子函数：page-logs-onShow')
   }
 }
 </script>

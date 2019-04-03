@@ -5,12 +5,14 @@
       <button @click="increment">+</button>
       <button @click="decrement">-</button>
     </p>
+    <div @click='jumpToIndex'>跳转到首页</div>
   </div>
 </template>
 
 <script>
 // Use Vuex
-import store from './store'
+// import store from './store'
+import store from '../../store/store'
 
 export default {
   computed: {
@@ -24,7 +26,21 @@ export default {
     },
     decrement () {
       store.commit('decrement')
+    },
+    jumpToIndex () {
+      wx.switchTab({
+        url: 'pages/index/main'
+      })
     }
+  },
+  created () {
+    console.log('Vue钩子函数：page-counter-created')
+  },
+  mounted () {
+    console.log('Vue钩子函数：page-counter-mounted')
+  },
+  onShow () {
+    console.log('wx钩子函数：page-counter-onShow')
   }
 }
 </script>
