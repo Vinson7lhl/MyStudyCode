@@ -13,6 +13,7 @@
 // Use Vuex
 // import store from './store'
 import store from '../../store/store'
+import api from '../../service/index'
 
 export default {
   computed: {
@@ -41,6 +42,7 @@ export default {
   },
   onShow () {
     console.log('wx钩子函数：page-counter-onShow')
+    console.log(`接口名：${api.test1}`)
   }
 }
 </script>

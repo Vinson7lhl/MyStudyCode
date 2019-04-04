@@ -1,5 +1,6 @@
 // http://eslint.org/docs/user-guide/configuring
 
+// ['0-不做检查','1-警告','2-报错']
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -24,7 +25,10 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 0,
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    "no-multiple-empty-lines": [0, {"max": 10}],
+    // 对变量要求：可以不用‘驼峰式写法’
+    'camelcase': [0]
   },
   globals: {
     App: true,
