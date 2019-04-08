@@ -31,6 +31,11 @@ export default {
 </script>
 
 <style>
+view {
+  font-size: 28rpx;
+  box-sizing: border-box;
+  color:#4e4e4e;
+}
 .container {
   height: 100%;
   display: flex;
