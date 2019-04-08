@@ -1,6 +1,35 @@
 <script>
 export default {
-  created () {
+  onShow(){
+    // 调用微信的登录
+    console.log('调用微信登录机制获取code')
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log(res)
+          // // 发起网络请求
+          // wx.request({
+          //   url: "https://test.com/onLogin",
+          //   data: {
+          //     code: res.code
+          //   }
+          // });
+        } else {
+          console.log("登录失败！" + res.errMsg);
+        }
+      }
+    });
+    // 调用微信的登录
+    console.log('调用微信用户信息')
+    wx.getUserInfo({
+      success: (res) => {
+          console.log(res)
+      }
+    })
+    console.log('获取storage-code')
+    console.log(wx.getStorageSync('mobile'))
+  },
+  created() {
     // 调用API从本地缓存中获取数据
     /*
      * 平台 api 差异的处理方式:  api 方法统一挂载到 mpvue 名称空间, 平台判断通过 mpvuePlatform 特征字符串
@@ -10,31 +39,31 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
+    let logs;
+    if (mpvuePlatform === "my") {
+      logs = mpvue.getStorageSync({ key: "logs" }).data || [];
+      logs.unshift(Date.now());
       mpvue.setStorageSync({
-        key: 'logs',
+        key: "logs",
         data: logs
-      })
+      });
     } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
+      logs = mpvue.getStorageSync("logs") || [];
+      logs.unshift(Date.now());
+      mpvue.setStorageSync("logs", logs);
     }
   },
-  log () {
-    console.log(`log at:${Date.now()}`)
+  log() {
+    console.log(`log at:${Date.now()}`);
   }
-}
+};
 </script>
 
 <style>
 view {
   font-size: 28rpx;
   box-sizing: border-box;
-  color:#4e4e4e;
+  color: #4e4e4e;
 }
 .container {
   height: 100%;
