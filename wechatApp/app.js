@@ -1,3 +1,6 @@
+var Fly=require("utils/ap.umd.min.js")
+var fly=new Fly
+console.log(fly)
 //app.js
 App({
   // 小程序初始化完时（只触发一次）
