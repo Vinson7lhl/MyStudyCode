@@ -19,14 +19,14 @@
         <card :text="motto"></card>
       </div>
     </div>
-
+    <button open-type="getPhoneNumber" @bindgetphonenumber="getPhoneNumber">获取手机号</button>
     <form class="form-container">
       <input type="text" class="form-control" :value="motto" placeholder="v-model">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model">
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy">
     </form>
 
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    <a href="/pages/requirement/main" class="counter">去往Vuex示例页面</a>
 
     <div class="all">
       <div class="left"></div>
@@ -115,6 +115,11 @@ export default {
   },
 
   methods: {
+    getPhoneNumber (e) {
+      console.log(e.detail.errMsg)
+      console.log(e.detail.iv)
+      console.log(e.detail.encryptedData)
+    },
     bindViewTap() {
       const url = "../logs/main";
       if (mpvuePlatform === "wx") {

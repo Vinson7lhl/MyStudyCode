@@ -18,14 +18,14 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "img/nav1.png",
-        "selectedIconPath": "img/nav1.png"
+        "iconPath": "img/icon1.png",
+        "selectedIconPath": "img/icon1.png"
       },
       {
         "pagePath": "pages/logs/logs",
         "text": "日志",
-        "iconPath": "img/nav2.png",
-        "selectedIconPath": "img/nav2.png"
+        "iconPath": "img/icon2.png",
+        "selectedIconPath": "img/icon2.png"
       }
     ],
     "color": "#4e4e4e",
