@@ -1,0 +1,6 @@
+<!--logs.wxml-->
+
+
+<view class="container log-list">
+  进入到产品详情页
+</view>

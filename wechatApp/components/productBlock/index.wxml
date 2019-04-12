@@ -1,5 +1,5 @@
 <view class="inner">
-  <view wx:key="{{index}}" wx:for='{{innerText}}'  class="perBlock" hover-class="none" hover-stop-propagation="false">
+  <view bind:tap="jumpToDetail" data-per-data="{{item.name}}" wx:key="{{index}}" wx:for='{{innerText}}'  class="perBlock" hover-class="none" hover-stop-propagation="false">
       {{item.name}}
   </view>
   <button bind:tap="throwDataToFater">向父级抛数据</button>
