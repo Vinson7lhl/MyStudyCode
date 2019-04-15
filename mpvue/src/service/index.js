@@ -13,6 +13,9 @@ const basic_domain_name = {
 // 切换域名
 const base_domain = basic_domain_name.dev
 
+console.log('当下环境：')
+console.log(process.env.BASIC_DOMAIN)
+
 const api_obj = {
   test1: `${base_domain}/getProductList`,
   test2: `${base_domain}/loginUser`
