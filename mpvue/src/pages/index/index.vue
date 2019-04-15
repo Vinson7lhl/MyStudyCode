@@ -178,6 +178,7 @@
 
 <script>
 import card from "@/components/card";
+// import mb_request from '@/service/index';
 
 export default {
   data() {
@@ -251,6 +252,12 @@ export default {
   },
   onShow() {
     console.log("wx钩子函数：tab-index-onShow");
+    let resp = this.fly('https://devyd.molbase.cn/shop/store/topSearch','get',{token:1});
+    console.log('resp',resp)
+    // .then(function(res) {
+    //   console.log('首页测试返回的数据：')
+    //   console.log(res)
+    // })
   }
 };
 </script>
@@ -448,7 +455,8 @@ export default {
   display: inline-block;
   padding: 5rpx;
   margin-right: 10rpx;
-  border: 0.5rpx solod #4e4e4e;
+  border: 1rpx dashed #4e4e4e;
+  border-radius: 5rpx;
 }
 .scrollBox {
   width: 100%;
