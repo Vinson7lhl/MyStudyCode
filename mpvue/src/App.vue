@@ -60,10 +60,13 @@ export default {
 </script>
 
 <style>
+/*------------------------------------------------------------------------------- 
+Here is base-style，基础样式
+-------------------------------------------------------------------------------*/
 view {
   font-size: 28rpx;
   box-sizing: border-box;
-  color: #4e4e4e;
+  color: #000000;
 }
 .container {
   height: 100%;
