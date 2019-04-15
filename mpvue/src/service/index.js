@@ -6,11 +6,13 @@ fly.config.timeout = 5000
 
 // 基本域名
 const basic_domain_name = {
-  product: 'product_domain',
+  // 生产
+  pro: 'product_domain',
+  // 预发布
   pre: 'pre_domain',
+  // 测试
   dev: 'dev_domain'
 }
-// 切换域名
 const base_domain = basic_domain_name.dev
 
 console.log('当下环境：')
