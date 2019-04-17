@@ -1,0 +1,181 @@
+body,
+html,
+div {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #f5f5f5;
+}
+.adBar {
+	width: 3.75rem;
+	height: 0.45rem;
+	overflow: hidden;
+	position: relative;
+	background: url('../img/ad_bg.png') no-repeat;
+	background-size: 3.75rem 0.45rem;
+}
+
+.logoPic {
+	width: 0.25rem;
+	height: 0.25rem;
+	float: left;
+	margin-left: 0.2rem;
+	margin-top: 0.1rem;
+}
+
+.logoTextBig {
+	float: left;
+	color: #ffffff;
+	font-size: 0.17rem;
+	margin-top: 0.12rem;
+	margin-left: 0.11rem;
+	font-weight: bold;
+}
+
+.logoTextSmall {
+	float: left;
+	color: #ffffff;
+	font-size: 0.13rem;
+	margin-top: 0.17rem;
+	margin-left: 0.13rem;
+}
+          
+.openAppButton {
+	float: right;
+	width: 0.62rem;
+	height: 0.24rem;
+	line-height: 0.24rem;
+	background: url('../img/open_app_button.png') no-repeat;
+	background-size: 0.62rem 0.24rem;
+	margin-right: 0.21rem;
+	margin-top: 0.11rem;
+	text-align: center;
+	color: #012062;
+	font-weight: bold;
+	font-size: 0.11rem;
+}
+
+.userInfo {
+	padding: 0.2rem;
+	border-bottom: 0.01rem solid #e5e5e5;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+.userHeadImg{
+	width:0.6rem;
+	height:0.6rem;
+	float:left;
+}
+.userDes {
+	float:left;
+	overflow: hidden;
+	margin-left:0.15rem;
+}
+.userName{
+	font-size: 0.15rem;
+	color:#111111;
+	width:1.2rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.userPosition{
+	font-size: 0.12rem;
+	color:#999999;
+	margin-top:0.06rem;
+}
+.userFirm{
+	font-size: 0.16rem;
+	color:#666666;
+	width:2rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.updateTime{
+	float:right;
+	font-size: 0.12rem;
+	color:#bbbbbb;
+	margin-top:0.06rem;
+}
+.productInfo{
+	padding: 0.2rem;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+.productTopBlock{
+	overflow: hidden;
+}
+.productName{
+	float:left;
+	color:#111111;
+	font-size:0.15rem;
+}
+.firmName{
+          font-size:0.13rem;
+          text-decoration: none;
+          display: block;
+          margin-top:0.05rem;
+}
+.firmName:hover{
+          color:#777777;
+}
+.firmName:link{
+          color:#777777
+}
+.firmName:active{
+          color:#777777
+}
+.firmName:visited{
+          color:#777777
+}
+.casNum{
+          color:#999999;
+          font-size:0.13rem;
+          margin-top:0.14rem;
+}
+.checkButton{
+	float:right;
+	background: url('../img/xun_pan.png') no-repeat;
+	background-size: 0.55rem 0.27rem;
+	width:0.55rem;
+	height:0.27rem;
+}
+.checkButtonText{
+	color:#ffffff;
+	font-size:0.12rem;
+	display: block;
+	padding-top:0.02rem;
+	padding-left:0.08rem;
+}
+.productListInfo{
+	margin-top:0.15rem;
+}
+.perInfo{
+	overflow: hidden;
+	margin-bottom:0.15rem;
+}
+.perInfo:last-child{
+	margin-bottom:0rem;
+}
+
+.key{
+	float:left;
+	color:#999999;
+	font-size:0.13rem;
+}
+.value{
+	float:right;
+	color:#333333;
+	font-size:0.13rem;
+	text-align: right;
+}
+.redValue{
+         color:#FB5651; 
+}
+.desValue{
+        width:  2.1rem;
+        text-align: left;
+}
