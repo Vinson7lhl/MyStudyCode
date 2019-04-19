@@ -1,89 +1,86 @@
 <!DOCTYPE html>
-<html style="font-size:100px">
-
-<head>
-	<meta charset='utf-8'>
-	<meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>demo</title>
-	<script>
-		(function (doc, win) {
-			var html = doc.getElementsByTagName("html")[0],
-				// orientationchange->手机屏幕转屏事件
-				// resize->页面大小改变事件(一边pc端有用)
-				reEvt = "orientationchange" in win ? "orientationchange" : "resize",
-				reFontSize = function () {
-					var clientW = doc.documentElement.clientWidth || doc.body
-						.clientWidth;
-					if (!clientW) {
-						return;
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>demo</title>
+		<script>
+			(function (doc, win) {
+				var html = doc.getElementsByTagName("html")[0],
+					// orientationchange->手机屏幕转屏事件
+					// resize->页面大小改变事件(一边pc端有用)
+					reEvt = "orientationchange" in win ? "orientationchange" : "resize",
+					reFontSize = function () {
+						var clientW = doc.documentElement.clientWidth || doc.body
+							.clientWidth;
+						if (!clientW) {
+							return;
+						}
+						html.style.fontSize = 100 * (clientW / 375) + "px";
 					}
-					html.style.fontSize = 100 * (clientW / 375) + "px";
-				}
-			win.addEventListener(reEvt, reFontSize);
-			// DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
-			doc.addEventListener("DOMContentLoaded", reFontSize);
-		})(document, window);
-	</script>
-	<link rel="stylesheet" href="css/index.css">
-</head>
-
-<body>
-	<!--广告条-->
-	<div class='adBar'>
-		<img class='logoPic' src="img/logo.png" alt="">
-		<span class='logoTextBig'>化工圈</span>
-		<span class='logoTextSmall'>让化学品交易更简单</span>
-		<div class='openAppButton'>
-			打开APP
-		</div>
-	</div>
-	<!--用户基本信息-->
-	<div class='userInfo'>
-		<!--头像-->
-		<img src="img/head_img.png" class='userHeadImg'>
-		<!--文本描述-->
-		<div class='userDes'>
-			<div class='userName'>这里是用户的名字</div>
-			<div class='userPosition'>销售经理</div>
-			<div class='userFirm'>mobei生物科技有限公司</div>
-		</div>
-		<!--更新时间-->
-		<div class='updateTime'>2天前</div>
-	</div>
-	<!--产品详细信息-->
-	<div class='productInfo'>
-		<div class='productTopBlock'>
-			<div class='productName'>限量版甲乙丙丁固态气话液体</div>
-		</div>
-		<div class='casNum'>CAS号：999-99-99</div>
-		<a href='#' class='firmName'>上海墨被和僧屋科技有限公司 ></a>
-		<div class='productListInfo'>
-			<div class='perInfo'>
-				<div class='key'>售价</div>
-				<div class='value redValue'>￥333.33.00、kg</div>
-			</div>
-			<div class='perInfo'>
-				<div class='key'>规格</div>
-				<div class='value'>555Kg</div>
-			</div>
-			<div class='perInfo'>
-				<div class='key'>纯度</div>
-				<div class='value'>99.99999%</div>
-			</div>
-			<div class='perInfo'>
-				<div class='key'>货期</div>
-				<div class='value'>7日</div>
-			</div>
-			<div class='perInfo'>
-				<div class='key'>所在地区</div>
-				<div class='value'>中国 黑龙江 齐齐哈尔 X区</div>
-			</div>
-			<div class='perInfo'>
-				<div class='key'>描述</div>
-				<div class='value desValue'>好多好多好多好多字啊好多好多字啊好多好多字啊好多好多字啊好多好多字啊好多好多字啊字啊</div>
+				win.addEventListener(reEvt, reFontSize);
+				// DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
+				doc.addEventListener("DOMContentLoaded", reFontSize);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<!--广告条-->
+		<div class='adBar'>
+			<img class='logoPic' src="img/logo.png" alt="">
+			<span class='logoTextBig'>化工圈</span>
+			<span class='logoTextSmall'>让化学品交易更简单</span>
+			<div class='openAppButton'>
+				打开APP
 			</div>
 		</div>
-	</div>
-</body>
-
+		<!--用户基本信息-->
+		<div class='userInfo'>
+			<!--头像-->
+			<img src="img/head_img.png" class='userHeadImg'>
+			<!--文本描述-->
+			<div class='userDes'>
+				<div class='userName'>这里是用户的名字</div>
+				<div class='userPosition'>销售经理</div>
+				<div class='userFirm'>mobei生物科技有限公司</div>
+			</div>
+			<!--更新时间-->
+			<div class='updateTime'>2天前</div>
+		</div>
+		<!--产品详细信息-->
+		<div class='productInfo'>
+			<div class='productTopBlock'>
+				<div class='productName'>限量版甲乙丙丁固态气话液体</div>
+			</div>
+			<div class='casNum'>CAS号：999-99-99</div>
+			<a href='#' class='firmName'>上海墨被和僧屋科技有限公司 ></a>
+			<div class='productListInfo'>
+				<div class='perInfo'>
+					<div class='key'>售价</div>
+					<div class='value redValue'>￥333.33.00、kg</div>
+				</div>
+				<div class='perInfo'>
+					<div class='key'>规格</div>
+					<div class='value'>555Kg</div>
+				</div>
+				<div class='perInfo'>
+					<div class='key'>纯度</div>
+					<div class='value'>99.99999%</div>
+				</div>
+				<div class='perInfo'>
+					<div class='key'>货期</div>
+					<div class='value'>7日</div>
+				</div>
+				<div class='perInfo'>
+					<div class='key'>所在地区</div>
+					<div class='value'>中国 黑龙江 齐齐哈尔 X区</div>
+				</div>
+				<div class='perInfo'>
+					<div class='key'>描述</div>
+					<div class='value desValue'>好多好多好多好多字啊好多好多字啊好多好多字啊好多好多字啊好多好多字啊好多好多字啊字啊</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

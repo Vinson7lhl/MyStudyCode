@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>摩贝化工</title>
+	<link rel="stylesheet" href="css/idangerous.swiper2.7.6.css">
+	<link rel="stylesheet" href="css/idangerous.swiper.3dflow.css">
+	<link rel="stylesheet" href="css/index4.css">
+</head>
+
+<body>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
+			<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+			<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+			<div class="swiper-slide"> <img class='perImg' src="img/banner04.png" alt=""></div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<script src='./js/idangerous.swiper2.7.6.min.js'></script>
+	<script src='./js/idangerous.swiper.3dflow.js'></script>
+	<script>
+
+
+		var mySwiper = new Swiper('.swiper-container', {
+			calculateHeight: true,
+			centeredSlides: true,
+			initialSlide: 1,//默认第二
+			slidesPerViewFit: false,
+			slidesPerView: 2,
+			visibilityFullFit : true,
+			//3d设置
+			tdFlow: {
+				rotate: 0,
+				stretch: 50,
+				depth: 150,
+				modifier: 1,
+				shadows: true
+			}
+
+		});
+	</script>
+</body>
+
+</html>
