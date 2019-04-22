@@ -11,14 +11,28 @@
 </head>
 
 <body>
-	<div class="swiper-container">
+	<div class='bg'>
+		<img src="./img/title01.png" class='logo' alt="">
+		<img src="./img/title02.png" class='logoText' alt="">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
+				<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+				<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+				<div class="swiper-slide"> <img class='perImg' src="img/banner04.png" alt=""></div>
+			</div>
+		</div>
+		<div class='pagination'></div>
+		<a href="#" class='downladApp'><img src="./img/button.png" alt=""></a>
+	</div>
+	<!-- <div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
 			<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
 			<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
 			<div class="swiper-slide"> <img class='perImg' src="img/banner04.png" alt=""></div>
 		</div>
-	</div>
+	</div> -->
 
 
 
@@ -29,7 +43,23 @@
 	<script src='./js/idangerous.swiper2.7.6.min.js'></script>
 	<script src='./js/idangerous.swiper.3dflow.js'></script>
 	<script>
-
+		(function (doc, win) {
+			var html = doc.getElementsByTagName("html")[0],
+				// orientationchange->手机屏幕转屏事件
+				// resize->页面大小改变事件(一边pc端有用)
+				reEvt = "orientationchange" in win ? "orientationchange" : "resize",
+				reFontSize = function () {
+					var clientW = doc.documentElement.clientWidth || doc.body
+						.clientWidth;
+					if (!clientW) {
+						return;
+					}
+					html.style.fontSize = 100 * (clientW / 375) + "px";
+				}
+			win.addEventListener(reEvt, reFontSize);
+			// DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
+			doc.addEventListener("DOMContentLoaded", reFontSize);
+		})(document, window);
 
 		var mySwiper = new Swiper('.swiper-container', {
 			calculateHeight: true,
@@ -37,14 +67,15 @@
 			initialSlide: 1,//默认第二
 			slidesPerViewFit: false,
 			slidesPerView: 2,
-			visibilityFullFit : true,
+			visibilityFullFit: true,
+			pagination : '.pagination',
 			//3d设置
 			tdFlow: {
 				rotate: 0,
 				stretch: 50,
-				depth: 150,
+				depth: 240,
 				modifier: 1,
-				shadows: true
+				shadows: false
 			}
 
 		});
