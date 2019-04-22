@@ -20,7 +20,7 @@ body{
 	width:1.94rem;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:0.6rem;
+	margin-top:0.4rem;
 	display: block;
 	font-size: 0;
 }
@@ -50,7 +50,7 @@ body{
 	font-size: 0;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:0.3rem;
+	margin-top:0.5rem;
 }
 .downladApp img {
 	width:2.1rem;
@@ -59,7 +59,7 @@ body{
 .pagination {
 	position: absolute;
 	z-index: 20;
-	bottom: 1.6rem;
+	bottom: 2.1rem;
 	width: 100%;
 	text-align: center;
 	height:0.1rem;
