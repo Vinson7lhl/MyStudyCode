@@ -1,3 +1,6 @@
+<!--
+	首页
+-->
 <template>
   <div class='indexPage'>
     <!--搜索按钮模块-->
@@ -54,6 +57,7 @@
       <span class='p1'>大碗面一桶</span>
       <span class='p1'>八宝粥</span>
     </scroll-view>-->
+
     <!--选项卡模块-->
     <div class="tabTeam">
       <div class="perTab" :class="{perTabActive:currentTabIndex === index}" v-for="(tab,index) in switchTabs" :key="index" @click="switchTab(index)">{{tab}}
@@ -63,115 +67,129 @@
     </div>
     <!--全部商机列表-->
     <div v-show="currentTabIndex === 0" class="tabContent">
-      <div class='businessOpportunities baseBlock'>
-        <div class='blockLine line1'>
-          <span class='blockTitle'>采购商品</span>
-          <span class='blockProductName'>中文化合物名称</span>
-          <span class='blockReleaseTime'>5分钟前</span>
-        </div>
-        <div class='blockLine line2'>
-          <span class='blockTitle'>数量：</span>
-          <span class='blockProductNum'>无</span>
-        </div>
-        <div class='blockLine line3'>
-          <div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
-          <span class='blockGrabButton'>抢</span>
-        </div>
-      </div>
-      <div class='businessOpportunities baseBlock'>
-        <div class='blockLine line1'>
-          <span class='blockTitle'>采购商品</span>
-          <span class='blockProductName'>中文化合物名称</span>
-          <span class='blockReleaseTime'>5分钟前</span>
-        </div>
-        <div class='blockLine line2'>
-          <span class='blockTitle'>数量：</span>
-          <span class='blockProductNum'>无</span>
-        </div>
-        <div class='blockLine line3'>
-          <div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
-          <span class='blockGrabButtoned'>抢</span>
-        </div>
-      </div>
-      <div class='businessOpportunities baseBlock'>
-        <div class='blockLine line1'>
-          <span class='blockTitle'>采购商品</span>
-          <span class='blockProductName'>中文化合物名称</span>
-          <span class='blockReleaseTime'>5分钟前</span>
-        </div>
-        <div class='blockLine line2'>
-          <span class='blockTitle'>数量：</span>
-          <span class='blockProductNum'>无</span>
-        </div>
-        <div class='blockLine line3'>
-          <div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
-          <span class='blockDisGrabButton'>已下架</span>
-        </div>
-      </div>
+		<!--遍历列表-->
+		<div class='businessOpportunities baseBlock' @click='jumpToBusinessDetailPage'>
+			<div class='blockLine line1'>
+				<span class='blockTitle'>采购商品</span>
+				<span class='blockProductName'>中文化合物名称</span>
+				<span class='blockReleaseTime'>5分钟前</span>
+			</div>
+			<div class='blockLine line2'>
+				<span class='blockTitle'>数量：</span>
+				<span class='blockProductNum'>无</span>
+			</div>
+			<div class='blockLine line3'>
+				<div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
+				<span class='blockGrabButton'>抢</span>
+			</div>
+		</div>
+		<div class='businessOpportunities baseBlock'>
+			<div class='blockLine line1'>
+				<span class='blockTitle'>采购商品</span>
+				<span class='blockProductName'>中文化合物名称</span>
+				<span class='blockReleaseTime'>5分钟前</span>
+			</div>
+			<div class='blockLine line2'>
+				<span class='blockTitle'>数量：</span>
+				<span class='blockProductNum'>无</span>
+			</div>
+			<div class='blockLine line3'>
+				<div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
+				<span class='blockGrabButtoned'>抢</span>
+			</div>
+		</div>
+		<div class='businessOpportunities baseBlock'>
+			<div class='blockLine line1'>
+				<span class='blockTitle'>采购商品</span>
+				<span class='blockProductName'>中文化合物名称</span>
+				<span class='blockReleaseTime'>5分钟前</span>
+			</div>
+			<div class='blockLine line2'>
+				<span class='blockTitle'>数量：</span>
+				<span class='blockProductNum'>无</span>
+			</div>
+			<div class='blockLine line3'>
+				<div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
+				<span class='blockDisGrabButton'>已下架</span>
+			</div>
+		</div>
+		<!--列表为空-->
+		<div class='emptyListTips'>
+			<img src="/static/images/user.png" class='emptyListTipsImg' alt="">
+			<div class='emptyListTipsText'>正在为您配置商机中……</div>
+		</div>
     </div>
     <!--我的订阅列表-->
     <div v-show="currentTabIndex === 1" class="tabContent">
-      <div class="scrollBox">
-        <scroll-view class="hengScroll" :scroll-x="true">
-          <span class="p1">啤酒</span>
-          <span class="p1">火腿肠</span>
-          <span class="p1">康师傅方便面</span>
-          <span class="p1">瓜子</span>
-          <span class="p1">花生民</span>
-          <span class="p1">哈尔滨红肠</span>
-          <span class="p1">卤鸡腿</span>
-          <span class="p1">mini松花蛋</span>
-          <span class="p1">Apple</span>
-          <span class="p1">可口可乐</span>
-          <span class="p1">大碗面一桶</span>
-          <span class="p1">八宝粥</span>
-        </scroll-view>
-      </div>
-      <div class='businessOpportunities baseBlock'>
-        <div class='blockLine line1'>
-          <span class='blockTitle'>采购商品</span>
-          <span class='blockProductName'>中文化合物名称</span>
-          <span class='blockReleaseTime'>5分钟前</span>
-        </div>
-        <div class='blockLine line2'>
-          <span class='blockTitle'>数量：</span>
-          <span class='blockProductNum'>无</span>
-        </div>
-        <div class='blockLine line3'>
-          <div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
-          <span class='blockGrabButton'>抢</span>
-        </div>
-      </div>
-      <div class='businessOpportunities baseBlock'>
-        <div class='blockLine line1'>
-          <span class='blockTitle'>采购商品</span>
-          <span class='blockProductName'>中文化合物名称</span>
-          <span class='blockReleaseTime'>5分钟前</span>
-        </div>
-        <div class='blockLine line2'>
-          <span class='blockTitle'>数量：</span>
-          <span class='blockProductNum'>无</span>
-        </div>
-        <div class='blockLine line3'>
-          <div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
-          <span class='blockGrabButtoned'>抢</span>
-        </div>
-      </div>
-      <div class='businessOpportunities baseBlock'>
-        <div class='blockLine line1'>
-          <span class='blockTitle'>采购商品</span>
-          <span class='blockProductName'>中文化合物名称</span>
-          <span class='blockReleaseTime'>5分钟前</span>
-        </div>
-        <div class='blockLine line2'>
-          <span class='blockTitle'>数量：</span>
-          <span class='blockProductNum'>无</span>
-        </div>
-        <div class='blockLine line3'>
-          <div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
-          <span class='blockDisGrabButton'>已下架</span>
-        </div>
-      </div>
+		<!--横向滚动-->
+		<div class="scrollBox">
+			<scroll-view class="hengScroll" :scroll-x="true">
+				<span class="p1">啤酒</span>
+				<span class="p1">火腿肠</span>
+				<span class="p1">康师傅方便面</span>
+				<span class="p1">瓜子</span>
+				<span class="p1">花生民</span>
+				<span class="p1">哈尔滨红肠</span>
+				<span class="p1">卤鸡腿</span>
+				<span class="p1">mini松花蛋</span>
+				<span class="p1">Apple</span>
+				<span class="p1">可口可乐</span>
+				<span class="p1">大碗面一桶</span>
+				<span class="p1">八宝粥</span>
+			</scroll-view>
+		</div>
+		<!--遍历列表-->
+		<div class='businessOpportunities baseBlock'>
+			<div class='blockLine line1'>
+				<span class='blockTitle'>采购商品</span>
+				<span class='blockProductName'>中文化合物名称</span>
+				<span class='blockReleaseTime'>5分钟前</span>
+			</div>
+			<div class='blockLine line2'>
+				<span class='blockTitle'>数量：</span>
+				<span class='blockProductNum'>无</span>
+			</div>
+			<div class='blockLine line3'>
+				<div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
+				<span class='blockGrabButton'>抢</span>
+			</div>
+		</div>
+		<div class='businessOpportunities baseBlock'>
+			<div class='blockLine line1'>
+				<span class='blockTitle'>采购商品</span>
+				<span class='blockProductName'>中文化合物名称</span>
+				<span class='blockReleaseTime'>5分钟前</span>
+			</div>
+			<div class='blockLine line2'>
+				<span class='blockTitle'>数量：</span>
+				<span class='blockProductNum'>无</span>
+			</div>
+			<div class='blockLine line3'>
+				<div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
+				<span class='blockGrabButtoned'>抢</span>
+			</div>
+		</div>
+		<div class='businessOpportunities baseBlock'>
+			<div class='blockLine line1'>
+				<span class='blockTitle'>采购商品</span>
+				<span class='blockProductName'>中文化合物名称</span>
+				<span class='blockReleaseTime'>5分钟前</span>
+			</div>
+			<div class='blockLine line2'>
+				<span class='blockTitle'>数量：</span>
+				<span class='blockProductNum'>无</span>
+			</div>
+			<div class='blockLine line3'>
+				<div class='canOfferTime'>剩余报价<span class='times'>5</span>次</div>
+				<span class='blockDisGrabButton'>已下架</span>
+			</div>
+		</div>
+		<!--列表为空-->
+		<div class='emptyListTips'>
+			<img src="/static/images/user.png" class='emptyListTipsImg' alt="">
+			<div class='emptyListTipsText'>VIP会员用户可以订阅商机</div>
+			<div class='jumpToVipInstructions'>了解详情</div>
+		</div>
     </div>
   </div>
 </template>
@@ -230,17 +248,27 @@ export default {
       //   fail: () => {},
       //   complete: () => {}
       // });
-    },
+	},
+	jumpToBusinessDetailPage() {
+		wx.navigateTo({
+        url: '/pages/business_detail/main',
+        success: (result) => {
+          
+        },
+        fail: () => {},
+        complete: () => {}
+      });
+	},
     jumpToInsBookPage() {
       console.log('跳转到新手秘籍页')
-      // wx.navigateTo({
-      //   url: '',
-      //   success: (result) => {
+      wx.navigateTo({
+        url: '/pages/static_pages/newer_instruction/main',
+        success: (result) => {
           
-      //   },
-      //   fail: () => {},
-      //   complete: () => {}
-      // });
+        },
+        fail: () => {},
+        complete: () => {}
+      });
     }
   },
   created() {
@@ -395,8 +423,22 @@ export default {
 
 
 
-
-.userinfo {
+.emptyListTipsImg{
+	width:100rpx;
+	height:100rpx;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+}
+.emptyListTipsText{
+	font-size:18rpx;
+	text-align: center;
+}
+.jumpToVipInstructions{
+	font-size:18rpx;
+	text-align: center;
+}
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -445,7 +487,7 @@ export default {
   width: 4.5rem;
   height: 1rem;
   background-color: green;
-}
+}*/
 
 .hengScroll {
   height: 60rpx;

@@ -68,14 +68,8 @@ view {
   box-sizing: border-box;
   color: #000000;
 }
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
+page {
+  background-color: #efefef;
 }
 /* this rule will be remove */
 * {

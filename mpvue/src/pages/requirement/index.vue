@@ -1,3 +1,6 @@
+<!--
+	发需求页
+-->
 <template>
   <div class="counter-warp">
     <p>Vuex counter：{{ count }}</p>
