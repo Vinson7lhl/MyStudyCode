@@ -3,6 +3,9 @@
 -->
 <template>
   <div class='indexPage'>
+	<!--假跳转按钮-->
+	<navigator url='../switch_login/main'>登录切换页</navigator>
+	<navigator url='../login/main'>登录</navigator>
     <!--搜索按钮模块-->
     <div class='searchButton' @click='jumpToSearchPage'>
       <div class='iconAndText'>

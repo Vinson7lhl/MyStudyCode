@@ -4,7 +4,9 @@
     "pages/requirement/main",
 	"pages/user/main",
 	"pages/static_pages/newer_instruction/main",
-	"pages/business_detail/main"
+	"pages/business_detail/main",
+	"pages/switch_login/main",
+	"pages/login/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
