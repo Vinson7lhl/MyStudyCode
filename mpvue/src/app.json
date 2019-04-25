@@ -6,7 +6,8 @@
 	"pages/static_pages/newer_instruction/main",
 	"pages/business_detail/main",
 	"pages/switch_login/main",
-	"pages/login/main"
+	"pages/login/main",
+	"pages/search_product/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

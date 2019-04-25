@@ -243,14 +243,14 @@ export default {
     // 跳转到搜索页面
     jumpToSearchPage() {
       console.log('跳转到搜索页')
-      // wx.navigateTo({
-      //   url: '',
-      //   success: (result) => {
+      wx.navigateTo({
+        url: '/pages/search_product/main',
+        success: (result) => {
           
-      //   },
-      //   fail: () => {},
-      //   complete: () => {}
-      // });
+        },
+        fail: () => {},
+        complete: () => {}
+      });
 	},
 	jumpToBusinessDetailPage() {
 		wx.navigateTo({
