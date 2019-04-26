@@ -7,7 +7,8 @@
 	"pages/business_detail/main",
 	"pages/switch_login/main",
 	"pages/login/main",
-	"pages/search_product/main"
+	"pages/search_product/main",
+	"pages/complete_private_info/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

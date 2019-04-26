@@ -1,3 +1,6 @@
+#tip{
+	color:#fff;
+}
 body,
 html,
 div {
@@ -80,4 +83,16 @@ body{
   }
   
 .swiper-wrapper{
+}
+.guidePic{
+	display: none;
+	position: fixed;
+	z-index: 100;
+	width:3.75rem;
+	margin:auto;
+	left:0;
+	top:0;
+}
+.guidePicShow{
+	display: block
 }

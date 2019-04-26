@@ -23,8 +23,9 @@
 			</div>
 		</div>
 		<!-- <div class='pagination'></div> -->
-		<a href="#" class='downladApp'><img src="./img/button.png" alt=""></a>
+		<div class='downladApp' id='download_app'><img src="./img/button.png" alt=""></div>
 	</div>
+	<img class='guidePic' id='guide_pic' src="./img/guid.jpg" alt="">
 	<!-- <div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
@@ -43,6 +44,7 @@
 	<script src='./js/idangerous.swiper2.7.6.min.js'></script>
 	<script src='./js/idangerous.swiper.3dflow.js'></script>
 	<script>
+		
 		(function (doc, win) {
 			var html = doc.getElementsByTagName("html")[0],
 				// orientationchange->手机屏幕转屏事件
@@ -81,8 +83,27 @@
 				modifier: 1,
 				shadows: false
 			}
-
 		});
+		function isWeiXin(){
+			var ua = window.navigator.userAgent.toLowerCase();
+			if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		window.onload = function(){
+			var guide_pic = document.getElementById('guide_pic');
+			var download_app = document.getElementById('download_app');
+			download_app.addEventListener('click', function() {
+				if(isWeiXin()){
+					guide_pic.setAttribute('class','guidePic guidePicShow');
+				} else {
+					// 下载app
+					window.location.href = "http://contact-api.molbase.cn/download/app";
+				}
+			}, false)
+		}
 	</script>
 </body>
 
