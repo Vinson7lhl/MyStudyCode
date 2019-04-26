@@ -8,7 +8,8 @@
 	"pages/switch_login/main",
 	"pages/login/main",
 	"pages/search_product/main",
-	"pages/complete_private_info/main"
+	"pages/complete_private_info/main",
+	"pages/my_offers/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

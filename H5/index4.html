@@ -12,9 +12,9 @@
 
 <body>
 	<div class='bg'>
-		<img src="./img/title01.png" class='logo' alt="">
-		<img src="./img/title02.png" class='logoText' alt="">
-		<div class="swiper-container">
+		<img src="./img/title01.png" class='logo mayHideMode' alt="">
+		<img src="./img/title02.png" class='logoText mayHideMode' alt="">
+		<div class="swiper-container mayHideMode">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
 				<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<!-- <div class='pagination'></div> -->
-		<div class='downladApp' id='download_app'><img src="./img/button.png" alt=""></div>
+		<div class='downladApp mayHideMode' id='download_app'><img src="./img/button.png" alt=""></div>
 	</div>
 	<img class='guidePic' id='guide_pic' src="./img/guid.jpg" alt="">
 	<!-- <div class="swiper-container">
@@ -95,11 +95,17 @@
 		window.onload = function(){
 			var guide_pic = document.getElementById('guide_pic');
 			var download_app = document.getElementById('download_app');
+			var mayHideModes = document.getElementsByClassName('mayHideMode');
 			download_app.addEventListener('click', function() {
 				if(isWeiXin()){
 					guide_pic.setAttribute('class','guidePic guidePicShow');
+					mayHideModes[0].setAttribute('class','logo mayHideMode displayNone');
+					mayHideModes[1].setAttribute('class','logoText mayHideMode displayNone');
+					mayHideModes[2].setAttribute('class','swiper-container mayHideMode displayNone');
+					mayHideModes[3].setAttribute('class','downladApp mayHideMode displayNone');
 				} else {
 					// 下载app
+					console.log(mayHideModes)
 					window.location.href = "http://contact-api.molbase.cn/download/app";
 				}
 			}, false)

@@ -7,6 +7,7 @@
 	<navigator url='../switch_login/main'>登录切换页</navigator>
 	<navigator url='../login/main'>登录</navigator>
 	<navigator url='../complete_private_info/main'>完善发需求单的个人信息</navigator>
+	<navigator url='../my_offers/main'>我的报价</navigator>
     <!--搜索按钮模块-->
     <div class='searchButton' @click='jumpToSearchPage'>
       <div class='iconAndText'>
