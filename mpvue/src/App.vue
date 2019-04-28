@@ -68,6 +68,10 @@ view {
   box-sizing: border-box;
   color: #000000;
 }
+image {
+	width:auto;
+	height:auto;
+}
 page {
   background-color: #efefef;
 }
