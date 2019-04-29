@@ -247,7 +247,7 @@ export default {
     jumpToSearchPage() {
       console.log('跳转到搜索页')
       wx.navigateTo({
-        url: '/pages/search_product/main',
+        url: '/pages/packageA/search_product/main',
         success: (result) => {
           
         },

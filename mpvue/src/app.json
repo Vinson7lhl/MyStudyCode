@@ -3,8 +3,7 @@
     "pages/index/main",
     "pages/requirement/main",
 	"pages/user/main",
-	"pages/static_pages/newer_instruction/main",
-	"pages/search_product/main"
+	"pages/static_pages/newer_instruction/main"
   ],
   "subPackages":[{
 	"root":"pages/packageA/",
@@ -14,7 +13,8 @@
 		"complete_private_info/main",
 		"my_offers/main",
 		"feedback/main",
-		"business_detail/main"
+		"business_detail/main",
+		"search_product/main"
 	]
   }],
   "window": {
