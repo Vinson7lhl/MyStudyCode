@@ -32,8 +32,8 @@
 <script>
 // Use Vuex
 // import store from './store'
-import store from '../../store/store'
-import api from '../../service/index'
+import store from '../../../store/store'
+import api from '../../../service/index'
 
 export default {
   computed: {

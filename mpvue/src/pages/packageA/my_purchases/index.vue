@@ -1,5 +1,5 @@
 <!--
-	我的报价页(和我的采购公用同一个component)
+	我的采购页(和我的报价公用同一个component)
 -->
 <template>
   <div class="myOfferPage">
@@ -41,8 +41,8 @@
 <script>
 // Use Vuex
 // import store from './store'
-import store from '../../store/store'
-import api from '../../service/index'
+import store from '../../../store/store'
+import api from '../../../service/index'
 
 export default {
   computed: {

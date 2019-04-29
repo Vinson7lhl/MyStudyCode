@@ -4,14 +4,19 @@
     "pages/requirement/main",
 	"pages/user/main",
 	"pages/static_pages/newer_instruction/main",
-	"pages/business_detail/main",
-	"pages/switch_login/main",
-	"pages/login/main",
-	"pages/search_product/main",
-	"pages/complete_private_info/main",
-	"pages/my_offers/main",
-	"pages/feedback/main"
+	"pages/search_product/main"
   ],
+  "subPackages":[{
+	"root":"pages/packageA/",
+	"pages":[
+		"login/main",
+		"switch_login/main",
+		"complete_private_info/main",
+		"my_offers/main",
+		"feedback/main",
+		"business_detail/main"
+	]
+  }],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f8f8f8",
