@@ -61,16 +61,12 @@ export default {
 
 <style>
 /*------------------------------------------------------------------------------- 
-Here is base-style，基础样式
+Here is basic-style，基础样式,一般类名以  mb-a-b 为基本结构
 -------------------------------------------------------------------------------*/
 view {
   font-size: 28rpx;
   box-sizing: border-box;
   color: #000000;
-}
-image {
-	width:auto;
-	height:auto;
 }
 page {
   background-color: #efefef;
@@ -81,5 +77,16 @@ page {
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
+}
+/*按钮渐变色,浅蓝-深蓝*/
+.mb-gradient{
+    background: -webkit-linear-gradient(left, #3da5fe , #556eff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #3da5fe, #556eff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #3da5fe, #556eff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #3da5fe , #556eff); /* 标准的语法（必须放在最后） */
+}
+/*按钮无效化*/
+.mb-disabled-button{
+	opacity: 0.5;
 }
 </style>
