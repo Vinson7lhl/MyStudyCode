@@ -7,7 +7,13 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    // 登录后的token
+    token: '',
+    // 用户授权后的头像
+    wx_head_img: '',
+    // 用户授权后的昵称
+    wx_nickname: ''
   },
   mutations: {
     increment: (state) => {
