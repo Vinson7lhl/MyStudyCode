@@ -88,19 +88,23 @@
 				shadows: false
 			}
 		});
+		
 		function isWeiXin(){
-			var ua = window.navigator.userAgent.toLowerCase();
+			var ua = window.navigator.userAgent.toLowerCase()
 			if(ua.match(/MicroMessenger/i) == 'micromessenger'){
 				return true;
 			}else{
 				return false;
 			}
 		}
+
 		window.onload = function(){
+			alert('页面加载完毕')
 			var guide_pic = document.getElementById('guide_pic');
 			var download_app = document.getElementById('download_app');
 			var mayHideModes = document.getElementsByClassName('mayHideMode');
 			download_app.addEventListener('click', function() {
+				alert('进入点击')
 				if(isWeiXin()){
 					guide_pic.setAttribute('class','guidePic guidePicShow');
 					mayHideModes[0].setAttribute('class','logo mayHideMode displayNone');
@@ -113,7 +117,46 @@
 					console.log(mayHideModes)
 					window.location.href = "http://contact-api.molbase.cn/download/app";
 				}
+
+
+
+
+
+
+
+				// 直接打开app
+				var url_ios =  'vread_ios://'
+				var url_ios_download=  'http://www.xxx.com'
+				var url_android = 'vread://com.sina.book.xxx'
+				var url_android_download = 'http://www.xxx.com'
+				//通过window.navigator.userAgent来判断当前设备是IOS还是Android。
+
+				if (IOS){
+					var loadTime = new Date();
+					location.href = url_ios;
+					setTimeout(function(){
+						var outTime = new Date()
+						if(outTime - loadTime > 800){
+							location.href = url_ios_download;
+						}           
+					},1000)
+				}else{
+					var loadTime = new Date();
+					location.href = url_android;
+					setTimeout(function(){
+						var outTime = new Date()
+						if(outTime - loadTime > 800){
+							location.href = android_download;
+						}
+					},1000)
+				}
 			}, false)
+			// 判断是ios还是安卓
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			alert('是否是Android：'+isAndroid);
+			alert('是否是iOS：'+isiOS);
 		}
 	</script>
 </body>
