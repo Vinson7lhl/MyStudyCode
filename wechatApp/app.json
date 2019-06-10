@@ -6,13 +6,13 @@
     "pages/listDetail/listDetail"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#4e4e4e",
+	"navigationBarBackgroundColor": "#4e4e4e",
     "navigationBarTitleText": "老七的小程序",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#4e4e4e",
+	"navigationBarTextStyle": "white",
+    "backgroundTextStyle": "dark",
+	"backgroundColor": "#eb1539",
     "enablePullDownRefresh": true,
-    "onReachBottomDistance": 50
+	"onReachBottomDistance": 50
   },
   "tabBar": {
     "list": [
@@ -37,10 +37,10 @@
     "custom": false
   },
   "networkTimeout": {
-    "request": 100000,
+    "request": 10000,
     "downloadDile": 10000
   },
-  "debug": false,
+  "debug": true,
   "navigateToMiniProgramAppIdList": [
     ""
   ],

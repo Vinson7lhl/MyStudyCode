@@ -1,6 +1,4 @@
-var Fly=require("utils/ap.umd.min.js")
-var fly=new Fly
-console.log(fly)
+
 //app.js
 App({
   // 小程序初始化完时（只触发一次）
@@ -15,7 +13,7 @@ App({
     wx.login({
       success(res) {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log('wx.login-res',res)
+        // console.log('wx.login-res',res)
       }
     })
     // 获取用户信息
