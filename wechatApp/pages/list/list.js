@@ -1,5 +1,6 @@
 //logs.js
 const util = require('../../utils/util.js')
+const app = getApp();
 
 Page({
   // 初始元数据
@@ -13,7 +14,8 @@ Page({
       {name:'黄麒英'},
       {name:'鬼脚七'},
       {name:'霍元甲'}
-    ]
+	],
+	global_num:0
   },
   /**
    * ----------------------------------------------------钩子函数列表---------------------------------------------------------------
@@ -24,7 +26,15 @@ Page({
   // 此钩子函数适合放异步请求，每次进入此页面都要冲洗初始化一次
   onShow: function () {
     console.log('page/list：onShow,页面显示完，通过路由进入此页面每次都会触发一次/每次从后台切回此页面');
-    console.log('当前的路径是：'+this.route)
+	console.log('当前的路径是：'+this.route)
+	console.log('globalNum:'+app.globalData.globalNum)
+	this.setData({'global_num':app.globalData.globalNum})
+	console.log(this.data.global_num)
+	if(this.data.global_num === 7) {
+		wx.redirectTo({
+			url: '/pages/listDetail/listDetail'
+		});  
+	}
   },
   onReady: function () {
     console.log('page/list：onReady,页面渲染完');

@@ -7,6 +7,9 @@
   <template is='publicHeader' data="{{...public_header}}"></template>
   <button id='back_button' bindtap='goBack'>后退到上级</button>
   <view>
+	  {{global_num}}
+  </view>
+  <view>
     这里是组件
     <!--组件中要用class选择器，不可以用id，标签，属性选择器-->
     <!--
