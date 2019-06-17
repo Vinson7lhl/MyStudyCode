@@ -11,4 +11,6 @@
     <text class="user-motto">{{motto}}</text>
     俺是李宏磊——为自己带盐
   </view>
+  <!--客服按钮-->
+  <button class='contactService' open-type="contact" show-message-card='true' bindcontact="handleContact" hover-class="none">联系客服</button>
 </view>

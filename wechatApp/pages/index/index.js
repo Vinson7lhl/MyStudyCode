@@ -15,6 +15,9 @@ Page({
       url: '../logs/logs'
     })
   },
+  handleContact: function() {
+	  console.log('联系客服触发')
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
