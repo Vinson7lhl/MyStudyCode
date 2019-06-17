@@ -13,4 +13,8 @@
   </view>
   <!--客服按钮-->
   <button class='contactService' open-type="contact" show-message-card='true' bindcontact="handleContact" hover-class="none">联系客服</button>
+  <!--预览图片-->
+  <view class="previewPics" hover-class="none" hover-stop-propagation="false" bindtap="previewPics">
+	  预览图片
+  </view>
 </view>
