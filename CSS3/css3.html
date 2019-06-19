@@ -2,18 +2,18 @@
 <html>
 
 <head>
-          <meta charset="UTF-8">
-          <title>CSS3测试新特性</title>
-          <link href="css/css3.css" rel="stylesheet" />
-          <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<title>CSS3测试新特性</title>
+	<link href="css/css3.css" rel="stylesheet" />
+	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" />
 </head>
 <!--
 	启动：     browser-sync start --server --files "**/*.css, **/*.html, **/*.js"
 -->
 
 <body>
-          <button class='btn'>改变button</button>
-          <!--
+	<button class='btn'>改变button</button>
+	<!--
 		1、template标签浏览器不会渲染出来，但可以通过js进行实例化；即可以拿到其内容内容，其样式默认是display：none；
 		里面的如img，等url都不会发送请求一般用来处理隐藏的数据
 		2、如果要获取内部节点利用content属性而不是childNodes：templateDOM_obj.content.querySelector(/All)('')
@@ -21,114 +21,124 @@
 		用处：隐藏数据
 		属性：content，返回一个包含子内容的dom节点，再进行查询
 	-->
-          <template id='temp'>
-                    <span>这是template标签</span>
-                    <span>这是子标签</span>
-          </template>
-          <div id='template_container'>
-                    template的内容将在这里：
-          </div>
-          <script>
+	<template id='temp'>
+		<span>这是template标签</span>
+		<span>这是子标签</span>
+	</template>
+	<div id='template_container'>
+		template的内容将在这里：
+	</div>
+	<script>
 		// demo for <template>
-		// var temp_dom = document.getElementById('temp');
-		// var spans_dom = temp_dom.content.querySelectorAll('span');
-		// spans_dom[0].textContent = 'sp1';
-		// spans_dom[1].textContent = 'sp2';
-		// var container = document.getElementById('template_container');
-		// var copy_spans_dom = document.importNode(temp_dom.content, true)
-		// container.appendChild(copy_spans_dom);
-          </script>
+		var temp_dom = document.getElementById('temp');
+		var spans_dom = temp_dom.content.querySelectorAll('span');
+		spans_dom[0].textContent = 'sp1';
+		spans_dom[1].textContent = 'sp2';
+		var container = document.getElementById('template_container');
+		var copy_spans_dom = document.importNode(temp_dom.content, true)
+		container.appendChild(copy_spans_dom);
+	</script>
 
 
 
-          <!--a超链接样式-->
-          <a class='aStyle' target="_blank" href="http://baidu.com">超链接的样式love hate</a>
-          <a class='aStyle2' target="_blank" href="http://hao123.com">jjj hate</a>
+	<!--a超链接样式-->
+	<a class='aStyle' target="_blank" href="http://baidu.com">超链接的样式love hate</a>
+	<a class='aStyle2' target="_blank" href="http://hao123.com">jjj hate</a>
 
 
+	<!--demo展示了z-index在ie 6 7中的问题-->
+
+	<div class="inner1"></div>
+
+	<div class="outer2">
+		<div class="inner2"></div>
+	</div>
 
 
-          <!--demo展示了z-index在ie 6 7中的问题-->
-
-          <div class="inner1"></div>
-
-          <div class="outer2">
-                    <div class="inner2"></div>
-          </div>
-
-
-
-
-          <!--
+	<!--
 		兄弟选择 + ~ ，准确的说是“弟弟选择器”，
 		A+B指的是A“后面的”最近的弟弟B被选中
 		A~B指的是A“后面的”所有的弟弟B被选中，也就是说
 		如果是+ 则p2 为红色，因为P2是P1的最近弟弟，P3没被选中是因为中间隔了H3，所以不是最近弟弟。
 		如果是~ 则p2、p3都为红色，因为P2是P1的弟弟，P3又是P2的弟弟，
 	-->
-          <div class='selectorBro'>
-                    <p>p1</p>
-                    <p>p2</p>
-                    <h3>这是一个标题</h3>
-                    <p id="selected">p3</p>
-          </div>
+	<div class='selectorBro'>
+		<p>p1</p>
+		<p>p2</p>
+		<h3>这是一个标题</h3>
+		<p id="selected">p3</p>
+	</div>
 
-          <!--position：sticky-->
-          <div class='positionOut'>
-                    <span class='positionIn'>position定位</span>
-          </div>
 
-          <!--display:table-->
-          <div class='displayTest'>
-                    <span class='beTable'>
-                              <span class='beTr'>
-                                        <span class='beTd'>span的td标签1-1</span>
-                                        <span class='beTd'>span的td标签1-2</span>
-                              </span>
-                              <span class='beTr'>
-                                        <span class='beTd'>span的td标签2-1</span>
-                                        <span class='beTd'>span的td标签2-2</span>
-                              </span>
-                    </span>
-                    <table>
-                              <tr>
-                                        <td>table的1-1</td>
-                                        <td>table的1-2</td>
-                              </tr>
-                              <tr>
-                                        <td>table的2-1</td>
-                                        <td>table的2-2</td>
-                              </tr>
-                    </table>
-                    <span>内联</span>
-          </div>
+	<!--position：sticky-->
+	<div class='positionOut'>
+		<span class='positionIn'>position定位</span>
+	</div>
 
-          <!--background-->
-          <div class='bgTest'>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-                    <p>1</p>
-          </div>
 
-          <!-- 选择器级别-->
-          <div class='selectorLevel'>
-                    <div id='level_1' class='Level_1' data-diy='4'>level Test</div>
-          </div>
+	<!--display:table-->
+	<div class='displayTest'>
+		<span class='beTable'>
+			<span class='beTr'>
+				<span class='beTd'>span的td标签1-1</span>
+				<span class='beTd'>span的td标签1-2</span>
+			</span>
+			<span class='beTr'>
+				<span class='beTd'>span的td标签2-1</span>
+				<span class='beTd'>span的td标签2-2</span>
+			</span>
+		</span>
+		<table>
+			<tr>
+				<td>table的1-1</td>
+				<td>table的1-2</td>
+			</tr>
+			<tr>
+				<td>table的2-1</td>
+				<td>table的2-2</td>
+			</tr>
+		</table>
+		<span>内联</span>
+	</div>
 
-          <!--flex弹性盒子-->
-          <!--
+
+	<!--:not-->
+	<ul>
+		<li class='notLi'>ss</li>
+		<li class='notLi'>22</li>
+		<li class='notLi'>44</li>
+		<li class='notLi'>cc</li>
+	</ul>
+
+
+	<!--background-->
+	<div class='bgTest'>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+		<p>1</p>
+	</div>
+
+
+	<!-- 选择器级别-->
+	<div class='selectorLevel'>
+		<div id='level_1' class='Level_1' data-diy='4'>level Test</div>
+	</div>
+
+
+	<!--flex弹性盒子-->
+	<!--
 		容器包含如下属性：
 		1、flex-direction：决定主轴的方向，包含四个值，依次是。一旦决定主轴，另外一个就是交叉轴
 			横轴（默认）| 横轴（右->左）| 竖轴 | 竖轴（下->上） 
@@ -157,101 +167,116 @@
 		flex-basis	项目的基本大小，如果不写，则为项目本身大小
 		flex		是grow shrink basis的简写，默认为 0 1 auto
 	-->
-          <div class="flex_test1">
-                    <span class='outer'>
-                              <div id='flexContent_1' class="flexContent">f1</div>
-                              <div id='flexContent_2' class="flexContent">f2</div>
-                              <div id='flexContent_3' class="flexContent">f3</div>
-                              <div id='flexContent_4' class="flexContent">f4</div>
-                              <div id='flexContent_5' class="flexContent">f5</div>
-                    </span>
-          </div>
-          <span>333</span>
-
-          <!--rgba和opacity问题-->
-          <div class="opClass">
-                    <div class="opContent">op-0.5</div>
-          </div>
-
-          <!--margin-->
-          <div class="marginContainer">
-                    <div class="marginContent">
-
-                    </div>
-                    <div class="marginContent2">
-
-                    </div>
-          </div>
-
-          <div class="formTest">
-                    <input name="testRadio" type="radio" checked value="阿大">阿大
-                    <input name="testRadio" type="radio" value="阿二">阿二
-                    <input name="testRadio" type="radio" value="阿三">阿三
-                    <input name="testRadio" type="radio" value="阿四">阿四
-                    <input type="checkbox" name="testCheckbox" checked value="猪八戒" />猪八戒
-                    <input type="checkbox" name="testCheckbox" value="孙悟空" />孙悟空
-                    <input type="checkbox" name="testCheckbox" value="沙和尚">沙和尚
-          </div>
-
-          <!--行高和垂直对齐-->
-          <div class='lineHeight'>
-                    <p class='thisLine'>line1<span class='point'>.</span></p>
-                    <p class='thisLine'>line2<span class='point'>.</span></p>
-          </div>
+	<div class="flex_test1">
+		<span class='outer'>
+			<div id='flexContent_1' class="flexContent">f1</div>
+			<div id='flexContent_2' class="flexContent">f2</div>
+			<div id='flexContent_3' class="flexContent">f3</div>
+			<div id='flexContent_4' class="flexContent">f4</div>
+			<div id='flexContent_5' class="flexContent">f5</div>
+		</span>
+	</div>
+	<span>333</span>
 
 
-          <!--盒模型-->
-          <div class='boxModel'>
-                    box-sizing:border-box;
-          </div>
+	<!--rgba和opacity问题-->
+	<div class="opClass">
+		<div class="opContent">op-0.5</div>
+	</div>
 
-          <!--分栏-->
-          <div class='columTest'>
-                    <div class='perColum'>栏1</div>
-                    <div class='perColum'>栏2</div>
-                    <div class='perColum'>栏3</div>
-          </div>
 
-          <!--正方体-->
-          <div class="cube">
-                    <div class="front">1</div>
-                    <div class="back">2</div>
-                    <div class="right">3</div>
-                    <div class="left">4</div>
-                    <div class="top">5</div>
-                    <div class="bottom">6</div>
-          </div>
+	<!--margin-->
+	<div class="marginContainer">
+		<div class="marginContent">
 
-          <div id='base_css_test'>This is the base css test</div>
+		</div>
+		<div class="marginContent2">
+		</div>
+	</div>
 
-          <div class='lineTwo'>
-                    两行显示……两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示
-          </div>
+	<div class="formTest">
+		<input name="testRadio" type="radio" checked value="阿大">阿大
+		<input name="testRadio" type="radio" value="阿二">阿二
+		<input name="testRadio" type="radio" value="阿三">阿三
+		<input name="testRadio" type="radio" value="阿四">阿四
+		<input type="checkbox" name="testCheckbox" checked value="猪八戒" />猪八戒
+		<input type="checkbox" name="testCheckbox" value="孙悟空" />孙悟空
+		<input type="checkbox" name="testCheckbox" value="沙和尚">沙和尚
+	</div>
 
-          <div class='ieTest'>
-                    <div class='ie1'></div>
-                    <div class='ie2'>哈哈</div>
-                    <div class='ie3'></div>
-          </div>
-          <!--media查询-->
-          <div class='mediaQuery'></div>
+	<!--行高和垂直对齐-->
+	<div class='lineHeight'>
+		<p class='thisLine'>line1<span class='point'>.</span></p>
+		<p class='thisLine'>line2<span class='point'>.</span></p>
+	</div>
 
-          <!--测试滚动插件-->
-          <div class='content_2'>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-                    <p>这里是测试滚动插件</p>
-          </div>
 
-          <script type="text/javascript" src="lib/jQuery/jquery-2.1.4.js"></script>
-          <script src="lib/jquery.mCustomScrollbar.concat.min.js"></script>
-          <script type="text/javascript" src="js/css3.js"></script>
+	<!--盒模型-->
+	<div class='boxModel'>
+		box-sizing:border-box;
+	</div>
+
+
+	<!--分栏-->
+	<div class='columTest'>
+		<div class='perColum'>栏1</div>
+		<div class='perColum'>栏2</div>
+		<div class='perColum'>栏3</div>
+	</div>
+
+
+	<!--正方体-->
+	<div class="cube">
+		<div class="front">1</div>
+		<div class="back">2</div>
+		<div class="right">3</div>
+		<div class="left">4</div>
+		<div class="top">5</div>
+		<div class="bottom">6</div>
+	</div>
+
+	<div id='base_css_test'>This is the base css test</div>
+
+	<div class='lineTwo'>
+		两行显示……两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示两行显示
+	</div>
+
+	<div class='ieTest'>
+		<div class='ie1'></div>
+		<div class='ie2'>哈哈</div>
+		<div class='ie3'></div>
+	</div>
+	<!--media查询-->
+	<div class='mediaQuery'></div>
+
+
+	<!--测试滚动插件-->
+	<div class='content_2'>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+		<p>这里是测试滚动插件</p>
+	</div>
+
+
+	<!--清除浮动方式-->
+	<div class='floatContent'>
+		<div class='floatL'>左浮动1</div>
+		<div class='floatR'>右浮动2</div>
+	</div>
+	<div class='outsideGuy'>浮动局外人</div>
+
+	<!--单位-->
+	<div class='dVm'>VM是相对视口的1/100来计算的相对单位</div>
+
+	<script type="text/javascript" src="lib/jQuery/jquery-2.1.4.js"></script>
+	<script src="lib/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="js/css3.js"></script>
 </body>
 
 </html>

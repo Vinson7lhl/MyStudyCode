@@ -1,3 +1,10 @@
+body,html,div,p{
+	margin:0;
+	padding:0;
+}
+div{
+	box-sizing: border-box;
+}
 /* @import 'public.css'; */
 .btn{
     
@@ -99,6 +106,9 @@ a:hover {
     color: red;
 }
 
+.notLi:not(:last-child){
+	border-bottom:1px solid #333333
+}
 /*-----------------------------------------------------------------------------------------
  flex弹性盒子：非常适合h5
 ------------------------------------------------------------------------------------------*/
@@ -208,6 +218,40 @@ a:hover {
     overflow: auto;
     background: #006400 url('../img/test.jpg') repeat fixed left center;
 }
+
+/*-----------------------------------------------------------------------------------------
+ 浮动清除测试
+------------------------------------------------------------------------------------------*/
+.floatContent{
+	background-color: #000000;
+	color:#ffffff;
+	overflow: auto;
+}
+.floatL{
+	float:left;
+	width:100px;
+	height:100px;
+	background-color: #4e4e4e;
+}
+.floatR{
+	float:right;
+	margin-left:100px;
+	width:100px;
+	height:100px;
+	background-color: #30363C;
+}
+.outsideGuy{
+	width:100px;
+	height:100px;
+	color:#ffffff;
+	background-color: #873991;
+}
+/*可行*/
+/* .floatContent:after{
+	clear:both;
+	content:'';
+	display: block;
+} */
 
 /*-----------------------------------------------------------------------------------------
 	transform-style：flat | preserve-3d
@@ -453,3 +497,15 @@ body {
     height: auto;
     max-height: 100px;
 }
+
+/*-----------------------------------------------------------------------------------------
+ 单位测试
+------------------------------------------------------------------------------------------*/
+.dVm{
+	width: 10vw;
+	height:10vh;
+	background-color: #000000;
+	color:#ffffff;
+}
+
+
