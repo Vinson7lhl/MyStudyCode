@@ -31,6 +31,8 @@ Page({
 	})
   },
   onLoad: function () {
+	// 设置转发
+	wx.showShareMenu()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -65,5 +67,8 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  formSubmit: function (e) {
+	console.log('formId:'+ e.detail.formId)
   }
 })

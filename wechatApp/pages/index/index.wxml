@@ -17,4 +17,11 @@
   <view class="previewPics" hover-class="none" hover-stop-propagation="false" bindtap="previewPics">
 	  预览图片
   </view>
+  <form bindsubmit="formSubmit" report-submit="{{true}}">
+      <button formType="submit" class='btn'>
+            <view class='aa'>
+				点我
+            </view>
+      </button>
+  </form>
 </view>

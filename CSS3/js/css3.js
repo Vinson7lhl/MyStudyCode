@@ -79,6 +79,12 @@ $(function()
                 
             }
         }
-        
-    }
+	}
+	
+	let wrapper_dom = document.getElementsByClassName('wrapper')[0]
+	$('.boom').on('click',function() {
+		console.log('我被点击了！')
+	})
+	console.log(wrapper_dom.innerHTML)
+	wrapper_dom.innerHTML = '<span class="boom">这里是插入的dom</span>'
 });
