@@ -1,8 +1,22 @@
 const express = require('express')
 const app = express()
 
+// 路由事例
+
 app.get('/',(req,res) => {
-    res.send('你好啊，老七！')
+    res.send('Get 请求')
+})
+
+app.post('/', function (req, res) {
+	res.send('Post 请求')
+})
+
+app.put('/user', function (req, res) {
+	res.send('put 请求')
+})
+
+app.delete('/user', function (req, res) {
+	res.send('Delete 请求')
 })
 
 app.listen(3000,() => {
