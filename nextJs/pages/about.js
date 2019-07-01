@@ -3,9 +3,9 @@ import LinkButton from '../comp/linkButton'
 
 const About = () => (
     <div>
-      <p>About page</p>
+      <p>About page，我改过了</p>
       <Link href='/index'>
-        <button>跳转至首页</button>
+        <button  title="About Page">跳转至首页</button>
       </Link>
       <Link href='/index'>
         <LinkButton></LinkButton>

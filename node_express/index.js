@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-// 路由事例
+// 路由事例(第一个参数地址还可以用正则表达式 //)
 
 app.get('/',(req,res) => {
     res.send('Get 请求')
