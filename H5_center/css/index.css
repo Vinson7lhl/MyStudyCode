@@ -1,0 +1,140 @@
+body,
+html,
+div {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #ffffff;
+}
+.bigTitle{
+    overflow: hidden;
+    height:0.88rem;
+    line-height:0.88rem;
+    border-bottom:0.01rem solid #f5f5f5;
+}
+.bigTitleLeftIcon{
+    width:0.1rem;
+    height:0.3rem;
+    float:left;
+    margin-top:0.28rem;
+}
+.titleName{
+    font-size: 0.32rem;
+    color:#111111;
+    float:left;
+    margin-left:0.3rem;
+}
+.listFrame{
+    text-align: center;
+    color:#333333;
+}
+.table{
+    display: table;
+    width:6.88rem;
+    margin-left:auto;
+    margin-right:auto;
+}
+.table:last-child{
+    border-bottom:0.01rem solid #d4d4d4;
+    margin-bottom:1rem;
+}
+.listBigTitle:first-child{
+    margin-top:0.4rem;
+}
+.listBigTitle{
+    width:6.88rem;
+    height:1rem;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:0.28rem;
+    font-weight: bold;
+    vertical-align: middle;
+    border-left:0.01rem solid #e0e0e0;
+    border-top:0.01rem solid #e0e0e0;
+    border-right:0.01rem solid #e0e0e0;
+}
+.cBigTitleName{
+    margin-top:0.1rem
+}
+.cBigTitleNameOneLine{
+    margin-top:0.3rem
+}
+
+.cBigTitleDangerousName{
+    margin-top:0.3rem
+}
+.listMiddleTitle{
+    border:0.01rem solid #d4d4d4;
+    font-weight: bold;
+    background-color: #f5f5f5;
+}
+.perLine{
+    display: table-row;
+    width:6.88rem;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 0.2rem;
+    text-align: center;
+}
+.num,.dangerousNum{
+    display: table-cell;
+    width:1rem;
+    vertical-align: middle;
+    border-left:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+}
+.num2{
+    background-color: #f5f5f5;
+}
+.eDes{
+    display: table-cell;
+    width:3.5rem;
+    border-left:0.01rem solid #d4d4d4;
+    border-right:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+    padding:0.12rem;
+    vertical-align: middle;
+}
+.cDes{
+    display: table-cell;
+    width:2.3rem;
+    vertical-align: middle;
+    border-right:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+    padding:0.12rem;
+}
+.dangerousNum{
+    width:1rem;
+    border-left:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+}
+.imgDes{
+    display: table-cell;
+    width:2.3rem;
+    border-left:0.01rem solid #d4d4d4;
+    border-right:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+    padding:0.12rem;
+}
+.imgDes img{
+    width:1.48rem;
+    height:1.48rem;
+}
+.cDangerousDes{
+    display: table-cell;
+    width:1.8rem;
+    border-right:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+    padding:0.12rem;
+    vertical-align: middle;
+}
+.eDangerousDes{
+    display: table-cell;
+    width:1.8rem;
+    border-right:0.01rem solid #d4d4d4;
+    border-top:0.01rem solid #d4d4d4;
+    padding:0.12rem;
+    vertical-align: middle;
+}
