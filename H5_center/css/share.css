@@ -17,6 +17,7 @@ body{
     padding-bottom:0.42rem;
     padding-right:0.37rem;
     background-color: #ffffff;
+    border-bottom: 0.01rem solid #e5e5e5;
 }
 .baseInfo{
     overflow: hidden;
@@ -55,8 +56,22 @@ body{
 .pCas{
     margin-top:0.3rem;
 }
+.pCas .labelValue{
+    display: inline-block;
+    width:3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .pEName{
     margin-top:0.1rem;
+}
+.pEName .labelValue{
+    display: inline-block;
+    width:2.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .pCas,.pEName{
     font-size: 0.26rem;
@@ -75,7 +90,8 @@ body{
     display: inline-block;
 }
 .qiuGou{
-    border:0.01rem solid #3F6BDC;
+    margin-top:0.02rem;
+    border:0.015rem solid #3F6BDC;
     color:#3F6BDC;
 }
 .gongYing{
@@ -93,10 +109,38 @@ body{
     overflow: hidden;
     width:7.5rem;
     height:0.88rem;
-    border-bottom:0.01rem solid #dddddd;
+    border-bottom:0.015rem solid #dddddd;
     padding-left:0.4rem;
     padding-right:0.3rem;
     background-color: #ffffff;
+}
+.detailContent{
+    background-color: #ffffff;
+    width:7.5rem;
+    padding-left:0.4rem;
+    padding-right:0.3rem;
+    border-bottom:0.015rem solid #dddddd;
+    color:#333333;
+    overflow: hidden;
+    padding-bottom:0.27rem;
+}
+.baseDes{
+    font-size: 0.28rem;
+    margin-top:0.4rem;
+    line-height:0.4rem;
+}
+.perField{
+    overflow: hidden;
+    font-size: 0.26rem;
+    margin-top:0.27rem;
+}
+.fieldKey{
+    float:left;
+    color:#999999;
+}
+.fieldValue{
+    float:right;
+    text-align: right;
 }
 .detailButtonIcon{
     float:left;
@@ -116,8 +160,14 @@ body{
     width:0.25rem;
     height:0.16rem;
     margin-top:0.32rem;
+    transition:all 0.3s;
+    transform: rotate(0deg);
+}
+.arrowIconActivted{
+    transform: rotate(180deg);
 }
 .fixedBottomButton{
+    display: none;
     position: fixed;
     left:0;
     right:0;
@@ -137,6 +187,7 @@ body{
     background: linear-gradient(to right, #3DA5FE , #556EFF); /* 标准的语法（必须放在最后） */
 }
 .fixedBg{
+    display: none;
     width:100%;
     height:100%;
     position: fixed;
@@ -191,9 +242,10 @@ body{
     border-radius: 0.1rem;
     font-size: 0.32rem;
     font-weight: bold;
+    font-family: "PingFang SC"
 }
 .perPopButtonOpenApp{
-    border:0.01rem solid #3F6BDC;
+    border:0.02rem solid #3F6BDC;
     color:#3F6BDC
 }
 .perPopButtonDownloadApp{
@@ -205,12 +257,32 @@ body{
     margin-left:0.2rem;
 }
 .closeModel{
+    width:1rem;
+    height:1rem;
+    position: absolute;
+    right:0;
+    top:0;
+    overflow: hidden;
+}
+.closePopUpIcon{
+    float:right;
     width:0.28rem;
     height:0.28rem;
-    position: absolute;
-    right:0.3rem;
-    top:0.16rem;
+    margin-right:0.3rem;
+    margin-top:0.16rem;
 }
 .hideModel{
     display: none;
+}
+.guidePic{
+    display: none;
+    width:100%;
+    z-index: 13;
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+
 }
