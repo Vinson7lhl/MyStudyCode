@@ -43,13 +43,33 @@ $(function() {
     let guidePicDom = $('.guidePic')
     // 底部浮动打开App按钮
     let fixedBottomButtonDom = $('.fixedBottomButton')
+
+    // 产品图
+    let pImgDom = $('.pImg img')
     // 产品名
     let pNameTextDom = $('.pNameText')
     // cas
     let casDom = $('.pCas .labelValue')
     // eName英文名
     let eName = $('.pEName .labelValue')
-
+    // 简要描述
+    let baseDesDom = $('.baseDes')
+    // 分子式
+    let fen_zi_shi_dom = $('.fen_zi_shi')
+    // 分子量
+    let fen_zi_liang_dom = $('.fen_zi_liang')
+    // 精确质量
+    let jing_que_zhi_liang_dom = $('.jing_que_zhi_liang')
+    // logP
+    let logP_dom = $('.logP')
+    // PSA
+    let PSA_dom = $('.PSA')
+    // 中文别名
+    let cOtherNames_dom = $('.cOtherNames')
+    // 英文别名
+    let eOtherNames_dom = $('.eOtherNames')
+    // 获取url的id
+    let id = getQueryVariable('id')
 
     /**
      * 获取环境判断
@@ -121,19 +141,86 @@ $(function() {
             guidePicDom.fadeIn(200)
         } else {
             // 浏览器则直接打开app对应的详情页
-            // window.location.href = "vread_ios://"
+            window.location.href = "huagong://openapp/wiki_detail?id=" + id
         }
     })
     // 点击引导层，引导层本身消失
     guidePicDom.on('click',function() {
         $(this).fadeOut(200)
     })
-    // 监听滚动
-    $(win).on('scroll',function(){
+    // 监听滚动(如果滚动出去的高度超过顶部下载app的广告条高度，则显示底部浮动打开App按钮)
+    $(win).on('scroll',function(){ 
         if($(win).scrollTop() / base_px > 1){
             fixedBottomButtonDom.fadeIn(300)
         } else {
             fixedBottomButtonDom.fadeOut(300)
+        }
+    })
+
+    // 获取头部和基本信息字段（但没有简要描述字段，需要单独再请求一次）
+    $.ajax({
+        url: 'http://dev-contact-api.molbase.cn/1.0/compound/info?id=' + id,
+        type: 'get',
+        dataType: 'json',
+        success: function(res) {
+            console.log(res)
+            // 产品图
+            pImgDom.attr('src',res.compound.structImage)
+            // 产品名
+            pNameTextDom.text(res.compound.cnName)
+            // cas
+            casDom.text(res.compound.cas)
+            // 英文名
+            eName.text(res.compound.enName)
+            // 分子式
+            fen_zi_shi_dom.text(res.compound.molStruc.formula)
+            // 分子量
+            fen_zi_liang_dom.text(res.compound.molStruc.molWeight)
+            // 精确质量
+            jing_que_zhi_liang_dom.text(res.compound.molStruc.exactMass)
+            // logp
+            logP_dom.text(res.compound.molStruc.logp)
+            // PSA
+            PSA_dom.text(res.compound.molStruc.psa)
+            // 中文别名
+            let cnNameAliasArray = res.compound.cnNameAlias
+            if(cnNameAliasArray && cnNameAliasArray.length > 0) {
+                let cnNameAliasStr = ''
+                for(let i = 0 ;i<cnNameAliasArray.length; i++) {
+                    cnNameAliasStr += '<p>' + cnNameAliasArray[i] + '；</p>'
+                }
+                cOtherNames_dom.html(cnNameAliasStr)
+            } else {
+
+            }
+            // 英文别名
+            let enNameAliasArray = res.compound.enNameAlias
+            if (enNameAliasArray && enNameAliasArray.length > 0) {
+                let enNameAliasStr = ''
+                for(let i = 0 ;i<enNameAliasArray.length; i++) {
+                    enNameAliasStr += '<p>' + enNameAliasArray[i] + '；</p>'
+                }
+                eOtherNames_dom.html(enNameAliasStr)
+            }
+        },
+        error: function(res){
+            console.log(res)
+        }
+    })
+    // 获取基本描述
+    $.ajax({
+        url: 'http://dev-contact-api.molbase.cn/1.0/compound/baike/info?id=' + id,
+        type: 'get',
+        dataType: 'json',
+        success: function(res) {
+            if(res.baike_info.description.data[0]['描述']) {
+                baseDesDom.text(res.baike_info.description.data[0]['描述'])
+            } else {
+                baseDesDom.text('暂无')
+            }
+        },
+        error: function(res){
+            console.log(res)
         }
     })
 });
