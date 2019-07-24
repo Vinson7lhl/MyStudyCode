@@ -15,3 +15,6 @@
     // DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
     doc.addEventListener("DOMContentLoaded", reFontSize);
 })(document, window);
+$(function() {
+    console.log('公共js文件初始化完毕')
+})

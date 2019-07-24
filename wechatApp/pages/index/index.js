@@ -31,6 +31,7 @@ Page({
 	})
   },
   onLoad: function () {
+    console.log('首页：onLoad')
 	// 设置转发
 	wx.showShareMenu()
     if (app.globalData.userInfo) {
@@ -59,6 +60,9 @@ Page({
         }
       })
     }
+  },
+  onShow: function () {
+      console.log('首页：onShow')
   },
   getUserInfo: function(e) {
     console.log(e)
