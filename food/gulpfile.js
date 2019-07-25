@@ -15,7 +15,6 @@ let uglifyCss = require('gulp-uglifycss')
 let copy = require('gulp-copy')
 // 获取browser-sync，同步刷新工具
 let browser = require('browser-sync').create()
-
 // 获取watch插件
 let watch = require('gulp-watch')
 
