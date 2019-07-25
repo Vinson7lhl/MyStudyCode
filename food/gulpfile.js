@@ -13,6 +13,9 @@ let concatCss = require('gulp-concat-css')
 let uglifyCss = require('gulp-uglifycss')
 // 获取copy插件，复制库文件、图片、视频文件
 let copy = require('gulp-copy')
+// 获取browser-sync，同步刷新工具
+let browser = require('browser-sync').create()
+
 // 获取watch插件
 let watch = require('gulp-watch')
 
@@ -99,6 +102,13 @@ gulp.task('watch-all',function() {
     // 监听视频
     watch('dev/video/*.*',function() {
         gulp.run('build-video')
+    })
+    // 监听最终打包文件夹temp和html文件变化
+    browser.watch("*.html").on("change", browser.reload)
+    browser.watch("temp/**/*.*").on("change", browser.reload)
+    browser.init({
+        server: "./",
+        // proxy: "localhost:8081"
     })
 })
 /*---------------------------------------------------------------------------------------------------------
