@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>摩贝化工</title>
+	<link rel="stylesheet" href="css/idangerous.swiper2.7.6.css">
+	<link rel="stylesheet" href="css/idangerous.swiper.3dflow.css">
+	<link rel="stylesheet" href="css/index4.css">
+</head>
+
+<body>
+	<div class='bg'>
+		<img src="./img/title01.png" class='logo mayHideMode' alt="">
+		<img src="./img/title02.png" class='logoText mayHideMode' alt="">
+		<div class="swiper-container mayHideMode">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
+				<div class="swiper-slide"> <img class='perImg' src="img/banner02.png" alt=""></div>
+				<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+				<div class="swiper-slide"> <img class='perImg' src="img/banner04.png" alt=""></div>
+			</div>
+		</div>
+		<!-- <div class='pagination'></div> -->
+		<div class='downladApp mayHideMode' id='download_app'>
+			<!-- <img src="./img/button.png" alt=""> -->
+			点击下载化工圈APP
+		</div>
+		<div class='downloadAppTips mayHideMode'>温馨提示：如果您的手机点击下载无法跳转，请前往各大应用市场搜索“化工圈”进行下载使用。</div>
+	</div>
+	<img class='guidePic' id='guide_pic' src="./img/guid.jpg" alt="">
+	<!-- <div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"> <img class='perImg' src="img/banner01.png" alt=""></div>
+			<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+			<div class="swiper-slide"> <img class='perImg' src="img/banner03.png" alt=""></div>
+			<div class="swiper-slide"> <img class='perImg' src="img/banner04.png" alt=""></div>
+		</div>
+	</div> -->
+
+
+
+
+
+
+
+	<script src='./js/idangerous.swiper2.7.6.min.js'></script>
+	<script src='./js/idangerous.swiper.3dflow.js'></script>
+	<script>
+		
+		(function (doc, win) {
+			var html = doc.getElementsByTagName("html")[0],
+				// orientationchange->手机屏幕转屏事件
+				// resize->页面大小改变事件(一边pc端有用)
+				reEvt = "orientationchange" in win ? "orientationchange" : "resize",
+				reFontSize = function () {
+					var clientW = doc.documentElement.clientWidth || doc.body
+						.clientWidth;
+					if (!clientW) {
+						return;
+					}
+					html.style.fontSize = 100 * (clientW / 375) + "px";
+				}
+			win.addEventListener(reEvt, reFontSize);
+			// DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
+			doc.addEventListener("DOMContentLoaded", reFontSize);
+		})(document, window);
+
+		var mySwiper = new Swiper('.swiper-container', {
+			calculateHeight: true,
+			centeredSlides: true,
+			initialSlide: 1,//默认第二
+			slidesPerViewFit: false,
+			slidesPerView: 2,
+			visibilityFullFit: true,
+			loop : true,
+			speed: 500,
+			autoplay : 3000,
+			// 四个圆点
+			// pagination : '.pagination',
+			//3d设置
+			tdFlow: {
+				rotate: 0,
+				stretch: 50,
+				depth: 240,
+				modifier: 1,
+				shadows: false
+			}
+		});
+		
+		function isWeiXin(){
+			var ua = window.navigator.userAgent.toLowerCase()
+			if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		window.onload = function(){
+			alert('页面加载完毕')
+			var guide_pic = document.getElementById('guide_pic');
+			var download_app = document.getElementById('download_app');
+			var mayHideModes = document.getElementsByClassName('mayHideMode');
+			download_app.addEventListener('click', function() {
+				alert('进入点击')
+				if(isWeiXin()){
+					guide_pic.setAttribute('class','guidePic guidePicShow');
+					mayHideModes[0].setAttribute('class','logo mayHideMode displayNone');
+					mayHideModes[1].setAttribute('class','logoText mayHideMode displayNone');
+					mayHideModes[2].setAttribute('class','swiper-container mayHideMode displayNone');
+					mayHideModes[3].setAttribute('class','downladApp mayHideMode displayNone');
+					mayHideModes[4].setAttribute('class','downloadAppTips mayHideMode displayNone');
+				} else {
+					// 下载app
+					console.log(mayHideModes)
+					window.location.href = "http://contact-api.molbase.cn/download/app";
+				}
+
+
+
+
+
+
+
+				// 直接打开app
+				var url_ios =  'vread_ios://'
+				var url_ios_download=  'http://www.xxx.com'
+				var url_android = 'vread://com.sina.book.xxx'
+				var url_android_download = 'http://www.xxx.com'
+				//通过window.navigator.userAgent来判断当前设备是IOS还是Android。
+
+				if (IOS){
+					var loadTime = new Date();
+					location.href = url_ios;
+					setTimeout(function(){
+						var outTime = new Date()
+						if(outTime - loadTime > 800){
+							location.href = url_ios_download;
+						}           
+					},1000)
+				}else{
+					var loadTime = new Date();
+					location.href = url_android;
+					setTimeout(function(){
+						var outTime = new Date()
+						if(outTime - loadTime > 800){
+							location.href = android_download;
+						}
+					},1000)
+				}
+			}, false)
+			// 判断是ios还是安卓
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			alert('是否是Android：'+isAndroid);
+			alert('是否是iOS：'+isiOS);
+		}
+	</script>
+</body>
+
+</html>
