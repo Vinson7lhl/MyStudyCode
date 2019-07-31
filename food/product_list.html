@@ -12,47 +12,53 @@
 <body>
     <!--browser-sync start --server --files "**/*.css, **/*.html, **/*.js"-->
     <!--顶部导航-->
-    <div class='frame'>
-        <a class='typeTopNavigator'>
-            <img class='arrow' src="./dev/img/arrow_icon.jpg" alt="">
-            <span class='typeName'>价格查询</span>
-        </a>
-        <div class='searchArea'>
-            <img class='searchIcon' src="./dev/img/search_icon.jpg">
-            <input class='searchInput' id='search_input' placeholder='搜索产品' name='search_input' type="text">
+    <div class='fixedModel'>
+        <div class='frame'>
+            <a class='typeTopNavigator'>
+                <img class='arrow' src="./dev/img/arrow_icon.jpg" alt="">
+                <span class='typeName'>价格查询</span>
+            </a>
+            <div class='searchArea'>
+                <img class='searchIcon' src="./dev/img/search_icon.jpg">
+                <form action="javascript:return true">
+                    <input class='searchInput' id='search_input' placeholder='搜索产品' name='search_input' type="search">
+                </form>
+                
+            </div>
+        </div>
+        <div class='switchTab'>
+            <!--perTabActive-->
+            <div class='perTab all_tab' data-type='all'>
+                <div class='tabName'>全部</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab mn_tab' data-type='mn'>
+                <div class='tabName'>泌尿</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab xh_tab' data-type='xh'>
+                <div class='tabName'>消化</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab pf_tab' data-type='pf'>
+                <div class='tabName'>皮肤</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab jf_tab' data-type='jf'>
+                <div class='tabName'>减肥</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab hl_tab' data-type='hl'>
+                <div class='tabName'>活力</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab jk_tab' data-type='jk'>
+                <div class='tabName'>健康</div>
+                <div class='tagLine'></div>
+            </div>
         </div>
     </div>
-    <div class='switchTab'>
-        <!--perTabActive-->
-        <div class='perTab all_tab' data-type='all'>
-            <div class='tabName'>全部</div>
-            <div class='tagLine'></div>
-        </div>
-        <div class='perTab mn_tab' data-type='mn'>
-            <div class='tabName'>泌尿</div>
-            <div class='tagLine'></div>
-        </div>
-        <div class='perTab xh_tab' data-type='xh'>
-            <div class='tabName'>消化</div>
-            <div class='tagLine'></div>
-        </div>
-        <div class='perTab pf_tab' data-type='pf'>
-            <div class='tabName'>皮肤</div>
-            <div class='tagLine'></div>
-        </div>
-        <div class='perTab jf_tab' data-type='jf'>
-            <div class='tabName'>减肥</div>
-            <div class='tagLine'></div>
-        </div>
-        <div class='perTab hl_tab' data-type='hl'>
-            <div class='tabName'>活力</div>
-            <div class='tagLine'></div>
-        </div>
-        <div class='perTab jk_tab' data-type='jk'>
-            <div class='tabName'>健康</div>
-            <div class='tagLine'></div>
-        </div>
-    </div>
+    
     <div class='frame'>
         <div class='mainContent'>
             <!--
@@ -112,9 +118,6 @@
                 <div class='pDes'>成犬泌尿道全价处方粮UC（低嘌呤）-2kg</div>
                 <div class='pPrice'>￥ 227</div>
             </a> -->
-        </div>
-        <div class='searchResult'>
-
         </div>
     </div>
 

@@ -123,8 +123,14 @@ $(function () {
             $('.mainContent').html(html_str)
         }
     }
-    $('#search_input').on('blur', function () {
-        searchKey($(this).val(),type_str)
+    $('#search_input').on('keydown', function (event) {
+        if($(this).val().trim()){
+            if(event.keyCode === 13){
+                searchKey($(this).val(),type_str)
+            }
+        } else {
+            $(this).val('')
+        }
     })
     // 获取类型名
     /**
@@ -137,10 +143,12 @@ $(function () {
      */
     let type_str = getUrlParam('type')
     $('.perTab').on('click', function () {
-        $('.perTab').removeClass('perTabActive')
-        $(this).addClass('perTabActive')
-        type_str = $(this).attr('data-type')
-        renderDom(type_str)
+        if(!$(this).hasClass('perTabActive')){
+            $('.perTab').removeClass('perTabActive')
+            $(this).addClass('perTabActive')
+            type_str = $(this).attr('data-type')
+            renderDom(type_str)
+        }
     })
     activeTab(type_str)
     renderDom(type_str)
