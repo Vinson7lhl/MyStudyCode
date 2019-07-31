@@ -1,25 +1,5 @@
-body{
-    background-color: #ffffff;
-    padding-left:0.4rem;
-    padding-right:0.4rem;
-    padding-top:0.2rem;
-}
-.typeTopNavigator{
-    display: block;
-    font-size:0.34rem;
-    color:#000000;
-    overflow: hidden;
-    line-height: 0.34rem;
-    height:0.34rem;
-}
-.arrow{
-    float:left;
-    width: 0.2rem;
-    height:0.34rem;
-}
-.typeName{
-    float:left;
-    margin-left:0.3rem;
+.mainContent{
+    display: none;
 }
 .videoArea{
     width:6.69rem;
@@ -36,17 +16,22 @@ body{
 .instructionBookTitle{
     font-size:0.26rem;
     color:#666666;
+    margin-top:0.1rem;
 }
 .instructionBookContent{
     width:6.69rem;
     margin-top:0.4rem;
-    font-size:0.26rem;
+    /* font-size:0.26rem; */
     max-height:6.65rem;
-    padding:0.33rem;
-    line-height: 0.52rem;
+    /* padding:0.33rem;
+    line-height: 0.52rem; */
     overflow-y: scroll;
-    background-color: #f4f5f9;
+    /* background-color: #f4f5f9; */
     -webkit-overflow-scrolling: touch;
+}
+.instructionBookContent img{
+    display: block;
+    width:100%;
 }
 .linkButton{
     display: block;
@@ -61,5 +46,8 @@ body{
 .linkButton img{
     display: block;
     width:100%;
+}
+.show{
+    display: block;
 }
 

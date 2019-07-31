@@ -1,0 +1,35 @@
+.topBook{
+    display: block;
+    width:6.7rem;
+    height:4.05rem;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #f2f2f2;
+    margin-top:0.67rem;
+    border-radius: 0.1rem;
+}
+.bookList{
+    margin-top:0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.perBook{
+    width:3.16rem;
+    height:5.1rem;
+    font-size: 0.28rem;
+    color:#333333;
+}
+.bookImgFrame{
+    width:3.16rem;
+    height:4.04rem;
+    background-color: #f2f2f2;
+    border-radius: 0.1rem;
+}
+.bookName{
+    width:3.16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top:0.15rem;
+}
