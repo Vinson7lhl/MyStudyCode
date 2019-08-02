@@ -84,7 +84,7 @@ function getUrlParam(variable) {
             return pair[1]
         }
     }
-    return false
+    return ''
 }
 $(function () {
     let id_num = getUrlParam('id')
@@ -92,8 +92,16 @@ $(function () {
         let html_str = '<img src="./dev/img/p-detail/' + id_num + '_detail.jpg" class="detailPic">'
         $('.detailContent').html(html_str)
     }
-    $('.typeTopNavigator').on('click',function() {
+    $('.typeTopNavigator').on('click', function () {
         console.log('后退')
         history.back()
+    })
+    if (getUrlParam('name')) {
+        let book_name = decodeURI(getUrlParam('name'))
+        $('.typeName').text(book_name)
+    }
+    $('img').on('error',function (){
+        let html_str = '<p class="noImgTips">暂无详情，敬请期待！</p>'
+        $('.detailContent').html(html_str)
     })
 })
