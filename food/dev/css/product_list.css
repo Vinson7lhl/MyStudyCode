@@ -1,0 +1,112 @@
+
+.fixedModel{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index: 100;
+    height:2.78rem;
+    background-color: #ffffff;
+    padding-top:0.36rem;
+}
+.searchArea{
+    height:0.64rem;
+    margin-top:0.36rem;
+    overflow: hidden;
+    background-color: #f6f6f6;
+    padding-left:0.2rem;
+    padding-right:0.2rem;
+    border-radius: 0.1rem;
+}
+.searchIcon{
+    width:0.24rem;
+    height:0.24rem;
+    float:left;
+    margin-top:0.2rem;
+}
+#search_input{
+    float:left;
+    margin-top:0.15rem;
+    width:5.6rem;
+    height:0.4rem;
+    line-height: 0.4rem;
+    padding-left:0.2rem;
+    font-size: 0.24rem;
+    border:0;
+    background-color: transparent;
+}
+.switchTab{
+    height:0.88rem;
+    padding-left:0.4rem;
+    padding-right:0.4rem;
+    margin-top:0.2rem;
+    overflow: hidden;
+    border-top:0.01rem solid #eeeeee;
+    border-bottom:0.01rem solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+}
+.perTab{
+    width:0.7rem;
+    color:#999999;
+    font-size:0.28rem;
+    text-align: center;
+    transition:all 0.2s;
+    float:left;
+}
+.tabName{
+    margin-top:0.2rem;
+}
+.tagLine{
+    width:0.2rem;
+    height:0.04rem;
+    background-color: #ffffff;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0.06rem;
+}
+.perTabActive{
+    color:#000000;
+}
+.perTabActive .tagLine{
+    background-color: #e60012;
+}
+.mainContent{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    margin-top:2.44rem;
+}
+.perProduct{
+    width:3.16rem;
+    height:6.07rem;
+    overflow: hidden;
+}
+.imgArea{
+    width:3.16rem;
+    height:4.04rem;
+    border-radius: 0.1rem;
+    background-color: #f2f2f2;
+}
+.pImg{
+    display: block;
+    height:4.04rem;
+    margin-left:auto;
+    margin-right:auto;
+}
+.pDes{
+    width:3.16rem;
+    height:0.8rem;
+    margin-top:0.2rem;
+    font-size:0.28rem;
+    color:#333333;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}
+.pPrice{
+    font-size: 0.32rem;
+    color:#692f21;
+    margin-top:0.1rem;
+}

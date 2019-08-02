@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>demo</title>
+    <link rel="stylesheet" href="css/index4.css">
+</head>
+
+<body>
+    <div class='bg01'>
+        <img class='bgImg bgImg01' src="img/1.jpg" alt="">
+        <div class='jumpToBottom'></div>
+    </div>
+    <img class='bgImg' src="img/2.jpg">
+    <img class='bgImg' src="img/3.jpg">
+    <img class='bgImg' src="img/4.jpg">
+    <img class='bgImg' src="img/5.jpg">
+    <div class='fomTips'>提交成功后，我们将在1个工作日内与您联系</div>
+    <div class='inputModel'>
+        <input id='firm_name' name='firm_name' type="text" placeholder="公司名称">
+    </div>
+    <div class='inputModel'>
+        <input id='user_name' name='user_name' type="text" placeholder="姓名">
+    </div>
+    <div class='inputModel'>
+        <input id='tel_num' name='tel_num' maxlength="11" type="tel" placeholder="联系方式">
+    </div>
+    <div class='inputModel'>
+        <img class='arrow' src="img/arrow.jpg" alt="">
+        <select id='province' name="province" id="province">
+            <option selected disabled value="意向区域">意向区域</option>
+            <option value="河北省">河北省</option>
+            <option value="山西省">山西省</option>
+            <option value="辽宁省">辽宁省</option>
+            <option value="吉林省">吉林省</option>
+            <option value="黑龙江">黑龙江</option>
+            <option value="江苏省">江苏省</option>
+            <option value="浙江省">浙江省</option>
+            <option value="安徽省">安徽省</option>
+            <option value="福建省">福建省</option>
+            <option value="台湾省">台湾省</option>
+            <option value="江西省">江西省</option>
+            <option value="河南省">河南省</option>
+            <option value="湖北省">湖北省</option>
+            <option value="湖南省">湖南省</option>
+            <option value="四川省">四川省</option>
+            <option value="黑龙江">黑龙江</option>
+            <option value="海南省">海南省</option>
+            <option value="贵州省">贵州省</option>
+            <option value="云南省">云南省</option>
+            <option value="陕西省">陕西省</option>
+            <option value="甘肃省">甘肃省</option>
+            <option value="青海省">青海省</option>
+            <option value="北京市">北京市</option>
+            <option value="天津市">天津市</option>
+            <option value="上海市">上海市</option>
+            <option value="重庆市">重庆市</option>
+            <option value="内蒙古自治区">内蒙古自治区</option>
+            <option value="广西壮族自治区">广西壮族自治区</option>
+            <option value="西藏自治区">西藏自治区</option>
+            <option value="宁夏回族自治区">宁夏回族自治区</option>
+            <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+        </select>
+    </div>
+
+    <div class='submitButton'>提 交</div>
+
+
+
+
+
+
+    <script>
+        (function (doc, win) {
+            var html = doc.getElementsByTagName("html")[0],
+                // orientationchange->手机屏幕转屏事件
+                // resize->页面大小改变事件(一边pc端有用)
+                reEvt = "orientationchange" in win ? "orientationchange" : "resize",
+                reFontSize = function () {
+                    var clientW = doc.documentElement.clientWidth || doc.body
+                        .clientWidth;
+                    if (!clientW) {
+                        return;
+                    }
+                    // 按照750宽度的UI去计算
+                    html.style.fontSize = 100 * (clientW / 750) + "px";
+                }
+            win.addEventListener(reEvt, reFontSize);
+            // DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
+            doc.addEventListener("DOMContentLoaded", reFontSize);
+        })(document, window);
+    </script>
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/index4.js"></script>
+</body>
+
+</html>

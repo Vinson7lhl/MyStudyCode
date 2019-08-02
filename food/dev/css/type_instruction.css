@@ -1,0 +1,53 @@
+.mainContent{
+    display: none;
+}
+.videoArea{
+    width:6.69rem;
+    height:3.76rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0.66rem;
+}
+.instructionTitle{
+    font-size: 0.34rem;
+    color:#333333;
+    margin-top:0.16rem;
+}
+.instructionBookTitle{
+    font-size:0.26rem;
+    color:#666666;
+    margin-top:0.1rem;
+}
+.instructionBookContent{
+    width:6.69rem;
+    margin-top:0.4rem;
+    /* font-size:0.26rem; */
+    max-height:6.65rem;
+    /* padding:0.33rem;
+    line-height: 0.52rem; */
+    overflow-y: scroll;
+    /* background-color: #f4f5f9; */
+    -webkit-overflow-scrolling: touch;
+}
+.instructionBookContent img{
+    display: block;
+    width:100%;
+}
+.linkButton{
+    display: block;
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    bottom:0.46rem;
+    width:4.84rem;
+    height:1rem;
+}
+.linkButton img{
+    display: block;
+    width:100%;
+}
+.show{
+    display: block;
+}
+

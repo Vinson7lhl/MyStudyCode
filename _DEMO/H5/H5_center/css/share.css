@@ -1,0 +1,297 @@
+body,html,div {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #f5f5f5;
+}
+.downloadAppBar {
+    display: block;
+	width: 7.5rem;
+    height:1rem;
+}
+.topInfo{
+    padding-top:0.47rem;
+    padding-left:0.37rem;
+    padding-bottom:0.42rem;
+    padding-right:0.37rem;
+    background-color: #ffffff;
+    border-bottom: 0.01rem solid #e5e5e5;
+}
+.baseInfo{
+    overflow: hidden;
+}
+.pImg{
+    float:left;
+    width:2.06rem;
+    height:2.06rem;
+    border:0.01rem solid #eeeeee;
+    position: relative;
+}
+.pImg img{
+    display: block;
+    width: 100%;
+    max-height:100%;
+}
+.rightInfo{
+    float:right;
+    width:4.3rem;
+}
+.dangerousIcon{
+    width:0.31rem;
+    height:0.31rem;
+    line-height: 0.5rem;
+    /* vertical-align: middle; */
+    padding-right:0.1rem;
+}
+.pName{
+    width:4.3rem;
+    font-size:0.32rem;
+    color:#111111;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    line-height:0.5rem;
+    height:0.9rem;
+}
+.pCas{
+    margin-top:0.3rem;
+}
+.pCas .labelValue{
+    display: inline-block;
+    width:3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pEName{
+    margin-top:0.1rem;
+}
+.pEName .labelValue{
+    display: inline-block;
+    width:2.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pCas,.pEName{
+    font-size: 0.26rem;
+    color:#666666;
+}
+.label{
+    color:#A1A1A1;
+}
+.perButton{
+    width:3.2rem;
+    height:0.66rem;
+    line-height:0.66rem;
+    font-size:0.3rem;
+    border-radius: 0.05rem;
+    text-align: center;
+    display: inline-block;
+}
+.qiuGou{
+    margin-top:0.02rem;
+    border:0.015rem solid #3F6BDC;
+    color:#3F6BDC;
+}
+.gongYing{
+    color:#ffffff;
+    background: -webkit-linear-gradient(left, #3EA5FF , #556EFF); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #3EA5FF, #556EFF); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #3EA5FF, #556EFF); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #3EA5FF , #556EFF); /* 标准的语法（必须放在最后） */
+}
+.detailsModel{
+    margin-top:0.16rem;
+    margin-bottom:1rem;
+}
+.detailButton{
+    overflow: hidden;
+    width:7.5rem;
+    height:0.88rem;
+    border-bottom:0.015rem solid #dddddd;
+    padding-left:0.4rem;
+    padding-right:0.3rem;
+    background-color: #ffffff;
+}
+.detailContent{
+    background-color: #ffffff;
+    width:7.5rem;
+    padding-left:0.4rem;
+    padding-right:0.3rem;
+    border-bottom:0.015rem solid #dddddd;
+    color:#333333;
+    overflow: hidden;
+    padding-bottom:0.27rem;
+}
+.baseDes{
+    font-size: 0.28rem;
+    margin-top:0.4rem;
+    line-height:0.4rem;
+}
+.perField{
+    overflow: hidden;
+    font-size: 0.26rem;
+    margin-top:0.27rem;
+}
+.fieldKey{
+    float:left;
+    color:#999999;
+}
+.fieldValue{
+    float:right;
+    text-align: right;
+}
+.detailButtonIcon{
+    float:left;
+    width:0.32rem;
+    height:0.32rem;
+    margin-top:0.28rem;
+}
+.detailButtonText{
+    float:left;
+    color:#111111;
+    font-size:0.32rem;
+    margin-top:0.22rem;
+    margin-left:0.19rem;
+}
+.arrowIcon{
+    float:right;
+    width:0.25rem;
+    height:0.16rem;
+    margin-top:0.32rem;
+    transition:all 0.3s;
+    transform: rotate(0deg);
+}
+.arrowIconActivted{
+    transform: rotate(180deg);
+}
+.fixedBottomButton{
+    display: none;
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0.6rem;
+    margin:auto;
+    z-index: 10;
+    width:6.7rem;
+    height:0.96rem;
+    line-height:0.96rem;
+    text-align: center;
+    color:#ffffff;
+    border-radius: 0.1rem;
+    font-size:0.34rem;
+    background: -webkit-linear-gradient(left, #3DA5FE , #556EFF); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #3DA5FE, #556EFF); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #3DA5FE, #556EFF); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #3DA5FE , #556EFF); /* 标准的语法（必须放在最后） */
+}
+.fixedBg{
+    display: none;
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 11;
+    top:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.7)
+}
+.popModel{
+    width:6rem;
+    height:6.8rem;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 0.1rem;
+    position: fixed;
+    z-index: 12;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+
+}
+.popImg{
+    display: block;
+    width:4.28rem;
+    height:3.4rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0.74rem;
+}
+.popDes{
+    width:3.84rem;
+    color:#333333;
+    font-weight: bold;
+    font-size: 0.32rem;
+    line-height:0.5rem;
+    margin-left:auto;
+    margin-right: auto;
+    text-align: center;
+}
+.popButtons{
+    margin-top:0.3rem;
+    display: flex;
+    justify-content: center;
+}
+.perPopButton{
+    width:2.4rem;
+    height:0.84rem;
+    line-height:0.84rem;
+    text-align: center;
+    border-radius: 0.1rem;
+    font-size: 0.32rem;
+    font-weight: bold;
+    font-family: "PingFang SC"
+}
+.perPopButtonOpenApp{
+    border:0.02rem solid #3F6BDC;
+    color:#3F6BDC
+}
+.perPopButtonDownloadApp{
+    background: -webkit-linear-gradient(left, #3DA5FE , #556EFF); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #3DA5FE, #556EFF); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #3DA5FE, #556EFF); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #3DA5FE , #556EFF); /* 标准的语法（必须放在最后） */
+    color:#ffffff;
+    margin-left:0.2rem;
+}
+.closeModel{
+    width:1rem;
+    height:1rem;
+    position: absolute;
+    right:0;
+    top:0;
+    overflow: hidden;
+}
+.closePopUpIcon{
+    float:right;
+    width:0.28rem;
+    height:0.28rem;
+    margin-right:0.3rem;
+    margin-top:0.16rem;
+}
+.hideModel{
+    display: none;
+}
+.guidePic{
+    display: none;
+    width:100%;
+    height:100%;
+    background-color: #f6f6f6;
+    z-index: 13;
+    position: fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+.guidePic img{
+    width:100%;
+    display: block;
+}

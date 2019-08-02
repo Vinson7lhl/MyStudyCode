@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>food</title>
+    <link rel="stylesheet" href="./dev/css/public.css">
+    <link rel="stylesheet" href="./dev/css/product_list.css">
+</head>
+
+<body>
+    <!--browser-sync start --server --files "**/*.css, **/*.html, **/*.js"-->
+    <!--顶部导航-->
+    <div class='fixedModel'>
+        <div class='frame'>
+            <a class='typeTopNavigator'>
+                <img class='arrow' src="./dev/img/arrow_icon.jpg" alt="">
+                <span class='typeName'>价格查询</span>
+            </a>
+            <div class='searchArea'>
+                <img class='searchIcon' src="./dev/img/search_icon.jpg">
+                <form action="javascript:return true">
+                    <input class='searchInput' id='search_input' placeholder='搜索产品' name='search_input' type="search">
+                </form>
+                
+            </div>
+        </div>
+        <div class='switchTab'>
+            <!--perTabActive-->
+            <div class='perTab all_tab' data-type='all'>
+                <div class='tabName'>全部</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab mn_tab' data-type='mn'>
+                <div class='tabName'>泌尿</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab xh_tab' data-type='xh'>
+                <div class='tabName'>消化</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab pf_tab' data-type='pf'>
+                <div class='tabName'>皮肤</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab jf_tab' data-type='jf'>
+                <div class='tabName'>减肥</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab hl_tab' data-type='hl'>
+                <div class='tabName'>活力</div>
+                <div class='tagLine'></div>
+            </div>
+            <div class='perTab jk_tab' data-type='jk'>
+                <div class='tabName'>健康</div>
+                <div class='tagLine'></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class='frame'>
+        <div class='mainContent'>
+            <!--
+                mn 泌尿
+                xh 消化
+                pf 皮肤
+                jf 减肥
+                hl 活力
+                jk 健康
+            -->
+            <!-- <a class='perProduct mn' href="./product_detail.html?id=1">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/1.jpg">
+                </div>
+                <div class='pDes'>成猫泌尿道全价处方粮（情绪舒缓）-1.5kg</div>
+                <div class='pPrice'>￥ 220</div>
+            </a>
+            <a class='perProduct mn' href="./product_detail.html?id=2">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/2.jpg">
+                </div>
+                <div class='pDes'>成猫泌尿道全价处方粮-1.5kg</div>
+                <div class='pPrice'>￥ 200</div>
+            </a>
+            <a class='perProduct mn' href="./product_detail.html?id=3">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/3.jpg">
+                </div>
+                <div class='pDes'>成猫泌尿道全价处方粮-3.5kg</div>
+                <div class='pPrice'>￥ 397</div>
+            </a>
+            <a class='perProduct mn' href="./product_detail.html?id=4">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/4.jpg">
+                </div>
+                <div class='pDes'>成猫泌尿道全价处方粮-6kg</div>
+                <div class='pPrice'>￥ 640</div>
+            </a>
+            <a class='perProduct mn' href="./product_detail.html?id=5">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/5.jpg">
+                </div>
+                <div class='pDes'>成犬泌尿道全价处方粮-2kg</div>
+                <div class='pPrice'>￥ 227</div>
+            </a>
+            <a class='perProduct mn' href="./product_detail.html?id=6">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/6.jpg">
+                </div>
+                <div class='pDes'>成犬泌尿道全价处方粮-8kg</div>
+                <div class='pPrice'>￥ 685</div>
+            </a>
+            <a class='perProduct mn' href="./product_detail.html?id=7">
+                <div class='imgArea'>
+                    <img class='pImg' src="./dev/img/mn/7.jpg">
+                </div>
+                <div class='pDes'>成犬泌尿道全价处方粮UC（低嘌呤）-2kg</div>
+                <div class='pPrice'>￥ 227</div>
+            </a> -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="./dev/js/util/jquery-3.4.0.min.js"></script>
+    <script src="./dev/js/public.js"></script>
+    <script src="./dev/js/product_list.js"></script>
+</body>
+
+</html>
