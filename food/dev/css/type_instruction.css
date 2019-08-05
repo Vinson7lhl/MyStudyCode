@@ -42,10 +42,15 @@
     bottom:0.46rem;
     width:4.84rem;
     height:1rem;
+    line-height: 1rem;
+    background: url('../img/link_icon.png') no-repeat center;
+    background-size: 4.84rem 1rem;
+    font-size:0.36rem;
+    text-align: center;
+    color:#ffffff;
 }
 .linkButton img{
-    display: block;
-    width:100%;
+
 }
 .show{
     display: block;
