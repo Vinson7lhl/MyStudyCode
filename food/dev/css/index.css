@@ -70,6 +70,16 @@ body{
     width:2.28rem;
     height:3.13rem;
 }
+.fakeLevel{
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 1;
+    background-color: #000000;
+    opacity: 0.5;
+    width:2.28rem;
+    height:3.13rem;
+}
 .bookName{
     opacity:0;
     width:2.18rem;
@@ -94,6 +104,9 @@ body{
 }
 #banner_area2 .swiper-slide-active .bookName,#banner_area2 .swiper-slide-active .bookDes{
     opacity:1;
+}
+#banner_area2 .swiper-slide-active .fakeLevel{
+    display: none;
 }
 #banner_area2 .swiper-slide{
     transition: all 0.2s;
