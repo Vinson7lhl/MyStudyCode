@@ -59,7 +59,7 @@ body{
 /*------------------ 第二个banner图 ------------------*/
 .banner2Area{
     width:6.7rem;
-    height:4.11rem;
+    height:4.5rem;
     margin-left:auto;
     margin-right:auto;
     margin-top:0.3rem;
@@ -71,6 +71,7 @@ body{
     height:3.13rem;
 }
 .bookName{
+    opacity:0;
     width:2.18rem;
     font-size: 0.22rem;
     margin-top:0.2rem;
@@ -81,6 +82,7 @@ body{
     white-space: nowrap;
 }
 .bookDes{
+    opacity:0;
     width:2.18rem;
     font-size: 0.2rem;
     margin-top:0.18rem;
@@ -89,6 +91,9 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+#banner_area2 .swiper-slide-active .bookName,#banner_area2 .swiper-slide-active .bookDes{
+    opacity:1;
 }
 #banner_area2 .swiper-slide{
     transition: all 0.2s;
@@ -175,7 +180,7 @@ body{
     text-align: center;
     text-decoration: none;
 }
-.typeName{
+.typeNameIndex{
     margin-top:0.1rem;
 }
 .perType img{

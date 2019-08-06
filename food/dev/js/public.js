@@ -99,6 +99,7 @@ $(function () {
     if (getUrlParam('name')) {
         let book_name = decodeURI(getUrlParam('name'))
         $('.typeName').text(book_name)
+        $('title').text(book_name)
     }
     $('img').on('error',function (){
         let html_str = '<p class="noImgTips">暂无详情，敬请期待！</p>'
