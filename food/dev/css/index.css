@@ -127,11 +127,26 @@ body{
     overflow: hidden;
     background-color: #ffffff;
 }
-.sixClassTitleArea{
+.sixClassTitleArea,.booksTitleArea{
     font-size: 0.32rem;
     font-weight: bold;
     color:#333333;
     margin-top:0.28rem;
+}
+.booksTopTitle{
+    overflow: hidden;
+    padding-left:0.4rem;
+    padding-right:0.4rem;
+}
+.booksTitleArea{
+    margin-left:0.2rem;
+    float:left;
+}
+.jumpToBooks{
+    float:right;
+    font-size: 0.22rem;
+    color:#999999;
+    margin-top:0.3rem;
 }
 .redArea{
     background-color: #e60012;

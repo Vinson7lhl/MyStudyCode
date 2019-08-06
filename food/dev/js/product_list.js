@@ -41,7 +41,7 @@ $(function () {
                 if (source_data[i].type === type_str) {
                     let price_str = ''
                     if (source_data[i].price) {
-                        price_str = '￥ ' + source_data[i].price
+                        price_str = '￥ ' + source_data[i].price + '<span class="priceTips">（建议零售价）</span>'
                     } else {
                         price_str = '价格未定'
                     }
@@ -102,7 +102,7 @@ $(function () {
                 if (source_data[i].des.indexOf(key) !== -1) {
                     let price_str = ''
                     if (source_data[i].price) {
-                        price_str = '￥ ' + source_data[i].price
+                        price_str = '￥ ' + source_data[i].price + '<span class="priceTips">（建议零售价）</span>'
                     } else {
                         price_str = '价格未定'
                     }
