@@ -36,8 +36,8 @@
 }
 .bookName{
     width:3.16rem;
-    overflow: hidden;
+    /* overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-top:0.15rem;
+    margin-top:0.15rem; */
 }

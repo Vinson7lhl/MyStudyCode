@@ -59,7 +59,7 @@ body{
 /*------------------ 第二个banner图 ------------------*/
 .banner2Area{
     width:6.7rem;
-    height:4.5rem;
+    height:3.5rem;
     margin-left:auto;
     margin-right:auto;
     margin-top:0.3rem;
@@ -102,9 +102,18 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-#banner_area2 .swiper-slide-active .bookName,#banner_area2 .swiper-slide-active .bookDes{
-    opacity:1;
+.currentBookName,.currentBookDes{
+    font-size: 0.22rem;
+    line-height:0.4rem;
+    text-align: center;
+    color:#666666;
 }
+.currentBookName{
+    color:#333333;
+}
+/* #banner_area2 .swiper-slide-active .bookName,#banner_area2 .swiper-slide-active .bookDes{
+    opacity:1;
+} */
 #banner_area2 .swiper-slide-active .fakeLevel{
     display: none;
 }
@@ -178,7 +187,7 @@ body{
     font-size: 0.22rem;
     font-weight:normal;
     color:#858585;
-    padding-left:0.2rem;
+    padding-top:0.1rem;
 }
 .sixTypeLinks{
     display: flex;
