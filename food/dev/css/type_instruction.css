@@ -6,7 +6,7 @@
     height:3.76rem;
     margin-left:auto;
     margin-right:auto;
-    margin-top:0.66rem;
+    margin-top:0.1rem;
 }
 .instructionTitle{
     font-size: 0.34rem;
@@ -22,7 +22,7 @@
     width:6.69rem;
     margin-top:0.4rem;
     /* font-size:0.26rem; */
-    max-height:6.65rem;
+    max-height:9.65rem;
     /* padding:0.33rem;
     line-height: 0.52rem; */
     overflow-y: scroll;
@@ -40,17 +40,14 @@
     left:0;
     right:0;
     bottom:0.46rem;
-    width:4.84rem;
+    width:4rem;
     height:1rem;
     line-height: 1rem;
     background: url('../img/link_icon.png') no-repeat center;
-    background-size: 4.84rem 1rem;
-    font-size:0.36rem;
+    background-size: 4rem 1rem;
+    font-size:0.3rem;
     text-align: center;
     color:#ffffff;
-}
-.linkButton img{
-
 }
 .show{
     display: block;

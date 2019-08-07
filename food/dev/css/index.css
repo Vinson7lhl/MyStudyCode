@@ -108,6 +108,12 @@ body{
     text-align: center;
     color:#666666;
 }
+.currentBookDes{
+    width:4.5rem;
+    height:0.6rem;
+    margin-left:auto;
+    margin-right:auto;
+}
 .currentBookName{
     color:#333333;
 }

@@ -148,6 +148,7 @@ $(function () {
             $(this).addClass('perTabActive')
             type_str = $(this).attr('data-type')
             renderDom(type_str)
+            $(document).scrollTop(0);
         }
     })
     activeTab(type_str)
