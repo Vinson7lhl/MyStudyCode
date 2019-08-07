@@ -37,6 +37,7 @@
 }
 .bookName{
     width:3.16rem;
+    text-align: center;
     /* overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
