@@ -102,20 +102,11 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.currentBookName,.currentBookDes{
-    font-size: 0.22rem;
-    line-height:0.4rem;
-    text-align: center;
-    color:#666666;
-}
-.currentBookDes{
-    width:4.5rem;
-    height:0.6rem;
+.currentBookNameDes{
+    display: block;
     margin-left:auto;
     margin-right:auto;
-}
-.currentBookName{
-    color:#333333;
+    width:7rem;
 }
 /* #banner_area2 .swiper-slide-active .bookName,#banner_area2 .swiper-slide-active .bookDes{
     opacity:1;

@@ -22,10 +22,10 @@
     width:6.69rem;
     margin-top:0.4rem;
     /* font-size:0.26rem; */
-    max-height:9.65rem;
+    /* max-height:9.65rem; */
     /* padding:0.33rem;
     line-height: 0.52rem; */
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     /* background-color: #f4f5f9; */
     -webkit-overflow-scrolling: touch;
 }
