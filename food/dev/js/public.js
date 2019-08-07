@@ -16,13 +16,13 @@
     doc.addEventListener("DOMContentLoaded", reFontSize);
 })(document, window);
 let source_data = [
-    { id: '1', type: 'mn', img: './img/mn/1.jpg', des: '成猫泌尿道全价处方粮（情绪舒缓）-1.5KG', price: '220' },
+    { id: '1', type: 'mn', img: './img/mn/1.jpg', des: '成猫泌尿道全价处方粮(情绪舒缓)-1.5KG', price: '220' },
     { id: '2', type: 'mn', img: './img/mn/2.jpg', des: '成猫泌尿道全价处方粮-1.5KG', price: '200' },
     { id: '3', type: 'mn', img: './img/mn/3.jpg', des: '成猫泌尿道全价处方粮-3.5KG', price: '397' },
     { id: '4', type: 'mn', img: './img/mn/4.jpg', des: '成猫泌尿道全价处方粮-6KG', price: '640' },
     { id: '5', type: 'mn', img: './img/mn/5.jpg', des: '成犬泌尿道全价处方粮-2KG', price: '227' },
     { id: '6', type: 'mn', img: './img/mn/6.jpg', des: '成犬泌尿道全价处方粮-8KG', price: '685' },
-    { id: '7', type: 'mn', img: './img/mn/7.jpg', des: '成犬泌尿道全价处方粮UC（低嘌呤）-2KG', price: '227' },
+    { id: '7', type: 'mn', img: './img/mn/7.jpg', des: '成犬泌尿道全价处方粮UC(低嘌呤)-2KG', price: '227' },
 
     { id: '8', type: 'xh', img: './img/xh/8.jpg', des: '猫肠道处方粮-2KG', price: '257', can_jump: '1' },
     { id: '9', type: 'xh', img: './img/xh/9.jpg', des: '猫高纤易消化处方粮-2KG', price: '259', can_jump: '1' },
@@ -57,20 +57,20 @@ let source_data = [
     { id: '35', type: 'hl', img: './img/hl/35.jpg', des: '犬早期心脏病处方粮-2KG', price: '227', can_jump: '1' },
 
     { id: '36', type: 'jk', img: './img/jk/36.jpg', des: '成猫专业配方粮-2KG', price: '177', can_jump: '1' },
-    { id: '37', type: 'jk', img: './img/jk/37.jpg', des: '成犬专业配方粮（大型犬）-4KG', price: '209', can_jump: '1' },
-    { id: '38', type: 'jk', img: './img/jk/38.jpg', des: '成犬专业配方粮（小型犬）-2KG', price: '148', can_jump: '1' },
+    { id: '37', type: 'jk', img: './img/jk/37.jpg', des: '成犬专业配方粮(大型犬)-4KG', price: '209', can_jump: '1' },
+    { id: '38', type: 'jk', img: './img/jk/38.jpg', des: '成犬专业配方粮(小型犬)-2KG', price: '148', can_jump: '1' },
     { id: '39', type: 'jk', img: './img/jk/39.jpg', des: '大型犬幼犬助长配方粮-4KG', price: '230', can_jump: '' },
     { id: '40', type: 'jk', img: './img/jk/40.jpg', des: '绝育公猫处方粮-1.5KG', price: '149', can_jump: '1' },
     { id: '41', type: 'jk', img: './img/jk/41.jpg', des: '绝育母猫处方粮-1.5KG', price: '149', can_jump: '1' },
     { id: '42', type: 'jk', img: './img/jk/42.jpg', des: '绝育小型成犬处方粮-1.5KG', price: '124', can_jump: '1' },
     { id: '43', type: 'jk', img: './img/jk/43.jpg', des: '老年猫专业配方粮-1.5KG', price: '151', can_jump: '1' },
-    { id: '44', type: 'jk', img: './img/jk/44.jpg', des: '离乳期配方奶糕（大型犬）-4KG', price: '322', can_jump: '1' },
-    { id: '45', type: 'jk', img: './img/jk/45.jpg', des: '离乳期配方奶糕（小型犬）-1KG', price: '98', can_jump: '1' },
+    { id: '44', type: 'jk', img: './img/jk/44.jpg', des: '离乳期配方奶糕(大型犬)-4KG', price: '322', can_jump: '1' },
+    { id: '45', type: 'jk', img: './img/jk/45.jpg', des: '离乳期配方奶糕(小型犬)-1KG', price: '98', can_jump: '1' },
     { id: '46', type: 'jk', img: './img/jk/46.jpg', des: '小型老年犬专业配方粮-1.5KG', price: '126', can_jump: '1' },
     { id: '47', type: 'jk', img: './img/jk/47.jpg', des: '小型犬口腔处方粮-2KG', price: '212', can_jump: '' },
     { id: '48', type: 'jk', img: './img/jk/48.jpg', des: '幼猫离乳期配方奶糕-1KG', price: '119', can_jump: '1' },
     { id: '49', type: 'jk', img: './img/jk/49.jpg', des: '幼猫助长配方粮-2KG', price: '193', can_jump: '1' },
-    { id: '50', type: 'jk', img: './img/jk/50.jpg', des: '幼犬助长配方粮（小型犬）-2KG', price: '163', can_jump: '1' }
+    { id: '50', type: 'jk', img: './img/jk/50.jpg', des: '幼犬助长配方粮(小型犬)-2KG', price: '163', can_jump: '1' }
 ]
 /**
  * 获取url的某个参数

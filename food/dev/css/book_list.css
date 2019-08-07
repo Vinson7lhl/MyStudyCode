@@ -23,7 +23,7 @@
 .bookImgFrame{
     width:3.16rem;
     height:4.04rem;
-    line-height: 4.04rem;
+    overflow: hidden;
     background-color: #f2f2f2;
     border-radius: 0.1rem;
     text-align: center;
@@ -31,7 +31,8 @@
 .bookImgFrame img{
     width:2.28rem;
     height:3.13rem;
-    vertical-align: middle;
+    /* vertical-align: middle; */
+    margin-top:0.48rem;
     border-radius: 0.1rem;
 }
 .bookName{
