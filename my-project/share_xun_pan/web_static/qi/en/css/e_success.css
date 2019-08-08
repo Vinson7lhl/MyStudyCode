@@ -1,0 +1,21 @@
+#e_success .smallTitle{
+    width:3.25rem;
+}
+#e_success .key{
+    width:auto;
+}
+#e_success .pName{
+    width:100%;
+}
+#e_success #firm_email{
+    text-overflow: clip;
+    white-space: normal;
+    width:2rem;
+}
+#e_success .ePerLine{
+    height:auto;
+    overflow: auto;
+}
+.notForbidden {
+    color:#4E7DFF;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>供应商报价</title>
+    <!--公共样式-->
+    <link rel="stylesheet" href="./web_static/qi/cn/css/public.css">
+    <!--首页样式-->
+    <link rel="stylesheet" href="./web_static/qi/cn/css/index.css">
+</head>
+
+<body>
+    <!--公共头部-->
+    <div class='public head'>
+        <img class='headLogo' src="./web_static/qi/cn/img/logo_icon.png">
+        <span class='headPhoneNum'>400-6021-666</span>
+        <img class="headPhoneLogo" src="./web_static/qi/cn/img/phone_icon.png">
+    </div>
+    <div class='frame'>
+        <!--采购详情-->
+        <div class='model detailModel'>
+            <div class='perLine detailHead'>
+                <div class='key detailHeadTitle'>采购详情</div>
+                <div class='value effectiveDate'>剩余有效期：<span class='restDayNum'>1</span>天</div>
+            </div>
+            <div class='partingLine'></div>
+            <!--产品名，状态-->
+            <div class='perLine perLineProduct'>
+                <div class='key pName' id='p_name'>限量版甲乙丙丁固态气化液体</div>
+                <div class='value pStatus notOffer'>待报价</div>
+            </div>
+            <!--属性列表-->
+            <div class='properList'>
+                <div class='perLine'>
+                    <div class='key'>CAS号</div>
+                    <div class='value' id='p_cas'>100022-332-333</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>采购数量</div>
+                    <div class='value valueBlue valueBlueBold' id='p_num'>183838Kg</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>纯度</div>
+                    <div class='value valueBlue valueBlueBold' id='p_purity'>99.9999%</div>
+                </div>
+                <div class='perLine perLineComment'>
+                    <div class='key'>备注</div>
+                    <div class='value comment' id='p_comment'>这里是备注这里是备注这里是备注这里是备注这里是备注</div>
+                </div>
+            </div>
+        </div>
+        <!--采购详情2-->
+        <div class='model detailModel2'>
+            <div class='perLine'>
+                <div class='key'>公司名称</div>
+                <div class='value' id='firm_name'>北京大学深圳研究生院</div>
+            </div>
+            <div class='perLine perLinePhone'>
+                <div class='key'>联系方式</div>
+                <div class='value valueBlue comment' id='firm_phone'>VIP供应商报价后可直接获取采购商联系方式</div>
+            </div>
+            <div class='perLine'>
+                <div class='key'>采购单号</div>
+                <div class='value' id='purchase_id'>2018122763134800198</div>
+            </div>
+        </div>
+        <!--报价单列表-->
+        <div class='model detailModel'>
+            <div class='perLine detailHead'>
+                <div class='key detailHeadTitle'>报价单</div>
+                <div class='value effectiveDate'>有效期至：<span class='effectiveDateText'>2019-00-00 12:00:00</span></div>
+            </div>
+            <div class='partingLine offerPartingLine'></div>
+            <!--属性列表-->
+            <div class='properList'>
+                <div class='perLine'>
+                    <div class='key'>供应数量</div>
+                    <div class='value' id='p_offer_num'>500kg</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>纯度</div>
+                    <div class='value' id='p_offer_purity'>8888.99%</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>货期</div>
+                    <div class='value' id='p_offer_period'>3天</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>商品报价</div>
+                    <div class='value valueBlue' id='p_offer_price'>￥ 83838383</div>
+                </div>
+                <div class='perLine perLineComment'>
+                    <div class='key'>备注</div>
+                    <div class='value comment' id='p_offer_comment'>这里是备注这里是备注这里是备注这里是备注这里是备注</div>
+                </div>
+            </div>
+        </div>
+        <!--按钮列表1-->
+        <div class='buttonList buttonListNotCalled'>
+            <div class='perButton perButtonWhite refuseButton'>拒绝报价</div>
+            <div class='perButton perButtonBlue callPrice'>立即报价</div>
+        </div>
+        <!--按钮列表2-->
+        <div class='buttonList buttonListCalled hide'>
+            <div class='perButton perButtonBlue calledPrice'>已报价</div>
+        </div>
+    </div>
+    <!--报价单 浮层-->
+    <div class='bg hide'></div>
+    <!--formListShow-->
+    <div class='frame formList formListShow'>
+        <div class='perForm formHead'>
+            报价单
+            <img class='closeFormList' src="./web_static/qi/cn/img/close_pop_icon.png">
+        </div>
+        <div class='perForm'>
+            <div class='label'>供货数量 <span class='ness'>*</span></div>
+            <input type="number" class='input' id='offer_p_num' name='offer_p_num' placeholder="请输入供货数量">
+            <img src="./web_static/qi/cn/img/clear_icon.png" class='clearNum'>
+        </div>
+        <div class='perForm'>
+            <div class='label'>单位 <span class='ness'>*</span></div>
+            <select name="offer_p_unit" id="offer_p_unit">
+                <option selected disabled id='no_option' value="">请选择单位</option>
+                <option value="g">克</option>
+                <option value="kg">千克</option>
+            </select>
+            <img src="./web_static/qi/cn/img/select_option_icon.png" class='selectArrow'>
+        </div>
+        <div class='perForm'>
+            <div class='label'>纯度 <span class='ness'>*</span></div>
+            <input type="number" class='input' id='offer_p_purity' name='offer_p_purity' placeholder="请输入商品纯度">
+            <img src="./web_static/qi/cn/img/clear_icon.png" class='clearPurity'>
+        </div>
+        <div class='perForm'>
+            <div class='label'>货期</div>
+            <input type="number" class='input' id='offer_p_qi' name='offer_p_qi' placeholder="请选择商品货期">
+        </div>
+        <div class='perForm'>
+            <div class='label'>有效时间 <span class='ness'>*</span></div>
+            <input type="date" class='input' id='offer_p_date' name='offer_p_date' placeholder="请选择有效时间">
+            <img src="./web_static/qi/cn/img/select_option_icon.png" class='selectArrow'>
+        </div>
+        <div class='perForm'>
+            <div class='label'>商品报价 <span class='ness'>*</span></div>
+            <input type="number" class='input' id='offer_p_price' name='offer_p_price' placeholder="请输入报价">
+            <img src="./web_static/qi/cn/img/select_option_icon.png" class='selectArrow'>
+        </div>
+        <div class='perForm'>
+            <div class='moneyType checked' data-type='rmb'></div>
+            <div class='moneyText moneyTextRMB'>人民币</div>
+            <div class='moneyType' data-type='dol'></div>
+            <div class='moneyText'>美元</div>
+        </div>
+        <div class='perForm'>
+            <div class='label'>备注</div>
+            <input type="text" class='input' id='offer_p_comment' name='offer_p_comment' placeholder="产品单价、货期、包装等描述">
+        </div>
+        <div class='perButton perButtonBlue submit'>确 定</div>
+    </div>
+    <!--拒绝原因-->
+    <div class='popWindow hide popWindowOthers'>
+        <img class='closePopWindow' src="./web_static/qi/cn/img/close_pop_icon.png">
+        <div class='popWindowTitle'>拒绝原因</div>
+        <div class='perRadio radioChecked'>
+            <div class='reasonIcon' data-type='1'></div>
+            <div class='reasonText'>暂时缺货</div>
+        </div>
+        <div class='perRadio'>
+            <div class='reasonIcon' data-type='2'></div>
+            <div class='reasonText'>未达到最小起订量</div>
+        </div>
+        <div class='perRadio'>
+            <div class='reasonIcon' data-type='1'></div>
+            <div class='reasonText'>达不到纯度要求</div>
+        </div>
+        <div class='perRadio'>
+            <div class='reasonIcon' data-type='1'></div>
+            <div class='reasonText'>收货地无法送达</div>
+        </div>
+        <div class='perRadio'>
+            <div class='reasonIcon' data-type='1'></div>
+            <div class='reasonText'>其他</div>
+        </div>
+        <textarea class="otherReason" value="" id='other_reason' placeholder-class="placeholderStyle" placeholder="诚邀您填写无法报价原因，避免对正常接收采购需求产生影响。"></textarea>
+          
+        <div class='perButton perButtonBlue refusedReasonButton'>提 交</div>
+          
+    </div>
+
+
+
+
+    <script src="./web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
+    <script src="./web_static/qi/cn/js/public.js"></script>
+    <script src="./web_static/qi/cn/js/index.js"></script>
+</body>
+
+</html>

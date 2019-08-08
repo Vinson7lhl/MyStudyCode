@@ -1,0 +1,268 @@
+body,html,div,p,section,article {
+	padding: 0;
+	margin: 0;
+    box-sizing: border-box;
+    color:#A7AAC4;
+    font-size:0.14rem;
+}
+body{
+    background-color: #f9f9f9;
+}
+input{
+    border:0;
+    background-color: transparent;
+    font-size: 0.14rem;
+}
+select{
+    border: 0;
+    background:none;
+    color:#323455;
+    width:1.2rem;
+    float:left;
+    font-size: 0.14rem;
+}
+textarea{
+    border:0;
+    background-color: transparent;
+    display: block;
+    font-size: 0.14rem;
+    color:#323455;
+}
+input[type="date"]:before{
+    color:#A7AAC4;
+    content:attr(placeholder);
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #A7AAC4;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #A7AAC4;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #A7AAC4;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #A7AAC4;
+}
+.hide{
+    display: none
+}
+.show{
+    display: block
+}
+.ell{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.frame{
+    padding-left:0.15rem;
+    padding-right:0.15rem;
+}
+.model{
+    background-color: #ffffff;
+    border-radius: 0.05rem;
+    overflow: hidden;
+    padding-left:0.16rem;
+    padding-right:0.16rem;
+}
+.key{
+    color:#A7AAC4;
+    float:left;
+    width:0.6rem;
+    overflow: hidden;
+}
+.value{
+    color:#323455;
+    float:right;
+    width:1.82rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+}
+.valueBlue{
+    color:#4E7DFF !important;
+}
+.valueBlueBold{
+    font-weight: bold;
+}
+.perButton{
+    line-height: 0.48rem;
+    height:0.48rem;
+    border-radius:0.05rem;
+    font-weight: bold;
+    font-size: 0.16rem;
+    text-align: center;
+}
+.perButtonBlue{
+    color:#ffffff;
+    background:linear-gradient(90deg,rgba(62,165,254,1) 0%,rgba(85,110,255,1) 100%);
+}
+.perButtonWhite{
+    color:#8C98A7;
+    background-color:#ffffff;
+}
+.disButton{
+    opacity: 0.5;
+}
+.head{
+    width:3.75rem;
+    height:0.48rem;
+    overflow: hidden;
+    padding-left:0.15rem;
+    padding-right:0.15rem;
+    background-color: #ffffff;
+}
+.headLogo{
+    width: 0.9rem;
+    height:0.27rem;
+    float:left;
+    margin-top:0.1rem;
+}
+.headPhoneLogo,.headPhoneNum{
+    float:right;
+}
+.headPhoneLogo{
+    width:0.24rem;
+    height:0.24rem;
+    margin-top:0.12rem;
+    margin-right:0.06rem;
+}
+.headPhoneNum{
+    margin-top:0.16rem;
+    font-size:0.12rem;
+    color:#C4C8E5
+}
+.perLine{
+    overflow: hidden;
+    height:0.4rem;
+}
+.perLineComment{
+    height:auto;
+    margin-bottom:0.12rem;
+}
+
+.detailHeadTitle{
+    margin-top:0.12rem;
+    font-size:0.12rem;
+}
+.effectiveDate{
+    margin-top:0.12rem;
+    width:auto;
+    font-size:0.12rem;
+}
+.partingLine{
+    height:0.01rem;
+    background:rgba(249,249,249,1);
+}
+.perLineProduct{
+    height:auto;
+}
+.pName{
+    width:2.2rem;
+    font-size: 0.16rem;
+    font-weight: bold;
+    color:#323455;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top:0.15rem;
+    margin-bottom:0.15rem;
+}
+.pStatus{
+    width:0.48rem;
+    height:0.24rem;
+    text-align: center;
+    border-radius: 0.04rem;
+    line-height:0.24rem;
+    color:#ffffff;
+    font-weight: bold;
+    font-size:0.12rem;
+    margin-top:0.14rem;
+    margin-bottom:0.15rem;
+}
+/*待报价*/
+.notOffer{
+    background:linear-gradient(270deg,rgba(84,110,255,1) 0%,rgba(62,164,255,1) 100%);
+    color:#ffffff;
+}
+/*待确认*/
+.offered{
+    background:linear-gradient(270deg,rgba(255,135,30,1) 0%,rgba(255,196,32,1) 100%);
+}
+/*已拒绝*/
+.refused{
+    background:linear-gradient(270deg,rgba(255,74,117,1) 0%,rgba(251,133,88,1) 100%);
+}
+/*已接受*/
+.accepted{
+    background:linear-gradient(270deg,rgba(0,200,152,1) 0%,rgba(83,228,141,1) 100%);
+    color:#ffffff;
+}
+/*已取消*/
+.canceled{
+    background:linear-gradient(270deg,rgba(162,162,162,1) 0%,rgba(199,199,199,1) 100%);
+}
+.comment{
+    overflow: visible;
+    white-space: normal;
+}
+.detailModel2{
+    padding-top:0.1rem;
+}
+.perLinePhone{
+    margin-bottom:0.2rem
+}
+.buttonList{
+    overflow: hidden;
+    margin-top:0.88rem;
+    margin-bottom:0.2rem;
+}
+.bg{
+    background-color:#000000;
+    opacity: 0.7;
+    height:100%;
+    width:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 10;
+    /* display: none; */
+}
+.popWindow{
+    position:fixed;
+    z-index: 12;
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:3rem;
+    height:3.59rem;
+    border-radius: 0.05rem;
+    background-color: #ffffff;
+    padding-left:0.27rem;
+    padding-right:0.27rem;
+}
+.popWindowOthers{
+    height:4.27rem;
+}
+.closePopWindow{
+    width:0.24rem;
+    height:0.24rem;
+    position: absolute;
+    right:0.14rem;
+    top:0.06rem;
+    z-index: 12;
+}
+.popWindowTitle{
+    font-size: 0.18rem;
+    font-weight: bold;
+    color:#323455;
+    text-align: center;
+    margin-top:0.22rem;
+}

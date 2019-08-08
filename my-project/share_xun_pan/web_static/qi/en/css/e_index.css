@@ -1,0 +1,67 @@
+/*
+    对于英文站：在body上增加id为：e_index，作为局域名
+    body(:id) = e_index
+*/
+#e_index .key{
+    width:auto;
+}
+#e_index .pName{
+    width:2.2rem;
+}
+#e_index .notOffer{
+    width:0.92rem;
+}
+#e_index #e_purchase_id{
+    width:1.72rem
+}
+#e_index .label{
+    width:0.9rem;
+    margin-right:0rem;
+}
+#e_index .input{
+    width:2.4rem;
+}
+#e_index .perForm{
+    position: relative;
+}
+#e_index .clearButton{
+    width:0.24rem;
+    height:0.24rem;
+    z-index: 1;
+    position: absolute;
+    right:0;
+    top:0.15rem;
+}
+#e_index .eSelectArrow{
+    width:0.12rem;
+    height:0.07rem;
+    z-index: 1;
+    position: absolute;
+    right:0;
+    top:0.23rem;
+    right:0.02rem;
+}
+#e_index #offer_p_unit{
+    width:2rem;
+}
+#e_index #offer_p_date{
+    margin-top:0.11rem;
+}
+#e_index .moneyType:first-child{
+    margin-left:0.95rem;
+}
+#e_index .moneyText{
+    margin-top:0.16rem;
+}
+#e_index #offer_p_comment{
+    width:2.42rem;
+    height:0.71rem;
+    margin-top:0.14rem;
+    float:left;
+}
+#e_index .eFormList{
+    height:5.62rem;
+}
+#e_index .textareaPerForm{
+    height:auto;
+}

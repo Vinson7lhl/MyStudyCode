@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--不希望手机自动将网页中的 电话号码/数字 显示为拨号的超链接-->
+    <meta name='format-detection' content='telephone=no' />
+    <title>demo</title>
+    <!--公共样式-->
+    <link rel="stylesheet" href="./web_static/qi/cn/css/public.css">
+    <link rel="stylesheet" href="./web_static/qi/cn/css/success.css">
+    <!--本页样式-->
+    <link rel="stylesheet" href="./web_static/qi/en/css/e_success.css">
+</head>
+
+<body id='e_success'>
+    <!--公共头部-->
+    <div class='public head'>
+        <img class='headLogo' src="./web_static/qi/cn/img/logo_icon.png">
+        <span class='headPhoneNum'>400-6021-666</span>
+        <img class="headPhoneLogo" src="./web_static/qi/cn/img/phone_icon.png">
+    </div>
+    <div class='successTop'>
+        <img class='successIcon' src="./web_static/qi/cn/img/success_icon.png">
+        <div class='bigTitle'>Quotation published.</div>
+        <div class='smallTitle'>Your contact information has been made public to the buyer and will contact you if he/she is interested.</div>
+    </div>
+    <div class='frame'>
+        <div class='modelSTitle'>
+            Buyer Contact Information
+        </div>
+        <div class='model detailModel2 connectPurchaseModel'>
+            <div class='perLine'>
+                <div class='key'>Company Name</div>
+                <div class='value' id='firm_name'>--</div>
+            </div>
+            <div class='perLine ePerLine'>
+                <div class='key'>Contact Email</div>
+                <div class='value' id='firm_email'>The user has not disclosed his/her contact information, it is therefore inaccessible.</div>
+            </div>
+        </div>
+        <div class='modelSTitle'>
+            Quotation
+        </div>
+        <div class='model detailModel2 connectPurchaseModel'>
+            <!--产品名，状态-->
+            <div class='perLine perLineProduct'>
+                <div class='key pName ell' id='p_name'>Ginger Oil</div>
+            </div>
+            <!--属性列表-->
+            <div class='properList'>
+                <div class='perLine'>
+                    <div class='key'>CAS No.</div>
+                    <div class='value' id='p_cas'>100022-332-333</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>Quantity</div>
+                    <div class='value' id='p_num'>183838Kg</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>Purity</div>
+                    <div class='value' id='p_purity'>99.9999%</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>Lead Time</div>
+                    <div class='value' id='p_deadline'>3天</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>Valid Time</div>
+                    <div class='value' id='p_validity'>2019-09-00 12:00:00</div>
+                </div>
+                <div class='perLine'>
+                    <div class='key'>Quote</div>
+                    <div class='value valueBlue valueBlueBold' id='p_price'>￥ 50393939999</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
+    <script src="./web_static/qi/cn/js/public.js"></script>
+    <!-- <script src="./web_static/qi/cn/js/success.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+.successTop{
+    width:3.75rem;
+    height:2.1rem;
+    background-color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+}
+.successIcon{
+    width:0.77rem;
+    height:0.77rem;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+.bigTitle{
+    color:#323455;
+    font-weight: bold;
+    margin-top:0.13rem;
+    font-size: 0.18rem;
+}
+.smallTitle{
+    width:2.19rem;
+    margin-left:auto;
+    margin-right:auto;
+    color:#A2A4C6;
+    font-size: 0.12rem;
+    margin-top:0.15rem;
+    line-height: 0.24rem;
+}
+.modelSTitle{
+    color:#A2A4C6;
+    margin-top:0.2rem;
+}
+.connectPurchaseModel{
+    margin-top:0.08rem;
+    margin-bottom:0.23rem;
+    padding-bottom:0.1rem;
+}
+.properList{
+    margin-top:0.16rem;
+}
+#p_name{
+    width:100%;
+}
+.notVipTips{
+    width:3.15rem;
+    height:0.32rem;
+    line-height: 0.32rem;
+    color:#4E7DFF;
+    background-color:#E8F3FF;
+    border-radius:0.05rem;
+    margin-top:0.05rem;
+    text-align: center;
+}
+.forbidden{
+    width:2rem;
+}

@@ -1,0 +1,268 @@
+
+.purchaseDetailModel{
+    margin-top:0.15rem;
+}
+.callPrice{
+    width:2.46rem;
+    float:right;
+}
+.submit{
+    width:100%;
+    margin-top:0.22rem;
+}
+.formList{
+    width:100%;
+    height:5.07rem;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: fixed;
+    bottom:-5.2rem;
+    left:0;
+    z-index: 11;
+    transition:all 0.2s;
+}
+.formListShow{
+    bottom:0;
+}
+.perForm{
+    height:0.48rem;
+    border-bottom:0.01rem solid rgba(249,249,249,1);
+    overflow: hidden;
+}
+.formHead{
+    text-align: center;
+    font-size: 0.16rem;
+    font-weight: bold;
+    color:#323455;
+    line-height: 0.48rem;
+    position: relative;
+}
+.closeFormList{
+    width:0.24rem;
+    height:0.24rem;
+    position: absolute;
+    z-index: 11;
+    right:0;
+    top:0.1rem;
+}
+.label{
+    color:#A7AAC4;
+    float:left;
+    width:0.7rem;
+    margin-top:0.15rem;
+    margin-right:0.25rem;
+}
+.labelValue{
+    margin-top:0.15rem;
+    color:#323455;
+}
+#offer_firm_comment{
+    width:2.5rem;
+}
+.switchButton{
+    height:0.32rem;
+    line-height:0.35rem;
+    text-align: center;
+    background-color:#E8F3FF;
+    border-radius:0.05rem;
+    margin-bottom:0.22rem;
+    color:#4E7DFF;
+}
+.switchArrorIcon{
+    width:0.24rem;
+    height:0.24rem;
+    vertical-align: middle;
+    display: inline-block;
+    transform: rotate(180deg);
+    transition:all 0.3s;
+}
+.switchButtonActive{
+    transform: rotate(0deg);
+}
+.offerListHead{
+    overflow: hidden;
+}
+.titleText{
+    float:left;
+    color:#A2A4C6;
+    margin-top:0.2rem;
+    margin-bottom:0.1rem;
+}
+.compareButton{
+    color:#4E7DFF;
+    float:right;
+    height:0.3rem;
+    line-height:0.3rem;
+    margin-top:0.15rem;
+}
+.firmNameBigTile{
+    overflow: hidden;
+    margin-bottom:0.26rem;
+}
+.leftLine{
+    width:0.04rem;
+    height:0.16rem;
+    background:linear-gradient(360deg,rgba(62,165,254,1) 0%,rgba(85,110,255,1) 100%);
+    border-radius:0.05rem;
+    float:left;
+    margin-top:0.24rem;
+}
+.firmNameText{
+    float:left;
+    width:2.9rem;
+    font-size: 0.16rem;
+    font-weight: bold;
+    color:#323455;
+    margin-left:0.1rem;
+    margin-top:0.21rem;
+}
+.showMoreButton{
+    width:100%;
+    height:0.2rem;
+    color:#4E7DFF;
+    overflow: hidden;
+    position: relative;
+}
+.moreLine{
+    width:100%;
+    height:0.01rem;
+    width:120px;
+    background:rgba(241,247,255,1);
+    margin-top:0.1rem;
+}
+.moreText{
+    width:0.8rem;
+    text-align: center;
+    background-color: #ffffff;
+    position: absolute;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+.buttonsList{
+    overflow: hidden;
+}
+.refuseButton,.negotiatedPriceButton,.refuseButton2,.negotiatedPriceButton2{
+    float:left;
+    width:0.64rem;
+    height:0.3rem;
+    line-height:0.3rem;
+    border:0.01rem solid #4E7DFF;
+    border-radius: 0.05rem;
+    text-align: center;
+    font-weight: bold;
+    color:#4E7DFF;
+    margin-right:0.1rem;
+    margin-top:0.3rem;
+}
+.acceptButton{
+    width:1.62rem;
+    float:left;
+    margin-top:0.3rem;
+}
+.refusedButton,.acceptedButton,.acceptButton,.acceptButton2{
+    height:0.32rem;
+    line-height:0.32rem;
+    font-size: 0.14rem;
+    margin-top:0.3rem;
+}
+.refuseButton2,.negotiatedPriceButton2,.acceptButton2{
+    width:0.64rem;
+    height:0.38rem;
+    line-height: 0.38rem;
+    margin-top:0.16rem;
+}
+.acceptButton2{
+    float:left;
+    width:1.92rem;
+}
+.comparePop{
+    height:3.56rem;
+    width:3.18rem;
+    display: none;
+}
+.firmList{
+    height:2.8rem;
+    overflow-y: auto;
+}
+.perComparison{
+    height:0.4rem;
+    overflow: hidden;
+    border-bottom:0.01rem solid #FAFAFA
+}
+.firmList{
+    margin-top:0.1rem;
+}
+.perComparisonFirm,.perComparisonPrice,.perComparisonNum{
+    float:left;
+    margin-top:0.1rem;
+}
+.perComparisonFirm{
+    width:0.9rem;
+    margin-right:0.15rem;
+    color:#323455;
+}
+.perComparisonPrice{
+    width:0.88rem;
+    margin-right:0.15rem;
+}
+.perComparisonNum{
+    width:0.5rem;
+}
+.inputLabel{
+    color:#323455;
+    margin-top:0.2rem;
+}
+.ness{
+    color:#4E7DFF;
+}
+#intention_price{
+    display: block;
+    box-sizing: border-box;
+    width:2.46rem;
+    height:0.42rem;
+    border:0;
+    background-color: #F9F9F9;
+    padding-left:0.12rem;
+    font-size: 0.14rem;
+    margin-top:0.06rem;
+}
+#discuss_comment{
+    display: block;
+    box-sizing: border-box;
+    width:2.46rem;
+    height:0.61rem;
+    border:0;
+    background-color: #F9F9F9;
+    padding-left:0.12rem;
+    font-size: 0.14rem;
+    padding:0.08rem 0.12rem;
+    margin-top:0.06rem;
+}
+.discussTips{
+    font-size: 0.12rem;
+    color:#4E7DFF;
+    margin-top:0.17rem;
+}
+.discussButtonList{
+    margin-top:0.17rem;
+    display: flex;
+    justify-content: space-between;
+}
+.discussButtonList div{
+    width:1.18rem;
+    height:0.48rem;
+    line-height: 0.48rem;
+    border-radius: 0.05rem;
+    font-weight: bold;
+    font-size: 0.16rem;
+    text-align: center;
+}
+.cancelDiscussButton{
+    width:1.16rem;
+    height:0.46rem;
+    border:0.01rem solid #4E7DFF;
+    color:#4E7DFF;
+}
