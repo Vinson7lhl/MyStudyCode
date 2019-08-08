@@ -22,19 +22,19 @@ $(function () {
                 // $('.currentBookDes').text($('.swiper-slide-active').find('.bookDes').text())
                 //切换结束时，告诉我现在是第几个slide
                 if($('#banner_area2 .swiper-slide-active').attr('data-num') ==  1) {
-                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des01.png')
+                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des01.jpg')
                     console.log('1')
                 }else if($('#banner_area2 .swiper-slide-active').attr('data-num') ==  2) {
-                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des01.png')
+                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des02.jpg')
                     console.log('2')
                 }else if($('#banner_area2 .swiper-slide-active').attr('data-num') ==  3) {
-                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des01.png')
+                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des03.jpg')
                     console.log('3')
                 }else if($('#banner_area2 .swiper-slide-active').attr('data-num') ==  4) {
-                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des01.png')
+                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des04.jpg')
                     console.log('4')
                 }else if($('#banner_area2 .swiper-slide-active').attr('data-num') ==  5) {
-                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des01.png')
+                    $('.currentBookNameDes').attr('src','./dev/img/index_book_des05.jpg')
                     console.log('5')
                 }
             },

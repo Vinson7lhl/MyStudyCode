@@ -29,10 +29,9 @@
     text-align: center;
 }
 .bookImgFrame img{
-    width:2.28rem;
-    height:3.13rem;
+    width:2.6rem;
     /* vertical-align: middle; */
-    margin-top:0.48rem;
+    margin-top:0.27rem;
     border-radius: 0.1rem;
 }
 .bookName{
