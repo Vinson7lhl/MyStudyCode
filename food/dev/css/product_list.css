@@ -8,7 +8,7 @@
     /* height:1.98rem; */
     height:1.72rem;
     background-color: #ffffff;
-    /* padding-top:0.36rem; */
+    padding-top:0.2rem;
 }
 .searchArea{
     height:0.64rem;
@@ -46,6 +46,7 @@
     border-bottom:0.01rem solid #eeeeee;
     display: flex;
     justify-content: space-between;
+    background-color: #ffffff;
 }
 .perTab{
     width:0.7rem;
