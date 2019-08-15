@@ -2,22 +2,24 @@
     获取gulp和插件变量（gulp基于3.9.1版本，若为4+则以下配置会报错）
 ---------------------------------------------------------------------------------------------------------*/
 // 获取gulp
-let gulp = require('gulp')
+const gulp = require('gulp')
 // 获取del删除文件插件
-let del = require('del');
+const del = require('del');
+// 获取babel转译es6-7
+const babel = require('gulp-babel');
 // 获取js的连接，和压缩
-let concat = require('gulp-concat')
-let uglify = require('gulp-uglify')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
 // 获取sass的编译，连接，和压缩
-let sass = require('gulp-sass');
-let concatCss = require('gulp-concat-css')
-let uglifyCss = require('gulp-uglifycss')
+const sass = require('gulp-sass');
+const concatCss = require('gulp-concat-css')
+const uglifyCss = require('gulp-uglifycss')
 // 获取copy插件，复制库文件、图片、视频文件
-let copy = require('gulp-copy')
+const copy = require('gulp-copy')
 // 获取browser-sync，同步刷新工具
-let browser = require('browser-sync').create()
+const browser = require('browser-sync').create()
 // 获取watch插件
-let watch = require('gulp-watch')
+const watch = require('gulp-watch')
 
 /*---------------------------------------------------------------------------------------------------------
     任务列表
@@ -27,12 +29,14 @@ let watch = require('gulp-watch')
 gulp.task('build-js', function() {
     del('temp/main.min.js')
     gulp.src([
-        'dev/js/public.js',
-        'dev/js/index.js',
+        'dev/js/offer_list.js'
     ])
     .pipe(concat('main.min.js'))
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
     .pipe(uglify())
-    .pipe(gulp.dest('temp'))
+    .pipe(gulp.dest('temp/js'))
 })
 
 // （单独）处理css，合并，检查，压缩
