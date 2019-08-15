@@ -3,6 +3,9 @@
     margin-top:0.15rem;
     margin-bottom:0.1rem;
 }
+.detailModel3{
+    display: none;
+}
 .refuseButton{
     width:0.88rem;
     float:left;
@@ -65,11 +68,12 @@
     margin-top:0.13rem;
     color:#323455
 }
-.clearNum,.clearPurity{
+.clearNum,.clearPurity,.clearPrice,.clearPeriod,.clearComment{
     width:0.24rem;
     height:0.24rem;
     float:right;
     margin-top:0.13rem;
+    display: none;
 }
 #offer_p_unit{
     margin-top:0.15rem;
@@ -119,19 +123,19 @@
     overflow: hidden;
     width:100%;
 }
-.radioChecked{
-    color:#4E7DFF;
-}
-.radioChecked .reasonIcon{
-    background: url(../img/checked_icon.png) center no-repeat;
-    background-size: 0.24rem 0.24rem;
-}
 .reasonText{
     height:0.3rem;
     margin-left:0.13rem;
     width:2rem;
     border-bottom:0.01rem solid #F9F9F9;
     margin-top:0.1rem
+}
+.radioChecked .reasonText{
+    color:#4E7DFF;
+}
+.radioChecked .reasonIcon{
+    background: url(../img/checked_icon.png) center no-repeat;
+    background-size: 0.24rem 0.24rem;
 }
 .reasonIcon{
     margin-top:0.09rem;
@@ -140,10 +144,10 @@
     margin-top:0.2rem;
 }
 .otherReason{
+    display: none;
     width: 2.26rem;
     height:0.61rem;
     font-size: 0.14rem;
-    display: block;
     margin-left:auto;
     margin-right:auto;
     margin-top:0.2rem;
@@ -156,11 +160,18 @@
     line-height: 0.28rem;
 }
 .buttonListCalled{
+    display: none;
     margin-top:0.15rem;
+}
+.buttonListNotCalled{
+    display: none;
 }
 .calledPrice{
     width:100%;
     opacity: 0.2;
+}
+.buttonListRefusedCalled{
+    margin-top:0.88rem;
 }
 .offerPartingLine{
     margin-bottom:0.2rem;

@@ -79,6 +79,9 @@
 .switchButtonActive{
     transform: rotate(0deg);
 }
+.offerList{
+    margin-bottom:0.4rem;
+}
 .offerListHead{
     overflow: hidden;
 }
@@ -94,6 +97,7 @@
     height:0.3rem;
     line-height:0.3rem;
     margin-top:0.15rem;
+    display: none;
 }
 .firmNameBigTile{
     overflow: hidden;
@@ -168,7 +172,7 @@
     font-size: 0.14rem;
     margin-top:0.3rem;
 }
-.refuseButton2,.negotiatedPriceButton2,.acceptButton2{
+.refuseButton2,.negotiatedPriceButton2,.acceptButton2,.refusedButton2,.acceptedButton2{
     width:0.64rem;
     height:0.38rem;
     line-height: 0.38rem;
@@ -177,6 +181,17 @@
 .acceptButton2{
     float:left;
     width:1.92rem;
+}
+.refusedButton2{
+    width:100%;
+    font-size: 0.14rem;
+    font-weight: bold;
+
+}
+.acceptedButton2{
+    width:100%;
+    font-size: 0.14rem;
+    font-weight: bold;
 }
 .comparePop{
     height:3.56rem;
@@ -265,4 +280,59 @@
     height:0.46rem;
     border:0.01rem solid #4E7DFF;
     color:#4E7DFF;
+}
+.hideLine{
+    display: none;
+}
+.perRadio{
+    overflow: hidden;
+    width:100%;
+}
+.radioChecked .reasonText{
+    color:#4E7DFF;
+}
+.reasonIcon{
+    width:0.24rem;
+    height:0.24rem;
+    float: left;
+    background: url(../img/check_icon.png) center no-repeat;
+    background-size: 0.24rem 0.24rem;
+    margin-top:0.09rem;
+}
+.radioChecked .reasonIcon{
+    background: url(../img/checked_icon.png) center no-repeat;
+    background-size: 0.24rem 0.24rem;
+}
+.reasonText{
+    float:left;
+    height:0.3rem;
+    margin-left:0.13rem;
+    width:2rem;
+    border-bottom:0.01rem solid #F9F9F9;
+    margin-top:0.1rem
+}
+.refusedReasonButton{
+    margin-top:0.2rem;
+}
+.otherReason{
+    display: none;
+    width: 2.26rem;
+    height:0.61rem;
+    font-size: 0.14rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0.2rem;
+    background-color: #F9F9F9;
+    padding:0.08rem 0.12rem;
+    border:0;
+}
+.placeholderStyle{
+    color:#A7AAC4;
+    line-height: 0.28rem;
+}
+.discussPop{
+    overflow: hidden;
+}
+.discussPopOnlyRead {
+    height:2.56rem;
 }

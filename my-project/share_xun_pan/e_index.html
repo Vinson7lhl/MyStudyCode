@@ -8,50 +8,50 @@
     <meta name='format-detection' content='telephone=no' />
     <title>供应商报价</title>
     <!--公共样式-->
-    <link rel="stylesheet" href="./web_static/qi/cn/css/public.css">
+    <link rel="stylesheet" href="/web_static/qi/cn/css/public.css">
     <!--首页样式-->
-    <link rel="stylesheet" href="./web_static/qi/cn/css/index.css">
+    <link rel="stylesheet" href="/web_static/qi/cn/css/index.css">
     <!--英文首页样式-->
-    <link rel="stylesheet" href="./web_static/qi/en/css/e_index.css">
+    <link rel="stylesheet" href="/web_static/qi/en/css/e_index.css">
 </head>
 
 <body id='e_index'>
     <!--公共头部-->
     <div class='public head'>
-        <img class='headLogo' src="./web_static/qi/cn/img/logo_icon.png">
+        <img class='headLogo' src="/web_static/qi/cn/img/logo_icon.png">
         <span class='headPhoneNum'>400-6021-666</span>
-        <img class="headPhoneLogo" src="./web_static/qi/cn/img/phone_icon.png">
+        <img class="headPhoneLogo" src="/web_static/qi/cn/img/phone_icon.png">
     </div>
     <div class='frame'>
         <!--采购详情-->
         <div class='model detailModel'>
             <div class='perLine detailHead'>
                 <div class='key detailHeadTitle eDetailHeadTitle'>Purchase Details</div>
-                <div class='value effectiveDate'>Valid Day(s): <span class='restDayNum'>1</span></div>
+                <div class='value effectiveDate'>Valid Day(s): <span class='restDayNum'></span></div>
             </div>
             <div class='partingLine'></div>
             <!--产品名，状态-->
             <div class='perLine perLineProduct'>
-                <div class='key pName' id='p_name'>Ginger Oil</div>
-                <div class='value pStatus notOffer'>Pending Offer</div>
+                <div class='key pName' id='p_name'></div>
+                <div class='value pStatus' id='p_status'></div>
             </div>
             <!--属性列表-->
             <div class='properList'>
                 <div class='perLine'>
                     <div class='key'>CAS No.</div>
-                    <div class='value' id='p_cas'>100022-332-333</div>
+                    <div class='value' id='p_cas'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>Quantity</div>
-                    <div class='value valueBlue valueBlueBold' id='p_num'>183838Kg</div>
+                    <div class='value valueBlue valueBlueBold' id='p_num'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>Purity</div>
-                    <div class='value valueBlue valueBlueBold' id='p_purity'>99.9999%</div>
+                    <div class='value valueBlue valueBlueBold' id='p_purity'>--</div>
                 </div>
                 <div class='perLine perLineComment'>
                     <div class='key'>Comments</div>
-                    <div class='value comment' id='p_comment'>这里是备注这里是备注这里是备注这里是备注这里是备注</div>
+                    <div class='value comment' id='p_comment'>--</div>
                 </div>
             </div>
         </div>
@@ -59,48 +59,55 @@
         <div class='model detailModel2'>
             <div class='perLine'>
                 <div class='key'>Company Name</div>
-                <div class='value' id='firm_name'>北京大学深圳研究生院</div>
+                <div class='value' id='firm_name'>--</div>
             </div>
             <div class='perLine perLinePhone'>
                 <div class='key'>Contact Email</div>
-                <div class='value valueBlue comment' id='firm_phone'>VIP供应商报价后可直接获取采购商联系方式</div>
+                <div class='value valueBlue comment' id='firm_phone'>You may contact the purchaser after completing the quotation</div>
             </div>
             <div class='perLine'>
                 <div class='key'>Buying Request No.</div>
-                <div class='value' id='e_purchase_id'>2018122763134800198</div>
+                <div class='value' id='e_purchase_id'>--</div>
             </div>
         </div>
         <!--按钮列表2-->
+        <div class='buttonList buttonListNotCalled'>
+            <div class='perButton perButtonBlue callPrice eCallPrice'>Quote</div>
+        </div>
         <div class='buttonList buttonListCalled'>
-            <div class='perButton perButtonBlue eCallPrice'>Quote</div>
+            <div class='perButton perButtonBlue calledPrice eCalledPrice'>Quoted</div>
         </div>
     </div>
     <!--报价单 浮层 hide  -->
     <div class='bg'></div>
     <!--formListShow-->
-    <div class='frame formList eFormList formListShow'>
+    <div class='frame formList eFormList'>
         <div class='perForm formHead'>
             Quotation
-            <img class='closeFormList' src="./web_static/qi/cn/img/close_pop_icon.png">
+            <img class='closeFormList' src="/web_static/qi/cn/img/close_pop_icon.png">
         </div>
         <div class='perForm'>
             <div class='label'>Quantity <span class='ness'>*</span></div>
             <input type="number" class='input' id='offer_p_num' name='offer_p_num' placeholder="Please enter quanity">
-            <img src="./web_static/qi/cn/img/clear_icon.png" class='clearButton'>
+            <img src="/web_static/qi/cn/img/clear_icon.png" class='clearButton'>
         </div>
         <div class='perForm'>
             <div class='label'>Unit <span class='ness'>*</span></div>
             <select name="offer_p_unit" id="offer_p_unit">
                 <option selected disabled id='no_option' value="">Please select a unit</option>
-                <option value="g">g</option>
-                <option value="kg">kg</option>
+                <option value="1">ton</option>
+                <option value="2">kg</option>
+                <option value="3">g</option>
+                <option value="4">mg</option>
+                <option value="5">L</option>
+                <option value="6">ml</option>
             </select>
-            <img src="./web_static/qi/cn/img/select_option_icon.png" class='eSelectArrow'>
+            <img src="/web_static/qi/cn/img/select_option_icon.png" class='eSelectArrow'>
         </div>
         <div class='perForm'>
             <div class='label'>Purity <span class='ness'>*</span></div>
             <input type="number" class='input' id='offer_p_purity' name='offer_p_purity' placeholder="Please enter the purity of the product">
-            <img src="./web_static/qi/cn/img/clear_icon.png" class='clearPurity'>
+            <img src="/web_static/qi/cn/img/clear_icon.png" class='clearPurity'>
         </div>
         <div class='perForm'>
             <div class='label'>Lead Time</div>
@@ -109,16 +116,16 @@
         <div class='perForm'>
             <div class='label'>Valid Time <span class='ness'>*</span></div>
             <input type="date" class='input' id='offer_p_date' name='offer_p_date'  placeholder="Please select a valid time">
-            <img src="./web_static/qi/cn/img/select_option_icon.png" class='eSelectArrow'>
+            <img src="/web_static/qi/cn/img/select_option_icon.png" class='eSelectArrow'>
         </div>
         <div class='perForm'>
             <div class='label'>Quote <span class='ness'>*</span></div>
             <input type="number" class='input' id='offer_p_price' name='offer_p_price' placeholder="Please enter a quote">
         </div>
         <div class='perForm'>
-            <div class='moneyType checked' data-type='rmb'></div>
+            <div class='moneyType checked' data-type='1'></div>
             <div class='moneyText moneyTextRMB'>RMB</div>
-            <div class='moneyType' data-type='dol'></div>
+            <div class='moneyType' data-type='2'></div>
             <div class='moneyText'>DOLLAR</div>
         </div>
         <div class='perForm textareaPerForm'>
@@ -131,10 +138,13 @@
 
 
 
-
-    <script src="./web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
-    <script src="./web_static/qi/cn/js/public.js"></script>
-    <script src="./web_static/qi/cn/js/index.js"></script>
+    <script>
+        // 此处为后端同学配置，请勿删除。后端会根据php进行动态修改，还有一处在public.js中：base_url = base_url || ''，也不必删除
+        let base_url = 'http://dev-contact-api.molbase.cn'
+    </script>
+    <script src="/web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
+    <script src="/web_static/qi/cn/js/public.js"></script>
+    <script src="/web_static/qi/en/js/e_index.js"></script>
 </body>
 
 </html>

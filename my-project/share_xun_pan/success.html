@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>demo</title>
     <!--公共样式-->
-    <link rel="stylesheet" href="./web_static/qi/cn/css/public.css">
+    <link rel="stylesheet" href="/web_static/qi/cn/css/public.css">
     <!--首页样式-->
-    <link rel="stylesheet" href="./web_static/qi/cn/css/success.css">
+    <link rel="stylesheet" href="/web_static/qi/cn/css/success.css">
 </head>
 
 <body>
     <!--公共头部-->
     <div class='public head'>
-        <img class='headLogo' src="./web_static/qi/cn/img/logo_icon.png">
+        <img class='headLogo' src="/web_static/qi/cn/img/logo_icon.png">
         <span class='headPhoneNum'>400-6021-666</span>
-        <img class="headPhoneLogo" src="./web_static/qi/cn/img/phone_icon.png">
+        <img class="headPhoneLogo" src="/web_static/qi/cn/img/phone_icon.png">
     </div>
     <div class='successTop'>
-        <img class='successIcon' src="./web_static/qi/cn/img/success_icon.png">
-        <div class='bigTitle'>报价成功</div>
+        <img class='successIcon' src="/web_static/qi/cn/img/success_icon.png">
+        <div class='bigTitle'>报价发布成功</div>
         <div class='smallTitle'>您的联系方式已对采购商公开，若有意向对方将与您联系</div>
     </div>
     <div class='frame'>
@@ -34,7 +34,7 @@
             </div>
             <div class='perLine'>
                 <div class='key'>联系方式</div>
-                <div class='value forbidden' id='firm_phone'>用户未公开联系方式，暂不可见</div>
+                <div class='value' id='firm_phone'>--</div>
             </div>
             <div class='notVipTips notVip'>
                 VIP尊享采购商联系方式，想要获取快来加入
@@ -46,37 +46,37 @@
         <div class='model detailModel2 connectPurchaseModel'>
             <!--产品名，状态-->
             <div class='perLine perLineProduct'>
-                <div class='key pName' id='p_name'>限量版甲乙丙丁固态气化液体</div>
+                <div class='key pName' id='p_name'></div>
             </div>
             <!--属性列表-->
             <div class='properList'>
                 <div class='perLine'>
                     <div class='key'>CAS号</div>
-                    <div class='value' id='p_cas'>100022-332-333</div>
+                    <div class='value' id='p_cas'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>供应数量</div>
-                    <div class='value' id='p_num'>183838Kg</div>
+                    <div class='value' id='p_num'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>纯度</div>
-                    <div class='value' id='p_purity'>99.9999%</div>
+                    <div class='value' id='p_purity'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>货期</div>
-                    <div class='value' id='p_deadline'>3天</div>
+                    <div class='value' id='p_deadline'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>报价有效期</div>
-                    <div class='value' id='p_validity'>2019-09-00 12:00:00</div>
+                    <div class='value' id='p_validity'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>商品报价</div>
-                    <div class='value valueBlue valueBlueBold' id='p_price'>￥ 50393939999</div>
+                    <div class='value valueBlue valueBlueBold' id='p_price'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>备注</div>
-                    <div class='value comment' id='p_comment'>这里是备注这里是备注这里是备注这这里是备注这里是备注这里是备注这里是备注这里是备注里是备注这里是备注</div>
+                    <div class='value comment' id='p_comment'>--</div>
                 </div>
             </div>
         </div>
@@ -84,10 +84,14 @@
 
 
 
-
-    <script src="./web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
-    <script src="./web_static/qi/cn/js/public.js"></script>
-    <!-- <script src="./web_static/qi/cn/js/success.js"></script> -->
+    <script>
+        // 此处为后端同学配置，请勿删除。后端会根据php进行动态修改，还有一处在public.js中：base_url = base_url || ''，也不必删除
+        let base_url = 'http://dev-contact-api.molbase.cn'
+    </script>
+    <script src="/web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
+    <script src="/web_static/qi/cn/js/public.js"></script>
+    <script src="/web_static/qi/cn/js/success.js"></script>
+    <!-- <script src="/web_static/qi/cn/js/success.js"></script> -->
 </body>
 
 </html>

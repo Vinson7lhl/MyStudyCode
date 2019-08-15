@@ -5,64 +5,63 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name='format-detection' content='telephone=no' />
-    <title>供应商报价</title>
+    <title>采购商查看报价</title>
     <!--公共样式-->
-    <link rel="stylesheet" href="./web_static/qi/cn/css/public.css">
+    <link rel="stylesheet" href="/web_static/qi/cn/css/public.css">
     <!--本页样式-->
-    <link rel="stylesheet" href="./web_static/qi/cn/css/offer_list.css">
+    <link rel="stylesheet" href="/web_static/qi/cn/css/offer_list.css">
 </head>
 
 <body>
     <!--公共头部-->
     <div class='public head'>
-        <img class='headLogo' src="./web_static/qi/cn/img/logo_icon.png">
+        <img class='headLogo' src="/web_static/qi/cn/img/logo_icon.png">
         <span class='headPhoneNum'>400-6021-666</span>
-        <img class="headPhoneLogo" src="./web_static/qi/cn/img/phone_icon.png">
+        <img class="headPhoneLogo" src="/web_static/qi/cn/img/phone_icon.png">
     </div>
     <div class='frame'>
         <!--采购详情-->
         <div class='model purchaseDetailModel'>
             <div class='perLine detailHead'>
                 <div class='key detailHeadTitle'>采购详情</div>
-                <div class='value effectiveDate'>剩余有效期：<span class='restDayNum'>1</span>天</div>
+                <div class='value effectiveDate'>剩余有效期：<span class='restDayNum'></span></div>
             </div>
             <div class='partingLine'></div>
             <!--产品名，状态-->
             <div class='perLine perLineProduct'>
-                <div class='key pName' id='p_name'>限量版甲乙丙丁固态气化液体</div>
-                <div class='value pStatus notOffer'>待报价</div>
+                <div class='key pName' id='p_name'></div>
+                <div class='value pStatus'></div>
             </div>
             <!--属性列表-->
             <div class='properList'>
                 <div class='perLine'>
                     <div class='key'>CAS号</div>
-                    <div class='value' id='p_cas'>100022-332-333</div>
+                    <div class='value' id='p_cas'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>采购数量</div>
-                    <div class='value valueBlue valueBlueBold' id='p_num'>183838Kg</div>
+                    <div class='value valueBlue valueBlueBold' id='p_num'>--</div>
                 </div>
                 <div class='perLine'>
                     <div class='key'>纯度</div>
-                    <div class='value valueBlue valueBlueBold' id='p_purity'>99.9999%</div>
+                    <div class='value valueBlue valueBlueBold' id='p_purity'>--</div>
                 </div>
-                <div class='perLine perLineComment'>
+                <div class='perLine perLineComment hideLine'>
                     <div class='key'>备注</div>
-                    <div class='value comment' id='p_comment'>这里是备注这里是备注这里是备注这里是备注这里是备注</div>
+                    <div class='value comment' id='p_comment'>--</div>
                 </div>
-                <div class='perLine'>
+                <div class='perLine hideLine'>
                     <div class='key'>发布时间</div>
-                    <div class='value' id='purchase_released_date'>2010-00-00 12:11:22</div>
+                    <div class='value' id='purchase_released_date'>--</div>
                 </div>
-                <div class='perLine'>
+                <div class='perLine hideLine'>
                     <div class='key'>采购单号</div>
-                    <div class='value' id='purchase_id'>2018122763134800198</div>
+                    <div class='value' id='purchase_id'>--</div>
                 </div>
             </div>
             <!--收起 / 展开-->
             <div class='switchButton'>
-                <span class='switchButtonText'>展开</span><img class='switchArrorIcon'
-                    src="./web_static/qi/cn/img/switch_arror_icon.png">
+                <span class='switchButtonText'>展开</span><img class='switchArrorIcon' src="/web_static/qi/cn/img/switch_arror_icon.png">
             </div>
         </div>
         <!--供应商报价列表-->
@@ -71,7 +70,7 @@
             <div class='compareButton'>比价 ></div>
         </div>
         <div class='offerList'>
-            <div class='model perOffer'>
+            <!-- <div class='model perOffer'>
                 <div class='firmNameBigTile'>
                     <span class='leftLine'></span>
                     <span class='firmNameText ell'>这是公司这是公司这是公司这是公司这是公司这是公司这是公司</span>
@@ -90,23 +89,26 @@
                     <div class='moreLine'></div>
                     <div class='moreText'>更多详情</div>
                 </div>
+                
                 <div class='buttonsList'>
                     <div class='refuseButton'>拒绝</div>
                     <div class='negotiatedPriceButton'>议价</div>
                     <div class='perButton perButtonBlue acceptButton'>接受报价</div>
                 </div>
-                <div class='perButton perButtonBlue disButton refusedButton'>已拒绝</div>
-                <div class='perButton accepted acceptedButton'>已接受</div>
-            </div>
+                <div class='buttonsList'>
+                    <div class='perButton perButtonBlue disButton refusedButton'>已拒绝</div>
+                </div>
+                <div class='buttonsList'>
+                    <div class='perButton accepted acceptedButton'>已接受</div>
+                </div>
+            </div> -->
         </div>
     </div>
-    <!--报价详情 浮层 hide-->
-    <div class='bg'></div>
     <!--报价详情 formListShow-->
     <div class='frame formList'>
         <div class='perForm formHead'>
             报价详情
-            <img class='closeFormList' src="./web_static/qi/cn/img/close_pop_icon.png">
+            <img class='closeFormList' src="/web_static/qi/cn/img/close_pop_icon.png">
         </div>
         <div class='perForm'>
             <div class='label'>供应商</div>
@@ -140,15 +142,52 @@
             <div class='label'>联系方式</div>
             <div class='labelValue valueBlue valueBlueBold' id='offer_firm_phone'>13334445555</div>
         </div>
-        <div class='buttonsList'>
+        <div class='buttonsListFrame'>
+
+        </div>
+        <!-- <div class='buttonsList'>
             <div class='refuseButton2'>拒绝</div>
             <div class='negotiatedPriceButton2'>议价</div>
             <div class='perButton perButtonBlue acceptButton2'>接受报价</div>
         </div>
+        <div class='buttonsList'>
+            <div class='perButton perButtonBlue disButton refusedButton2'>已拒绝</div>
+        </div>
+        <div class='buttonsList'>
+            <div class='perButton accepted acceptedButton2'>已接受</div>
+        </div> -->
     </div>
-    <!--比价-->
+    <!--拒绝模态框-->
+    <div class='popWindow refusePopWindow'>
+        <img class='closePopWindow' src="/web_static/qi/cn/img/close_pop_icon.png">
+        <div class='popWindowTitle'>拒绝原因</div>
+        <div class='perRadio radioChecked' data-type='1'>
+            <div class='reasonIcon'></div>
+            <div class='reasonText'>价格太贵</div>
+        </div>
+        <div class='perRadio' data-type='2'>
+            <div class='reasonIcon'></div>
+            <div class='reasonText'>已选择其它供应商</div>
+        </div>
+        <div class='perRadio' data-type='3'>
+            <div class='reasonIcon'></div>
+            <div class='reasonText'>不合理报价</div>
+        </div>
+        <div class='perRadio' data-type='4'>
+            <div class='reasonIcon'></div>
+            <div class='reasonText'>卖家信用存疑</div>
+        </div>
+        <div class='perRadio' data-type='5'>
+            <div class='reasonIcon'></div>
+            <div class='reasonText'>其他</div>
+        </div>
+        <textarea class="otherReason" value="" id='other_reason' placeholder-class="placeholderStyle" placeholder="诚邀您填写拒绝报价原因，摩贝网采购专家将为您解决采购难题。"></textarea>
+          
+        <div class='perButton perButtonBlue refusedReasonButton'>提 交</div>
+    </div>
+    <!--比价模态框-->
     <div class='popWindow comparePop'>
-        <img class='closePopWindow' src="./web_static/qi/cn/img/close_pop_icon.png">
+        <img class='closePopWindow closeComparePopWindow' src="/web_static/qi/cn/img/close_pop_icon.png">
         <div class='popWindowTitle'>全部供应商报价比较</div>
         <div class='firmList'>
             <div class='perComparison'>
@@ -163,9 +202,9 @@
             </div>
         </div>
     </div>
-    <!--采购商议-->
-    <div class='popWindow discussPop'>
-        <img class='closePopWindow' src="./web_static/qi/cn/img/close_pop_icon.png">
+    <!--采购商议价模态框-->
+    <div class='popWindow discussPop discussPopOnlyRead'>
+        <img class='closePopWindow closeDiscussPopWindow' src="/web_static/qi/cn/img/close_pop_icon.png">
         <div class='popWindowTitle'>采购商议</div>
         <div class='inputLabel'>意向价 <span class='ness'>*</span></div>
         <input type="number" name='intention_price' id='intention_price' placeholder="请填写您的意向价">
@@ -181,9 +220,23 @@
 
 
 
-    <script src="./web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
-    <script src="./web_static/qi/cn/js/public.js"></script>
-    <script src="./web_static/qi/cn/js/index.js"></script>
+
+    <!--报价详情 浮层 hide-->
+    <div class='bg'></div>
+    <!--loading-->
+    <div class='loadingPage'><img class='loadingIcon' src="/web_static/qi/cn/img/loading_icon.gif" alt=""></div>
+    <!--提示语-->
+    <div class='tipsPop'>
+        <div class='tipsText'>已通知供应商及时与您联系</div>
+        <div class='closeTipsPop'>关闭</div>
+    </div>
+    <script>
+        // 此处为后端同学配置，请勿删除。后端会根据php进行动态修改，还有一处在public.js中：base_url = base_url || ''，也不必删除
+        let base_url = 'http://dev-contact-api.molbase.cn'
+    </script>
+    <script src="/web_static/qi/cn/js/jquery-3.4.0.min.js"></script>
+    <script src="/web_static/qi/cn/js/public.js"></script>
+    <script src="/web_static/qi/cn/js/offer_list.js"></script>
 </body>
 
 </html>

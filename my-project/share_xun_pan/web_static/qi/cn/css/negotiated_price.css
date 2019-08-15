@@ -67,6 +67,7 @@
     margin-bottom:0.1rem;
 }
 .purchaseOfferDetails{
+    display: none;
     overflow: hidden;
 }
 .purchaseOfferDetailsHide{

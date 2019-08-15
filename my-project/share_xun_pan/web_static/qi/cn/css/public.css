@@ -51,7 +51,7 @@ input[type="date"]:before{
     display: none
 }
 .show{
-    display: block
+    display: block !important;
 }
 .ell{
     overflow: hidden;
@@ -107,7 +107,7 @@ input[type="date"]:before{
     background-color:#ffffff;
 }
 .disButton{
-    opacity: 0.5;
+    opacity: 0.3
 }
 .head{
     width:3.75rem;
@@ -231,9 +231,10 @@ input[type="date"]:before{
     top:0;
     left:0;
     z-index: 10;
-    /* display: none; */
+    display: none;
 }
 .popWindow{
+    display: none;
     position:fixed;
     z-index: 12;
     margin:auto;
@@ -265,4 +266,59 @@ input[type="date"]:before{
     color:#323455;
     text-align: center;
     margin-top:0.22rem;
+}
+.loadingPage{
+    display: none;
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 100
+}
+.loadingIcon{
+    width:0.32rem;
+    height:0.32rem;
+    position: fixed;
+    z-index: 101;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+.tipsPop{
+    display: none;
+    position: fixed;
+    z-index: 11;
+    width:3rem;
+    height:1.56rem;
+    margin:auto;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    border-radius: 0.05rem;
+    background-color: #ffffff;
+    font-size: 0.16rem;
+    text-align: center;
+    padding-left:0.1rem;
+    padding-right:0.1rem;
+}
+.tipsText{
+    height:1.08rem;
+    font-size: 0.16rem;
+    color:#323455;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.closeTipsPop{
+    border-top:0.01rem solid #F9F9F9;
+    height:0.48rem;
+    line-height: 0.48rem;
+    color:#4E7DFF;
+    font-size: 0.16rem;
+    font-weight: bold;
 }

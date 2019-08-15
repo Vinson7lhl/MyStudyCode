@@ -96,6 +96,7 @@ $(function () {
     let shop_id = getUrlProp('shop_id')
     let user_id = ''
     let shop_name = ''
+    let shop_email = ''
     let mobile = ''
 
     // 打开拒绝报价弹窗，并初始化
@@ -181,36 +182,36 @@ $(function () {
     $_submit.on('click', function () {
         // 验证供货数量
         if (!$_offer_p_num.val().trim()) {
-            alert('供货数量不能为空')
+            alert('Quantity can not be empty')
             return false
         } else if (!/^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/.test($_offer_p_num.val().trim()) || $_offer_p_num.val().trim() <= 0) {
-            alert('供货数量需要大于0')
+            alert('Quantity should be Greater than 0')
             return false
         }
         // 验证获取单位
         if (!$_offer_p_unit.val()) {
-            alert('请选择单位')
+            alert('Please select one unit')
             return false
         }
         // 验证纯度
         if (!$_offer_p_purity.val().trim()) {
-            alert('纯度不能为空')
+            alert('Purity can not be empty')
             return false
         } else if (!/^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/.test($_offer_p_num.val().trim()) || $_offer_p_purity.val().trim() <= 0) {
-            alert('纯度需要大于0')
+            alert('Purity should be Greater than 0')
             return false
         }
         // 验证有效时间
         if (!$_offer_p_date.val().trim()) {
-            alert('请选择有效时间')
+            alert('Please select one valid time')
             return false
         }
         // 验证商品报价
         if (!$_offer_p_price.val().trim()) {
-            alert('商品报价不能为空')
+            alert('Quote can not be empty')
             return false
         } else if (!/^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/.test($_offer_p_price.val().trim()) || $_offer_p_purity.val().trim() <= 0) {
-            alert('商品报价需要大于0')
+            alert('Quote should be Greater than 0')
             return false
         }
         postOfferForm()
@@ -220,7 +221,7 @@ $(function () {
         $(this).attr('placeholder', '')
         // $(this).val()  0033-02-22 值的格式如上
         if (new Date($(this).val()).getTime() - current_date < 0) {
-            alert('不能早于今天！')
+            alert("Can't be earlier today！")
             $(this).val('')
         }
     })
@@ -268,7 +269,6 @@ $(function () {
                 user_id: user_id,
                 shop_id: shop_id,
                 shop_name: shop_name,
-                mobile: mobile,
                 purity: $_offer_p_num.val().trim(),
                 effective_time: $_offer_p_date.val(),
                 stock_days: $_offer_p_qi.val().trim(),
@@ -276,19 +276,20 @@ $(function () {
                 molbase_sale_price: $_offer_p_price.val().trim(),
                 remarks: $_offer_p_comment.val().trim(),
                 number: $_offer_p_num.val().trim(),
-                number_unit: $_offer_p_unit.val()
-
+                number_unit: $_offer_p_unit.val(),
+                shop_email:shop_email,
+                mobile: mobile
             },
             success: function (res) {
                 // 跳转至成功页
-                location.href='./success.html?inquiry_code='+ inquiry_code +'&shop_id=' + shop_id + '&user_id='+ user_id
+                location.href='./e_success.html?inquiry_code='+ inquiry_code +'&shop_id=' + shop_id + '&user_id='+ user_id
             },
             error: function (res) {
                 console.log(res)
             }
         })
     }
-    // 提交拒绝表单
+    // ***提交拒绝表单
     function postRefuseForm(inquiry_code, refuse_type, refuse_remark, shop_id, user_id) {
         $.ajax({
             url: base_url + '/1.0/qi/inquiry/refuse',
@@ -331,10 +332,8 @@ $(function () {
             $_p_name.text(res.inquiry.product_name)
             // cas号
             $_p_cas.text(res.inquiry.cas)
-            // 采购单位
-            let unit_name = transformToCnUnitName(res.inquiry.numberUnitStr)
             // 采购数量 
-            $_p_num.text(res.inquiry.number + unit_name)
+            $_p_num.text(res.inquiry.number + res.inquiry.numberUnitStr)
             // 纯度
             $_p_purity.text(res.inquiry.purity + '%')
             // 备注
@@ -343,41 +342,49 @@ $(function () {
             $_firm_name.text(res.inquiry.pc_customer_name || '--')
             // 采购单号
             $_purchase_id.text(res.inquiry.code || '--')
+
             user_id = res.shop.contact.id
-            mobile = res.inquiry.shop_mobile
+            shop_email = res.inquiry.shop_email
             shop_name = res.inquiry.shop_name
+            mobile = res.inquiry.shop_mobile
             /**
              * 待报价-3
              *          待确认-11
              * 已拒绝-9
              * 已接受-5
              * 已取消-7
-             * 
              * 已报价-13
+             * 
+             * 
+             *  a)	待报价 Pending Offer
+                b)	待确认 to be Confirmed
+                c)	已拒绝 Rejected
+                d)	已接受 Accepted
+                e)	已取消 Cancelled
+
              */
             if(res.inquiry.state === 3){
                 $_buttonListNotCalled.addClass('show')
-                $_p_status.addClass('notOffer').text('待报价')
+                $_p_status.addClass('notOffer').text('Pending Offer')
             }
             if(res.inquiry.state === 5){
-                $_p_status.addClass('accepted').text('已接受')
+                $_p_status.addClass('accepted').text('Accepted')
             }
             if(res.inquiry.state === 7){
-                $_p_status.addClass('canceled').text('已取消')
+                $_p_status.addClass('canceled').text('Cancelled')
             }
             if(res.inquiry.state === 9){
-                $_buttonListCalled.addClass('show buttonListRefusedCalled').find('.calledPrice').text('已拒绝')
-                $_p_status.addClass('refused').text('已拒绝')
+                $_buttonListCalled.addClass('show buttonListRefusedCalled').find('.calledPrice').text('Rejected')
+                $_p_status.addClass('refused').text('Rejected')
             }
             if(res.inquiry.state === 11){
-                $_p_status.addClass('offered').text('待确认')
+                $_p_status.addClass('offered').text('to be Confirmed')
             }
             if(res.inquiry.state === 13){
                 $_detailModel3.addClass('show')
-                console.log('获取供应商详情')
                 getOfferDetailInfo(inquiry_code, res.shop.contact.id, shop_id)
                 $_buttonListCalled.addClass('show')
-                $_p_status.addClass('offered').text('已报价')
+                $_p_status.addClass('offered').text('Quoted')
             }
         },
         error: function (res) {

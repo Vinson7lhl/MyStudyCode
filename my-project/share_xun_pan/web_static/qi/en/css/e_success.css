@@ -19,3 +19,12 @@
 .notForbidden {
     color:#4E7DFF;
 }
+#e_success .successTop{
+    height:auto;
+}
+#e_success .bigTitle{
+    margin-bottom:0.24rem;
+}
+#e_success .smallTitle{
+    margin-bottom:0.17rem;
+}

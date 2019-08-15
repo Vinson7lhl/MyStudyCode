@@ -6,10 +6,12 @@
     width:auto;
 }
 #e_index .pName{
-    width:2.2rem;
+    width:1.8rem;
 }
-#e_index .notOffer{
-    width:0.92rem;
+#e_index #p_status{
+    width:auto;
+    padding-left:0.1rem;
+    padding-right:0.1rem;
 }
 #e_index #e_purchase_id{
     width:1.72rem
@@ -61,7 +63,14 @@
 }
 #e_index .eFormList{
     height:5.62rem;
+    bottom:-5.62rem;
+}
+#e_index .formListShow{
+    bottom: 0rem;
 }
 #e_index .textareaPerForm{
     height:auto;
+}
+#e_index .eCallPrice{
+    width:100%;
 }
