@@ -64,6 +64,9 @@ Page({
   onShow: function () {
       console.log('首页：onShow')
   },
+  onReady: function() {
+    console.log('首页：onReady')
+  },
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

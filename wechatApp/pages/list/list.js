@@ -37,7 +37,7 @@ Page({
 	}
   },
   onReady: function () {
-    console.log('page/list：onReady,页面渲染完');
+    console.log('page/list：onReady,页面渲染完，通过路由进入此页面每次都会触发一次');
   },
   onHide: function () {
     console.log('page/list：onHide,页面隐藏/切换到后台触发一次');
