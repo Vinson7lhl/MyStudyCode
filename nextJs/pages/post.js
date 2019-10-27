@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 // 导入api模拟数据
 import fetch from 'isomorphic-unfetch'
 
@@ -28,8 +28,10 @@ export default class Page extends Component {
   }
 
   static async getInitialProps(context) {
+    // const router = useRouter()
+    console.log('router-id：',context)
     const { id } = context.query;
-    const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
+    const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
     const show = await res.json();
     console.log('呵呵呵呵呵')
     return { movie_detail: show }
