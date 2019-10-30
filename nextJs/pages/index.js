@@ -15,8 +15,8 @@ import Link from 'next/link'
  */
 const PostLink = (props) => (
   <div>
-    <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
-      <a>{props.title}</a>
+    <Link href={`/post?title=${props.title}`}>
+      <p>{props.title}</p>
     </Link>
   </div>
 )
@@ -72,14 +72,14 @@ export default class Index extends Component {
         <PostLink id='Learn Next.js is awesome' title='Learn Next.js is awesome'></PostLink>
         <PostLink id='Deploy apps with Zeit' title='Deploy apps with Zeit'></PostLink>
         <Link href='/about'>
-          <a>关于我们</a>
+          关于我们
         </Link>
         {/* 电影列表 */}
         <div className='movieList'>
           <ul>
             {
               this.props.movie_list.map(item => <li key={item.show.id}>
-                <Link as={`/p/${item.show.id}`} href={`/post?id=${item.show.id}`} title='t'>
+                <Link as={`/p/${item.show.id}`} href={`/post?id=${item.show.id}`}>
                   <a>{item.show.name}</a>
                 </Link>
               </li>
