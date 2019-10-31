@@ -33,12 +33,12 @@
     "selectedColor": "#000000",
     "backgroundColor": "#cccccc",
     "borderStyle": "black",
-    "position:": "bottom",
+    "position": "bottom",
     "custom": false
   },
   "networkTimeout": {
     "request": 10000,
-    "downloadDile": 10000
+    "downloadFile": 10000
   },
   "debug": true,
   "navigateToMiniProgramAppIdList": [
