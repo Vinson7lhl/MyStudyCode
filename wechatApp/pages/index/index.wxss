@@ -19,10 +19,12 @@
 .usermotto {
   margin-top: 200px;
 }
+
 .contactService {
-	border:0;
-	background-color: transparent;
+  border: 0;
+  background-color: transparent;
 }
-.contactService::after{
-	border: none
+
+.contactService::after {
+  border: none
 }

@@ -1,3 +1,9 @@
+/**
+ * 
+ * 公共库函数，纯函数
+ * 在页面使用时如：
+ * var common = require('util.js')
+ */
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1

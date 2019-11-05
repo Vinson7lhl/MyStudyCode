@@ -42,7 +42,7 @@ App({
     console.log('/*---app.js_onShow---*/');
   },
   // 当点击右上角-或者回到Home主界面的隐藏时触发
-  onHide()  {
+  onHide() {
     console.log('/*---app.js_onHide---*/');
   },
   onError(msg) {
@@ -54,6 +54,6 @@ App({
   /*---app.js_onShow---*/
   globalData: {
     userInfo: null,
-    globalNum:0
+    globalNum: 0
   }
 })
