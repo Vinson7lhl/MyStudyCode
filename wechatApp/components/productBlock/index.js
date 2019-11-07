@@ -16,7 +16,7 @@ Component({
     observers: {
 
     },
-    // 生命周期
+    // 生命周期（2.2.3开始在lifetimes中，推荐写法）
     lifetimes: {
         created  () {
             console.log('created-组件被创建好')
