@@ -1,3 +1,5 @@
+var myBehavior = require('../behaviors/testBehaviors')
+
 Component({
     // 数据源之一
     properties: {
@@ -33,7 +35,7 @@ Component({
         console.log('组件ready')
     },
     // 类似于mixins和traits的组件间代码复用机制
-    behaviors: [],
+    behaviors: [myBehavior],
     methods: {
         // 这里是一个自定义方法
         customMethod() { },

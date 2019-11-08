@@ -3,4 +3,7 @@
       {{item.name}}
   </view>
   <button bind:tap="throwDataToFater">向父级抛数据</button>
+  <view>
+    来自behavior的数据：{{myBehaviorProperty}}
+  </view>
 </view>
