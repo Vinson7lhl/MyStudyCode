@@ -3,6 +3,7 @@
 const app = getApp()
 
 const util = require('../../utils/util.js')
+const api = require('../../utils/api.js')
 
 Page({
   data: {
@@ -66,6 +67,7 @@ Page({
   onShow: function () {
     console.log('首页：onShow')
     console.log('公共函数：', util.formatTime(new Date()))
+    console.log('api：', api.get_proudct_list)
   },
   onReady: function () {
     console.log('首页：onReady')

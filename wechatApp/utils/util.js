@@ -1,7 +1,6 @@
 /**
- * 
- * 公共库函数，纯函数
- * 在页面使用时如：
+ * 模块：将一些公共的代码抽离成为一个单独的 js 文件，作为一个模块
+ * 使用：
  * var common = require('util.js')
  */
 const formatTime = date => {
@@ -11,7 +10,6 @@ const formatTime = date => {
   const hour = date.getHours()
   const minute = date.getMinutes()
   const second = date.getSeconds()
-
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
