@@ -17,6 +17,10 @@
   <view class="previewPics" hover-class="none" hover-stop-propagation="false" bindtap="previewPics">
 	  预览图片
   </view>
+  <view id='showHidden' hidden='{{show}}'>
+    单引号绑定
+  </view>
+    
   <form bindsubmit="formSubmit" report-submit="{{true}}">
       <button formType="submit" class='btn'>
             <view class='aa'>

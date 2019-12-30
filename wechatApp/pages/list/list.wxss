@@ -1,3 +1,6 @@
+/*
+    此处需要单独引入模板的css，而模板本身不会自动引用同目录下的css
+*/
 @import '../../template/header/header.wxss';
 
 .log-list {
