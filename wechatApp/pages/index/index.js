@@ -25,7 +25,8 @@ Page({
       url: '../logs/logs'
     })
   },
-  handleContact: function () {
+  handleContact: function (e) {
+    console.log('这里是event参数：', e)
     console.log('联系客服触发')
   },
   previewPics: function () {
