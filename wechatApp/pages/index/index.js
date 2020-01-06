@@ -19,11 +19,23 @@ Page({
     ],
     show: true
   },
-  //事件处理函数
+  // 事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  // 动画
+  triggerAnimate: function () {
+    this.animate('#animate', [
+      { opacity: 1.0, rotate: 0, backgroundColor: '#FF0000' },
+      { opacity: 0.5, rotate: 45, backgroundColor: '#00FF00' },
+      { opacity: 0.0, rotate: 90, backgroundColor: '#FF0000' },
+    ], 5000, function () {
+      this.clearAnimation('#animate', { opacity: true, rotate: true }, function () {
+        console.log("清除了#container上的opacity和rotate属性")
+      })
+    }.bind(this))
   },
   handleContact: function (e) {
     console.log('这里是event参数：', e)

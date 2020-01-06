@@ -28,3 +28,9 @@
 .contactService::after {
   border: none
 }
+
+#animate {
+  width: 300rpx;
+  height: 300rpx;
+  border: 1rpx solid #000000;
+}
