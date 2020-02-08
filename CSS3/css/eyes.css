@@ -1,0 +1,39 @@
+.bgPic {
+    position: relative;
+    background-attachment: fixed;
+    min-height: 100%;
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+.textContent {
+    height:300px;
+    text-align: center;
+    color:#4e4e4e;
+}
+
+.textContent1 {
+    background-color: antiquewhite;
+}
+.textContent2 {
+    background-color: burlywood;
+}
+.textContent3 {
+    background-color: coral;
+}
+
+.bgPic1 {
+    background-image: url('../img/3k.jpg');
+    height:500px;
+}
+
+.bgPic2 {
+    background-image: url('../img/eg.jpg');
+    height:500px;
+}
+
+.bgPic3 {
+    background-image: url('../img/huge@21x.jpg');
+    height:500px;
+}
