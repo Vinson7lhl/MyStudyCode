@@ -20,6 +20,8 @@ fs.writeFile ('./test_write_file.txt', '写入Halo node-express', (err)=> {
 const server = http.createServer()
 server.on('request', (req, res)=> {
     console.log('请求来了！')
+    console.log('url路径是：' + req.url)
+    // 如果要在html页面打印出中文需要设置res编码
     // res.setHeader('Content-Type', 'text/html; charset=utf-8')
     res.write('请求返回Hello world')
     res.end()
