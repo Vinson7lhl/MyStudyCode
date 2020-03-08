@@ -12,7 +12,7 @@ Page({
   /**
    * ----------------------------------------------------钩子函数列表--------------------------------------------------------
    */
-  onLoad: function () {
+  onLoad () {
     console.log('page/logs：onLoad，页面加载完，由于此页面是tab级别的页面，所以会且只会第一次进入此页面触发一次，再次进入（包括后退进入）都不会触发，')
     this.setData({
       logs: (wx.getStorageSync('logs') || []).map(log => {
@@ -21,17 +21,17 @@ Page({
     })
   },
   // 此钩子函数适合放异步请求，每次进入此页面都要冲洗初始化一次
-  onShow: function () {
+  onShow () {
     console.log('page/logs：onShow,页面显示完，每次从后台切回此页面，或者再次进入此页面都会触发一次');
 	console.log('当前的路径是：' + this.route)
   },
-  onReady: function () {
+  onReady () {
     console.log('page/logs：onReady,页面渲染完');
   },
-  onHide: function () {
+  onHide () {
     console.log('page/logs：onHide,页面隐藏，切换到后台触发一次');
   },
-  onUnload: function () {
+  onUnload () {
     console.log('page/logs：onUnload,页面卸载(后退触发)');
   },
   /**

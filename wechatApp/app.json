@@ -6,13 +6,13 @@
     "pages/listDetail/listDetail"
   ],
   "window": {
-	"navigationBarBackgroundColor": "#4e4e4e",
+    "navigationBarBackgroundColor": "#4e4e4e",
     "navigationBarTitleText": "老七的小程序",
-	"navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "white",
     "backgroundTextStyle": "light",
-	"backgroundColor": "#eb1539",
+    "backgroundColor": "#eb1539",
     "enablePullDownRefresh": true,
-	"onReachBottomDistance": 50
+    "onReachBottomDistance": 50
   },
   "tabBar": {
     "list": [

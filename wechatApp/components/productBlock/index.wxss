@@ -1,14 +1,15 @@
 .inner {
     color: red;
 }
-.perBlock{
-    border:1px solid #4e4e4e;
+
+.perBlock {
+    border: 1px solid #4e4e4e;
     box-shadow: 0 0 0 0 #4e4e4e;
-    line-height:18px;
-    height:18px;
-    font-size:18px;
-    margin-bottom:5px;
-    margin-top:5px;
-    border-radius:5px;
+    line-height: 18px;
+    height: 18px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
     text-align: center;
 }

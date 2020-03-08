@@ -20,13 +20,13 @@ Page({
     show: true
   },
   // 事件处理函数
-  bindViewTap () {
+  bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
   // 动画
-  triggerAnimate () {
+  triggerAnimate() {
     this.animate('#animate', [
       { opacity: 1.0, rotate: 0, backgroundColor: '#FF0000' },
       { opacity: 0.5, rotate: 45, backgroundColor: '#00FF00' },
@@ -37,17 +37,17 @@ Page({
       })
     }.bind(this))
   },
-  handleContact (e) {
+  handleContact(e) {
     console.log('这里是event参数：', e)
     console.log('联系客服触发')
   },
-  previewPics () {
+  previewPics() {
     wx.previewImage({
       current: this.data.imgArr[0], // 当前显示图片的http链接
       urls: this.data.imgArr // 需要预览的图片http链接列表
     })
   },
-  onLoad () {
+  onLoad() {
     console.log('首页：onLoad')
     // 设置转发
     wx.showShareMenu()
@@ -78,15 +78,15 @@ Page({
       })
     }
   },
-  onShow () {
+  onShow() {
     console.log('首页：onShow')
     console.log('公共函数：', util.formatTime(new Date()))
     console.log('api：', api.get_proudct_list)
   },
-  onReady () {
+  onReady() {
     console.log('首页：onReady')
   },
-  getUserInfo (e) {
+  getUserInfo(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -94,7 +94,7 @@ Page({
       hasUserInfo: true
     })
   },
-  formSubmit (e) {
+  formSubmit(e) {
     console.log('formId:' + e.detail.formId)
   }
 })
