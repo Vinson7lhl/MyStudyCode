@@ -7,3 +7,9 @@
     <text>另一个尺寸</text>
   </view>
 </template>
+
+<template name='publicFooter'>
+  <view class='publicFooter'>
+    <text>我是脚</text>
+  </view>
+</template>

@@ -26,4 +26,5 @@
     -->
     <cp-product-block bind:fatherEvent="onFatherEvent" innerText='{{innerText}}'></cp-product-block>
   </view>
+  <template is='publicFooter'></template>
 </view>
