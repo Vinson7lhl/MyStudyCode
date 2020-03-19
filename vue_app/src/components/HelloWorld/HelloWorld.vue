@@ -129,6 +129,8 @@ export default {
     console.log('子组件访问Home页面数据：', this.$parent.homeData)
   },
   beforeMount () {
+    console.log('---beforeMount---')
+    console.log('$el', this.$el)
     console.log('生命周期钩子：beforeMount')
   },
   mounted () {

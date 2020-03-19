@@ -31,8 +31,25 @@ export default {
     'hello-world': HelloWorld
     // 或者只写HelloWorld也可以相当于-HelloWorld:HelloWorld
   },
+  beforeCreate () {
+    console.log('---beforeCreate---')
+    console.log('$el', this.$el)
+    console.log('homeData', this.$data)
+  },
+  created () {
+    console.log('---created---')
+    console.log('$el', this.$el)
+    console.log('homeData', this.$data)
+  },
+  beforeMount () {
+    console.log('---beforeMount---')
+    console.log('$el', this.$el)
+    console.log('homeData', this.$data)
+  },
   mounted () {
-    console.log('/------------Home-加载完毕-------------/')
+    console.log('---mounted---')
+    console.log('$el', this.$el)
+    console.log('homeData', this.$data)
     console.log('子组件访问Home页面数据：', this.$parent.homeData)
   }
 }
