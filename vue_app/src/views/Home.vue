@@ -2,7 +2,7 @@
   <div class="home">
     <img src="../assets/logo.png">
     <button @click='triggerSonFocus'>点击触发子组件input的Focus</button>
-    <hello-world ref='childComponent' @emit-father="fatherEmit" data-msg="Father-Tmplate"/>
+    <hello-world ref='childComponent' @emitFather="fatherEmit" data-msg="Father-Tmplate"/>
   </div>
 </template>
 
