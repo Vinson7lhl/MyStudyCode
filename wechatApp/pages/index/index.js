@@ -86,6 +86,9 @@ Page({
   onReady() {
     console.log('首页：onReady')
   },
+  onHide() {
+    console.log('首页hide')
+  },
   getUserInfo(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

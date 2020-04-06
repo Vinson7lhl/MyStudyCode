@@ -1,6 +1,8 @@
-// file system文件系统对象
+const source_data = require('./list')
+
+// 获取 文件系统对象 模块
 const FS = require('fs')
-// http对象
+// 获取 http 模块
 const HTTP = require('http')
 
 // 读取写入文件
@@ -21,6 +23,7 @@ const SERVER = HTTP.createServer()
 SERVER.on('request', (req, res) => {
     console.log('请求来了！')
     let page_name = ''
+    // 这个url是指端口号之后的所有字符串 比如访问：http://localhost:3000，实际为：http://localhost:3000/
     switch (req.url) {
         case '/index': {
             console.log('首页')
@@ -38,7 +41,7 @@ SERVER.on('request', (req, res) => {
             break
         }
         default: {
-            console.log('404')
+            console.log('404',source_data.name)
             page_name = '404页'
         }
     }
