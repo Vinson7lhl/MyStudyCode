@@ -17,7 +17,7 @@ class IndexPage extends Component {
     changeProps() {
         this.setState({ init_data: { father_name: '改变啦！！！' } })
     }
-    
+
     componentDidMount() {
         console.log(this.props);
         // let value = this.context.contextValue;
@@ -27,7 +27,7 @@ class IndexPage extends Component {
     }
     componentWillReceiveProps() {
     }
-    changeReduxNum (new_num) {
+    changeReduxNum(new_num) {
         this.props.getNewNum(new_num)
     }
     render() {
@@ -39,7 +39,7 @@ class IndexPage extends Component {
                 {/* <div>获取参数：{this.props.match.params.id}</div> */}
                 {/* <Route path={`${this.props.match.url}/:userId`} component={ForgetPage}/> */}
                 <p>从redux得到的数据{this.props.num}</p>
-                <button onClick={this.changeReduxNum.bind(this,7)}>改变redux值</button>
+                <button onClick={this.changeReduxNum.bind(this, 7)}>改变redux值</button>
             </React.Fragment>
         );
     }

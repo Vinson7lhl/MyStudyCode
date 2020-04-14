@@ -190,6 +190,11 @@ class Hello extends Component {
     }
 
     render() {
+        // 因为每次取数据都要写 this.state.XXX
+        // 所以一般要付给一个const常量
+        // const name = this.state.name
+
+
         return (
             <div className="DiyHello">
                 <div>来自父级的数据：{this.props.initData.father_name}</div>
