@@ -1,6 +1,7 @@
 <template src='./HelloWorld.html'></template>
 
 <script>
+// import { mapState, mapGetters} from 'vuex'
 import { mapState } from 'vuex'
 import Tab1Comp from '../tab1/tab1.vue'
 import Tab2Comp from '../tab2/tab2.vue'
@@ -110,7 +111,11 @@ export default {
       state_3 (state) {
         return this.demo.name + '-连接另一个字符串-' + state.state3
       }
-    })
+    }),
+    // 来自于getters
+    log_msg () {
+      return this.$store.getters.login_message
+    }
   },
   components: {
     'tab1-comp': Tab1Comp,
