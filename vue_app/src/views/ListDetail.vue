@@ -6,6 +6,9 @@
 </template>
 
 <script>
+/**
+ * 路由参数：this.$route.params.id => /detail/:id
+ */
 export default {
   name: 'product_detail',
   data () {
