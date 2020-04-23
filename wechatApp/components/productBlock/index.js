@@ -20,19 +20,32 @@ Component({
     },
     // 生命周期（2.2.3开始在lifetimes中，推荐写法）
     lifetimes: {
+        // 在组件实例刚刚被创建时执行,此时无法访问page传递下来的数据
         created  () {
             console.log('created-组件被创建好')
         },
+        // 在组件实例进入页面节点树时执行
         attached () {
             console.log('attached-组件刚刚进入页面节点树');
         },
+        // 在组件在视图层布局完成后执行，此时可以访问props
+        ready() {
+            console.log('组件ready')
+            console.log('组件传递的父级数据：',this.properties.innerText)
+        },
+        // 在组件实例被移动到节点树另一个位置时执行
+        moved() {
+            console.log('组件ready')
+        },
+        // 在组件实例被从页面节点树移除时执行
         detached () {
             console.log('detached-移除组件后');
         },
-    },
+        // 组件方法抛出错误时
+        error () {
+            console.log('组件报错')
+        }
 
-    ready() {
-        console.log('组件ready')
     },
     // 类似于mixins和traits的组件间代码复用机制
     behaviors: [myBehavior],
