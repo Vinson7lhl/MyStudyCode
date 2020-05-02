@@ -9,6 +9,27 @@ div{
 .btn{
     
 }
+/*
+    分隔行
+*/
+.seperateLine{
+    width:100%;
+    height:2px;
+    background-color: black;
+    margin:5px 0px 5px 0px;
+    clear:both;
+}
+@font-face{
+    font-family: lhl;
+    src: url('../font/毛笔书法字体(启功体)繁启体.TTF');
+    font-stretch: condensed;
+    font-style: italic;
+    font-weight: bold;
+}
+.fontType{
+    font-family: lhl;
+    font-size: 28px;
+}
 /*-----------------------------------------------------------------------------------------
  css定义变量
 ------------------------------------------------------------------------------------------*/
