@@ -140,9 +140,10 @@ a:hover {
 }
 
 .outer {
+    width:800px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background-color: #873991;
 }
 
@@ -155,6 +156,7 @@ a:hover {
 */
     /* flex:1; */
     height: 20px;
+    flex-shrink: 0;
 }
 
 .flexContent:nth-child(1) {
@@ -183,9 +185,8 @@ a:hover {
 }
 
 .flexContent:nth-child(5) {
-    /* width:120px; */
+    width:1200px;
     background-color: #4e4e4e;
-    flex: 1;
 }
 
 .realContent {
