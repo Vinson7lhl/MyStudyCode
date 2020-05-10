@@ -1,8 +1,4 @@
-import _ from 'lodash';
-import React from 'react'
-import ReactDOM from 'react-dom';
-import App from './app'
+import '../sass/base.scss'
+import plus from './test'
 
-  
-document.body.appendChild(component());
-ReactDOM.render(<App/>,document.getElementById('root'));
+plus (4, 5)
