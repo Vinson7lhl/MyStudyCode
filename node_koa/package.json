@@ -2,13 +2,14 @@
   "name": "node_koa",
   "version": "1.0.0",
   "description": "It's a Koa application test",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js"
   },
   "author": "lihonglei",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8"
   }
 }
