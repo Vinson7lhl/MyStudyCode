@@ -3,6 +3,13 @@
       {{item.name}}
   </view>
   <button bind:tap="throwDataToFater">向父级抛数据</button>
+  <view class='lifeTest' dataNum='1'>
+    组件钩子测试1
+  </view>
+  <view class='lifeTest' dataNum='2'>
+    组件钩子测试2
+  </view>
+    
   <view>
     来自behavior的数据：{{myBehaviorProperty}}
   </view>

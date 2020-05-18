@@ -12,7 +12,8 @@ Component({
     // 数据源之二
     data: {
         // 这里是一些组件内部数据
-        dataList: []
+        dataList: [],
+        compData: '我是组件信息1'
     },
     // 数据源之三
     observers: {
@@ -23,6 +24,12 @@ Component({
         // 在组件实例刚刚被创建时执行,此时无法访问page传递下来的数据
         created  () {
             console.log('created-组件被创建好')
+            console.log('组件自己数据：', this.data.compData)
+            this.setData({compData: '我是组件信息2'})
+            console.log('组件自己数据：', this.data.compData)
+            // const query_dom = this.createSelectorQuery()
+            // const lifeTest = query_dom.select('.lifeTest').boundingClientRect()
+            // console.log('组件内 dom:', lifeTest)
         },
         // 在组件实例进入页面节点树时执行
         attached () {
@@ -32,6 +39,11 @@ Component({
         ready() {
             console.log('组件ready')
             console.log('组件传递的父级数据：',this.properties.innerText)
+            const query_dom = this.createSelectorQuery()
+            const lifeTest = query_dom.select('.lifeTest').boundingClientRect()
+            lifeTest.exec(function (res) {
+                console.log("2" +res[0])       // #the-id节点的上边界坐
+              })
         },
         // 在组件实例被移动到节点树另一个位置时执行
         moved() {
