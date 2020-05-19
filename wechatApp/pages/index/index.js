@@ -48,9 +48,11 @@ Page({
     })
   },
   onLoad() {
+    debugger
     console.log('首页：onLoad')
     console.log('首页数据motto：', this.data.motto)
     this.setData({motto: 'Hello World---'})
+    
     // 设置转发
     wx.showShareMenu()
     if (app.globalData.userInfo) {

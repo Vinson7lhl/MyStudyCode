@@ -25,31 +25,31 @@ SERVER.on('request', (req, res) => {
     let page_name = ''
     // 这个url是指端口号之后的所有字符串 比如访问：http://localhost:3000，实际为：http://localhost:3000/
     switch (req.url) {
-        case '/index': {
-            console.log('首页')
-            page_name = '首页'
+        case '/index' : {
+            FS.readFile('./pages/index.html', (err, data) => {
+                if(err) {
+                    // 如何跳转到404？？？
+                    return res.end('404！！！')
+                }
+                // 如果要在html页面打印出中文需要设置res编码
+                res.setHeader('Content-Type', 'text/html; charset=utf-8')
+                res.end(data)
+            })
             break
         }
-        case '/login': {
-            console.log('登录')
-            page_name = '登录页'
-            break
-        }
-        case '/register': {
-            console.log('注册')
-            page_name = '注册页'
+        case '/list': {
+            FS.readFile('./pages/list.html', (err, data) => {
+                res.end(data)
+            })
             break
         }
         default: {
             console.log('404',source_data.name)
-            page_name = '404页'
+            return res.end('404！！！')
         }
     }
-    // 如果要在html页面打印出中文需要设置res编码
-    res.setHeader('Content-Type', 'text/html; charset=utf-8')
     // res.end('返回的路径是：' + req.url)
-    res.end('页面名：' + page_name)
-    res.end('显示')
+
 })
 // 启动服务，通过控制台 node index.js 启动，此处用3000端口，但可以用80端口，默认浏览器端口，这样就可以不用写localhost:3000
 SERVER.listen(3000, () => {
