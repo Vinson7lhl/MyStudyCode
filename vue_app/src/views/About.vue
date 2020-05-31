@@ -3,6 +3,7 @@
     <h1 @click='changeConent'>This is an about page</h1>
     <div>
       {{content}}
+      <img src="../assets/async.jpg" alt="">
     </div>
   </div>
 </template>
