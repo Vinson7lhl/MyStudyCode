@@ -1,4 +1,4 @@
-# nuxt_test
+# nuxt_test 是一个Vue ssr前端架构，即服务器端渲染
 
 > the first nuxt project for lihonglei
 
