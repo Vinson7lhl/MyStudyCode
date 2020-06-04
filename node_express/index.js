@@ -8,14 +8,16 @@ const path = require('path')
 const fs = require('fs')
 // 获取模板模块,第一个参数确定模板扩展名，第二个是模板模块.注意：views文件夹是约定，模板必须放在此处 or 其子文件夹,但也可以改
 app.engine('html', require('express-art-template'))
+// 获取post请求后获取数据插件
+const body_parser = require('body-parser')
 /**
- * 修改默认views路径
+ * 修改默认模板路径views => pages
  * app.set('views', '你要的路径')
  * 下面将 views => pages
  */
 app.set('views', path.join(__dirname, 'pages'))
 
-// 对静态资源处理:这样就可以访问 localhost:3000/static/stylesheets/style.css
+// 对静态资源处理:这样才可以访问 localhost:3000/(static/stylesheets/style.css)
 // 即前者参数是静态资源的映射别名
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
@@ -51,6 +53,8 @@ app.get('/',(req,res) => {
 
 app.post('/', function (req, res) {
 	res.send('Post 请求')
+	// 获取body数据
+	console.log(req.body)
 })
 
 app.put('/user', function (req, res) {
