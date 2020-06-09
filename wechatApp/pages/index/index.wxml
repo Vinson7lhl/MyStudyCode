@@ -31,5 +31,8 @@
   <view id='animate' bindtap='triggerAnimate'>
     动画走起
   </view>
+  <view bindtap='changeData'>
+    修改数据
+  </view>
     
 </view>

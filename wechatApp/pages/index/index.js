@@ -37,6 +37,10 @@ Page({
       })
     }.bind(this))
   },
+  // 修改数据以触发钩子函数
+  changeData() {
+    this.setData({motto: '修改Hello world'})
+  },
   handleContact(e) {
     console.log('这里是event参数：', e)
     console.log('联系客服触发')
@@ -49,9 +53,6 @@ Page({
   },
   onLoad() {
     console.log('首页：onLoad')
-    console.log('首页数据motto：', this.data.motto)
-    this.setData({motto: 'Hello World---'})
-    
     // 设置转发
     wx.showShareMenu()
     if (app.globalData.userInfo) {
@@ -83,11 +84,13 @@ Page({
   },
   onShow() {
     console.log('首页：onShow')
+    console.log('首页数据motto：', this.data.motto)
     console.log('公共函数：', util.formatTime(new Date()))
     console.log('api：', api.get_proudct_list)
   },
   onReady() {
     console.log('首页：onReady')
+    console.log('首页数据motto：', this.data.motto)
   },
   onHide() {
     console.log('首页hide')
