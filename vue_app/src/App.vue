@@ -3,8 +3,8 @@
     root数据：{{rootData}}
     <div id="nav">
       <router-link to="/">Home</router-link><br/>
-      <router-link to="/about">About</router-link><br/>
-      <router-link to="/list">List</router-link>
+      <router-link to="/about/us">About</router-link><br/>
+      <router-link to="/list">List</router-link><br/>
       <router-link to="/asyncComp">AsyncPage</router-link>
     </div>
     <div v-if='isShowPopUp' class='popUp'>这里是弹窗</div>
