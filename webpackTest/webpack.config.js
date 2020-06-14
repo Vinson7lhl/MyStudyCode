@@ -34,7 +34,7 @@ module.exports = {
       // loader详细
       {
         test: /\.scss$/,
-        // use中的执行顺序从右到左，从上到下
+        // use中的数组中的执行顺序从右到左，即'sass-loader'=>'css-loader'=>'style-loader',
         use: [
           // 在html中生成style标签，将js中的style插入到html中
           'style-loader',
