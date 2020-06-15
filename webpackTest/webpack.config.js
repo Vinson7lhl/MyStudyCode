@@ -1,6 +1,11 @@
 // 或者利用es6的解构
 // const { resolve } = require('path');
-const path = require('path');
+let path = require('path');
+// 压缩打包html文件
+let HtmlWebpackPlugin = require('html-webpack-plugin')
+// 处理css中的图片url,需要两个包，url-loader（和file-loader很相似，但可以返回一个当小于某个大小的文件时的data64格式的字符串），file-loader
+
+
 
 
 /**
@@ -36,19 +41,36 @@ module.exports = {
         test: /\.scss$/,
         // use中的数组中的执行顺序从右到左，即'sass-loader'=>'css-loader'=>'style-loader',
         use: [
-          // 在html中生成style标签，将js中的style插入到html中
+          // 将js中的style插入到html中,在html中生成style标签
           'style-loader',
           // 将css导入到js中可识别的模块
           'css-loader',
           // 将sass转换为css
           'sass-loader'
         ]
+      },
+      {
+        // 处理css文件中通过url引入的图片文件
+        test: /\.(jpg|png|gif)$/,
+        loader: 'url-loader',
+        options:{
+          limit: 8*1024
+        }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ]
   },
   // plugins的配置
   plugins: [
-    // 详细的plugins的配置
+    // html-webpack-plugin配置
+    new HtmlWebpackPlugin(
+      {
+        template: './src/pages/index.html'
+      }
+    )
   ],
   // 模式 development || production
   mode: 'development'
