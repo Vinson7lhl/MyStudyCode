@@ -49,14 +49,15 @@ module.exports = {
           'sass-loader'
         ]
       },
+      // 处理css文件中通过url引入的图片文件
       {
-        // 处理css文件中通过url引入的图片文件
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
         options:{
           limit: 8*1024
         }
       },
+      // 处理html中的img src的图片
       {
         test: /\.html$/,
         loader: 'html-loader'
@@ -65,7 +66,7 @@ module.exports = {
   },
   // plugins的配置
   plugins: [
-    // html-webpack-plugin配置
+    // html-webpack-plugin配置，用来找到当做木板的html文件
     new HtmlWebpackPlugin(
       {
         template: './src/pages/index.html'
