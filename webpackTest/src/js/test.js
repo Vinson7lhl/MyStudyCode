@@ -1,4 +1,7 @@
-let plus = (num1, num2) => {
-    console.log('和为：' + num1 + num2)
+import '../sass/list.scss'
+
+let list_fun = () => {
+    console.log('这里是列表')
 }
-export default plus
+
+list_fun()

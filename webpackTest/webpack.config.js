@@ -1,13 +1,3 @@
-// 或者利用es6的解构
-// const { resolve } = require('path');
-let path = require('path');
-// 压缩打包html文件
-let HtmlWebpackPlugin = require('html-webpack-plugin')
-// 处理css中的图片url,需要两个包，url-loader（和file-loader很相似，但可以返回一个当小于某个大小的文件时的data64格式的字符串），file-loader
-
-
-
-
 /**
  *    
  *  npm安装模块
@@ -26,12 +16,32 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
     【npm uninstall xxx】删除xxx模块； 
     【npm uninstall -g xxx】删除全局模块xxx；
  */
+
+
+// 或者利用es6的解构
+// const { resolve } = require('path');
+let path = require('path');
+// 处理css中的图片url,需要两个包，url-loader（和file-loader很相似，但可以返回一个当小于某个大小的文件时的data64格式的字符串），file-loader
+
+
+/**
+ * 插件必须new 
+ * */
+// 压缩打包html文件
+let HtmlWebpackPlugin = require('html-webpack-plugin')
+// 提取css到独立文件
+let MiniCssExtratPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
-  entry: './src/js/index.js',
+  // 多个入口，每个页面都有自己的独立js模块
+  entry: {
+    index: './src/js/index.js',
+    list : './src/js/list.js'
+  },
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     // path.resolve(__dirname 得到的就是根目录 webpackTest这个路径
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist/js')
   },
   // loader
   module: {
@@ -42,7 +52,9 @@ module.exports = {
         // use中的数组中的执行顺序从右到左，即'sass-loader'=>'css-loader'=>'style-loader',
         use: [
           // 将js中的style插入到html中,在html中生成style标签
-          'style-loader',
+          // 'style-loader',
+          // 将js里面的css提取到独立的css文件中，
+          MiniCssExtratPlugin.loader,
           // 将css导入到js中可识别的模块
           'css-loader',
           // 将sass转换为css
@@ -66,12 +78,22 @@ module.exports = {
   },
   // plugins的配置
   plugins: [
-    // html-webpack-plugin配置，用来找到当做木板的html文件
+    // html-webpack-plugin配置，用来找到当做模板的html文件
     new HtmlWebpackPlugin(
       {
-        template: './src/pages/index.html'
+        filename: 'index.html',
+        template: './src/pages/index.html',
+        chunks: ['index']
       }
-    )
+    ),
+    new HtmlWebpackPlugin({
+      filename: 'list.html',
+      template: './src/pages/list.html',
+      chunks: ['list']
+    }),
+    new MiniCssExtratPlugin({
+      filename: 'css/main.css'
+    })
   ],
   // 模式 development || production
   mode: 'development'

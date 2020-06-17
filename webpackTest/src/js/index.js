@@ -1,4 +1,7 @@
-import '../sass/base.scss'
-import plus from './test'
+import '../sass/index.scss'
 
-plus (4, 5)
+let index_fun = () => {
+    console.log('这里是首页')
+}
+
+index_fun()
