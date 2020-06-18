@@ -30,7 +30,9 @@ let path = require('path');
 // 压缩打包html文件
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 // 提取css到独立文件
-let MiniCssExtratPlugin = require('mini-css-extract-plugin')
+let MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// 每次build清空dist目录
+let { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   // 多个入口，每个页面都有自己的独立js模块
@@ -39,9 +41,9 @@ module.exports = {
     list : './src/js/list.js'
   },
   output: {
-    filename: '[name].js',
+    filename: 'js/[name].js',
     // path.resolve(__dirname 得到的就是根目录 webpackTest这个路径
-    path: path.resolve(__dirname, 'dist/js')
+    path: path.resolve(__dirname, 'dist')
   },
   // loader
   module: {
@@ -54,7 +56,7 @@ module.exports = {
           // 将js中的style插入到html中,在html中生成style标签
           // 'style-loader',
           // 将js里面的css提取到独立的css文件中，
-          MiniCssExtratPlugin.loader,
+          MiniCssExtractPlugin.loader,
           // 将css导入到js中可识别的模块
           'css-loader',
           // 将sass转换为css
@@ -66,7 +68,8 @@ module.exports = {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
         options:{
-          limit: 8*1024
+          limit: 8*1024,
+          name: 'image/[name].[ext]'
         }
       },
       // 处理html中的img src的图片
@@ -91,9 +94,12 @@ module.exports = {
       template: './src/pages/list.html',
       chunks: ['list']
     }),
-    new MiniCssExtratPlugin({
-      filename: 'css/main.css'
-    })
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+      chunkFilename: '[id].css',
+    }),
+    // 每次build清空dist目录
+    new CleanWebpackPlugin(),
   ],
   // 模式 development || production
   mode: 'development'
