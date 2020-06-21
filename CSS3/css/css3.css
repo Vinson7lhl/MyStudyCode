@@ -114,7 +114,7 @@ a:hover {
  弟弟选择器
 ------------------------------------------------------------------------------------------*/
 
-.selectorBro p~p {
+.selectorBro li + li {
     color: red;
     font-weight: bold;
 }
