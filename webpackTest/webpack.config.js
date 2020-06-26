@@ -55,15 +55,22 @@ module.exports = {
         use: [
           // 将js中的style插入到html中,在html中生成style标签
           // 'style-loader',
-          // 将js里面的css提取到独立的css文件中，
-          MiniCssExtractPlugin.loader,
+
+          // MiniCssExtractPlugin 将js里面的css提取到独立的css文件中，
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // 关键在于打包后的css文件中引入的图片必须基于 '../' 这个相对上级的image文件夹内的文件，否则路径会发生错误
+              publicPath: '../',
+            },
+          },
           // 将css导入到js中可识别的模块
           'css-loader',
           // 将sass转换为css
           'sass-loader'
         ]
       },
-      // 处理css文件中通过url引入的图片文件
+      // 处理css文件中通过url引入的图片文件全部放在image中
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
@@ -72,7 +79,7 @@ module.exports = {
           name: 'image/[name].[ext]'
         }
       },
-      // 处理html中的img src的图片
+      // 模块化html，在js中 import html时处理，也可以处理html中的有src的属性的标签：比如图片，视频
       {
         test: /\.html$/,
         loader: 'html-loader'
