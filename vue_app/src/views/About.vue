@@ -8,20 +8,10 @@
         <router-link class='aboutTab' to="/about/us">关于我们</router-link>
         <router-link class='aboutTab' to="/about/firm">关于公司</router-link>
       </div>
-      <transition name="fade"
-      v-on:before-enter="beforeEnter"
-      v-on:enter="enter"
-      v-on:after-enter="afterEnter"
-      v-on:enter-cancelled="enterCancelled"
-
-      v-on:before-leave="beforeLeave"
-      v-on:leave="leave"
-      v-on:after-leave="afterLeave"
-      v-on:leave-cancelled="leaveCancelled"
-      >
-      <!--路由的输出-->
-      <div class='childrenRoute'><router-view/></div>
-    </transition>
+      <transition name="fade">
+        <!--路由的输出-->
+        <div class='childrenRoute'><router-view/></div>
+      </transition>
     </div>
   </div>
 </template>

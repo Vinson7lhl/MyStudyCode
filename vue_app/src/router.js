@@ -13,7 +13,7 @@ import AboutFirm from './components/aboutFirm/about_firm.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -24,6 +24,7 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About,
+      redirect: '/about/us',
       children: [
         {
           path: 'us',
@@ -59,3 +60,11 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  console.log('全局前置路由守卫')
+  console.log(to)
+  console.log(from)
+  next()
+})
+export default router
