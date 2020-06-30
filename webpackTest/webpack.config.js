@@ -33,6 +33,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 let MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 每次build清空dist目录
 let { CleanWebpackPlugin } = require('clean-webpack-plugin');
+let webpack=require('webpack');
 
 module.exports = {
   // 多个入口，每个页面都有自己的独立js模块
@@ -75,6 +76,7 @@ module.exports = {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
         options:{
+          // 小于8k以64base的img来展示
           limit: 8*1024,
           name: 'image/[name].[ext]'
         }
@@ -93,7 +95,8 @@ module.exports = {
       {
         filename: 'index.html',
         template: './src/pages/index.html',
-        chunks: ['index']
+        chunks: ['index'],
+        minify: false
       }
     ),
     new HtmlWebpackPlugin({
@@ -107,7 +110,14 @@ module.exports = {
     }),
     // 每次build清空dist目录
     new CleanWebpackPlugin(),
+    // 开启HMR
+    new webpack.HotModuleReplacementPlugin({
+    })
+    
   ],
+  devServer: {
+    hot: true
+  },
   // 模式 development || production
   mode: 'development'
 };
