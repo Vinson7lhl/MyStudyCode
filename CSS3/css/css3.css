@@ -193,6 +193,85 @@ a:hover {
     display: block;
     width: 150px;
 }
+/*
+    左右固定宽度，中间弹性填满：flex写法，本质是flex-grow算法
+*/
+#flex_cup {
+    font-weight: bold;
+    font-size:20px;
+}
+.container{
+    display: flex;
+    height:100px;
+}
+
+.models{
+    text-align: center;
+    line-height: 100px;
+}
+.leftModel{
+    width:100px;
+    background-color: burlywood;
+    /*
+        注意：此处已经默认 flex: 0 1 auto;即grow为0，shrink为1,basis为模块自己的宽度
+    */
+}
+.middleModel{
+    background-color: cadetblue;
+    flex:1;
+}
+.rightModel{
+    width:100px;
+    background-color: chocolate;
+}
+
+/*
+    flex-grow
+*/
+.growContainer{
+    display: flex;
+    height:100px;
+    width:500px;
+}
+.grow1{
+    width:50px;
+    background-color: burlywood;
+    flex-grow: 1;
+}
+.grow2{
+    width:100px;
+    background-color: cadetblue;
+    flex-grow: 2;
+}
+.grow3{
+    width:150px;
+    background-color: chocolate;
+    flex-grow: 3;
+}
+
+/*
+    flex-shrink
+*/
+.shrinkContainer{
+    display: flex;
+    height:100px;
+    width:500px;
+}
+.shrink1{
+    width:100px;
+    background-color: burlywood;
+    flex-shrink: 1;
+}
+.shrink2{
+    width:200px;
+    background-color: cadetblue;
+    flex-shrink: 1;
+}
+.shrink3{
+    width:300px;
+    background-color: chocolate;
+    flex-shrink: 1;
+}
 
 /*-----------------------------------------------------------------------------------------
  position sticky
