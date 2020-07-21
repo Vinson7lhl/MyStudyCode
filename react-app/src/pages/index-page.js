@@ -8,14 +8,23 @@ import * as indexAction from '../action/index.action'
 class IndexPage extends Component {
     constructor(props) {
         super(props)
+        this.changeFromFather = this.changeFromFather.bind(this)
         this.state = {
             init_data: {
-                father_name: 'indexPage'
+                father_name: 'indexPage',
+                from_father: 'hello'
             }
         }
     }
     changeProps() {
         this.setState({ init_data: { father_name: '改变啦！！！' } })
+    }
+
+    changeFromFather() {
+        this.setState({init_data:{
+            father_name: 'indexPage2',
+            from_father: '你好啊，王小波！'
+        }})
     }
 
     componentDidMount() {
@@ -33,13 +42,15 @@ class IndexPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <Hello initData={this.state.init_data} diyClick={this.getDataFromChild}></Hello>
+                <Hello initData={this.state.init_data} fatherState={this.state.init_data} diyClick={this.getDataFromChild}></Hello>
                 <IsLogin isWelcome={true} />
                 <button onClick={this.changeProps.bind(this)}>修改传入的props值</button>
                 {/* <div>获取参数：{this.props.match.params.id}</div> */}
                 {/* <Route path={`${this.props.match.url}/:userId`} component={ForgetPage}/> */}
                 <p>从redux得到的数据{this.props.num}</p>
                 <button onClick={this.changeReduxNum.bind(this, 7)}>改变redux值</button>
+                <button onClick={this.changeFromFather}>改变父级状态是否一定会改变子组件状态？</button>
+                <div>{this.state.init_data.from_father}</div>
             </React.Fragment>
         );
     }

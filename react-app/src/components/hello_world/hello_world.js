@@ -49,7 +49,8 @@ class Hello extends Component {
             running: false,
             tennis: false,
             buttonDisabled: true,
-            domIsShow:false
+            domIsShow:false,
+            fromFather: this.props.fatherState
         };
         this.userArray = ['张三', '李四'];
         this.sendFatherData = { father: '来自子组件数据' };
@@ -197,7 +198,8 @@ class Hello extends Component {
 
         return (
             <div className="DiyHello">
-                <div>来自父级的数据：{this.props.initData.father_name}</div>
+                <div>来自父级的数据：{this.props.initData.father_name}</div> 
+                <div>来自父级的state给子组件state：{this.state.fromFather.from_father}</div>
                 <div className='userName'>姓名：{this.state.name}</div>
                 <div>年龄{this.state.age}</div>
                 <div>地理位置：{this.state.location}</div>
